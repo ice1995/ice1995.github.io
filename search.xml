@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
+  <entry>
+    <title><![CDATA[测试]]></title>
+    <url>%2F2018%2F08%2F25%2Ffirst%2F</url>
+    <content type="text"><![CDATA[##测试文章 博客开通了]]></content>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
 </search>
