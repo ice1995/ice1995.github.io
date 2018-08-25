@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="Regular Expression（正则表达式） 简称Regex在Javascript中    g(global)表示全局  i表示不区分大小写    .可以匹配任何一个单位的字符    []用于定义字符集合 ^取非 元字符   元字符 解释     [\b] Backspace键（退格)   \n 换行符   \f 换页符   \r 回车符   \t 制表符（tab）   \v 垂直制表符">
+<meta name="description" content="Regular Expression（正则表达式） 简称Regex在Javascript中    g(global)表示全局  i表示不区分大小写    .可以匹配任何一个单位的字符    []用于定义字符集合 ^取非 元字符   元字符 解释说明     [\b] Backspace键（退格)   \n 换行符   \f 换页符   \r 回车符   \t 制表符（tab）   \v 垂直制表符">
 <meta name="keywords" content="tools,code,regex,regular">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Regular Expression 正则表达式">
 <meta property="og:url" content="http://http://132.232.42.89/2018/08/25/regex/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="Regular Expression（正则表达式） 简称Regex在Javascript中    g(global)表示全局  i表示不区分大小写    .可以匹配任何一个单位的字符    []用于定义字符集合 ^取非 元字符   元字符 解释     [\b] Backspace键（退格)   \n 换行符   \f 换页符   \r 回车符   \t 制表符（tab）   \v 垂直制表符">
+<meta property="og:description" content="Regular Expression（正则表达式） 简称Regex在Javascript中    g(global)表示全局  i表示不区分大小写    .可以匹配任何一个单位的字符    []用于定义字符集合 ^取非 元字符   元字符 解释说明     [\b] Backspace键（退格)   \n 换行符   \f 换页符   \r 回车符   \t 制表符（tab）   \v 垂直制表符">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-25T10:28:25.540Z">
+<meta property="og:updated_time" content="2018-08-25T10:58:07.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Regular Expression 正则表达式">
-<meta name="twitter:description" content="Regular Expression（正则表达式） 简称Regex在Javascript中    g(global)表示全局  i表示不区分大小写    .可以匹配任何一个单位的字符    []用于定义字符集合 ^取非 元字符   元字符 解释     [\b] Backspace键（退格)   \n 换行符   \f 换页符   \r 回车符   \t 制表符（tab）   \v 垂直制表符">
+<meta name="twitter:description" content="Regular Expression（正则表达式） 简称Regex在Javascript中    g(global)表示全局  i表示不区分大小写    .可以匹配任何一个单位的字符    []用于定义字符集合 ^取非 元字符   元字符 解释说明     [\b] Backspace键（退格)   \n 换行符   \f 换页符   \r 回车符   \t 制表符（tab）   \v 垂直制表符">
 
 
 
@@ -421,7 +421,7 @@
 <thead>
 <tr>
 <th>元字符</th>
-<th>解释</th>
+<th>解释说明</th>
 </tr>
 </thead>
 <tbody>
@@ -487,24 +487,170 @@
 </tr>
 </tbody>
 </table>
-<h4 id="POSIX字符类-javascript不支持"><a href="#POSIX字符类-javascript不支持" class="headerlink" title="POSIX字符类   javascript不支持"></a>POSIX字符类   javascript不支持</h4><pre><code>[:alnum:]       [\w^_]
-[:upper:]       [A-Z]
-[:alpha:]        [a-zA-Z]
-[:blank:]        [ \t] 注意：这里包含空格
-[:xdigit:]        任何一个十六进制数     [a-fA-F0-9]
-[:cntrl:]     ASCII控制字符   0-31加上127
-[:digit:]     \d
-[:graph:]        [:print:]去除空格
-[:lower:]         [a-z]
-[:print:]     任何一个可打印字符
-[:punct:]         既不属于[:alnum:]也不属于[:cntrl:]的字符
-[:space:]     [\f\r\n\t\v ]  注意：这里包含空格
-</code></pre><ul>
-<li>一次或多次重复           +? 懒惰型</li>
-</ul>
-<ul>
-<li>零次或多次重复             *? 懒惰型<br>? 零次或一次出现<br>{n} 重复n次<br>{m,n} 至少m次，至多n次<br>{m,} 至少出现m次          {m,}?  懒惰型<br>\b 一个单词的开头或结尾  b：boundary<br>\B 不匹配一个单词边界<br>^ 字符串开头    $ 字符串结尾<br>(?m) 置于开头，用于开启分行匹配模式  multline mode   注意：有的语言不支持<br>(xx)  子表达式，视为独立元素<br>回溯引用 backreference<br>\1,\2……\n  第1个表达式，第2个表达式…….第n个表达式<br>\0  代表整个正则表达式<br>替换模式下Javascript使用$代替\<br>  \E结束 \L或\U转换<br>  \l把下一个字符转换为小写<br>  \L把\L到\E之间全部转换为小写<br>  \u把下一个字符转换为大写<br>  \U把\U到\E之间全部转换为大写<br>注意：<br>1、  Java、Perl、PHP、.NET 支持向后查找<br>2、  Javascript、ColdFusion 不支持向后查找<br>向前查找：(?=x)   匹配但不消费x，即结果不包括x<br>  例 (?=:)   原字符串 https:     匹配结果 http<br>向后查找：(?&lt;=x) 匹配但不消费x，即结果不包括x<br>  例 (?&lt;=\$)   原字符串 $400     匹配结果 400<br>注意：向前查找可以任意长度（可以使用.+）  向后查找的长度是固定的<br>  (?=)     正向前查找          (?&lt;=)    正向后查找<br>  (?!)       负向前查找          (?&lt;!)         负向后查找</li>
-</ul>
+<h4 id="POSIX字符类-javascript不支持"><a href="#POSIX字符类-javascript不支持" class="headerlink" title="POSIX字符类   javascript不支持"></a>POSIX字符类   javascript不支持</h4><table>
+<thead>
+<tr>
+<th>POSIX字符类</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[:alnum:]</td>
+<td>[\w^_]</td>
+</tr>
+<tr>
+<td>[:upper:]</td>
+<td>[A-Z]</td>
+</tr>
+<tr>
+<td>[:alpha:]</td>
+<td>[a-zA-Z]</td>
+</tr>
+<tr>
+<td>[:blank:]</td>
+<td>[ \t] 注意：这里包含空格</td>
+</tr>
+<tr>
+<td>[:xdigit:]</td>
+<td>任何一个十六进制数     [a-fA-F0-9]</td>
+</tr>
+<tr>
+<td>[:cntrl:]</td>
+<td>ASCII控制字符   0-31加上127</td>
+</tr>
+<tr>
+<td>[:digit:]</td>
+<td>\d</td>
+</tr>
+<tr>
+<td>[:graph:]</td>
+<td>[:print:]去除空格</td>
+</tr>
+<tr>
+<td>[:lower:]</td>
+<td>[a-z]</td>
+</tr>
+<tr>
+<td>[:print:]</td>
+<td>任何一个可打印字符</td>
+</tr>
+<tr>
+<td>[:punct:]</td>
+<td>既不属于[:alnum:]也不属于[:cntrl:]的字符</td>
+</tr>
+<tr>
+<td>[:space:]</td>
+<td>[\f\r\n\t\v ]  注意：这里包含空格</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>一次或多次重复</td>
+</tr>
+<tr>
+<td>+?</td>
+<td>懒惰型</td>
+</tr>
+<tr>
+<td>*</td>
+<td>零次或多次重复</td>
+</tr>
+<tr>
+<td>*?</td>
+<td>懒惰型</td>
+</tr>
+<tr>
+<td>?</td>
+<td>零次或一次出现</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td>{m,n}</td>
+<td>至少m次，至多n次</td>
+</tr>
+<tr>
+<td>{m,}</td>
+<td>至少出现m次</td>
+</tr>
+<tr>
+<td>{m,}?</td>
+<td>懒惰型</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>一个单词的开头或结尾  b：boundary</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>不匹配一个单词边界</td>
+</tr>
+<tr>
+<td>^</td>
+<td>字符串开头    $ 字符串结尾</td>
+</tr>
+<tr>
+<td>(?m)</td>
+<td>置于开头，用于开启分行匹配模式  multline mode   注意：有的语言不支持</td>
+</tr>
+<tr>
+<td>(xx)</td>
+<td>子表达式，视为独立元素</td>
+</tr>
+</tbody>
+</table>
+<h4 id="回溯引用-backreference"><a href="#回溯引用-backreference" class="headerlink" title="回溯引用 backreference"></a>回溯引用 backreference</h4><p>替换模式下Javascript使用$代替\</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\1,\2……\n</td>
+<td>第1个表达式，第2个表达式…….第n个表达式</td>
+</tr>
+<tr>
+<td>\0</td>
+<td>代表整个正则表达式</td>
+</tr>
+<tr>
+<td>\E</td>
+<td>结束 \L或\U转换</td>
+</tr>
+<tr>
+<td>\l</td>
+<td>把下一个字符转换为小写</td>
+</tr>
+<tr>
+<td>\L</td>
+<td>把\L到\E之间全部转换为小写</td>
+</tr>
+<tr>
+<td>\u</td>
+<td>把下一个字符转换为大写</td>
+</tr>
+<tr>
+<td>\U</td>
+<td>把\U到\E之间全部转换为大写</td>
+</tr>
+</tbody>
+</table>
+<p>注意：<br>1、  Java、Perl、PHP、.NET 支持向后查找<br>2、  Javascript、ColdFusion 不支持向后查找<br>向前查找：(?=x)   匹配但不消费x，即结果不包括x<br>    例 (?=:)   原字符串 https:     匹配结果 http<br>向后查找：(?&lt;=x) 匹配但不消费x，即结果不包括x<br>    例 (?&lt;=\$)   原字符串 $400     匹配结果 400<br>注意：向前查找可以任意长度（可以使用.+）  向后查找的长度是固定的<br>    (?=)     正向前查找          (?&lt;=)    正向后查找<br>    (?!)       负向前查找          (?&lt;!)         负向后查找</p>
 <p>Mysql JAVA1.4<font color="red">不支持</font>条件处理<br>(?(backreference)true-regex)<br>(?(backreference)true-regex|false-regex)<br>Backreference满足时，匹配true-regex 否则匹配false-regex</p>
 
       
@@ -720,7 +866,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#元字符"><span class="nav-number">1.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POSIX字符类-javascript不支持"><span class="nav-number">2.</span> <span class="nav-text">POSIX字符类   javascript不支持</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#元字符"><span class="nav-number">1.</span> <span class="nav-text">元字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POSIX字符类-javascript不支持"><span class="nav-number">2.</span> <span class="nav-text">POSIX字符类   javascript不支持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回溯引用-backreference"><span class="nav-number">3.</span> <span class="nav-text">回溯引用 backreference</span></a></li></ol></div>
             
 
           </div>

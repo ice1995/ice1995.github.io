@@ -4,30 +4,8 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/25/Git/</loc>
-    <lastmod>2018-08-25T10:28:47.094Z</lastmod>
-    <data>
-        <display>
-        <title>Git命令</title>
-        <pubTime>2018-08-25T09:56:36.000Z</pubTime>
-        
-        <tag>git</tag>
-         
-        <tag>tools</tag>
-         
-         
-           
-             
-              <breadCrumb title="git" url="http://http://132.232.42.89/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/08/25/regex/</loc>
-    <lastmod>2018-08-25T10:28:25.540Z</lastmod>
+    <lastmod>2018-08-25T10:58:07.444Z</lastmod>
     <data>
         <display>
         <title>Regular Expression 正则表达式</title>
@@ -45,6 +23,28 @@
            
              
               <breadCrumb title="regular" url="http://http://132.232.42.89/categories/regular/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/25/Git/</loc>
+    <lastmod>2018-08-25T10:28:47.094Z</lastmod>
+    <data>
+        <display>
+        <title>Git命令</title>
+        <pubTime>2018-08-25T09:56:36.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+        <tag>tools</tag>
+         
+         
+           
+             
+              <breadCrumb title="git" url="http://http://132.232.42.89/categories/git/"/>
           
         </display>
     </data>
