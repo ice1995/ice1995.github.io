@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://http://132.232.42.89/2018/08/16/hello-world/</loc>
-    
-    <lastmod>2018-08-24T12:19:54.474Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://http://132.232.42.89/about/index.html</loc>
     
     <lastmod>2018-08-24T11:37:41.609Z</lastmod>
@@ -26,27 +19,6 @@
     <loc>http://http://132.232.42.89/tags/index.html</loc>
     
     <lastmod>2018-08-24T11:28:52.546Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/24/first-post/</loc>
-    
-    <lastmod>2018-08-24T09:30:17.893Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/16/i/</loc>
-    
-    <lastmod>2018-08-16T11:45:45.463Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://http://132.232.42.89/java/index-1.html</loc>
-    
-    <lastmod>2018-08-16T11:42:50.949Z</lastmod>
     
   </url>
   
