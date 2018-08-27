@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽OSI参考模型 ↑7 应用层      能产生网络流量的应用程序 ↑6 表示层      表示数据，处理数据 加密 压缩 等 ↑5 会话层      msconfig netstat -nb (显示程序) ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3 网">
+<meta name="description" content="局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽  OSI参考模型↑7 应用层      能产生网络流量的应用程序 ↑6 表示层      表示数据，处理数据 加密 压缩 等 ↑5 会话层      msconfig netstat -nb (显示程序) ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3">
 <meta name="keywords" content="ccna,net">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CCNA学习笔记一--计算机网络详解">
 <meta property="og:url" content="http://http://132.232.42.89/2018/08/27/ccna-1/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽OSI参考模型 ↑7 应用层      能产生网络流量的应用程序 ↑6 表示层      表示数据，处理数据 加密 压缩 等 ↑5 会话层      msconfig netstat -nb (显示程序) ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3 网">
+<meta property="og:description" content="局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽  OSI参考模型↑7 应用层      能产生网络流量的应用程序 ↑6 表示层      表示数据，处理数据 加密 压缩 等 ↑5 会话层      msconfig netstat -nb (显示程序) ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-27T12:30:35.353Z">
+<meta property="og:updated_time" content="2018-08-27T12:32:09.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CCNA学习笔记一--计算机网络详解">
-<meta name="twitter:description" content="局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽OSI参考模型 ↑7 应用层      能产生网络流量的应用程序 ↑6 表示层      表示数据，处理数据 加密 压缩 等 ↑5 会话层      msconfig netstat -nb (显示程序) ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3 网">
+<meta name="twitter:description" content="局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽  OSI参考模型↑7 应用层      能产生网络流量的应用程序 ↑6 表示层      表示数据，处理数据 加密 压缩 等 ↑5 会话层      msconfig netstat -nb (显示程序) ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3">
 
 
 
@@ -418,9 +418,17 @@
       
         <h4 id="局域网与广域网"><a href="#局域网与广域网" class="headerlink" title="局域网与广域网"></a>局域网与广域网</h4><ol>
 <li>局域网 自己花钱买设备自己搭配服务器，带宽固定</li>
-<li>广域网 花钱租带宽<h4 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h4> ↑7 应用层      能产生网络流量的应用程序<br> ↑6 表示层      表示数据，处理数据 加密 压缩 等<br> ↑5 会话层      msconfig netstat -nb (显示程序)<br> ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源<br> ↑3 网络层      选择最佳路径<br> ↑2 数据链路层  网络设备 如何封装数据帧 设备地址<br> ↑1 物理层      规定了电压标准、接口标准<br>程序员的工作层  应用层、表示层、会话层<br>网络工程师的工作层  传输层、网络层、数据链路层、物理层<br>网络分层的好处：每一层互不干扰，没有影响；有主于设备标准化<h4 id="网络排错和OSI参考模型"><a href="#网络排错和OSI参考模型" class="headerlink" title="网络排错和OSI参考模型"></a>网络排错和OSI参考模型</h4></li>
+<li>广域网 花钱租带宽</li>
 </ol>
-<table>
+<h4 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h4><pre><code>↑7 应用层      能产生网络流量的应用程序
+↑6 表示层      表示数据，处理数据 加密 压缩 等
+↑5 会话层      msconfig netstat -nb (显示程序)
+↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源
+↑3 网络层      选择最佳路径
+↑2 数据链路层  网络设备 如何封装数据帧 设备地址
+↑1 物理层      规定了电压标准、接口标准
+</code></pre><p>程序员的工作层  应用层、表示层、会话层<br>网络工程师的工作层  传输层、网络层、数据链路层、物理层<br>网络分层的好处：每一层互不干扰，没有影响；有主于设备标准化</p>
+<h4 id="网络排错和OSI参考模型"><a href="#网络排错和OSI参考模型" class="headerlink" title="网络排错和OSI参考模型"></a>网络排错和OSI参考模型</h4><table>
 <thead>
 <tr>
 <th>网络层</th>
@@ -486,8 +494,9 @@
 <li>集线器 HUB 不安全 带宽共享 效率低下 半双工</li>
 <li>网桥 隔绝冲突域</li>
 <li>交换机 基于MAC地址转发数据、带宽独享、全双工、安全、学习MAC地址</li>
-<li>路由器 负责在不同网段转发数据 一般有广域网接口 隔绝广播（MAC地址全1）<h4 id="网络设备和OSI参考模型"><a href="#网络设备和OSI参考模型" class="headerlink" title="网络设备和OSI参考模型"></a>网络设备和OSI参考模型</h4>集线器 物理层设备<br>交换机 基于MAC地址转发 数据链路层设备<br>路由器 基于IP地址转发 三层设备</li>
+<li>路由器 负责在不同网段转发数据 一般有广域网接口 隔绝广播（MAC地址全1）</li>
 </ol>
+<h4 id="网络设备和OSI参考模型"><a href="#网络设备和OSI参考模型" class="headerlink" title="网络设备和OSI参考模型"></a>网络设备和OSI参考模型</h4><p>集线器 物理层设备<br>交换机 基于MAC地址转发 数据链路层设备<br>路由器 基于IP地址转发 三层设备</p>
 <h4 id="分层考虑问题"><a href="#分层考虑问题" class="headerlink" title="分层考虑问题"></a>分层考虑问题</h4><p>网络排错方法 替换法</p>
 
       
