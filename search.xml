@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[CCNAѧϰ�ʼǶ�--TCP/IPЭ��]]></title>
+    <title><![CDATA[CCNA学习笔记二--TCP/IP协议]]></title>
     <url>%2F2018%2F08%2F27%2Fccna-2%2F</url>
-    <content type="text"><![CDATA[DoDģ��Ӧ�ò� Telent��FTP��SMTP��DNS��HTTP�Լ�����Ӧ��Э������� TCP��UDP����� IPv4��ARP��RARP��ICMP����ӿ� ����ͨ������ӿڣ���̫�����������磩 �����Э���ɿ����� TCP �ֶδ��� �����Ự������ϵͳ��Դ�� ��ʧ�ش����ɿ����� UDP һ�����ݰ����ܱ������ ��Ļ�㲥 Ӧ�ò�Э��Ĭ�϶˿�http=TCP+80ftp=TCP+21�����������֤��ݵȣ� 20���������ݣ�https=TCP+443SMTP=TCP+25�����ʼ���POP3=TCP+110�����ʼ���RDP=TCP+3389(Զ������)DNS=UDP+53��DNS������IP��ַ����Windows�����ļ���=TCP+445�����������windows�����ļ���=TCP+139SQL=TCP+1433���������ݿ⣩telnet=TCP+23 ����Ͷ˿ڵĹ�ϵ���������˿��ͻ���������� ʹ��Ŀ��˿������֣��������������ݰ���Ŀ��˿������ֿͻ��ˣ�����ֹͣ �����Ķ˿ڹر��鿴�����Ķ˿� netstat -anb|find “content”���˿� telnet ip �˿� ���簲ȫwin2003service tcp/ipɸѡ��Ӱ���ȥ������wf.msc windows�߼�����ǽ �����Э��IPЭ�� ѡ�����·����Э�飨RIP OSPF EIGRP BGP��ICMPЭ�� ���������Ƿ�ͨping ���ƴ��� �鿴�����Ƿ�ͨ �϶�Զ��ϵͳ ÿ��һ��·����TTL-1TTL 128 windowsϵͳTTL 64 linuxϵͳpathping ����·�� ���㶪�����IGMPЭ�� �鲥�㵽�� �㲥 �ಥ���鲥��ARPЭ�� ���������IP��ַ������MAC��ַ���ݿ�����ͨѶ��ͬһ����ͨ�Ź���MAC��ַ��������һ�����Ǹ��豸IP��ַ�������ռ���� IP��ַ32λ��������� ip��ַ���� x:network id y:host id ��� ���� ��ͷ ��ͷ ȱʡ�������� A xyyy 1-127 256^3-2 255.0.0.0 B xxyy 128-191 256^2-2 255.255.0.0 C xxxy 192-223 256-2 255.255.255.0 D �鲥 224-239 E �о� 240-255 �����˽����ַA 10.0.0.0B 172.16.0.0-172.31.0.0C 192.168.0.0-192.168.255.0 ���ػ��ص�ַ127.0.0.1 pingͨ����ʾTCP/IPЭ�鰲װ����169.254.0.0 DHCP��ȡ�����ַδ����ʱ��õ��ĵ�ַ]]></content>
+    <content type="text"><![CDATA[DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 IPv4、ARP、RARP、ICMP网络接口 各种通信网络接口（以太网等物理网络） 传输层协议可靠传输 TCP 分段传输 建立会话（消耗系统资源） 丢失重传不可靠传输 UDP 一个数据包就能表达完整 屏幕广播 应用层协议默认端口http=TCP+80ftp=TCP+21（接受命令、验证身份等） 20（传输数据）https=TCP+443SMTP=TCP+25（发邮件）POP3=TCP+110（收邮件）RDP=TCP+3389(远程桌面)DNS=UDP+53（DNS解析）IP地址访问Windows共享文件夹=TCP+445计算机名访问windows共享文件夹=TCP+139SQL=TCP+1433（访问数据库）telnet=TCP+23 服务和端口的关系服务侦听端口客户端请求服务 使用目标端口来区分（服务器根据数据包的目标端口来区分客户端）服务停止 侦听的端口关闭查看侦听的端口 netstat -anb|find “content”检测端口 telnet ip 端口 网络安全win2003service tcp/ip筛选不影响出去的流量wf.msc windows高级防火墙 网络层协议IP协议 选择最佳路径的协议（RIP OSPF EIGRP BGP）ICMP协议 测试网络是否畅通ping 估计带宽 查看网络是否畅通 断定远程系统 每过一个路由器TTL-1TTL 128 windows系统TTL 64 linux系统pathping 跟踪路径 计算丢包情况IGMP协议 组播点到点 广播 多播（组播）ARP协议 将计算机的IP地址解析成MAC地址数据跨网段通讯和同一网段通信过程MAC地址决定了下一跳给那个设备IP地址决定最终计算机 IP地址32位二进制组成 ip地址分类 x:network id y:host id 类别 功能 开头 个头 缺省子网掩码 A xyyy 1-127 256^3-2 255.0.0.0 B xxyy 128-191 256^2-2 255.255.0.0 C xxxy 192-223 256-2 255.255.255.0 D 组播 224-239 E 研究 240-255 保留的私网地址A 10.0.0.0B 172.16.0.0-172.31.0.0C 192.168.0.0-192.168.255.0 本地环回地址127.0.0.1 ping通过表示TCP/IP协议安装正常169.254.0.0 DHCP获取网络地址未果的时候得到的地址]]></content>
       <categories>
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -20,8 +20,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
