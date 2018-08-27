@@ -1,124 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title>CCNA学习笔记一--计算机网络详解</title>
-      <link href="/2018/08/27/ccna-1/"/>
-      <url>/2018/08/27/ccna-1/</url>
-      <content type="html"><![CDATA[<h4 id="局域网与广域网"><a href="#局域网与广域网" class="headerlink" title="局域网与广域网"></a>局域网与广域网</h4><ol><li>局域网 自己花钱买设备自己搭配服务器，带宽固定</li><li>广域网 花钱租带宽<h4 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h4> ↑7 应用层      能产生网络流量的应用程序<br> ↑6 表示层      表示数据，处理数据 加密 压缩 等<br> ↑5 会话层      msconfig netstat -nb (显示程序)<br> ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源<br> ↑3 网络层      选择最佳路径<br> ↑2 数据链路层  网络设备 如何封装数据帧 设备地址<br> ↑1 物理层      规定了电压标准、接口标准<br>程序员的工作层  应用层、表示层、会话层<br>网络工程师的工作层  传输层、网络层、数据链路层、物理层<br>网络分层的好处：每一层互不干扰，没有影响；有主于设备标准化<h4 id="网络排错和OSI参考模型"><a href="#网络排错和OSI参考模型" class="headerlink" title="网络排错和OSI参考模型"></a>网络排错和OSI参考模型</h4>| 网络层   | 可能出现的错误            |<br>|——|——————-|<br>| 物理层   | 连接问题               |<br>| 数据链路层 | MAC地址冲突 ADSL拨号密码错误 |<br>| 网络层   | 计算机网关设置错误、路由器路由表错误 |<br>| 应用层   | IE代理设置错误           |</li></ol><h4 id="网络安全和OSI参考模型"><a href="#网络安全和OSI参考模型" class="headerlink" title="网络安全和OSI参考模型"></a>网络安全和OSI参考模型</h4><table><thead><tr><th style="text-align:left">网络层</th><th style="text-align:left">安全问题</th></tr></thead><tbody><tr><td style="text-align:left">物理层安全</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">数据链路层安全</td><td style="text-align:left">MAC地址认证 ADSL拨号上网账号密码 划分VLAN</td></tr><tr><td style="text-align:left">网络层安全</td><td style="text-align:left">路由器ACL</td></tr><tr><td style="text-align:left">传输层安全</td><td style="text-align:left">计算机端口安全</td></tr><tr><td style="text-align:left">应用层安全</td><td style="text-align:left">网站安全、操作系统安全</td></tr></tbody></table><h4 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h4><p>1.网线<br>双绞线  4对 8根 100米 10M 100M（实际用了4根） 1000M （实际用了8根）<br>线序 直通线（都按B连） 同类设备用交叉线（一个A 一个B）<br>不同类设备用直通线</p><h6 id="水晶头接法"><a href="#水晶头接法" class="headerlink" title="水晶头接法"></a>水晶头接法</h6><ul><li>RJ45 A 绿白 绿 橙白 蓝 蓝白 橙 棕白 棕</li><li>RJ45 B 橙白 橙 绿白 蓝 蓝白 绿 棕白 棕</li></ul><ol start="2"><li>网卡 MAC地址（物理地址）不能更改<br>MAC地址由48位二进制组成，前24位代表厂家 后边为厂家自己所设置的序号<br>查看MAC地址的指令（dos下） ipconfig /all</li><li>集线器 HUB 不安全 带宽共享 效率低下 半双工</li><li>网桥 隔绝冲突域</li><li>交换机 基于MAC地址转发数据、带宽独享、全双工、安全、学习MAC地址</li><li>路由器 负责在不同网段转发数据 一般有广域网接口 隔绝广播（MAC地址全1）<h4 id="网络设备和OSI参考模型"><a href="#网络设备和OSI参考模型" class="headerlink" title="网络设备和OSI参考模型"></a>网络设备和OSI参考模型</h4>集线器 物理层设备<br>交换机 基于MAC地址转发 数据链路层设备<br>路由器 基于IP地址转发 三层设备</li></ol><h4 id="分层考虑问题"><a href="#分层考虑问题" class="headerlink" title="分层考虑问题"></a>分层考虑问题</h4><p>网络排错方法 替换法</p>]]></content>
-      
+<search>
+  <entry>
+    <title><![CDATA[CCNA学习笔记一--计算机网络详解]]></title>
+    <url>%2F2018%2F08%2F27%2Fccna-1%2F</url>
+    <content type="text"><![CDATA[局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽OSI参考模型 ↑7 应用层 能产生网络流量的应用程序 ↑6 表示层 表示数据，处理数据 加密 压缩 等 ↑5 会话层 msconfig netstat -nb (显示程序) ↑4 传输层 可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3 网络层 选择最佳路径 ↑2 数据链路层 网络设备 如何封装数据帧 设备地址 ↑1 物理层 规定了电压标准、接口标准程序员的工作层 应用层、表示层、会话层网络工程师的工作层 传输层、网络层、数据链路层、物理层网络分层的好处：每一层互不干扰，没有影响；有主于设备标准化网络排错和OSI参考模型| 网络层 | 可能出现的错误 || —— | ——————- || 物理层 | 连接问题 || 数据链路层 | MAC地址冲突 ADSL拨号密码错误 || 网络层 | 计算机网关设置错误、路由器路由表错误 || 应用层 | IE代理设置错误 | 网络安全和OSI参考模型 网络层 安全问题 物理层安全 数据链路层安全 MAC地址认证 ADSL拨号上网账号密码 划分VLAN 网络层安全 路由器ACL 传输层安全 计算机端口安全 应用层安全 网站安全、操作系统安全 网络设备1.网线双绞线 4对 8根 100米 10M 100M（实际用了4根） 1000M （实际用了8根）线序 直通线（都按B连） 同类设备用交叉线（一个A 一个B）不同类设备用直通线 水晶头接法 RJ45 A 绿白 绿 橙白 蓝 蓝白 橙 棕白 棕 RJ45 B 橙白 橙 绿白 蓝 蓝白 绿 棕白 棕 网卡 MAC地址（物理地址）不能更改MAC地址由48位二进制组成，前24位代表厂家 后边为厂家自己所设置的序号查看MAC地址的指令（dos下） ipconfig /all 集线器 HUB 不安全 带宽共享 效率低下 半双工 网桥 隔绝冲突域 交换机 基于MAC地址转发数据、带宽独享、全双工、安全、学习MAC地址 路由器 负责在不同网段转发数据 一般有广域网接口 隔绝广播（MAC地址全1）网络设备和OSI参考模型集线器 物理层设备交换机 基于MAC地址转发 数据链路层设备路由器 基于IP地址转发 三层设备 分层考虑问题网络排错方法 替换法]]></content>
       <categories>
-          
-          <category> net </category>
-          
+        <category>net</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> ccna </tag>
-            
-            <tag> net </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Regular Expression 正则表达式</title>
-      <link href="/2018/08/25/regex/"/>
-      <url>/2018/08/25/regex/</url>
-      <content type="html"><![CDATA[<p>Regular Expression（正则表达式） 简称Regex<br>在Javascript中<br>    g(global)表示全局  i表示不区分大小写<br>    .可以匹配任何一个单位的字符<br>    []用于定义字符集合 ^取非</p><h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><table><thead><tr><th>元字符</th><th>解释说明</th></tr></thead><tbody><tr><td>[\b]</td><td>Backspace键（退格)</td></tr><tr><td>\n</td><td>换行符</td></tr><tr><td>\f</td><td>换页符</td></tr><tr><td>\r</td><td>回车符</td></tr><tr><td>\t</td><td>制表符（tab）</td></tr><tr><td>\v</td><td>垂直制表符</td></tr><tr><td>\r\n</td><td>回车+换行 许多操作系统以此为行结束，Unix与Linux以\n作为行结束</td></tr><tr><td>\d</td><td>任何一个数字字符    [0-9]</td></tr><tr><td>\D</td><td>任何一个非数字字符     [^0-9]</td></tr><tr><td>\w</td><td>[a-zA-Z0-9_]</td></tr><tr><td>\W</td><td>[^a-zA-Z0-9_]</td></tr><tr><td>\s</td><td>[\f\n\r\t\v]      任一一个空白字符</td></tr><tr><td>\S</td><td>[^\f\n\r\t\v]   任一一个非空白字符</td></tr><tr><td>\xXX</td><td>XX:表示十六进制数</td></tr><tr><td>\0XX</td><td>XX:表示八进制数</td></tr></tbody></table><h4 id="POSIX字符类-javascript不支持"><a href="#POSIX字符类-javascript不支持" class="headerlink" title="POSIX字符类   javascript不支持"></a>POSIX字符类   javascript不支持</h4><table><thead><tr><th>POSIX字符类</th><th>解释说明</th></tr></thead><tbody><tr><td>[:alnum:]</td><td>[\w^_]</td></tr><tr><td>[:upper:]</td><td>[A-Z]</td></tr><tr><td>[:alpha:]</td><td>[a-zA-Z]</td></tr><tr><td>[:blank:]</td><td>[ \t] 注意：这里包含空格</td></tr><tr><td>[:xdigit:]</td><td>任何一个十六进制数     [a-fA-F0-9]</td></tr><tr><td>[:cntrl:]</td><td>ASCII控制字符   0-31加上127</td></tr><tr><td>[:digit:]</td><td>\d</td></tr><tr><td>[:graph:]</td><td>[:print:]去除空格</td></tr><tr><td>[:lower:]</td><td>[a-z]</td></tr><tr><td>[:print:]</td><td>任何一个可打印字符</td></tr><tr><td>[:punct:]</td><td>既不属于[:alnum:]也不属于[:cntrl:]的字符</td></tr><tr><td>[:space:]</td><td>[\f\r\n\t\v ]  注意：这里包含空格</td></tr></tbody></table><table><thead><tr><th>符号</th><th>解释说明</th></tr></thead><tbody><tr><td>+</td><td>一次或多次重复</td></tr><tr><td>+?</td><td>懒惰型</td></tr><tr><td>*</td><td>零次或多次重复</td></tr><tr><td>*?</td><td>懒惰型</td></tr><tr><td>?</td><td>零次或一次出现</td></tr><tr><td>{n}</td><td>重复n次</td></tr><tr><td>{m,n}</td><td>至少m次，至多n次</td></tr><tr><td>{m,}</td><td>至少出现m次</td></tr><tr><td>{m,}?</td><td>懒惰型</td></tr><tr><td>\b</td><td>一个单词的开头或结尾  b：boundary</td></tr><tr><td>\B</td><td>不匹配一个单词边界</td></tr><tr><td>^</td><td>字符串开头    $ 字符串结尾</td></tr><tr><td>(?m)</td><td>置于开头，用于开启分行匹配模式  multline mode   注意：有的语言不支持</td></tr><tr><td>(xx)</td><td>子表达式，视为独立元素</td></tr></tbody></table><h4 id="回溯引用-backreference"><a href="#回溯引用-backreference" class="headerlink" title="回溯引用 backreference"></a>回溯引用 backreference</h4><p>替换模式下Javascript使用$代替\</p><table><thead><tr><th>符号</th><th>解释说明</th></tr></thead><tbody><tr><td>\1,\2……\n</td><td>第1个表达式，第2个表达式…….第n个表达式</td></tr><tr><td>\0</td><td>代表整个正则表达式</td></tr><tr><td>\E</td><td>结束 \L或\U转换</td></tr><tr><td>\l</td><td>把下一个字符转换为小写</td></tr><tr><td>\L</td><td>把\L到\E之间全部转换为小写</td></tr><tr><td>\u</td><td>把下一个字符转换为大写</td></tr><tr><td>\U</td><td>把\U到\E之间全部转换为大写</td></tr></tbody></table><p>注意：<br>1、  Java、Perl、PHP、.NET 支持向后查找<br>2、  Javascript、ColdFusion 不支持向后查找<br>向前查找：(?=x)   匹配但不消费x，即结果不包括x<br>    例 (?=:)   原字符串 https:     匹配结果 http<br>向后查找：(?&lt;=x) 匹配但不消费x，即结果不包括x<br>    例 (?&lt;=\$)   原字符串 $400     匹配结果 400<br>注意：向前查找可以任意长度（可以使用.+）  向后查找的长度是固定的<br>    (?=)     正向前查找          (?&lt;=)    正向后查找<br>    (?!)       负向前查找          (?&lt;!)         负向后查找</p><p>Mysql JAVA1.4<font color="red">不支持</font>条件处理<br>(?(backreference)true-regex)<br>(?(backreference)true-regex|false-regex)<br>Backreference满足时，匹配true-regex 否则匹配false-regex</p>]]></content>
-      
+      <tags>
+        <tag>ccna</tag>
+        <tag>net</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Regular Expression 正则表达式]]></title>
+    <url>%2F2018%2F08%2F25%2Fregex%2F</url>
+    <content type="text"><![CDATA[Regular Expression（正则表达式） 简称Regex在Javascript中 g(global)表示全局 i表示不区分大小写 .可以匹配任何一个单位的字符 []用于定义字符集合 ^取非 元字符 元字符 解释说明 [\b] Backspace键（退格) \n 换行符 \f 换页符 \r 回车符 \t 制表符（tab） \v 垂直制表符 \r\n 回车+换行 许多操作系统以此为行结束，Unix与Linux以\n作为行结束 \d 任何一个数字字符 [0-9] \D 任何一个非数字字符 [^0-9] \w [a-zA-Z0-9_] \W [^a-zA-Z0-9_] \s [\f\n\r\t\v] 任一一个空白字符 \S [^\f\n\r\t\v] 任一一个非空白字符 \xXX XX:表示十六进制数 \0XX XX:表示八进制数 POSIX字符类 javascript不支持 POSIX字符类 解释说明 [:alnum:] [\w^_] [:upper:] [A-Z] [:alpha:] [a-zA-Z] [:blank:] [ \t] 注意：这里包含空格 [:xdigit:] 任何一个十六进制数 [a-fA-F0-9] [:cntrl:] ASCII控制字符 0-31加上127 [:digit:] \d [:graph:] [:print:]去除空格 [:lower:] [a-z] [:print:] 任何一个可打印字符 [:punct:] 既不属于[:alnum:]也不属于[:cntrl:]的字符 [:space:] [\f\r\n\t\v ] 注意：这里包含空格 符号 解释说明 + 一次或多次重复 +? 懒惰型 * 零次或多次重复 *? 懒惰型 ? 零次或一次出现 {n} 重复n次 {m,n} 至少m次，至多n次 {m,} 至少出现m次 {m,}? 懒惰型 \b 一个单词的开头或结尾 b：boundary \B 不匹配一个单词边界 ^ 字符串开头 $ 字符串结尾 (?m) 置于开头，用于开启分行匹配模式 multline mode 注意：有的语言不支持 (xx) 子表达式，视为独立元素 回溯引用 backreference替换模式下Javascript使用$代替\ 符号 解释说明 \1,\2……\n 第1个表达式，第2个表达式…….第n个表达式 \0 代表整个正则表达式 \E 结束 \L或\U转换 \l 把下一个字符转换为小写 \L 把\L到\E之间全部转换为小写 \u 把下一个字符转换为大写 \U 把\U到\E之间全部转换为大写 注意：1、 Java、Perl、PHP、.NET 支持向后查找2、 Javascript、ColdFusion 不支持向后查找向前查找：(?=x) 匹配但不消费x，即结果不包括x 例 (?=:) 原字符串 https: 匹配结果 http向后查找：(?&lt;=x) 匹配但不消费x，即结果不包括x 例 (?&lt;=\$) 原字符串 $400 匹配结果 400注意：向前查找可以任意长度（可以使用.+） 向后查找的长度是固定的 (?=) 正向前查找 (?&lt;=) 正向后查找 (?!) 负向前查找 (?&lt;!) 负向后查找 Mysql JAVA1.4不支持条件处理(?(backreference)true-regex)(?(backreference)true-regex|false-regex)Backreference满足时，匹配true-regex 否则匹配false-regex]]></content>
       <categories>
-          
-          <category> regular </category>
-          
+        <category>regular</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> tools </tag>
-            
-            <tag> code </tag>
-            
-            <tag> regex </tag>
-            
-            <tag> regular </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Git命令</title>
-      <link href="/2018/08/25/Git/"/>
-      <url>/2018/08/25/Git/</url>
-      <content type="html"><![CDATA[<h4 id="查看、添加、提交、删除、找回，重置修改文件"><a href="#查看、添加、提交、删除、找回，重置修改文件" class="headerlink" title="查看、添加、提交、删除、找回，重置修改文件"></a>查看、添加、提交、删除、找回，重置修改文件</h4><p>git help <command> # 显示command的help<br>git show # 显示某次提交的内容 git show $id<br>git co – <file> # 抛弃工作区修改<br>git co . # 抛弃工作区修改<br>git add <file> # 将工作文件修改提交到本地暂存区<br>git add . # 将所有修改过的工作文件提交暂存区<br>git rm <file> # 从版本库中删除文件<br>git rm <file> –cached # 从版本库中删除文件，但不删除文件<br>git reset <file> # 从暂存区恢复到工作文件<br>git reset – . # 从暂存区恢复到工作文件<br>git reset –hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改<br>git ci <file> git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　git ci -am “some comments”<br>git ci –amend # 修改最后一次提交记录<br>git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象<br>git revert HEAD # 恢复最后一次提交的状态</file></file></file></file></file></file></p><h4 id="查看文件diff"><a href="#查看文件diff" class="headerlink" title="查看文件diff"></a>查看文件diff</h4><p>git diff <file> # 比较当前文件和暂存区文件差异 git diff<br>git diff <id1><id1><id2> # 比较两次提交之间的差异<br>git diff <branch1>..<branch2> # 在两个分支之间比较<br>git diff –staged # 比较暂存区和版本库差异<br>git diff –cached # 比较暂存区和版本库差异<br>git diff –stat # 仅仅比较统计信息</branch2></branch1></id2></id1></id1></file></p><h4 id="查看提交记录"><a href="#查看提交记录" class="headerlink" title="查看提交记录"></a>查看提交记录</h4><p>git log git log <file> # 查看该文件每次提交记录<br>git log -p <file> # 查看每次详细修改内容的diff<br>git log -p -2 # 查看最近两次详细修改内容的diff<br>git log –stat #查看提交统计信息<br>tig    Mac上可以使用tig代替diff和log，brew install tig</file></file></p><h4 id="Git-本地分支管理-查看、切换、创建和删除分支"><a href="#Git-本地分支管理-查看、切换、创建和删除分支" class="headerlink" title="Git 本地分支管理    查看、切换、创建和删除分支"></a>Git 本地分支管理    查看、切换、创建和删除分支</h4><p>git br -r # 查看远程分支<br>git br &lt;new_branch&gt; # 创建新的分支<br>git br -v # 查看各个分支最后提交信息<br>git br –merged # 查看已经被合并到当前分支的分支<br>git br –no-merged # 查看尚未被合并到当前分支的分支<br>git co <branch> # 切换到某个分支<br>git co -b &lt;new_branch&gt; # 创建新的分支，并且切换过去<br>git co -b &lt;new_branch&gt; <branch> # 基于branch创建新的new_branch<br>git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除<br>git co $id -b &lt;new_branch&gt; # 把某次历史提交记录checkout出来，创建成一个分支<br>git br -d <branch> # 删除某个分支<br>git br -D <branch> # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</branch></branch></branch></branch></p><h4 id="分支合并和rebase"><a href="#分支合并和rebase" class="headerlink" title="分支合并和rebase"></a>分支合并和rebase</h4><p>git merge <branch> # 将branch分支合并到当前分支<br>git merge origin/master –no-ff # 不要Fast-Foward合并，这样可以生成merge提交<br>git rebase master <branch> # 将master rebase到branch，相当于： git co <branch> &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge <branch></branch></branch></branch></branch></p><h4 id="Git补丁管理-方便在多台机器上开发同步时用"><a href="#Git补丁管理-方便在多台机器上开发同步时用" class="headerlink" title="Git补丁管理(方便在多台机器上开发同步时用)"></a>Git补丁管理(方便在多台机器上开发同步时用)</h4><p>git diff &gt; ../sync.patch # 生成补丁<br>git apply ../sync.patch # 打补丁<br>git apply –check ../sync.patch #测试补丁能否成功</p><h4 id="Git暂存管理"><a href="#Git暂存管理" class="headerlink" title="Git暂存管理"></a>Git暂存管理</h4><p>git stash # 暂存<br>git stash list # 列所有stash<br>git stash apply # 恢复暂存的内容<br>git stash drop # 删除暂存区</p><h4 id="Git远程分支管理"><a href="#Git远程分支管理" class="headerlink" title="Git远程分支管理"></a>Git远程分支管理</h4><p>git pull # 抓取远程仓库所有分支更新并合并到本地<br>git pull –no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并<br>git fetch origin # 抓取远程仓库更新<br>git merge origin/master # 将远程主分支合并到本地当前分支<br>git co –track origin/branch # 跟踪某个远程分支创建相应的本地分支<br>git co -b &lt;local_branch&gt; origin/&lt;remote_branch&gt; # 基于远程分支创建本地分支，功能同上<br>git push # push所有分支<br>git push origin master # 将本地主分支推到远程主分支<br>git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)<br>git push origin &lt;local_branch&gt; # 创建远程分支， origin是远程仓库名<br>git push origin &lt;local_branch&gt;:&lt;remote_branch&gt; # 创建远程分支<br>git push origin :&lt;remote_branch&gt; #先删除本地分支(git br -d <branch>)，然后再push删除远程分支</branch></p><h4 id="Git远程仓库管理"><a href="#Git远程仓库管理" class="headerlink" title="Git远程仓库管理"></a>Git远程仓库管理</h4><p>GitHub<br>git remote -v # 查看远程服务器地址和仓库名称<br>git remote show origin # 查看远程服务器仓库状态<br>git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址<br>git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm <repository> # 删除远程仓库</repository></p><h4 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h4><p>git clone –bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库<br>scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上<br>mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git –bare init # 在服务器创建纯仓库<br>git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址<br>git push -u origin master # 客户端首次提交<br>git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track<br>git remote set-head origin master # 设置远程仓库的HEAD指向master分支 ，也可以命令设置跟踪远程库和本地库<br>git branch –set-upstream master origin/master<br>git branch –set-upstream develop origin/develop</p><h4 id="reflog"><a href="#reflog" class="headerlink" title="reflog"></a>reflog</h4><p>git reflog是对reflog进行管理的命令,reflog是git用来记录引用变化的一种机制,比如记录分支的变化或者是HEAD引用的变化.<br>当git reflog不指定引用的时候,默认列出HEAD的reflog.<br>HEAD@{0}代表HEAD当前的值,HEAD@{3}代表HEAD在3次变化之前的值.<br>git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD, 分支的reflog文件都放在.git/logs/refs目录下的子目录中.</p><h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号:"></a>特殊符号:</h4><p>^代表父提交,当一个提交有多个父提交时,可以通过在^后面跟上一个数字,表示第几个父提交: ^相当于^1.<br>~<n>相当于连续的<n>个^.</n></n></p>]]></content>
-      
+      <tags>
+        <tag>tools</tag>
+        <tag>code</tag>
+        <tag>regex</tag>
+        <tag>regular</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git命令]]></title>
+    <url>%2F2018%2F08%2F25%2FGit%2F</url>
+    <content type="text"><![CDATA[查看、添加、提交、删除、找回，重置修改文件git help # 显示command的helpgit show # 显示某次提交的内容 git show $idgit co – # 抛弃工作区修改git co . # 抛弃工作区修改git add # 将工作文件修改提交到本地暂存区git add . # 将所有修改过的工作文件提交暂存区git rm # 从版本库中删除文件git rm –cached # 从版本库中删除文件，但不删除文件git reset # 从暂存区恢复到工作文件git reset – . # 从暂存区恢复到工作文件git reset –hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改git ci git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做 git ci -am “some comments”git ci –amend # 修改最后一次提交记录git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象git revert HEAD # 恢复最后一次提交的状态 查看文件diffgit diff # 比较当前文件和暂存区文件差异 git diffgit diff # 比较两次提交之间的差异git diff .. # 在两个分支之间比较git diff –staged # 比较暂存区和版本库差异git diff –cached # 比较暂存区和版本库差异git diff –stat # 仅仅比较统计信息 查看提交记录git log git log # 查看该文件每次提交记录git log -p # 查看每次详细修改内容的diffgit log -p -2 # 查看最近两次详细修改内容的diffgit log –stat #查看提交统计信息tig Mac上可以使用tig代替diff和log，brew install tig Git 本地分支管理 查看、切换、创建和删除分支git br -r # 查看远程分支git br &lt;new_branch&gt; # 创建新的分支git br -v # 查看各个分支最后提交信息git br –merged # 查看已经被合并到当前分支的分支git br –no-merged # 查看尚未被合并到当前分支的分支git co # 切换到某个分支git co -b &lt;new_branch&gt; # 创建新的分支，并且切换过去git co -b &lt;new_branch&gt; # 基于branch创建新的new_branchgit co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除git co $id -b &lt;new_branch&gt; # 把某次历史提交记录checkout出来，创建成一个分支git br -d # 删除某个分支git br -D # 强制删除某个分支 (未被合并的分支被删除的时候需要强制) 分支合并和rebasegit merge # 将branch分支合并到当前分支git merge origin/master –no-ff # 不要Fast-Foward合并，这样可以生成merge提交git rebase master # 将master rebase到branch，相当于： git co &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge Git补丁管理(方便在多台机器上开发同步时用)git diff &gt; ../sync.patch # 生成补丁git apply ../sync.patch # 打补丁git apply –check ../sync.patch #测试补丁能否成功 Git暂存管理git stash # 暂存git stash list # 列所有stashgit stash apply # 恢复暂存的内容git stash drop # 删除暂存区 Git远程分支管理git pull # 抓取远程仓库所有分支更新并合并到本地git pull –no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并git fetch origin # 抓取远程仓库更新git merge origin/master # 将远程主分支合并到本地当前分支git co –track origin/branch # 跟踪某个远程分支创建相应的本地分支git co -b &lt;local_branch&gt; origin/&lt;remote_branch&gt; # 基于远程分支创建本地分支，功能同上git push # push所有分支git push origin master # 将本地主分支推到远程主分支git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)git push origin &lt;local_branch&gt; # 创建远程分支， origin是远程仓库名git push origin &lt;local_branch&gt;:&lt;remote_branch&gt; # 创建远程分支git push origin :&lt;remote_branch&gt; #先删除本地分支(git br -d )，然后再push删除远程分支 Git远程仓库管理GitHubgit remote -v # 查看远程服务器地址和仓库名称git remote show origin # 查看远程服务器仓库状态git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm # 删除远程仓库 创建远程仓库git clone –bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git –bare init # 在服务器创建纯仓库git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址git push -u origin master # 客户端首次提交git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且trackgit remote set-head origin master # 设置远程仓库的HEAD指向master分支 ，也可以命令设置跟踪远程库和本地库git branch –set-upstream master origin/mastergit branch –set-upstream develop origin/develop refloggit reflog是对reflog进行管理的命令,reflog是git用来记录引用变化的一种机制,比如记录分支的变化或者是HEAD引用的变化.当git reflog不指定引用的时候,默认列出HEAD的reflog.HEAD@{0}代表HEAD当前的值,HEAD@{3}代表HEAD在3次变化之前的值.git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD, 分支的reflog文件都放在.git/logs/refs目录下的子目录中. 特殊符号:^代表父提交,当一个提交有多个父提交时,可以通过在^后面跟上一个数字,表示第几个父提交: ^相当于^1.~相当于连续的个^.]]></content>
       <categories>
-          
-          <category> git </category>
-          
+        <category>git</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> git </tag>
-            
-            <tag> tools </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>nginx的使用（一）----安装</title>
-      <link href="/2018/08/25/nginx%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85/"/>
-      <url>/2018/08/25/nginx%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85/</url>
-      <content type="html"><![CDATA[<h2 id="一、nginx简介"><a href="#一、nginx简介" class="headerlink" title="一、nginx简介"></a>一、nginx简介</h2><h4 id="1、nginx是什么"><a href="#1、nginx是什么" class="headerlink" title="1、nginx是什么"></a>1、nginx是什么</h4><p>Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。</p><h4 id="2、nginx可以用来做什么（不加载第三方模块）"><a href="#2、nginx可以用来做什么（不加载第三方模块）" class="headerlink" title="2、nginx可以用来做什么（不加载第三方模块）"></a>2、nginx可以用来做什么（不加载第三方模块）</h4><ol><li>反向代理</li><li>负载均衡</li><li>HTTP服务器（包含动静分离）</li><li>正向代理</li><li>缓存</li></ol><h2 id="二、nginx安装以及简单的配置"><a href="#二、nginx安装以及简单的配置" class="headerlink" title="二、nginx安装以及简单的配置"></a>二、nginx安装以及简单的配置</h2><h4 id="1、安装nginx（环境-centos7）"><a href="#1、安装nginx（环境-centos7）" class="headerlink" title="1、安装nginx（环境 centos7）"></a>1、安装nginx（环境 centos7）</h4><p>采取最简单的方法，yum install nginx -y</p><h4 id="2、配置nginx"><a href="#2、配置nginx" class="headerlink" title="2、配置nginx"></a>2、配置nginx</h4><p>① 修改user为root（你用来启动nginx的账户）<br>② 添加转发服务器<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">upstream web_server&#123; # 名字随便起</span><br><span class="line">   server 127.0.0.1:8080  max_fails=1  fail_timeout=10s;  #Tomcat服务器1 ip</span><br><span class="line">   server 127.0.0.2:8080  max_fails=1  fail_timeout=10s;  #Tomcat服务器2 ip</span><br><span class="line">   #注意服务器的ip以及端口不要重复</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80 default_server;</span><br><span class="line">    listen       [::]:80 default_server;</span><br><span class="line">    server_name  _;</span><br><span class="line">    root         /usr/share/nginx/html;</span><br><span class="line">    # Load configuration <span class="keyword">files</span> <span class="keyword">for</span> the default server block.</span><br><span class="line">    include /etc/nginx/default.d/*.conf;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://web_server;   #和上边定义的upstream 对应起来</span><br><span class="line">        proxy_connect_timeout 10;</span><br><span class="line">        proxy_read_timeout  10;</span><br><span class="line">        proxy_send_timeout  10;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page 404 /404.html;</span><br><span class="line">        location = /<span class="number">40</span><span class="keyword">x</span>.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page 500 502 503 504 /50x.html;</span><br><span class="line">        location = /<span class="number">50</span><span class="keyword">x</span>.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="3、nginx的启动、停止、重启"><a href="#3、nginx的启动、停止、重启" class="headerlink" title="3、nginx的启动、停止、重启"></a>3、nginx的启动、停止、重启</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx <span class="comment">#启动nginx</span></span><br><span class="line">systemctl stop nginx <span class="comment">#停止nginx</span></span><br><span class="line">systemctl restart nginx <span class="comment">#重新启动nginx</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nginx <span class="comment">#开机启动nginx</span></span><br></pre></td></tr></table></figure><h4 id="4、nginx踩过的一些坑"><a href="#4、nginx踩过的一些坑" class="headerlink" title="4、nginx踩过的一些坑"></a>4、nginx踩过的一些坑</h4><p>selinux引起的权限访问受限问题，cat /var/log/Audit/Audit.log 发现有nginx访问阻止记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>=AVC msg=audit(1416406823.013:3137): avc:  denied  &#123; search &#125; <span class="keyword">for</span>  pid=15488 comm=<span class="string">"nginx"</span> name=<span class="string">"www"</span> dev=<span class="string">"dm-3"</span> ino=146 scontext=system_u:system_r:httpd_t:s0 tcontext=unconfined_u:object_r:user_home_dir_t:s0 tclass=dir</span><br></pre></td></tr></table></figure></p><p>解决方案1、（<font color="red">建议采用</font>）<br>设置selinux允许nginx<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install policycoreutils-python</span><br><span class="line">cat /var/<span class="built_in">log</span>/audit/audit.log | grep nginx | grep denied | audit2allow -M mynginx</span><br><span class="line">semodule -i mynginx.pp</span><br></pre></td></tr></table></figure></p><p>解决方案2.1、<br>临时关闭selinux<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0  <span class="comment">#重启后失效</span></span><br></pre></td></tr></table></figure></p><p>解决方案2.2、<br>永久关闭selinux</p><p>打开 selinux 配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/selinux/config</span><br></pre></td></tr></table></figure></p><p>修改 selinux 配置文件<br>将SELINUX=enforcing改为SELINUX=disabled，保存后退出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file controls the state of SELinux on the system.</span></span><br><span class="line"><span class="comment"># SELINUX= can take one of these three values:</span></span><br><span class="line"><span class="comment">#     enforcing - SELinux security policy is enforced.</span></span><br><span class="line"><span class="comment">#     permissive - SELinux prints warnings instead of enforcing.</span></span><br><span class="line"><span class="comment">#     disabled - No SELinux policy is loaded.</span></span><br><span class="line">SELINUX=enforcing</span><br><span class="line"><span class="comment"># SELINUXTYPE= can take one of three two values:</span></span><br><span class="line"><span class="comment">#     targeted - Targeted processes are protected,</span></span><br><span class="line"><span class="comment">#     minimum - Modification of targeted policy. Only selected processes are protected.</span></span><br><span class="line"><span class="comment">#     mls - Multi Level Security protection.</span></span><br><span class="line">SELINUXTYPE=targeted</span><br></pre></td></tr></table></figure></p><p>重启电脑（<font color="red">一定重启</font>，否则无效）</p>]]></content>
-      
+      <tags>
+        <tag>git</tag>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nginx的使用（一）----安装]]></title>
+    <url>%2F2018%2F08%2F25%2Fnginx%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[一、nginx简介1、nginx是什么Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。 2、nginx可以用来做什么（不加载第三方模块） 反向代理 负载均衡 HTTP服务器（包含动静分离） 正向代理 缓存 二、nginx安装以及简单的配置1、安装nginx（环境 centos7）采取最简单的方法，yum install nginx -y 2、配置nginx① 修改user为root（你用来启动nginx的账户）② 添加转发服务器123456789101112131415161718192021222324252627upstream web_server&#123; # 名字随便起 server 127.0.0.1:8080 max_fails=1 fail_timeout=10s; #Tomcat服务器1 ip server 127.0.0.2:8080 max_fails=1 fail_timeout=10s; #Tomcat服务器2 ip #注意服务器的ip以及端口不要重复 ...&#125;server &#123; listen 80 default_server; listen [::]:80 default_server; server_name _; root /usr/share/nginx/html; # Load configuration files for the default server block. include /etc/nginx/default.d/*.conf; location / &#123; proxy_pass http://web_server; #和上边定义的upstream 对应起来 proxy_connect_timeout 10; proxy_read_timeout 10; proxy_send_timeout 10; &#125; error_page 404 /404.html; location = /40x.html &#123; &#125; error_page 500 502 503 504 /50x.html; location = /50x.html &#123; &#125;&#125; 3、nginx的启动、停止、重启1234systemctl start nginx #启动nginxsystemctl stop nginx #停止nginxsystemctl restart nginx #重新启动nginxsystemctl enable nginx #开机启动nginx 4、nginx踩过的一些坑selinux引起的权限访问受限问题，cat /var/log/Audit/Audit.log 发现有nginx访问阻止记录1type=AVC msg=audit(1416406823.013:3137): avc: denied &#123; search &#125; for pid=15488 comm="nginx" name="www" dev="dm-3" ino=146 scontext=system_u:system_r:httpd_t:s0 tcontext=unconfined_u:object_r:user_home_dir_t:s0 tclass=dir 解决方案1、（建议采用）设置selinux允许nginx123yum install policycoreutils-pythoncat /var/log/audit/audit.log | grep nginx | grep denied | audit2allow -M mynginxsemodule -i mynginx.pp 解决方案2.1、临时关闭selinux1setenforce 0 #重启后失效 解决方案2.2、永久关闭selinux 打开 selinux 配置文件1vim /etc/selinux/config 修改 selinux 配置文件将SELINUX=enforcing改为SELINUX=disabled，保存后退出1234567891011# This file controls the state of SELinux on the system.# SELINUX= can take one of these three values:# enforcing - SELinux security policy is enforced.# permissive - SELinux prints warnings instead of enforcing.# disabled - No SELinux policy is loaded.SELINUX=enforcing# SELINUXTYPE= can take one of three two values:# targeted - Targeted processes are protected,# minimum - Modification of targeted policy. Only selected processes are protected.# mls - Multi Level Security protection.SELINUXTYPE=targeted 重启电脑（一定重启，否则无效）]]></content>
       <categories>
-          
-          <category> linux </category>
-          
+        <category>linux</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> nginx </tag>
-            
-            <tag> linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>测试</title>
-      <link href="/2018/08/25/first/"/>
-      <url>/2018/08/25/first/</url>
-      <content type="html"><![CDATA[<h2 id="测试文章"><a href="#测试文章" class="headerlink" title="测试文章"></a>测试文章</h2><ul><li>博客开通了</li><li>有事情请发送邮件</li></ul>]]></content>
-      
+      <tags>
+        <tag>nginx</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[测试]]></title>
+    <url>%2F2018%2F08%2F25%2Ffirst%2F</url>
+    <content type="text"><![CDATA[测试文章 博客开通了 有事情请发送邮件]]></content>
       <categories>
-          
-          <category> test </category>
-          
+        <category>test</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> test </tag>
-            
-        </tags>
-      
-    </entry>
-    
-  
-  
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
 </search>
