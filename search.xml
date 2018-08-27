@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CCNA学习笔记一--计算机网络详解]]></title>
+    <url>%2F2018%2F08%2F27%2Fccna-1%2F</url>
+    <content type="text"><![CDATA[局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽OSI参考模型 ↑7 应用层 能产生网络流量的应用程序 ↑6 表示层 表示数据，处理数据 加密 压缩 等 ↑5 会话层 msconfig netstat -nb (显示程序) ↑4 传输层 可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3 网络层 选择最佳路径 ↑2 数据链路层 网络设备 如何封装数据帧 设备地址 ↑1 物理层 规定了电压标准、接口标准程序员的工作层 应用层、表示层、会话层网络工程师的工作层 传输层、网络层、数据链路层、物理层网络分层的好处：每一层互不干扰，没有影响；有主于设备标准化网络排错和OSI参考模型| 网络层 | 可能出现的错误 ||:——|:——————-|| 物理层 | 连接问题 || 数据链路层 | MAC地址冲突 ADSL拨号密码错误 || 网络层 | 计算机网关设置错误、路由器路由表错误 || 应用层 | IE代理设置错误 | 网络安全和OSI参考模型 网络层 安全问题 物理层安全 数据链路层安全 MAC地址认证 ADSL拨号上网账号密码 划分VLAN 网络层安全 路由器ACL 传输层安全 计算机端口安全 应用层安全 网站安全、操作系统安全 网络设备1.网线双绞线 4对 8根 100米 10M 100M（实际用了4根） 1000M （实际用了8根）线序 直通线（都按B连） 同类设备用交叉线（一个A 一个B）不同类设备用直通线 水晶头接法 RJ45 A 绿白 绿 橙白 蓝 蓝白 橙 棕白 棕 RJ45 B 橙白 橙 绿白 蓝 蓝白 绿 棕白 棕 网卡 MAC地址（物理地址）不能更改MAC地址由48位二进制组成，前24位代表厂家 后边为厂家自己所设置的序号查看MAC地址的指令（dos下） ipconfig /all 集线器 HUB 不安全 带宽共享 效率低下 半双工 网桥 隔绝冲突域 交换机 基于MAC地址转发数据、带宽独享、全双工、安全、学习MAC地址 路由器 负责在不同网段转发数据 一般有广域网接口 隔绝广播（MAC地址全1）网络设备和OSI参考模型集线器 物理层设备交换机 基于MAC地址转发 数据链路层设备路由器 基于IP地址转发 三层设备 分层考虑问题网络排错方法 替换法]]></content>
+      <categories>
+        <category>net</category>
+      </categories>
+      <tags>
+        <tag>ccna</tag>
+        <tag>net</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Regular Expression 正则表达式]]></title>
     <url>%2F2018%2F08%2F25%2Fregex%2F</url>
     <content type="text"><![CDATA[Regular Expression（正则表达式） 简称Regex在Javascript中 g(global)表示全局 i表示不区分大小写 .可以匹配任何一个单位的字符 []用于定义字符集合 ^取非 元字符 元字符 解释说明 [\b] Backspace键（退格) \n 换行符 \f 换页符 \r 回车符 \t 制表符（tab） \v 垂直制表符 \r\n 回车+换行 许多操作系统以此为行结束，Unix与Linux以\n作为行结束 \d 任何一个数字字符 [0-9] \D 任何一个非数字字符 [^0-9] \w [a-zA-Z0-9_] \W [^a-zA-Z0-9_] \s [\f\n\r\t\v] 任一一个空白字符 \S [^\f\n\r\t\v] 任一一个非空白字符 \xXX XX:表示十六进制数 \0XX XX:表示八进制数 POSIX字符类 javascript不支持 POSIX字符类 解释说明 [:alnum:] [\w^_] [:upper:] [A-Z] [:alpha:] [a-zA-Z] [:blank:] [ \t] 注意：这里包含空格 [:xdigit:] 任何一个十六进制数 [a-fA-F0-9] [:cntrl:] ASCII控制字符 0-31加上127 [:digit:] \d [:graph:] [:print:]去除空格 [:lower:] [a-z] [:print:] 任何一个可打印字符 [:punct:] 既不属于[:alnum:]也不属于[:cntrl:]的字符 [:space:] [\f\r\n\t\v ] 注意：这里包含空格 符号 解释说明 + 一次或多次重复 +? 懒惰型 * 零次或多次重复 *? 懒惰型 ? 零次或一次出现 {n} 重复n次 {m,n} 至少m次，至多n次 {m,} 至少出现m次 {m,}? 懒惰型 \b 一个单词的开头或结尾 b：boundary \B 不匹配一个单词边界 ^ 字符串开头 $ 字符串结尾 (?m) 置于开头，用于开启分行匹配模式 multline mode 注意：有的语言不支持 (xx) 子表达式，视为独立元素 回溯引用 backreference替换模式下Javascript使用$代替\ 符号 解释说明 \1,\2……\n 第1个表达式，第2个表达式…….第n个表达式 \0 代表整个正则表达式 \E 结束 \L或\U转换 \l 把下一个字符转换为小写 \L 把\L到\E之间全部转换为小写 \u 把下一个字符转换为大写 \U 把\U到\E之间全部转换为大写 注意：1、 Java、Perl、PHP、.NET 支持向后查找2、 Javascript、ColdFusion 不支持向后查找向前查找：(?=x) 匹配但不消费x，即结果不包括x 例 (?=:) 原字符串 https: 匹配结果 http向后查找：(?&lt;=x) 匹配但不消费x，即结果不包括x 例 (?&lt;=\$) 原字符串 $400 匹配结果 400注意：向前查找可以任意长度（可以使用.+） 向后查找的长度是固定的 (?=) 正向前查找 (?&lt;=) 正向后查找 (?!) 负向前查找 (?&lt;!) 负向后查找 Mysql JAVA1.4不支持条件处理(?(backreference)true-regex)(?(backreference)true-regex|false-regex)Backreference满足时，匹配true-regex 否则匹配false-regex]]></content>
