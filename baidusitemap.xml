@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/08/28/regex-using/</loc>
+    <lastmod>2018-08-28T11:53:14.015Z</lastmod>
+    <data>
+        <display>
+        <title>������ʽӦ�ã��������£�</title>
+        <pubTime>2018-08-28T11:49:30.000Z</pubTime>
+        
+        <tag>tools</tag>
+         
+        <tag>regular</tag>
+         
+        <tag>regex</tag>
+         
+         
+           
+             
+              <breadCrumb title="regular" url="http://http://132.232.42.89/categories/regular/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://http://132.232.42.89/2018/08/27/ccna-1/</loc>
     <lastmod>2018-08-28T07:36:46.843Z</lastmod>
     <data>
@@ -168,11 +192,11 @@
         
         <tag>tools</tag>
          
-        <tag>code</tag>
+        <tag>regular</tag>
          
         <tag>regex</tag>
          
-        <tag>regular</tag>
+        <tag>code</tag>
          
          
            

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[������ʽӦ�ã��������£�]]></title>
+    <url>%2F2018%2F08%2F28%2Fregex-using%2F</url>
+    <content type="text"><![CDATA[��̹�����ʹ�õ������¼ b[^:b#/]+.$ ͳ�ƴ�����������������# / ��ͷ�� �಻�������У�]]></content>
+      <categories>
+        <category>regular</category>
+      </categories>
+      <tags>
+        <tag>tools</tag>
+        <tag>regular</tag>
+        <tag>regex</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CCNA学习笔记七 -- IPv6]]></title>
     <url>%2F2018%2F08%2F28%2Fccna-7%2F</url>
     <content type="text"><![CDATA[DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 ND、MLD、ICMPv6、IPv6网络接口 各种通信网络接口（以太网等物理网络） IPv6地址（128位） 首选的格式128比特分成8段，每段的16比特用16进制表示，中间用:隔开xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx 压缩格式，允许0压缩xxxx:xxxx::xx:xxx:x:xxxx一对::在一个地址中只能出现1次 IPv4构造IPv60:0:0:0:0:0:192.168.0.1或者::192.168.0.1 子网掩码xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/n 前n位是网络部分，后边是主机部分单播地址全球路由前缀 |子网|接口ID2001:0db8:3c4d:0012:a:d:1234:56ab链路本地地址 link local address 该地址用于同一网段中IPv6计算机通信多播地址任播地址 :: 相当于0.0.0.0::1 相当于127.0.0.12000::/3 全球单播地址范围，前三位是001FE80::/10 链路本地单播地址FF00::/8 组播地址范围3FFF:FFFF::/32 示例和文档保留地址2001:oDB8::/32 示例和文档保留地址2002::/16 用于IPv6到IPv4的转换系统 IPv6地址分配 静态 自动无状态 向路由器发送路由前缀请求，配置IPv6的路由器接口收到，然后发送路由通告，计算机获得网络部分+自己的MAC地址，进行构造IPv6地址有DHCP服务器 路由通告中M=1，则向DHCP服务器请求ip地址；路由通告中O=1，则向DHCP服务器请求其他设置如DNS服务器、搜索后缀等 123456(config)#ipv6 unicast-routing 启用IPv6(config)#interface fastEthernet 0/0(config-if)#ipv6 address 2001:13::1/64(config-if)#ipv6 nd managed-config-flag 令路由通告中M=1(config-if)#ipv6 nd other-config-flag 令路由通告中O=1 IPv6路由添加静态路由12345#show ipv6 interface fastEthernet 0/0 #show ipv6 route 查看IPv6路由表查(config)#ipv6 route 2001:1::/64 2001:1::1(config-if)#ipv6 address 2001:1::/64 eui-64 自己根据前缀和自己的MAC地址构造IPv6地址(config-if)#ipv6 address 2001:1::1/64 动态路由 RIPng协议 12345(config)#ipv6 unicast-routing(config)#ipv6 router rip 1(config-rtr)#exit(config)#interface fastEthernet 0/1(config-if)#ipv6 rip 1 enable EIGRPv6协议 1234567(config)#ipv6 unicast-routing(config)#ipv6 router eigrp 10(config-rtr)#no shutdown(config-rtr)#router-id 4.0.0.1(config-rtr)#exit(config)#interface fastEthernet 0/1(config-if)#ipv6 eigrp 10 OSPFv3协议 123456(config)#ipv6 unicast-routing(config)#ipv6 router ospf 1(config-rtr)#router-id 4.0.0.1(config-rtr)#exit(config)#interface fastEthernet 0/1(config-if)#ipv6 ospf 1 area 0 IPv4和IPv6共存技术双协议栈 IPv6 to IPv4隧道技术 1234567891011(config)#ipv6 unicast-routing(config)#interface fastEthernet 0/1(config-if)#ipv6 address 2001:1::1/64 (config-if)#exit(config)#interface tunnel 0 隧道虚拟端口(config-if)#no shutdown(config-if)#ipv6 address 2001:2::1/64 给隧道虚拟端口配置IPv6(config-if)#tunnel source 10.0.0.1 隧道源地址(config-if)#tunnel destination 10.0.1.2 隧道目标地址(config-if)#tunnel mode ipv6ip 设置隧道加密模式(config-if)#exit ISATAP隧道 配置ISATAP路由(该路由与IPv4网络接口为192.168.0.2) 123456(config)#interface tunnel 0(config-if)#ipv6 address 2001:1::/64 eui-64(config-if)#no ipv6 nd suppress-ra(config-if)#tunnel source 10.0.0.1(config-if)#tunnel mode ipv6ip isatap(config-if)#no shutdown windows下 12345&gt;netshnetsh&gt;interfacenetsh interface&gt;ipv6netsh interface ipv6&gt;isatapnetsh interface ipv6 isatap&gt;set router 192.168.0.2 静态NAT-PT 123456789(config)#interface fastEthernet 0/1(config-if)#ipv6 nat (config-if)#exit(config)#interface serial 1/0(config-if)#ipv6 nat (config-if)#exit(config)#ipv6 nat v6v4 source 10.0.0.2 2001:2::2 (config)#ipv6 nat v6v4 source 2001:2::4 10.0.0.4(config)#ipv6 prefix 2001:3::/96 动态NAT-PT 只能由IPv6网络主动向IPv4网络发起通信 12345678910111213141516(config)#interface fastEthernet 0/1(config-if)#ipv6 nat (config-if)#exit(config)#interface serial 1/0(config-if)#ipv6 nat (config-if)#exit(config)#ipv6 access-list v4map (config-ipv6-acl)#permit 2001:2::/64 any (config-ipv6-acl)#exit(config)#ipv6 access-list v6map(config-ipv6-acl)#permit 2001:2::/64 any (config-ipv6-acl)#exit(config)#ipv6 nat(config)#ipv6 nat v6v4 pool v4pool 10.0.2.100 10.0.2.200 prefix-length 24 (config)#ipv6 nat v6v4 source list v6list pool v4pool (config)#ipv6 nat prefix 2001::/96 v4-mapped v4map 2001::/96用v4map里的地址替代]]></content>
@@ -93,9 +106,9 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>code</tag>
-        <tag>regex</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
