@@ -1,262 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title>CCNA学习笔记七 -- IPv6</title>
-      <link href="/2018/08/28/ccna-7/"/>
-      <url>/2018/08/28/ccna-7/</url>
-      <content type="html"><![CDATA[<h4 id="DoD模型"><a href="#DoD模型" class="headerlink" title="DoD模型"></a>DoD模型</h4><p>应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议<br>传输层 TCP、UDP<br>网络层 ND、MLD、ICMPv6、IPv6<br>网络接口 各种通信网络接口（以太网等物理网络）  </p><h4 id="IPv6地址（128位）"><a href="#IPv6地址（128位）" class="headerlink" title="IPv6地址（128位）"></a>IPv6地址（128位）</h4><ol><li>首选的格式<br>128比特分成8段，每段的16比特用16进制表示，中间用:隔开<br>xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx</li><li>压缩格式，允许0压缩<br>xxxx:xxxx::xx:xxx:x:xxxx<br>一对::在一个地址中只能出现1次</li><li>IPv4构造IPv6<br>0:0:0:0:0:0:192.168.0.1或者::192.168.0.1</li><li>子网掩码<br>xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/n 前n位是网络部分，后边是主机部分<h4 id="单播地址"><a href="#单播地址" class="headerlink" title="单播地址"></a>单播地址</h4>全球路由前缀  |子网|接口ID<br>2001:0db8:3c4d:0012:a:d:1234:56ab<br>链路本地地址 link local address  该地址用于同一网段中IPv6计算机通信<br>多播地址<br>任播地址  </li></ol><p>::  相当于0.0.0.0<br>::1 相当于127.0.0.1<br>2000::/3 全球单播地址范围，前三位是001<br>FE80::/10 链路本地单播地址<br>FF00::/8 组播地址范围<br>3FFF:FFFF::/32 示例和文档保留地址<br>2001:oDB8::/32 示例和文档保留地址<br>2002::/16 用于IPv6到IPv4的转换系统</p><h4 id="IPv6地址分配"><a href="#IPv6地址分配" class="headerlink" title="IPv6地址分配"></a>IPv6地址分配</h4><ol><li>静态</li><li>自动<br>无状态 向路由器发送路由前缀请求，配置IPv6的路由器接口收到，然后发送路由通告，计算机获得网络部分+自己的MAC地址，进行构造IPv6地址<br>有DHCP服务器 路由通告中M=1，则向DHCP服务器请求ip地址；路由通告中O=1，则向DHCP服务器请求其他设置如DNS服务器、搜索后缀等  </li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(config)#ipv6 unicast-routing 启用IPv6</span><br><span class="line">(config)#interface fastEthernet 0/0</span><br><span class="line">(config-if)#ipv6 address 2001:13::1/64</span><br><span class="line"></span><br><span class="line">(config-if)#ipv6 nd managed-config-flag  令路由通告中M=1</span><br><span class="line">(config-if)#ipv6 nd other-config-flag 令路由通告中O=1</span><br></pre></td></tr></table></figure><h4 id="IPv6路由添加"><a href="#IPv6路由添加" class="headerlink" title="IPv6路由添加"></a>IPv6路由添加</h4><h5 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#show ipv6 interface fastEthernet 0/0 </span><br><span class="line">#show ipv6 route 查看IPv6路由表查</span><br><span class="line">(config)#ipv6 route 2001:1::/64 2001:1::1</span><br><span class="line">(config-if)#ipv6 address 2001:1::/64 eui-64 自己根据前缀和自己的MAC地址构造IPv6地址</span><br><span class="line">(config-if)#ipv6 address 2001:1::1/64</span><br></pre></td></tr></table></figure><h5 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h5><ol><li><p>RIPng协议</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(config)#ipv6 unicast-routing</span><br><span class="line">(config)#ipv6 router rip 1</span><br><span class="line">(config-rtr)#exit</span><br><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 rip 1 enable</span><br></pre></td></tr></table></figure></li><li><p>EIGRPv6协议</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(config)#ipv6 unicast-routing</span><br><span class="line">(config)#ipv6 router eigrp 10</span><br><span class="line">(config-rtr)#no shutdown</span><br><span class="line">(config-rtr)#router-id 4.0.0.1</span><br><span class="line">(config-rtr)#exit</span><br><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 eigrp 10</span><br></pre></td></tr></table></figure></li><li><p>OSPFv3协议</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(config)#ipv6 unicast-routing</span><br><span class="line">(config)#ipv6 router ospf 1</span><br><span class="line">(config-rtr)#router-id 4.0.0.1</span><br><span class="line">(config-rtr)#exit</span><br><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 ospf 1 area 0</span><br></pre></td></tr></table></figure></li></ol><h4 id="IPv4和IPv6共存技术"><a href="#IPv4和IPv6共存技术" class="headerlink" title="IPv4和IPv6共存技术"></a>IPv4和IPv6共存技术</h4><p>双协议栈</p><ol><li><p>IPv6 to IPv4隧道技术</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(config)#ipv6 unicast-routing</span><br><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 address 2001:1::1/64 </span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#interface tunnel 0 隧道虚拟端口</span><br><span class="line">(config-if)#no shutdown</span><br><span class="line">(config-if)#ipv6 address 2001:2::1/64 给隧道虚拟端口配置IPv6</span><br><span class="line">(config-if)#tunnel source 10.0.0.1  隧道源地址</span><br><span class="line">(config-if)#tunnel destination 10.0.1.2 隧道目标地址</span><br><span class="line">(config-if)#tunnel mode ipv6ip 设置隧道加密模式</span><br><span class="line">(config-if)#exit</span><br></pre></td></tr></table></figure></li><li><p>ISATAP隧道</p><ol><li><p>配置ISATAP路由(该路由与IPv4网络接口为192.168.0.2)</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(config)#interface tunnel 0</span><br><span class="line">(config-if)#ipv6 address 2001:1::/64 eui-64</span><br><span class="line">(config-if)#no ipv6 nd suppress-ra</span><br><span class="line">(config-if)#tunnel source 10.0.0.1</span><br><span class="line">(config-if)#tunnel mode ipv6ip isatap</span><br><span class="line">(config-if)#no shutdown</span><br></pre></td></tr></table></figure></li><li><p>windows下</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;netsh</span><br><span class="line">netsh&gt;interface</span><br><span class="line">netsh interface&gt;ipv6</span><br><span class="line">netsh interface ipv6&gt;isatap</span><br><span class="line">netsh interface ipv6 isatap&gt;set router 192.168.0.2</span><br></pre></td></tr></table></figure></li></ol></li><li><p>静态NAT-PT</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 nat </span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#interface serial 1/0</span><br><span class="line">(config-if)#ipv6 nat </span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#ipv6 nat v6v4 source 10.0.0.2 2001:2::2 </span><br><span class="line">(config)#ipv6 nat v6v4 source 2001:2::4 10.0.0.4</span><br><span class="line">(config)#ipv6 prefix 2001:3::/96</span><br></pre></td></tr></table></figure></li><li><p>动态NAT-PT 只能由IPv6网络主动向IPv4网络发起通信</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 nat </span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#interface serial 1/0</span><br><span class="line">(config-if)#ipv6 nat </span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#ipv6 access-list v4map </span><br><span class="line">(config-ipv6-acl)#permit 2001:2::/64 any </span><br><span class="line">(config-ipv6-acl)#exit</span><br><span class="line">(config)#ipv6 access-list v6map</span><br><span class="line">(config-ipv6-acl)#permit 2001:2::/64 any </span><br><span class="line">(config-ipv6-acl)#exit</span><br><span class="line">(config)#ipv6 nat</span><br><span class="line">(config)#ipv6 nat v6v4 pool v4pool 10.0.2.100 10.0.2.200 prefix-length 24 </span><br><span class="line">(config)#ipv6 nat v6v4 source list v6list pool v4pool </span><br><span class="line">(config)#ipv6 nat prefix 2001::/96 v4-mapped v4map  2001::/96用v4map里的地址替代</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-      
+<search>
+  <entry>
+    <title><![CDATA[CCNA学习笔记七 -- IPv6]]></title>
+    <url>%2F2018%2F08%2F28%2Fccna-7%2F</url>
+    <content type="text"><![CDATA[DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 ND、MLD、ICMPv6、IPv6网络接口 各种通信网络接口（以太网等物理网络） IPv6地址（128位） 首选的格式128比特分成8段，每段的16比特用16进制表示，中间用:隔开xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx 压缩格式，允许0压缩xxxx:xxxx::xx:xxx:x:xxxx一对::在一个地址中只能出现1次 IPv4构造IPv60:0:0:0:0:0:192.168.0.1或者::192.168.0.1 子网掩码xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/n 前n位是网络部分，后边是主机部分单播地址全球路由前缀 |子网|接口ID2001:0db8:3c4d:0012:a:d:1234:56ab链路本地地址 link local address 该地址用于同一网段中IPv6计算机通信多播地址任播地址 :: 相当于0.0.0.0::1 相当于127.0.0.12000::/3 全球单播地址范围，前三位是001FE80::/10 链路本地单播地址FF00::/8 组播地址范围3FFF:FFFF::/32 示例和文档保留地址2001:oDB8::/32 示例和文档保留地址2002::/16 用于IPv6到IPv4的转换系统 IPv6地址分配 静态 自动无状态 向路由器发送路由前缀请求，配置IPv6的路由器接口收到，然后发送路由通告，计算机获得网络部分+自己的MAC地址，进行构造IPv6地址有DHCP服务器 路由通告中M=1，则向DHCP服务器请求ip地址；路由通告中O=1，则向DHCP服务器请求其他设置如DNS服务器、搜索后缀等 123456(config)#ipv6 unicast-routing 启用IPv6(config)#interface fastEthernet 0/0(config-if)#ipv6 address 2001:13::1/64(config-if)#ipv6 nd managed-config-flag 令路由通告中M=1(config-if)#ipv6 nd other-config-flag 令路由通告中O=1 IPv6路由添加静态路由12345#show ipv6 interface fastEthernet 0/0 #show ipv6 route 查看IPv6路由表查(config)#ipv6 route 2001:1::/64 2001:1::1(config-if)#ipv6 address 2001:1::/64 eui-64 自己根据前缀和自己的MAC地址构造IPv6地址(config-if)#ipv6 address 2001:1::1/64 动态路由 RIPng协议 12345(config)#ipv6 unicast-routing(config)#ipv6 router rip 1(config-rtr)#exit(config)#interface fastEthernet 0/1(config-if)#ipv6 rip 1 enable EIGRPv6协议 1234567(config)#ipv6 unicast-routing(config)#ipv6 router eigrp 10(config-rtr)#no shutdown(config-rtr)#router-id 4.0.0.1(config-rtr)#exit(config)#interface fastEthernet 0/1(config-if)#ipv6 eigrp 10 OSPFv3协议 123456(config)#ipv6 unicast-routing(config)#ipv6 router ospf 1(config-rtr)#router-id 4.0.0.1(config-rtr)#exit(config)#interface fastEthernet 0/1(config-if)#ipv6 ospf 1 area 0 IPv4和IPv6共存技术双协议栈 IPv6 to IPv4隧道技术 1234567891011(config)#ipv6 unicast-routing(config)#interface fastEthernet 0/1(config-if)#ipv6 address 2001:1::1/64 (config-if)#exit(config)#interface tunnel 0 隧道虚拟端口(config-if)#no shutdown(config-if)#ipv6 address 2001:2::1/64 给隧道虚拟端口配置IPv6(config-if)#tunnel source 10.0.0.1 隧道源地址(config-if)#tunnel destination 10.0.1.2 隧道目标地址(config-if)#tunnel mode ipv6ip 设置隧道加密模式(config-if)#exit ISATAP隧道 配置ISATAP路由(该路由与IPv4网络接口为192.168.0.2) 123456(config)#interface tunnel 0(config-if)#ipv6 address 2001:1::/64 eui-64(config-if)#no ipv6 nd suppress-ra(config-if)#tunnel source 10.0.0.1(config-if)#tunnel mode ipv6ip isatap(config-if)#no shutdown windows下 12345&gt;netshnetsh&gt;interfacenetsh interface&gt;ipv6netsh interface ipv6&gt;isatapnetsh interface ipv6 isatap&gt;set router 192.168.0.2 静态NAT-PT 123456789(config)#interface fastEthernet 0/1(config-if)#ipv6 nat (config-if)#exit(config)#interface serial 1/0(config-if)#ipv6 nat (config-if)#exit(config)#ipv6 nat v6v4 source 10.0.0.2 2001:2::2 (config)#ipv6 nat v6v4 source 2001:2::4 10.0.0.4(config)#ipv6 prefix 2001:3::/96 动态NAT-PT 只能由IPv6网络主动向IPv4网络发起通信 12345678910111213141516(config)#interface fastEthernet 0/1(config-if)#ipv6 nat (config-if)#exit(config)#interface serial 1/0(config-if)#ipv6 nat (config-if)#exit(config)#ipv6 access-list v4map (config-ipv6-acl)#permit 2001:2::/64 any (config-ipv6-acl)#exit(config)#ipv6 access-list v6map(config-ipv6-acl)#permit 2001:2::/64 any (config-ipv6-acl)#exit(config)#ipv6 nat(config)#ipv6 nat v6v4 pool v4pool 10.0.2.100 10.0.2.200 prefix-length 24 (config)#ipv6 nat v6v4 source list v6list pool v4pool (config)#ipv6 nat prefix 2001::/96 v4-mapped v4map 2001::/96用v4map里的地址替代]]></content>
       <categories>
-          
-          <category> net </category>
-          
+        <category>net</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> net </tag>
-            
-            <tag> ccna </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>CCNA学习笔记六 -- NAT</title>
-      <link href="/2018/08/28/ccna-6/"/>
-      <url>/2018/08/28/ccna-6/</url>
-      <content type="html"><![CDATA[<h4 id="地址转换技术"><a href="#地址转换技术" class="headerlink" title="地址转换技术"></a>地址转换技术</h4><ol><li>内网能够主动访问外网，外网不能主动访问内网，相对而言内网更安全一些  </li><li>节省公网ip地址  </li><li>缺点 慢  <h4 id="NAT（网络地址转换）"><a href="#NAT（网络地址转换）" class="headerlink" title="NAT（网络地址转换）"></a>NAT（网络地址转换）</h4>静态NAT 动态NAT  不节省公网地址、一个公网替换一个内网地址<br>PAT（端口地址转换）  节省公网ip、替换源端口和源地址  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#debug ip packet 开启数据包转发显示</span><br></pre></td></tr></table></figure></li></ol><h4 id="路由器上配置PAT"><a href="#路由器上配置PAT" class="headerlink" title="路由器上配置PAT"></a>路由器上配置PAT</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(config)#access-list 10 permit 10.0.0.0 0.0.0.255 定义内网地址池</span><br><span class="line">(config)#ip nat pool name 131.107.0.1 131.107.0.1 netmask 255.255.255.0定义一个名为name的公网地址池从.0.1到.0.1</span><br><span class="line">(config)#ip nat inside source list 10 pool name overload  10列表绑定到name，overload表示PAT，不加overload表示NAT</span><br><span class="line">(config)#interface serial 0/0</span><br><span class="line">(config-if)#ip nat outside  0/0公网出口</span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#interface serial 0/1</span><br><span class="line">(config-if)#ip nat inside   0/1内网入口</span><br></pre></td></tr></table></figure><p>端口映射 使公网地址可以访问内网地址<br>路由端口映射<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(config)#ip nat inside source static tcp 10.0.0.6 80 137.107.0.1 80 端口映射</span><br></pre></td></tr></table></figure></p>]]></content>
-      
+      <tags>
+        <tag>net</tag>
+        <tag>ccna</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CCNA学习笔记六 -- NAT]]></title>
+    <url>%2F2018%2F08%2F28%2Fccna-6%2F</url>
+    <content type="text"><![CDATA[地址转换技术 内网能够主动访问外网，外网不能主动访问内网，相对而言内网更安全一些 节省公网ip地址 缺点 慢 NAT（网络地址转换）静态NAT 动态NAT 不节省公网地址、一个公网替换一个内网地址PAT（端口地址转换） 节省公网ip、替换源端口和源地址 1#debug ip packet 开启数据包转发显示 路由器上配置PAT12345678(config)#access-list 10 permit 10.0.0.0 0.0.0.255 定义内网地址池(config)#ip nat pool name 131.107.0.1 131.107.0.1 netmask 255.255.255.0定义一个名为name的公网地址池从.0.1到.0.1(config)#ip nat inside source list 10 pool name overload 10列表绑定到name，overload表示PAT，不加overload表示NAT(config)#interface serial 0/0(config-if)#ip nat outside 0/0公网出口(config-if)#exit(config)#interface serial 0/1(config-if)#ip nat inside 0/1内网入口 端口映射 使公网地址可以访问内网地址路由端口映射1(config)#ip nat inside source static tcp 10.0.0.6 80 137.107.0.1 80 端口映射]]></content>
       <categories>
-          
-          <category> net </category>
-          
+        <category>net</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> net </tag>
-            
-            <tag> ccna </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>CCNA学习笔记五 -- ACL</title>
-      <link href="/2018/08/28/ccna-5/"/>
-      <url>/2018/08/28/ccna-5/</url>
-      <content type="html"><![CDATA[<h4 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h4><p>物理层安全 墙上不用的网线接口，连接交换机的端口关掉<br>数据链路层安全 ADSL拨号账号和密码 MAC地址绑定 交换机连接计算机数量控制 创建VLAN<br>网络层安全 基于源ip地址目标IP地址的控制<br>传输层安全 会话攻击 LAND攻击 syn洪水攻击<br>应用层安全 登录密码  </p><h4 id="网络层安全"><a href="#网络层安全" class="headerlink" title="网络层安全"></a>网络层安全</h4><p>标准的ACL  基于源地址进行控制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#config terminal  </span><br><span class="line">(config)#access-list 10 deny host 192.168.1.2</span><br><span class="line">(config)#access-list 10 permit 192.168.1.0 0.0.0.255 允许192.168.1.0访问，使用翻转子网掩码</span><br><span class="line">(config)(config)#interface serial 3/0</span><br><span class="line">(config-if)#ip access-group 10 in/out 绑定控制列表到物理接口并确定出还是进检查访问列表</span><br><span class="line">(config)#no access-list 10 删除ACL10</span><br><span class="line">ACL的顺序影响访问控制</span><br><span class="line">扩展的ACL  基于源地址、目标地址、协议、端口号进行控制</span><br><span class="line">(config)#access-list 100 permit ip 192.168.1.0 0.0.0.255 any 允许192.168.1.0/24访问任何</span><br><span class="line">(config)#access-list 100 permit tcp 192.18.2.0 0.0.0.255 10.0.0.0 0.0.0.255 eq 80 允许192.18.2.0/24访问10.0.0.0/8上的web服务器</span><br><span class="line">(config)#access-list 100 permit icmp 192.18.2.0 0.0.0.255 any 允许192.18.2.0/24ping任何因特网</span><br></pre></td></tr></table></figure></p><p>将acl绑定到telnet接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(config-line)#access-class 10 in/out</span><br></pre></td></tr></table></figure></p><h4 id="acl具体应用"><a href="#acl具体应用" class="headerlink" title="acl具体应用"></a>acl具体应用</h4><ol><li><p>入站————决不允许任何源地址是内部主机地址或网络地址的数据包进入一个私有的网络</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#access-list 150 deny ip 127.0.0.0 0.255.255.255 any log</span><br><span class="line">#access-list 150 deny ip 0.0.0.0 255.255.255.255 any log</span><br><span class="line">#access-list 150 deny ip 10.0.0.0 0.255.255.255 any log</span><br><span class="line">#access-list 150 deny ip 127.16.0.0 0.15.255.255 any log</span><br><span class="line">#access-list 150 deny ip 192.168.0.0 0.0.255.255 any log</span><br><span class="line">#access-list 150 deny ip 224.0.0.0 15.255.255.255 any log</span><br><span class="line">#access-list 150 deny ip host 255.255.255.255 any log</span><br><span class="line">#access-list 150 permit ip any any</span><br></pre></td></tr></table></figure></li><li><p>出站————决不允许任何含有非内部网络有效的ip数据包出站</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#access-list 150 permit 192.168.0.0 0.0.255.255 any</span><br><span class="line">#access-list 150 deny ip any any log</span><br></pre></td></tr></table></figure></li><li><p>阻塞外部访问</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#access-list 109 permit any 192.268.0.0 0.0.255.255 established </span><br><span class="line">#access-list 109 deny ip any any log</span><br></pre></td></tr></table></figure></li><li><p>过滤ICMP消息————禁止ping命令进内网</p><pre><code>#access-list 112 deny icmp any any echo log #access-list 112 deny icmp any any redirect log #access-list 112 deny icmp any any mask-request log#access-list 112 permit icmp any 192.168.0.0 0.0.255.255  </code></pre></li></ol>]]></content>
-      
+      <tags>
+        <tag>net</tag>
+        <tag>ccna</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CCNA学习笔记五 -- ACL]]></title>
+    <url>%2F2018%2F08%2F28%2Fccna-5%2F</url>
+    <content type="text"><![CDATA[网络安全物理层安全 墙上不用的网线接口，连接交换机的端口关掉数据链路层安全 ADSL拨号账号和密码 MAC地址绑定 交换机连接计算机数量控制 创建VLAN网络层安全 基于源ip地址目标IP地址的控制传输层安全 会话攻击 LAND攻击 syn洪水攻击应用层安全 登录密码 网络层安全标准的ACL 基于源地址进行控制1234567891011#config terminal (config)#access-list 10 deny host 192.168.1.2(config)#access-list 10 permit 192.168.1.0 0.0.0.255 允许192.168.1.0访问，使用翻转子网掩码(config)(config)#interface serial 3/0(config-if)#ip access-group 10 in/out 绑定控制列表到物理接口并确定出还是进检查访问列表(config)#no access-list 10 删除ACL10ACL的顺序影响访问控制扩展的ACL 基于源地址、目标地址、协议、端口号进行控制(config)#access-list 100 permit ip 192.168.1.0 0.0.0.255 any 允许192.168.1.0/24访问任何(config)#access-list 100 permit tcp 192.18.2.0 0.0.0.255 10.0.0.0 0.0.0.255 eq 80 允许192.18.2.0/24访问10.0.0.0/8上的web服务器(config)#access-list 100 permit icmp 192.18.2.0 0.0.0.255 any 允许192.18.2.0/24ping任何因特网 将acl绑定到telnet接口1(config-line)#access-class 10 in/out acl具体应用 入站————决不允许任何源地址是内部主机地址或网络地址的数据包进入一个私有的网络 12345678#access-list 150 deny ip 127.0.0.0 0.255.255.255 any log#access-list 150 deny ip 0.0.0.0 255.255.255.255 any log#access-list 150 deny ip 10.0.0.0 0.255.255.255 any log#access-list 150 deny ip 127.16.0.0 0.15.255.255 any log#access-list 150 deny ip 192.168.0.0 0.0.255.255 any log#access-list 150 deny ip 224.0.0.0 15.255.255.255 any log#access-list 150 deny ip host 255.255.255.255 any log#access-list 150 permit ip any any 出站————决不允许任何含有非内部网络有效的ip数据包出站 12#access-list 150 permit 192.168.0.0 0.0.255.255 any#access-list 150 deny ip any any log 阻塞外部访问 12#access-list 109 permit any 192.268.0.0 0.0.255.255 established #access-list 109 deny ip any any log 过滤ICMP消息————禁止ping命令进内网 #access-list 112 deny icmp any any echo log #access-list 112 deny icmp any any redirect log #access-list 112 deny icmp any any mask-request log #access-list 112 permit icmp any 192.168.0.0 0.0.255.255]]></content>
       <categories>
-          
-          <category> net </category>
-          
+        <category>net</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> net </tag>
-            
-            <tag> ccna </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>CCNA学习笔记四 -- VLAN</title>
-      <link href="/2018/08/28/ccna-4/"/>
-      <url>/2018/08/28/ccna-4/</url>
-      <content type="html"><![CDATA[<h4 id="VLAN虚拟局域网"><a href="#VLAN虚拟局域网" class="headerlink" title="VLAN虚拟局域网"></a>VLAN虚拟局域网</h4><p>&emsp;&emsp;VLAN是交换机组网才有的概念，按部门或管理的要求来组网，而不是按照位置组网，更灵活，安全<br>一个VLAN=一个广播域=一个网段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#show vlan 查看VLAN</span><br><span class="line">(config)#vlan 2 创建VLAN2</span><br><span class="line">(config)#interrface range fastEthernet 0/13 - 24 选中13-24接口</span><br><span class="line">(config-if-range)#switchport mode access 设置计算机接口</span><br><span class="line">(config-if-range)#switchport access vlan 2 设置为vlan2</span><br></pre></td></tr></table></figure></p><h6 id="单臂路由器实现VLAN间路由"><a href="#单臂路由器实现VLAN间路由" class="headerlink" title="单臂路由器实现VLAN间路由"></a>单臂路由器实现VLAN间路由</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(config)#interface gigabitEthernet 1/1 打开Gbit1/1接口</span><br><span class="line">(config-if)#switchport mode trunk 设置干道链路</span><br></pre></td></tr></table></figure><h6 id="三层交换机上的配置"><a href="#三层交换机上的配置" class="headerlink" title="三层交换机上的配置"></a>三层交换机上的配置</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(config)#ip routing 启用路由功能</span><br><span class="line">(config-if)#switchport trunk encapsulation dotlq设置trunk封装格式为dotlq</span><br><span class="line">(config-if)#switchport mode trunk</span><br><span class="line">(config)#Interface vlan 1</span><br><span class="line">(config-if)#ip address ip_address mask </span><br><span class="line">(config-if)# no shutdown </span><br><span class="line">(config)#interface vlan 2</span><br><span class="line">(config-if)#ip address ip_address mask </span><br><span class="line">(config-if)# no shutdown</span><br></pre></td></tr></table></figure><h4 id="VTP协议"><a href="#VTP协议" class="headerlink" title="VTP协议"></a>VTP协议</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(condig)#vtp domain name   设置vtp域名</span><br><span class="line">(condig)#vtp password passwd  设置vtp密码</span><br><span class="line">(condig)#vtp mode client/server  设置客户端或者服务端，服务端可以更改整个域的VLAN的添加删除，但是不能更改其他的交换机的端口是否属于该vlan</span><br></pre></td></tr></table></figure>]]></content>
-      
+      <tags>
+        <tag>net</tag>
+        <tag>ccna</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CCNA学习笔记四 -- VLAN]]></title>
+    <url>%2F2018%2F08%2F28%2Fccna-4%2F</url>
+    <content type="text"><![CDATA[VLAN虚拟局域网&emsp;&emsp;VLAN是交换机组网才有的概念，按部门或管理的要求来组网，而不是按照位置组网，更灵活，安全一个VLAN=一个广播域=一个网段12345#show vlan 查看VLAN(config)#vlan 2 创建VLAN2(config)#interrface range fastEthernet 0/13 - 24 选中13-24接口(config-if-range)#switchport mode access 设置计算机接口(config-if-range)#switchport access vlan 2 设置为vlan2 单臂路由器实现VLAN间路由12(config)#interface gigabitEthernet 1/1 打开Gbit1/1接口(config-if)#switchport mode trunk 设置干道链路 三层交换机上的配置123456789(config)#ip routing 启用路由功能(config-if)#switchport trunk encapsulation dotlq设置trunk封装格式为dotlq(config-if)#switchport mode trunk(config)#Interface vlan 1(config-if)#ip address ip_address mask (config-if)# no shutdown (config)#interface vlan 2(config-if)#ip address ip_address mask (config-if)# no shutdown VTP协议123(condig)#vtp domain name 设置vtp域名(condig)#vtp password passwd 设置vtp密码(condig)#vtp mode client/server 设置客户端或者服务端，服务端可以更改整个域的VLAN的添加删除，但是不能更改其他的交换机的端口是否属于该vlan]]></content>
       <categories>
-          
-          <category> net </category>
-          
+        <category>net</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> net </tag>
-            
-            <tag> ccna </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>CCNA学习笔记三 -- 路由和交换</title>
-      <link href="/2018/08/28/ccna-3/"/>
-      <url>/2018/08/28/ccna-3/</url>
-      <content type="html"><![CDATA[<h4 id="网络畅通的条件"><a href="#网络畅通的条件" class="headerlink" title="网络畅通的条件"></a>网络畅通的条件</h4><p>数据包能去能回<br>沿途的路由器必须知道到目标地址如何转发<br>沿途的路由器必须知道回来的数据包如何转发  </p><p>路由器直连的网络 不用告诉路由器如何转发<br>路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0  设置数据包 到192.168.1.0/24的数据包下一跳给192.168.2.0</span><br><span class="line">(config)#tracroute ip_address 跟踪数据包路径</span><br><span class="line">#show ip route 查看路由表</span><br><span class="line">(config)#no ip route 192.168.1.0 255.255.255.0 删除路由表</span><br><span class="line">windows上添加路由表 route add ip_adress mask ip_web</span><br><span class="line">windows查看路由表 netstat-r    route print</span><br></pre></td></tr></table></figure></p><h4 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h4><p>优先级 直连0 静态路由1 eigp90  rip120<br>RIP协议 跳数判断，周期性（30s）更新路由表，最大跳数16跳<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(config)#router rip  启用rip协议  </span><br><span class="line">(config-router)#network 192.168.1.0 该网段参与rip协议  </span><br><span class="line">#debug ip rip 显示rip协议信息</span><br><span class="line">#undebug all  关闭rip协议信息显示</span><br><span class="line">#show ip protocols 显示应用协议</span><br><span class="line">EIGP协议 优先级高于RIP</span><br><span class="line">(config)#router eigp 10  启用eigp协议,相同编号路由器才可以交换路由信息</span><br><span class="line">(config-router)#network 192.168.1.0 该网段参与eigp协议</span><br></pre></td></tr></table></figure></p><h4 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h4><p>集线器 不安全、冲突域、带宽共享<br>交换机 基于目标MAC地址转发、学习MAC地址、端口独享带宽、没有冲突、广播会出问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#show mac-address-table 显示MAC地址表</span><br><span class="line">  #config terminal </span><br><span class="line">  (config)#interrface fastEthernet 0/4</span><br><span class="line">  (config-if)#switchport mode access 接机算机的接口</span><br><span class="line">  (config-if)#switchport port-security 启用安全</span><br><span class="line">  (config-if)#switchport port-security violation shutdown 违反安全规则down掉</span><br><span class="line">  (config-if)#switchport port-security maxium 2 限制连接数量</span><br><span class="line">  (config)#interrface range fastEthernet 0/1 - 24 选中1-24个口</span><br><span class="line">  (config-if-range)#switchport port-security mac-adddress sticky MAC地址终止学习</span><br></pre></td></tr></table></figure></p><h4 id="生成树协议"><a href="#生成树协议" class="headerlink" title="生成树协议"></a>生成树协议</h4><p> 为了高可用局域网交换机连接有了环路<br>为了阻断网络中的广播有了生成树协议<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#show spanning-tree 查看交换机端口以及生成树状态</span><br><span class="line">(config)#spanning-tree vlan 1 priority 4096更改路由器优先级为4096，值越小优先级越高</span><br><span class="line">(config)#no spanning-tree vlan 1 关闭生成树协议</span><br></pre></td></tr></table></figure></p>]]></content>
-      
+      <tags>
+        <tag>net</tag>
+        <tag>ccna</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CCNA学习笔记三 -- 路由和交换]]></title>
+    <url>%2F2018%2F08%2F28%2Fccna-3%2F</url>
+    <content type="text"><![CDATA[网络畅通的条件数据包能去能回沿途的路由器必须知道到目标地址如何转发沿途的路由器必须知道回来的数据包如何转发 路由器直连的网络 不用告诉路由器如何转发路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由123456(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0 设置数据包 到192.168.1.0/24的数据包下一跳给192.168.2.0(config)#tracroute ip_address 跟踪数据包路径#show ip route 查看路由表(config)#no ip route 192.168.1.0 255.255.255.0 删除路由表windows上添加路由表 route add ip_adress mask ip_webwindows查看路由表 netstat-r route print 动态路由优先级 直连0 静态路由1 eigp90 rip120RIP协议 跳数判断，周期性（30s）更新路由表，最大跳数16跳12345678(config)#router rip 启用rip协议 (config-router)#network 192.168.1.0 该网段参与rip协议 #debug ip rip 显示rip协议信息#undebug all 关闭rip协议信息显示#show ip protocols 显示应用协议EIGP协议 优先级高于RIP(config)#router eigp 10 启用eigp协议,相同编号路由器才可以交换路由信息(config-router)#network 192.168.1.0 该网段参与eigp协议 交换集线器 不安全、冲突域、带宽共享交换机 基于目标MAC地址转发、学习MAC地址、端口独享带宽、没有冲突、广播会出问题123456789#show mac-address-table 显示MAC地址表 #config terminal (config)#interrface fastEthernet 0/4 (config-if)#switchport mode access 接机算机的接口 (config-if)#switchport port-security 启用安全 (config-if)#switchport port-security violation shutdown 违反安全规则down掉 (config-if)#switchport port-security maxium 2 限制连接数量 (config)#interrface range fastEthernet 0/1 - 24 选中1-24个口 (config-if-range)#switchport port-security mac-adddress sticky MAC地址终止学习 生成树协议 为了高可用局域网交换机连接有了环路为了阻断网络中的广播有了生成树协议123#show spanning-tree 查看交换机端口以及生成树状态(config)#spanning-tree vlan 1 priority 4096更改路由器优先级为4096，值越小优先级越高(config)#no spanning-tree vlan 1 关闭生成树协议]]></content>
       <categories>
-          
-          <category> net </category>
-          
+        <category>net</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> net </tag>
-            
-            <tag> ccna </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>CCNA学习笔记二--TCP/IP协议</title>
-      <link href="/2018/08/27/ccna-2/"/>
-      <url>/2018/08/27/ccna-2/</url>
-      <content type="html"><![CDATA[<h4 id="DoD模型"><a href="#DoD模型" class="headerlink" title="DoD模型"></a>DoD模型</h4><p>应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议<br>传输层 TCP、UDP<br>网络层 IPv4、ARP、RARP、ICMP<br>网络接口 各种通信网络接口（以太网等物理网络）</p><h4 id="传输层协议"><a href="#传输层协议" class="headerlink" title="传输层协议"></a>传输层协议</h4><p>可靠传输 TCP 分段传输 建立会话（消耗系统资源） 丢失重传<br>不可靠传输 UDP 一个数据包就能表达完整 屏幕广播</p><h4 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h4><h5 id="默认端口"><a href="#默认端口" class="headerlink" title="默认端口"></a>默认端口</h5><p>http=TCP+80<br>ftp=TCP+21（接受命令、验证身份等） 20（传输数据）<br>https=TCP+443<br>SMTP=TCP+25（发邮件）<br>POP3=TCP+110（收邮件）<br>RDP=TCP+3389(远程桌面)<br>DNS=UDP+53（DNS解析）<br>IP地址访问Windows共享文件夹=TCP+445<br>计算机名访问windows共享文件夹=TCP+139<br>SQL=TCP+1433（访问数据库）<br>telnet=TCP+23</p><h4 id="服务和端口的关系"><a href="#服务和端口的关系" class="headerlink" title="服务和端口的关系"></a>服务和端口的关系</h4><p>服务侦听端口<br>客户端请求服务 使用目标端口来区分（服务器根据数据包的目标端口来区分客户端）<br>服务停止 侦听的端口关闭<br>查看侦听的端口 netstat -anb|find “content”<br>检测端口  telnet ip 端口</p><h4 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h4><p>win2003service tcp/ip筛选不影响出去的流量<br>wf.msc windows高级防火墙</p><h4 id="网络层协议"><a href="#网络层协议" class="headerlink" title="网络层协议"></a>网络层协议</h4><p>IP协议 选择最佳路径的协议（RIP OSPF EIGRP BGP）<br>ICMP协议 测试网络是否畅通<br>ping 估计带宽 查看网络是否畅通 断定远程系统 每过一个路由器TTL-1<br>TTL 128 windows系统<br>TTL 64  linux系统<br>pathping 跟踪路径 计算丢包情况<br>IGMP协议 组播<br>点到点 广播 多播（组播）<br>ARP协议 将计算机的IP地址解析成MAC地址<br>数据跨网段通讯和同一网段通信过程<br>MAC地址决定了下一跳给那个设备<br>IP地址决定最终计算机</p><h4 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h4><p>32位二进制组成</p><h5 id="ip地址分类"><a href="#ip地址分类" class="headerlink" title="ip地址分类"></a>ip地址分类</h5><p>  x:network id  y:host id</p><table><thead><tr><th>类别</th><th>功能</th><th>开头</th><th>个头</th><th>缺省子网掩码</th></tr></thead><tbody><tr><td>A</td><td>xyyy</td><td>1-127</td><td>256^3-2</td><td>255.0.0.0</td></tr><tr><td>B</td><td>xxyy</td><td>128-191</td><td>256^2-2</td><td>255.255.0.0</td></tr><tr><td>C</td><td>xxxy</td><td>192-223</td><td>256-2</td><td>255.255.255.0</td></tr><tr><td>D</td><td>组播</td><td>224-239</td></tr><tr><td>E</td><td>研究</td><td>240-255</td></tr></tbody></table><h5 id="保留的私网地址"><a href="#保留的私网地址" class="headerlink" title="保留的私网地址"></a>保留的私网地址</h5><p>A 10.0.0.0<br>B 172.16.0.0-172.31.0.0<br>C 192.168.0.0-192.168.255.0</p><h5 id="本地环回地址"><a href="#本地环回地址" class="headerlink" title="本地环回地址"></a>本地环回地址</h5><p>127.0.0.1  ping通过表示TCP/IP协议安装正常<br>169.254.0.0 DHCP获取网络地址未果的时候得到的地址</p>]]></content>
-      
+      <tags>
+        <tag>net</tag>
+        <tag>ccna</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CCNA学习笔记二 -- TCP/IP协议]]></title>
+    <url>%2F2018%2F08%2F27%2Fccna-2%2F</url>
+    <content type="text"><![CDATA[DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 IPv4、ARP、RARP、ICMP网络接口 各种通信网络接口（以太网等物理网络） 传输层协议可靠传输 TCP 分段传输 建立会话（消耗系统资源） 丢失重传不可靠传输 UDP 一个数据包就能表达完整 屏幕广播 应用层协议默认端口http=TCP+80ftp=TCP+21（接受命令、验证身份等） 20（传输数据）https=TCP+443SMTP=TCP+25（发邮件）POP3=TCP+110（收邮件）RDP=TCP+3389(远程桌面)DNS=UDP+53（DNS解析）IP地址访问Windows共享文件夹=TCP+445计算机名访问windows共享文件夹=TCP+139SQL=TCP+1433（访问数据库）telnet=TCP+23 服务和端口的关系服务侦听端口客户端请求服务 使用目标端口来区分（服务器根据数据包的目标端口来区分客户端）服务停止 侦听的端口关闭查看侦听的端口 netstat -anb|find “content”检测端口 telnet ip 端口 网络安全win2003service tcp/ip筛选不影响出去的流量wf.msc windows高级防火墙 网络层协议IP协议 选择最佳路径的协议（RIP OSPF EIGRP BGP）ICMP协议 测试网络是否畅通ping 估计带宽 查看网络是否畅通 断定远程系统 每过一个路由器TTL-1TTL 128 windows系统TTL 64 linux系统pathping 跟踪路径 计算丢包情况IGMP协议 组播点到点 广播 多播（组播）ARP协议 将计算机的IP地址解析成MAC地址数据跨网段通讯和同一网段通信过程MAC地址决定了下一跳给那个设备IP地址决定最终计算机 IP地址32位二进制组成 ip地址分类 x:network id y:host id 类别 功能 开头 个头 缺省子网掩码 A xyyy 1-127 256^3-2 255.0.0.0 B xxyy 128-191 256^2-2 255.255.0.0 C xxxy 192-223 256-2 255.255.255.0 D 组播 224-239 E 研究 240-255 保留的私网地址A 10.0.0.0B 172.16.0.0-172.31.0.0C 192.168.0.0-192.168.255.0 本地环回地址127.0.0.1 ping通过表示TCP/IP协议安装正常169.254.0.0 DHCP获取网络地址未果的时候得到的地址]]></content>
       <categories>
-          
-          <category> net </category>
-          
+        <category>net</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> net </tag>
-            
-            <tag> ccna </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>CCNA学习笔记一--计算机网络详解</title>
-      <link href="/2018/08/27/ccna-1/"/>
-      <url>/2018/08/27/ccna-1/</url>
-      <content type="html"><![CDATA[<h4 id="局域网与广域网"><a href="#局域网与广域网" class="headerlink" title="局域网与广域网"></a>局域网与广域网</h4><ol><li>局域网 自己花钱买设备自己搭配服务器，带宽固定</li><li>广域网 花钱租带宽</li></ol><h4 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h4><pre><code>↑7 应用层      能产生网络流量的应用程序↑6 表示层      表示数据，处理数据 加密 压缩 等↑5 会话层      msconfig netstat -nb (显示程序)↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源↑3 网络层      选择最佳路径↑2 数据链路层  网络设备 如何封装数据帧 设备地址↑1 物理层      规定了电压标准、接口标准</code></pre><p>程序员的工作层  应用层、表示层、会话层<br>网络工程师的工作层  传输层、网络层、数据链路层、物理层<br>网络分层的好处：每一层互不干扰，没有影响；有主于设备标准化</p><h4 id="网络排错和OSI参考模型"><a href="#网络排错和OSI参考模型" class="headerlink" title="网络排错和OSI参考模型"></a>网络排错和OSI参考模型</h4><table><thead><tr><th>网络层</th><th>可能出现的错误</th></tr></thead><tbody><tr><td>物理层</td><td>连接问题</td></tr><tr><td>数据链路层</td><td>MAC地址冲突 ADSL拨号密码错误</td></tr><tr><td>网络层</td><td>计算机网关设置错误、路由器路由表错误</td></tr><tr><td>应用层</td><td>IE代理设置错误</td></tr></tbody></table><h4 id="网络安全和OSI参考模型"><a href="#网络安全和OSI参考模型" class="headerlink" title="网络安全和OSI参考模型"></a>网络安全和OSI参考模型</h4><table><thead><tr><th>网络层</th><th>安全问题</th></tr></thead><tbody><tr><td>物理层安全</td><td></td></tr><tr><td>数据链路层安全</td><td>MAC地址认证 ADSL拨号上网账号密码 划分VLAN</td></tr><tr><td>网络层安全</td><td>路由器ACL</td></tr><tr><td>传输层安全</td><td>计算机端口安全</td></tr><tr><td>应用层安全</td><td>网站安全、操作系统安全</td></tr></tbody></table><h4 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h4><ol><li>网线<br>双绞线  4对 8根 100米 10M 100M（实际用了4根） 1000M （实际用了8根）<br>线序 直通线（都按B连） 同类设备用交叉线（一个A 一个B）<br>不同类设备用直通线<br><font color="#12a112">水晶头接法</font><ul><li>RJ45 A 绿白 绿 橙白 蓝 蓝白 橙 棕白 棕</li><li>RJ45 B 橙白 橙 绿白 蓝 蓝白 绿 棕白 棕</li></ul></li><li>网卡 MAC地址（物理地址）不能更改<br>MAC地址由48位二进制组成，前24位代表厂家 后边为厂家自己所设置的序号<br>查看MAC地址的指令（dos下） ipconfig /all</li><li>集线器 HUB 不安全 带宽共享 效率低下 半双工</li><li>网桥 隔绝冲突域</li><li>交换机 基于MAC地址转发数据、带宽独享、全双工、安全、学习MAC地址</li><li>路由器 负责在不同网段转发数据 一般有广域网接口 隔绝广播（MAC地址全1）</li></ol><h4 id="网络设备和OSI参考模型"><a href="#网络设备和OSI参考模型" class="headerlink" title="网络设备和OSI参考模型"></a>网络设备和OSI参考模型</h4><p>集线器 物理层设备<br>交换机 基于MAC地址转发 数据链路层设备<br>路由器 基于IP地址转发 三层设备  </p><h4 id="分层考虑问题"><a href="#分层考虑问题" class="headerlink" title="分层考虑问题"></a>分层考虑问题</h4><p>网络排错方法 替换法</p>]]></content>
-      
+      <tags>
+        <tag>net</tag>
+        <tag>ccna</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CCNA学习笔记一 -- 计算机网络详解]]></title>
+    <url>%2F2018%2F08%2F27%2Fccna-1%2F</url>
+    <content type="text"><![CDATA[局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽 OSI参考模型↑7 应用层 能产生网络流量的应用程序 ↑6 表示层 表示数据，处理数据 加密 压缩 等 ↑5 会话层 msconfig netstat -nb (显示程序) ↑4 传输层 可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3 网络层 选择最佳路径 ↑2 数据链路层 网络设备 如何封装数据帧 设备地址 ↑1 物理层 规定了电压标准、接口标准 程序员的工作层 应用层、表示层、会话层网络工程师的工作层 传输层、网络层、数据链路层、物理层网络分层的好处：每一层互不干扰，没有影响；有主于设备标准化 网络排错和OSI参考模型 网络层 可能出现的错误 物理层 连接问题 数据链路层 MAC地址冲突 ADSL拨号密码错误 网络层 计算机网关设置错误、路由器路由表错误 应用层 IE代理设置错误 网络安全和OSI参考模型 网络层 安全问题 物理层安全 数据链路层安全 MAC地址认证 ADSL拨号上网账号密码 划分VLAN 网络层安全 路由器ACL 传输层安全 计算机端口安全 应用层安全 网站安全、操作系统安全 网络设备 网线双绞线 4对 8根 100米 10M 100M（实际用了4根） 1000M （实际用了8根）线序 直通线（都按B连） 同类设备用交叉线（一个A 一个B）不同类设备用直通线水晶头接法 RJ45 A 绿白 绿 橙白 蓝 蓝白 橙 棕白 棕 RJ45 B 橙白 橙 绿白 蓝 蓝白 绿 棕白 棕 网卡 MAC地址（物理地址）不能更改MAC地址由48位二进制组成，前24位代表厂家 后边为厂家自己所设置的序号查看MAC地址的指令（dos下） ipconfig /all 集线器 HUB 不安全 带宽共享 效率低下 半双工 网桥 隔绝冲突域 交换机 基于MAC地址转发数据、带宽独享、全双工、安全、学习MAC地址 路由器 负责在不同网段转发数据 一般有广域网接口 隔绝广播（MAC地址全1） 网络设备和OSI参考模型集线器 物理层设备交换机 基于MAC地址转发 数据链路层设备路由器 基于IP地址转发 三层设备 分层考虑问题网络排错方法 替换法]]></content>
       <categories>
-          
-          <category> net </category>
-          
+        <category>net</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> net </tag>
-            
-            <tag> ccna </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Regular Expression 正则表达式</title>
-      <link href="/2018/08/25/regex/"/>
-      <url>/2018/08/25/regex/</url>
-      <content type="html"><![CDATA[<p>Regular Expression（正则表达式） 简称Regex<br>在Javascript中<br>    g(global)表示全局  i表示不区分大小写<br>    .可以匹配任何一个单位的字符<br>    []用于定义字符集合 ^取非</p><h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><table><thead><tr><th>元字符</th><th>解释说明</th></tr></thead><tbody><tr><td>[\b]</td><td>Backspace键（退格)</td></tr><tr><td>\n</td><td>换行符</td></tr><tr><td>\f</td><td>换页符</td></tr><tr><td>\r</td><td>回车符</td></tr><tr><td>\t</td><td>制表符（tab）</td></tr><tr><td>\v</td><td>垂直制表符</td></tr><tr><td>\r\n</td><td>回车+换行 许多操作系统以此为行结束，Unix与Linux以\n作为行结束</td></tr><tr><td>\d</td><td>任何一个数字字符    [0-9]</td></tr><tr><td>\D</td><td>任何一个非数字字符     [^0-9]</td></tr><tr><td>\w</td><td>[a-zA-Z0-9_]</td></tr><tr><td>\W</td><td>[^a-zA-Z0-9_]</td></tr><tr><td>\s</td><td>[\f\n\r\t\v]      任一一个空白字符</td></tr><tr><td>\S</td><td>[^\f\n\r\t\v]   任一一个非空白字符</td></tr><tr><td>\xXX</td><td>XX:表示十六进制数</td></tr><tr><td>\0XX</td><td>XX:表示八进制数</td></tr></tbody></table><h4 id="POSIX字符类-javascript不支持"><a href="#POSIX字符类-javascript不支持" class="headerlink" title="POSIX字符类   javascript不支持"></a>POSIX字符类   javascript不支持</h4><table><thead><tr><th>POSIX字符类</th><th>解释说明</th></tr></thead><tbody><tr><td>[:alnum:]</td><td>[\w^_]</td></tr><tr><td>[:upper:]</td><td>[A-Z]</td></tr><tr><td>[:alpha:]</td><td>[a-zA-Z]</td></tr><tr><td>[:blank:]</td><td>[ \t] 注意：这里包含空格</td></tr><tr><td>[:xdigit:]</td><td>任何一个十六进制数     [a-fA-F0-9]</td></tr><tr><td>[:cntrl:]</td><td>ASCII控制字符   0-31加上127</td></tr><tr><td>[:digit:]</td><td>\d</td></tr><tr><td>[:graph:]</td><td>[:print:]去除空格</td></tr><tr><td>[:lower:]</td><td>[a-z]</td></tr><tr><td>[:print:]</td><td>任何一个可打印字符</td></tr><tr><td>[:punct:]</td><td>既不属于[:alnum:]也不属于[:cntrl:]的字符</td></tr><tr><td>[:space:]</td><td>[\f\r\n\t\v ]  注意：这里包含空格</td></tr></tbody></table><table><thead><tr><th>符号</th><th>解释说明</th></tr></thead><tbody><tr><td>+</td><td>一次或多次重复</td></tr><tr><td>+?</td><td>懒惰型</td></tr><tr><td>*</td><td>零次或多次重复</td></tr><tr><td>*?</td><td>懒惰型</td></tr><tr><td>?</td><td>零次或一次出现</td></tr><tr><td>{n}</td><td>重复n次</td></tr><tr><td>{m,n}</td><td>至少m次，至多n次</td></tr><tr><td>{m,}</td><td>至少出现m次</td></tr><tr><td>{m,}?</td><td>懒惰型</td></tr><tr><td>\b</td><td>一个单词的开头或结尾  b：boundary</td></tr><tr><td>\B</td><td>不匹配一个单词边界</td></tr><tr><td>^</td><td>字符串开头    $ 字符串结尾</td></tr><tr><td>(?m)</td><td>置于开头，用于开启分行匹配模式  multline mode   注意：有的语言不支持</td></tr><tr><td>(xx)</td><td>子表达式，视为独立元素</td></tr></tbody></table><h4 id="回溯引用-backreference"><a href="#回溯引用-backreference" class="headerlink" title="回溯引用 backreference"></a>回溯引用 backreference</h4><p>替换模式下Javascript使用$代替\</p><table><thead><tr><th>符号</th><th>解释说明</th></tr></thead><tbody><tr><td>\1,\2……\n</td><td>第1个表达式，第2个表达式…….第n个表达式</td></tr><tr><td>\0</td><td>代表整个正则表达式</td></tr><tr><td>\E</td><td>结束 \L或\U转换</td></tr><tr><td>\l</td><td>把下一个字符转换为小写</td></tr><tr><td>\L</td><td>把\L到\E之间全部转换为小写</td></tr><tr><td>\u</td><td>把下一个字符转换为大写</td></tr><tr><td>\U</td><td>把\U到\E之间全部转换为大写</td></tr></tbody></table><p>注意：<br>1、  Java、Perl、PHP、.NET 支持向后查找<br>2、  Javascript、ColdFusion 不支持向后查找<br>向前查找：(?=x)   匹配但不消费x，即结果不包括x<br>    例 (?=:)   原字符串 https:     匹配结果 http<br>向后查找：(?&lt;=x) 匹配但不消费x，即结果不包括x<br>    例 (?&lt;=\$)   原字符串 $400     匹配结果 400<br>注意：向前查找可以任意长度（可以使用.+）  向后查找的长度是固定的<br>    (?=)     正向前查找          (?&lt;=)    正向后查找<br>    (?!)       负向前查找          (?&lt;!)         负向后查找</p><p>Mysql JAVA1.4<font color="red">不支持</font>条件处理<br>(?(backreference)true-regex)<br>(?(backreference)true-regex|false-regex)<br>Backreference满足时，匹配true-regex 否则匹配false-regex</p>]]></content>
-      
+      <tags>
+        <tag>net</tag>
+        <tag>ccna</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Regular Expression 正则表达式]]></title>
+    <url>%2F2018%2F08%2F25%2Fregex%2F</url>
+    <content type="text"><![CDATA[Regular Expression（正则表达式） 简称Regex在Javascript中 g(global)表示全局 i表示不区分大小写 .可以匹配任何一个单位的字符 []用于定义字符集合 ^取非 元字符 元字符 解释说明 [\b] Backspace键（退格) \n 换行符 \f 换页符 \r 回车符 \t 制表符（tab） \v 垂直制表符 \r\n 回车+换行 许多操作系统以此为行结束，Unix与Linux以\n作为行结束 \d 任何一个数字字符 [0-9] \D 任何一个非数字字符 [^0-9] \w [a-zA-Z0-9_] \W [^a-zA-Z0-9_] \s [\f\n\r\t\v] 任一一个空白字符 \S [^\f\n\r\t\v] 任一一个非空白字符 \xXX XX:表示十六进制数 \0XX XX:表示八进制数 POSIX字符类 javascript不支持 POSIX字符类 解释说明 [:alnum:] [\w^_] [:upper:] [A-Z] [:alpha:] [a-zA-Z] [:blank:] [ \t] 注意：这里包含空格 [:xdigit:] 任何一个十六进制数 [a-fA-F0-9] [:cntrl:] ASCII控制字符 0-31加上127 [:digit:] \d [:graph:] [:print:]去除空格 [:lower:] [a-z] [:print:] 任何一个可打印字符 [:punct:] 既不属于[:alnum:]也不属于[:cntrl:]的字符 [:space:] [\f\r\n\t\v ] 注意：这里包含空格 符号 解释说明 + 一次或多次重复 +? 懒惰型 * 零次或多次重复 *? 懒惰型 ? 零次或一次出现 {n} 重复n次 {m,n} 至少m次，至多n次 {m,} 至少出现m次 {m,}? 懒惰型 \b 一个单词的开头或结尾 b：boundary \B 不匹配一个单词边界 ^ 字符串开头 $ 字符串结尾 (?m) 置于开头，用于开启分行匹配模式 multline mode 注意：有的语言不支持 (xx) 子表达式，视为独立元素 回溯引用 backreference替换模式下Javascript使用$代替\ 符号 解释说明 \1,\2……\n 第1个表达式，第2个表达式…….第n个表达式 \0 代表整个正则表达式 \E 结束 \L或\U转换 \l 把下一个字符转换为小写 \L 把\L到\E之间全部转换为小写 \u 把下一个字符转换为大写 \U 把\U到\E之间全部转换为大写 注意：1、 Java、Perl、PHP、.NET 支持向后查找2、 Javascript、ColdFusion 不支持向后查找向前查找：(?=x) 匹配但不消费x，即结果不包括x 例 (?=:) 原字符串 https: 匹配结果 http向后查找：(?&lt;=x) 匹配但不消费x，即结果不包括x 例 (?&lt;=\$) 原字符串 $400 匹配结果 400注意：向前查找可以任意长度（可以使用.+） 向后查找的长度是固定的 (?=) 正向前查找 (?&lt;=) 正向后查找 (?!) 负向前查找 (?&lt;!) 负向后查找 Mysql JAVA1.4不支持条件处理(?(backreference)true-regex)(?(backreference)true-regex|false-regex)Backreference满足时，匹配true-regex 否则匹配false-regex]]></content>
       <categories>
-          
-          <category> regular </category>
-          
+        <category>regular</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> tools </tag>
-            
-            <tag> code </tag>
-            
-            <tag> regex </tag>
-            
-            <tag> regular </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>Git命令</title>
-      <link href="/2018/08/25/Git/"/>
-      <url>/2018/08/25/Git/</url>
-      <content type="html"><![CDATA[<h4 id="查看、添加、提交、删除、找回，重置修改文件"><a href="#查看、添加、提交、删除、找回，重置修改文件" class="headerlink" title="查看、添加、提交、删除、找回，重置修改文件"></a>查看、添加、提交、删除、找回，重置修改文件</h4><p>git help <command> # 显示command的help<br>git show # 显示某次提交的内容 git show $id<br>git co – <file> # 抛弃工作区修改<br>git co . # 抛弃工作区修改<br>git add <file> # 将工作文件修改提交到本地暂存区<br>git add . # 将所有修改过的工作文件提交暂存区<br>git rm <file> # 从版本库中删除文件<br>git rm <file> –cached # 从版本库中删除文件，但不删除文件<br>git reset <file> # 从暂存区恢复到工作文件<br>git reset – . # 从暂存区恢复到工作文件<br>git reset –hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改<br>git ci <file> git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　git ci -am “some comments”<br>git ci –amend # 修改最后一次提交记录<br>git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象<br>git revert HEAD # 恢复最后一次提交的状态</file></file></file></file></file></file></p><h4 id="查看文件diff"><a href="#查看文件diff" class="headerlink" title="查看文件diff"></a>查看文件diff</h4><p>git diff <file> # 比较当前文件和暂存区文件差异 git diff<br>git diff <id1><id1><id2> # 比较两次提交之间的差异<br>git diff <branch1>..<branch2> # 在两个分支之间比较<br>git diff –staged # 比较暂存区和版本库差异<br>git diff –cached # 比较暂存区和版本库差异<br>git diff –stat # 仅仅比较统计信息</branch2></branch1></id2></id1></id1></file></p><h4 id="查看提交记录"><a href="#查看提交记录" class="headerlink" title="查看提交记录"></a>查看提交记录</h4><p>git log git log <file> # 查看该文件每次提交记录<br>git log -p <file> # 查看每次详细修改内容的diff<br>git log -p -2 # 查看最近两次详细修改内容的diff<br>git log –stat #查看提交统计信息<br>tig    Mac上可以使用tig代替diff和log，brew install tig</file></file></p><h4 id="Git-本地分支管理-查看、切换、创建和删除分支"><a href="#Git-本地分支管理-查看、切换、创建和删除分支" class="headerlink" title="Git 本地分支管理    查看、切换、创建和删除分支"></a>Git 本地分支管理    查看、切换、创建和删除分支</h4><p>git br -r # 查看远程分支<br>git br &lt;new_branch&gt; # 创建新的分支<br>git br -v # 查看各个分支最后提交信息<br>git br –merged # 查看已经被合并到当前分支的分支<br>git br –no-merged # 查看尚未被合并到当前分支的分支<br>git co <branch> # 切换到某个分支<br>git co -b &lt;new_branch&gt; # 创建新的分支，并且切换过去<br>git co -b &lt;new_branch&gt; <branch> # 基于branch创建新的new_branch<br>git co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除<br>git co $id -b &lt;new_branch&gt; # 把某次历史提交记录checkout出来，创建成一个分支<br>git br -d <branch> # 删除某个分支<br>git br -D <branch> # 强制删除某个分支 (未被合并的分支被删除的时候需要强制)</branch></branch></branch></branch></p><h4 id="分支合并和rebase"><a href="#分支合并和rebase" class="headerlink" title="分支合并和rebase"></a>分支合并和rebase</h4><p>git merge <branch> # 将branch分支合并到当前分支<br>git merge origin/master –no-ff # 不要Fast-Foward合并，这样可以生成merge提交<br>git rebase master <branch> # 将master rebase到branch，相当于： git co <branch> &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge <branch></branch></branch></branch></branch></p><h4 id="Git补丁管理-方便在多台机器上开发同步时用"><a href="#Git补丁管理-方便在多台机器上开发同步时用" class="headerlink" title="Git补丁管理(方便在多台机器上开发同步时用)"></a>Git补丁管理(方便在多台机器上开发同步时用)</h4><p>git diff &gt; ../sync.patch # 生成补丁<br>git apply ../sync.patch # 打补丁<br>git apply –check ../sync.patch #测试补丁能否成功</p><h4 id="Git暂存管理"><a href="#Git暂存管理" class="headerlink" title="Git暂存管理"></a>Git暂存管理</h4><p>git stash # 暂存<br>git stash list # 列所有stash<br>git stash apply # 恢复暂存的内容<br>git stash drop # 删除暂存区</p><h4 id="Git远程分支管理"><a href="#Git远程分支管理" class="headerlink" title="Git远程分支管理"></a>Git远程分支管理</h4><p>git pull # 抓取远程仓库所有分支更新并合并到本地<br>git pull –no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并<br>git fetch origin # 抓取远程仓库更新<br>git merge origin/master # 将远程主分支合并到本地当前分支<br>git co –track origin/branch # 跟踪某个远程分支创建相应的本地分支<br>git co -b &lt;local_branch&gt; origin/&lt;remote_branch&gt; # 基于远程分支创建本地分支，功能同上<br>git push # push所有分支<br>git push origin master # 将本地主分支推到远程主分支<br>git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)<br>git push origin &lt;local_branch&gt; # 创建远程分支， origin是远程仓库名<br>git push origin &lt;local_branch&gt;:&lt;remote_branch&gt; # 创建远程分支<br>git push origin :&lt;remote_branch&gt; #先删除本地分支(git br -d <branch>)，然后再push删除远程分支</branch></p><h4 id="Git远程仓库管理"><a href="#Git远程仓库管理" class="headerlink" title="Git远程仓库管理"></a>Git远程仓库管理</h4><p>GitHub<br>git remote -v # 查看远程服务器地址和仓库名称<br>git remote show origin # 查看远程服务器仓库状态<br>git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址<br>git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm <repository> # 删除远程仓库</repository></p><h4 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h4><p>git clone –bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库<br>scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上<br>mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git –bare init # 在服务器创建纯仓库<br>git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址<br>git push -u origin master # 客户端首次提交<br>git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且track<br>git remote set-head origin master # 设置远程仓库的HEAD指向master分支 ，也可以命令设置跟踪远程库和本地库<br>git branch –set-upstream master origin/master<br>git branch –set-upstream develop origin/develop</p><h4 id="reflog"><a href="#reflog" class="headerlink" title="reflog"></a>reflog</h4><p>git reflog是对reflog进行管理的命令,reflog是git用来记录引用变化的一种机制,比如记录分支的变化或者是HEAD引用的变化.<br>当git reflog不指定引用的时候,默认列出HEAD的reflog.<br>HEAD@{0}代表HEAD当前的值,HEAD@{3}代表HEAD在3次变化之前的值.<br>git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD, 分支的reflog文件都放在.git/logs/refs目录下的子目录中.</p><h4 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号:"></a>特殊符号:</h4><p>^代表父提交,当一个提交有多个父提交时,可以通过在^后面跟上一个数字,表示第几个父提交: ^相当于^1.<br>~<n>相当于连续的<n>个^.</n></n></p>]]></content>
-      
+      <tags>
+        <tag>tools</tag>
+        <tag>code</tag>
+        <tag>regex</tag>
+        <tag>regular</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git命令]]></title>
+    <url>%2F2018%2F08%2F25%2FGit%2F</url>
+    <content type="text"><![CDATA[查看、添加、提交、删除、找回，重置修改文件git help # 显示command的helpgit show # 显示某次提交的内容 git show $idgit co – # 抛弃工作区修改git co . # 抛弃工作区修改git add # 将工作文件修改提交到本地暂存区git add . # 将所有修改过的工作文件提交暂存区git rm # 从版本库中删除文件git rm –cached # 从版本库中删除文件，但不删除文件git reset # 从暂存区恢复到工作文件git reset – . # 从暂存区恢复到工作文件git reset –hard # 恢复最近一次提交过的状态，即放弃上次提交后的所有本次修改git ci git ci . git ci -a # 将git add, git rm和git ci等操作都合并在一起做 git ci -am “some comments”git ci –amend # 修改最后一次提交记录git revert &lt;$id&gt; # 恢复某次提交的状态，恢复动作本身也创建次提交对象git revert HEAD # 恢复最后一次提交的状态 查看文件diffgit diff # 比较当前文件和暂存区文件差异 git diffgit diff # 比较两次提交之间的差异git diff .. # 在两个分支之间比较git diff –staged # 比较暂存区和版本库差异git diff –cached # 比较暂存区和版本库差异git diff –stat # 仅仅比较统计信息 查看提交记录git log git log # 查看该文件每次提交记录git log -p # 查看每次详细修改内容的diffgit log -p -2 # 查看最近两次详细修改内容的diffgit log –stat #查看提交统计信息tig Mac上可以使用tig代替diff和log，brew install tig Git 本地分支管理 查看、切换、创建和删除分支git br -r # 查看远程分支git br &lt;new_branch&gt; # 创建新的分支git br -v # 查看各个分支最后提交信息git br –merged # 查看已经被合并到当前分支的分支git br –no-merged # 查看尚未被合并到当前分支的分支git co # 切换到某个分支git co -b &lt;new_branch&gt; # 创建新的分支，并且切换过去git co -b &lt;new_branch&gt; # 基于branch创建新的new_branchgit co $id # 把某次历史提交记录checkout出来，但无分支信息，切换到其他分支会自动删除git co $id -b &lt;new_branch&gt; # 把某次历史提交记录checkout出来，创建成一个分支git br -d # 删除某个分支git br -D # 强制删除某个分支 (未被合并的分支被删除的时候需要强制) 分支合并和rebasegit merge # 将branch分支合并到当前分支git merge origin/master –no-ff # 不要Fast-Foward合并，这样可以生成merge提交git rebase master # 将master rebase到branch，相当于： git co &amp;&amp; git rebase master &amp;&amp; git co master &amp;&amp; git merge Git补丁管理(方便在多台机器上开发同步时用)git diff &gt; ../sync.patch # 生成补丁git apply ../sync.patch # 打补丁git apply –check ../sync.patch #测试补丁能否成功 Git暂存管理git stash # 暂存git stash list # 列所有stashgit stash apply # 恢复暂存的内容git stash drop # 删除暂存区 Git远程分支管理git pull # 抓取远程仓库所有分支更新并合并到本地git pull –no-ff # 抓取远程仓库所有分支更新并合并到本地，不要快进合并git fetch origin # 抓取远程仓库更新git merge origin/master # 将远程主分支合并到本地当前分支git co –track origin/branch # 跟踪某个远程分支创建相应的本地分支git co -b &lt;local_branch&gt; origin/&lt;remote_branch&gt; # 基于远程分支创建本地分支，功能同上git push # push所有分支git push origin master # 将本地主分支推到远程主分支git push -u origin master # 将本地主分支推到远程(如无远程主分支则创建，用于初始化远程仓库)git push origin &lt;local_branch&gt; # 创建远程分支， origin是远程仓库名git push origin &lt;local_branch&gt;:&lt;remote_branch&gt; # 创建远程分支git push origin :&lt;remote_branch&gt; #先删除本地分支(git br -d )，然后再push删除远程分支 Git远程仓库管理GitHubgit remote -v # 查看远程服务器地址和仓库名称git remote show origin # 查看远程服务器仓库状态git remote add origin git@ github:robbin/robbin_site.git # 添加远程仓库地址git remote set-url origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址(用于修改远程仓库地址) git remote rm # 删除远程仓库 创建远程仓库git clone –bare robbin_site robbin_site.git # 用带版本的项目创建纯版本仓库scp -r my_project.git git@ git.csdn.net:~ # 将纯仓库上传到服务器上mkdir robbin_site.git &amp;&amp; cd robbin_site.git &amp;&amp; git –bare init # 在服务器创建纯仓库git remote add origin git@ github.com:robbin/robbin_site.git # 设置远程仓库地址git push -u origin master # 客户端首次提交git push -u origin develop # 首次将本地develop分支提交到远程develop分支，并且trackgit remote set-head origin master # 设置远程仓库的HEAD指向master分支 ，也可以命令设置跟踪远程库和本地库git branch –set-upstream master origin/mastergit branch –set-upstream develop origin/develop refloggit reflog是对reflog进行管理的命令,reflog是git用来记录引用变化的一种机制,比如记录分支的变化或者是HEAD引用的变化.当git reflog不指定引用的时候,默认列出HEAD的reflog.HEAD@{0}代表HEAD当前的值,HEAD@{3}代表HEAD在3次变化之前的值.git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD, 分支的reflog文件都放在.git/logs/refs目录下的子目录中. 特殊符号:^代表父提交,当一个提交有多个父提交时,可以通过在^后面跟上一个数字,表示第几个父提交: ^相当于^1.~相当于连续的个^.]]></content>
       <categories>
-          
-          <category> git </category>
-          
+        <category>git</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> git </tag>
-            
-            <tag> tools </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>nginx的使用（一）----安装</title>
-      <link href="/2018/08/25/nginx%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85/"/>
-      <url>/2018/08/25/nginx%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85/</url>
-      <content type="html"><![CDATA[<h2 id="一、nginx简介"><a href="#一、nginx简介" class="headerlink" title="一、nginx简介"></a>一、nginx简介</h2><h4 id="1、nginx是什么"><a href="#1、nginx是什么" class="headerlink" title="1、nginx是什么"></a>1、nginx是什么</h4><p>Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。</p><h4 id="2、nginx可以用来做什么（不加载第三方模块）"><a href="#2、nginx可以用来做什么（不加载第三方模块）" class="headerlink" title="2、nginx可以用来做什么（不加载第三方模块）"></a>2、nginx可以用来做什么（不加载第三方模块）</h4><ol><li>反向代理</li><li>负载均衡</li><li>HTTP服务器（包含动静分离）</li><li>正向代理</li><li>缓存</li></ol><h2 id="二、nginx安装以及简单的配置"><a href="#二、nginx安装以及简单的配置" class="headerlink" title="二、nginx安装以及简单的配置"></a>二、nginx安装以及简单的配置</h2><h4 id="1、安装nginx（环境-centos7）"><a href="#1、安装nginx（环境-centos7）" class="headerlink" title="1、安装nginx（环境 centos7）"></a>1、安装nginx（环境 centos7）</h4><p>采取最简单的方法，yum install nginx -y</p><h4 id="2、配置nginx"><a href="#2、配置nginx" class="headerlink" title="2、配置nginx"></a>2、配置nginx</h4><p>① 修改user为root（你用来启动nginx的账户）<br>② 添加转发服务器<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">upstream web_server&#123; # 名字随便起</span><br><span class="line">   server 127.0.0.1:8080  max_fails=1  fail_timeout=10s;  #Tomcat服务器1 ip</span><br><span class="line">   server 127.0.0.2:8080  max_fails=1  fail_timeout=10s;  #Tomcat服务器2 ip</span><br><span class="line">   #注意服务器的ip以及端口不要重复</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80 default_server;</span><br><span class="line">    listen       [::]:80 default_server;</span><br><span class="line">    server_name  _;</span><br><span class="line">    root         /usr/share/nginx/html;</span><br><span class="line">    # Load configuration <span class="keyword">files</span> <span class="keyword">for</span> the default server block.</span><br><span class="line">    include /etc/nginx/default.d/*.conf;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://web_server;   #和上边定义的upstream 对应起来</span><br><span class="line">        proxy_connect_timeout 10;</span><br><span class="line">        proxy_read_timeout  10;</span><br><span class="line">        proxy_send_timeout  10;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page 404 /404.html;</span><br><span class="line">        location = /<span class="number">40</span><span class="keyword">x</span>.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page 500 502 503 504 /50x.html;</span><br><span class="line">        location = /<span class="number">50</span><span class="keyword">x</span>.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="3、nginx的启动、停止、重启"><a href="#3、nginx的启动、停止、重启" class="headerlink" title="3、nginx的启动、停止、重启"></a>3、nginx的启动、停止、重启</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx <span class="comment">#启动nginx</span></span><br><span class="line">systemctl stop nginx <span class="comment">#停止nginx</span></span><br><span class="line">systemctl restart nginx <span class="comment">#重新启动nginx</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nginx <span class="comment">#开机启动nginx</span></span><br></pre></td></tr></table></figure><h4 id="4、nginx踩过的一些坑"><a href="#4、nginx踩过的一些坑" class="headerlink" title="4、nginx踩过的一些坑"></a>4、nginx踩过的一些坑</h4><p>selinux引起的权限访问受限问题，cat /var/log/Audit/Audit.log 发现有nginx访问阻止记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>=AVC msg=audit(1416406823.013:3137): avc:  denied  &#123; search &#125; <span class="keyword">for</span>  pid=15488 comm=<span class="string">"nginx"</span> name=<span class="string">"www"</span> dev=<span class="string">"dm-3"</span> ino=146 scontext=system_u:system_r:httpd_t:s0 tcontext=unconfined_u:object_r:user_home_dir_t:s0 tclass=dir</span><br></pre></td></tr></table></figure></p><p>解决方案1、（<font color="red">建议采用</font>）<br>设置selinux允许nginx<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install policycoreutils-python</span><br><span class="line">cat /var/<span class="built_in">log</span>/audit/audit.log | grep nginx | grep denied | audit2allow -M mynginx</span><br><span class="line">semodule -i mynginx.pp</span><br></pre></td></tr></table></figure></p><p>解决方案2.1、<br>临时关闭selinux<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0  <span class="comment">#重启后失效</span></span><br></pre></td></tr></table></figure></p><p>解决方案2.2、<br>永久关闭selinux</p><p>打开 selinux 配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/selinux/config</span><br></pre></td></tr></table></figure></p><p>修改 selinux 配置文件<br>将SELINUX=enforcing改为SELINUX=disabled，保存后退出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file controls the state of SELinux on the system.</span></span><br><span class="line"><span class="comment"># SELINUX= can take one of these three values:</span></span><br><span class="line"><span class="comment">#     enforcing - SELinux security policy is enforced.</span></span><br><span class="line"><span class="comment">#     permissive - SELinux prints warnings instead of enforcing.</span></span><br><span class="line"><span class="comment">#     disabled - No SELinux policy is loaded.</span></span><br><span class="line">SELINUX=enforcing</span><br><span class="line"><span class="comment"># SELINUXTYPE= can take one of three two values:</span></span><br><span class="line"><span class="comment">#     targeted - Targeted processes are protected,</span></span><br><span class="line"><span class="comment">#     minimum - Modification of targeted policy. Only selected processes are protected.</span></span><br><span class="line"><span class="comment">#     mls - Multi Level Security protection.</span></span><br><span class="line">SELINUXTYPE=targeted</span><br></pre></td></tr></table></figure></p><p>重启电脑（<font color="red">一定重启</font>，否则无效）</p>]]></content>
-      
+      <tags>
+        <tag>git</tag>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[nginx的使用（一）----安装]]></title>
+    <url>%2F2018%2F08%2F25%2Fnginx%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[一、nginx简介1、nginx是什么Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。 2、nginx可以用来做什么（不加载第三方模块） 反向代理 负载均衡 HTTP服务器（包含动静分离） 正向代理 缓存 二、nginx安装以及简单的配置1、安装nginx（环境 centos7）采取最简单的方法，yum install nginx -y 2、配置nginx① 修改user为root（你用来启动nginx的账户）② 添加转发服务器123456789101112131415161718192021222324252627upstream web_server&#123; # 名字随便起 server 127.0.0.1:8080 max_fails=1 fail_timeout=10s; #Tomcat服务器1 ip server 127.0.0.2:8080 max_fails=1 fail_timeout=10s; #Tomcat服务器2 ip #注意服务器的ip以及端口不要重复 ...&#125;server &#123; listen 80 default_server; listen [::]:80 default_server; server_name _; root /usr/share/nginx/html; # Load configuration files for the default server block. include /etc/nginx/default.d/*.conf; location / &#123; proxy_pass http://web_server; #和上边定义的upstream 对应起来 proxy_connect_timeout 10; proxy_read_timeout 10; proxy_send_timeout 10; &#125; error_page 404 /404.html; location = /40x.html &#123; &#125; error_page 500 502 503 504 /50x.html; location = /50x.html &#123; &#125;&#125; 3、nginx的启动、停止、重启1234systemctl start nginx #启动nginxsystemctl stop nginx #停止nginxsystemctl restart nginx #重新启动nginxsystemctl enable nginx #开机启动nginx 4、nginx踩过的一些坑selinux引起的权限访问受限问题，cat /var/log/Audit/Audit.log 发现有nginx访问阻止记录1type=AVC msg=audit(1416406823.013:3137): avc: denied &#123; search &#125; for pid=15488 comm="nginx" name="www" dev="dm-3" ino=146 scontext=system_u:system_r:httpd_t:s0 tcontext=unconfined_u:object_r:user_home_dir_t:s0 tclass=dir 解决方案1、（建议采用）设置selinux允许nginx123yum install policycoreutils-pythoncat /var/log/audit/audit.log | grep nginx | grep denied | audit2allow -M mynginxsemodule -i mynginx.pp 解决方案2.1、临时关闭selinux1setenforce 0 #重启后失效 解决方案2.2、永久关闭selinux 打开 selinux 配置文件1vim /etc/selinux/config 修改 selinux 配置文件将SELINUX=enforcing改为SELINUX=disabled，保存后退出1234567891011# This file controls the state of SELinux on the system.# SELINUX= can take one of these three values:# enforcing - SELinux security policy is enforced.# permissive - SELinux prints warnings instead of enforcing.# disabled - No SELinux policy is loaded.SELINUX=enforcing# SELINUXTYPE= can take one of three two values:# targeted - Targeted processes are protected,# minimum - Modification of targeted policy. Only selected processes are protected.# mls - Multi Level Security protection.SELINUXTYPE=targeted 重启电脑（一定重启，否则无效）]]></content>
       <categories>
-          
-          <category> linux </category>
-          
+        <category>linux</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> nginx </tag>
-            
-            <tag> linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>测试</title>
-      <link href="/2018/08/25/first/"/>
-      <url>/2018/08/25/first/</url>
-      <content type="html"><![CDATA[<h2 id="测试文章"><a href="#测试文章" class="headerlink" title="测试文章"></a>测试文章</h2><ul><li>博客开通了</li><li>有事情请发送邮件</li></ul>]]></content>
-      
+      <tags>
+        <tag>nginx</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[测试]]></title>
+    <url>%2F2018%2F08%2F25%2Ffirst%2F</url>
+    <content type="text"><![CDATA[测试文章 博客开通了 有事情请发送邮件]]></content>
       <categories>
-          
-          <category> test </category>
-          
+        <category>test</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> test </tag>
-            
-        </tags>
-      
-    </entry>
-    
-  
-  
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
 </search>
