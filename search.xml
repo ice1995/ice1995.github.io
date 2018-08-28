@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CCNA学习笔记三 -- 路由和交换]]></title>
+    <url>%2F2018%2F08%2F28%2Fccna-3%2F</url>
+    <content type="text"><![CDATA[网络畅通的条件数据包能去能回沿途的路由器必须知道到目标地址如何转发沿途的路由器必须知道回来的数据包如何转发 路由器直连的网络 不用告诉路由器如何转发路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由123456(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0 设置数据包 到192.168.1.0/24的数据包下一跳给192.168.2.0(config)#tracroute ip_address 跟踪数据包路径#show ip route 查看路由表(config)#no ip route 192.168.1.0 255.255.255.0 删除路由表windows上添加路由表 route add ip_adress mask ip_webwindows查看路由表 netstat-r route print 动态路由优先级 直连0 静态路由1 eigp90 rip120RIP协议 跳数判断，周期性（30s）更新路由表，最大跳数16跳12345678(config)#router rip 启用rip协议 (config-router)#network 192.168.1.0 该网段参与rip协议 #debug ip rip 显示rip协议信息#undebug all 关闭rip协议信息显示#show ip protocols 显示应用协议EIGP协议 优先级高于RIP(config)#router eigp 10 启用eigp协议,相同编号路由器才可以交换路由信息(config-router)#network 192.168.1.0 该网段参与eigp协议 交换集线器 不安全、冲突域、带宽共享交换机 基于目标MAC地址转发、学习MAC地址、端口独享带宽、没有冲突、广播会出问题123456789#show mac-address-table 显示MAC地址表 #config terminal (config)#interrface fastEthernet 0/4 (config-if)#switchport mode access 接机算机的接口 (config-if)#switchport port-security 启用安全 (config-if)#switchport port-security violation shutdown 违反安全规则down掉 (config-if)#switchport port-security maxium 2 限制连接数量 (config)#interrface range fastEthernet 0/1 - 24 选中1-24个口 (config-if-range)#switchport port-security mac-adddress sticky MAC地址终止学习 生成树协议 为了高可用局域网交换机连接有了环路为了阻断网络中的广播有了生成树协议123#show spanning-tree 查看交换机端口以及生成树状态(config)#spanning-tree vlan 1 priority 4096更改路由器优先级为4096，值越小优先级越高(config)#no spanning-tree vlan 1 关闭生成树协议]]></content>
+      <categories>
+        <category>net</category>
+      </categories>
+      <tags>
+        <tag>net</tag>
+        <tag>ccna</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CCNA学习笔记二--TCP/IP协议]]></title>
     <url>%2F2018%2F08%2F27%2Fccna-2%2F</url>
     <content type="text"><![CDATA[DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 IPv4、ARP、RARP、ICMP网络接口 各种通信网络接口（以太网等物理网络） 传输层协议可靠传输 TCP 分段传输 建立会话（消耗系统资源） 丢失重传不可靠传输 UDP 一个数据包就能表达完整 屏幕广播 应用层协议默认端口http=TCP+80ftp=TCP+21（接受命令、验证身份等） 20（传输数据）https=TCP+443SMTP=TCP+25（发邮件）POP3=TCP+110（收邮件）RDP=TCP+3389(远程桌面)DNS=UDP+53（DNS解析）IP地址访问Windows共享文件夹=TCP+445计算机名访问windows共享文件夹=TCP+139SQL=TCP+1433（访问数据库）telnet=TCP+23 服务和端口的关系服务侦听端口客户端请求服务 使用目标端口来区分（服务器根据数据包的目标端口来区分客户端）服务停止 侦听的端口关闭查看侦听的端口 netstat -anb|find “content”检测端口 telnet ip 端口 网络安全win2003service tcp/ip筛选不影响出去的流量wf.msc windows高级防火墙 网络层协议IP协议 选择最佳路径的协议（RIP OSPF EIGRP BGP）ICMP协议 测试网络是否畅通ping 估计带宽 查看网络是否畅通 断定远程系统 每过一个路由器TTL-1TTL 128 windows系统TTL 64 linux系统pathping 跟踪路径 计算丢包情况IGMP协议 组播点到点 广播 多播（组播）ARP协议 将计算机的IP地址解析成MAC地址数据跨网段通讯和同一网段通信过程MAC地址决定了下一跳给那个设备IP地址决定最终计算机 IP地址32位二进制组成 ip地址分类 x:network id y:host id 类别 功能 开头 个头 缺省子网掩码 A xyyy 1-127 256^3-2 255.0.0.0 B xxyy 128-191 256^2-2 255.255.0.0 C xxxy 192-223 256-2 255.255.255.0 D 组播 224-239 E 研究 240-255 保留的私网地址A 10.0.0.0B 172.16.0.0-172.31.0.0C 192.168.0.0-192.168.255.0 本地环回地址127.0.0.1 ping通过表示TCP/IP协议安装正常169.254.0.0 DHCP获取网络地址未果的时候得到的地址]]></content>
