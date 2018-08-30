@@ -103,11 +103,11 @@
 <meta name="keywords" content="mycat,db,linux,middleware">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mycat使用记录一 -- 安装与配置">
-<meta property="og:url" content="http://http://132.232.42.89/2018/08/30/mycat/index.html">
+<meta property="og:url" content="http://http://132.232.42.89/2018/08/30/mycat-1/index.html">
 <meta property="og:site_name" content="Icecap">
 <meta property="og:description" content="背景条件&amp;emsp;&amp;emsp;现有app流量数据统计分析系统，因数据量过大使用单数据库性能有限，打算将现有数据库进行优化，计划使用mycat实现分布式，在本地搭建环境学习 环境&amp;emsp;&amp;emsp;VMware虚拟机下的Cetnos7 × 3台 mycat的安装 下载mycat，这里我选择的是1.6.5版本，也就是目前的release版本。 上传至linux系统，解压至/opt/mycat(我">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-30T02:00:52.878Z">
+<meta property="og:updated_time" content="2018-08-30T02:16:51.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mycat使用记录一 -- 安装与配置">
 <meta name="twitter:description" content="背景条件&amp;emsp;&amp;emsp;现有app流量数据统计分析系统，因数据量过大使用单数据库性能有限，打算将现有数据库进行优化，计划使用mycat实现分布式，在本地搭建环境学习 环境&amp;emsp;&amp;emsp;VMware虚拟机下的Cetnos7 × 3台 mycat的安装 下载mycat，这里我选择的是1.6.5版本，也就是目前的release版本。 上传至linux系统，解压至/opt/mycat(我">
@@ -140,7 +140,7 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/2018/08/30/mycat/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2018/08/30/mycat-1/"/>
 
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/30/mycat/">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/30/mycat-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bohan Zhang">
@@ -387,8 +387,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/30/mycat/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/30/mycat/" itemprop="commentCount"></span>
+                <a href="/2018/08/30/mycat-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/30/mycat-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -420,7 +420,10 @@
 <h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p>&emsp;&emsp;VMware虚拟机下的Cetnos7 × 3台</p>
 <h4 id="mycat的安装"><a href="#mycat的安装" class="headerlink" title="mycat的安装"></a>mycat的安装</h4><ol>
 <li><a href="http://dl.mycat.io" target="_blank" rel="noopener">下载</a>mycat，这里我选择的是1.6.5版本，也就是目前的release版本。</li>
-<li>上传至linux系统，解压至/opt/mycat(我习惯的目录)<h4 id="mycat的配置"><a href="#mycat的配置" class="headerlink" title="mycat的配置"></a>mycat的配置</h4><h5 id="配置文件路径"><a href="#配置文件路径" class="headerlink" title="配置文件路径"></a>配置文件路径</h5>\$mycat_home\$指的是安装目录<br>\$mycat_home\$/conf/server.xml    Mycat的配置文件，设置账号、参数等<br>\$mycat_home\$/conf/schema.xml    Mycat对应的物理数据库和数据库表的配置<br>\$mycat_home\$/conf/rule.xml    Mycat分片（分库分表）规则  <h5 id="具体配置"><a href="#具体配置" class="headerlink" title="具体配置"></a>具体配置</h5></li>
+<li>上传至linux系统，解压至/opt/mycat(我习惯的目录)  </li>
+</ol>
+<h4 id="mycat的配置"><a href="#mycat的配置" class="headerlink" title="mycat的配置"></a>mycat的配置</h4><h5 id="配置文件路径"><a href="#配置文件路径" class="headerlink" title="配置文件路径"></a>配置文件路径</h5><p>\$mycat_home\$指的是安装目录<br>\$mycat_home\$/conf/server.xml    Mycat的配置文件，设置账号、参数等<br>\$mycat_home\$/conf/schema.xml    Mycat对应的物理数据库和数据库表的配置<br>\$mycat_home\$/conf/rule.xml    Mycat分片（分库分表）规则  </p>
+<h5 id="具体配置"><a href="#具体配置" class="headerlink" title="具体配置"></a>具体配置</h5><ol>
 <li><p>wrapper.conf<br>–配置jdk(如果已经配置java环境变量，这一步可以忽略)</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wrapper.java.command=/usr/bin/java    </span><br><span class="line">#配置java的路径</span><br></pre></td></tr></table></figure>
 </li>
@@ -471,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/30/linux-command/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2018/08/30/linux-command/" rel="next" title="Linux指令记录合集（长期更新）">
+                <i class="fa fa-chevron-left"></i> Linux指令记录合集（长期更新）
               </a>
             
           </div>
@@ -510,8 +513,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/08/30/mycat/"
-           data-title="mycat使用记录一 -- 安装与配置" data-url="http://http://132.232.42.89/2018/08/30/mycat/">
+      <div class="ds-thread" data-thread-key="2018/08/30/mycat-1/"
+           data-title="mycat使用记录一 -- 安装与配置" data-url="http://http://132.232.42.89/2018/08/30/mycat-1/">
       </div>
     </div>
 
@@ -589,7 +592,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
