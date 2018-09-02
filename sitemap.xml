@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://http://132.232.42.89/2018/09/01/nginx-2/</loc>
+    
+    <lastmod>2018-09-02T07:36:47.151Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/25/nginx-1/</loc>
+    
+    <lastmod>2018-09-01T09:36:13.563Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/30/linux-command/</loc>
+    
+    <lastmod>2018-09-01T08:41:20.334Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://http://132.232.42.89/2018/08/30/mycat-1/</loc>
     
-    <lastmod>2018-09-01T07:11:23.212Z</lastmod>
+    <lastmod>2018-09-01T07:36:17.256Z</lastmod>
     
   </url>
   
@@ -12,13 +33,6 @@
     <loc>http://http://132.232.42.89/2018/08/29/sport-record/</loc>
     
     <lastmod>2018-08-31T23:51:41.673Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/30/linux-command/</loc>
-    
-    <lastmod>2018-08-30T02:19:05.316Z</lastmod>
     
   </url>
   
@@ -103,13 +117,6 @@
     <loc>http://http://132.232.42.89/2018/08/25/Git/</loc>
     
     <lastmod>2018-08-25T10:28:47.094Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/25/nginx%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85/</loc>
-    
-    <lastmod>2018-08-25T09:50:51.576Z</lastmod>
     
   </url>
   

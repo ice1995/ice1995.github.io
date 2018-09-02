@@ -4,18 +4,84 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/09/01/nginx-2/</loc>
+    <lastmod>2018-09-02T07:36:47.151Z</lastmod>
+    <data>
+        <display>
+        <title>nginx的使用（二）-- 详细了解Nginx</title>
+        <pubTime>2018-09-01T09:29:39.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/25/nginx-1/</loc>
+    <lastmod>2018-09-01T09:36:13.563Z</lastmod>
+    <data>
+        <display>
+        <title>nginx的使用（一）-- 简单的安装使用</title>
+        <pubTime>2018-08-25T02:10:29.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/30/linux-command/</loc>
+    <lastmod>2018-09-01T08:41:20.334Z</lastmod>
+    <data>
+        <display>
+        <title>Linux指令记录合集（长期更新）</title>
+        <pubTime>2018-08-30T00:55:12.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>command</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://http://132.232.42.89/2018/08/30/mycat-1/</loc>
-    <lastmod>2018-09-01T07:11:23.212Z</lastmod>
+    <lastmod>2018-09-01T07:36:17.256Z</lastmod>
     <data>
         <display>
         <title>mycat使用记录一 -- 安装与配置</title>
         <pubTime>2018-08-30T01:23:00.000Z</pubTime>
         
+        <tag>linux</tag>
+         
         <tag>mycat</tag>
          
         <tag>db</tag>
-         
-        <tag>linux</tag>
          
         <tag>middleware</tag>
          
@@ -45,28 +111,6 @@
            
              
               <breadCrumb title="mine" url="http://http://132.232.42.89/categories/mine/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/30/linux-command/</loc>
-    <lastmod>2018-08-30T02:19:05.316Z</lastmod>
-    <data>
-        <display>
-        <title>Linux指令记录合集（长期更新）</title>
-        <pubTime>2018-08-30T00:55:12.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>command</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
           
         </display>
     </data>
@@ -318,28 +362,6 @@
            
              
               <breadCrumb title="git" url="http://http://132.232.42.89/categories/git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/25/nginx%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%80%EF%BC%89-%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2018-08-25T09:50:51.576Z</lastmod>
-    <data>
-        <display>
-        <title>nginx的使用（一）----安装</title>
-        <pubTime>2018-08-25T02:10:29.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
           
         </display>
     </data>
