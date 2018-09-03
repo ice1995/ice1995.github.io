@@ -4,6 +4,54 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/08/25/regex/</loc>
+    <lastmod>2018-09-03T03:02:29.304Z</lastmod>
+    <data>
+        <display>
+        <title>Regular Expression 正则表达式</title>
+        <pubTime>2018-08-25T10:04:37.000Z</pubTime>
+        
+        <tag>tools</tag>
+         
+        <tag>regular</tag>
+         
+        <tag>regex</tag>
+         
+        <tag>code</tag>
+         
+         
+           
+             
+              <breadCrumb title="regular" url="http://http://132.232.42.89/categories/regular/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/30/linux-command/</loc>
+    <lastmod>2018-09-03T01:09:17.034Z</lastmod>
+    <data>
+        <display>
+        <title>Linux指令记录合集（长期更新）</title>
+        <pubTime>2018-08-30T00:55:12.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>command</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://http://132.232.42.89/2018/08/29/sport-record/</loc>
     <lastmod>2018-09-02T12:19:08.138Z</lastmod>
     <data>
@@ -70,28 +118,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/30/linux-command/</loc>
-    <lastmod>2018-09-01T08:41:20.334Z</lastmod>
-    <data>
-        <display>
-        <title>Linux指令记录合集（长期更新）</title>
-        <pubTime>2018-08-30T00:55:12.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>command</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/08/30/mycat-1/</loc>
     <lastmod>2018-09-01T07:36:17.256Z</lastmod>
     <data>
@@ -99,11 +125,11 @@
         <title>mycat使用记录一 -- 安装与配置</title>
         <pubTime>2018-08-30T01:23:00.000Z</pubTime>
         
-        <tag>linux</tag>
-         
         <tag>mycat</tag>
          
         <tag>db</tag>
+         
+        <tag>linux</tag>
          
         <tag>middleware</tag>
          
@@ -319,32 +345,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/25/regex/</loc>
-    <lastmod>2018-08-25T10:58:07.444Z</lastmod>
-    <data>
-        <display>
-        <title>Regular Expression 正则表达式</title>
-        <pubTime>2018-08-25T10:04:37.000Z</pubTime>
-        
-        <tag>tools</tag>
-         
-        <tag>regular</tag>
-         
-        <tag>regex</tag>
-         
-        <tag>code</tag>
-         
-         
-           
-             
-              <breadCrumb title="regular" url="http://http://132.232.42.89/categories/regular/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://http://132.232.42.89/2018/08/25/Git/</loc>
