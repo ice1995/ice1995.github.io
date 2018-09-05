@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/09/01/nginx-2/</loc>
+    <lastmod>2018-09-05T12:56:17.750Z</lastmod>
+    <data>
+        <display>
+        <title>nginx的使用（二）-- 详细了解Nginx</title>
+        <pubTime>2018-09-01T09:29:39.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://http://132.232.42.89/2018/08/30/linux-command/</loc>
     <lastmod>2018-09-05T11:34:05.670Z</lastmod>
     <data>
@@ -59,9 +81,9 @@
         <title>CCNA学习笔记一 -- 计算机网络详解</title>
         <pubTime>2018-08-27T06:27:56.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -115,28 +137,6 @@
            
              
               <breadCrumb title="mine" url="http://http://132.232.42.89/categories/mine/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/09/01/nginx-2/</loc>
-    <lastmod>2018-09-02T07:36:47.151Z</lastmod>
-    <data>
-        <display>
-        <title>nginx的使用（二）-- 详细了解Nginx</title>
-        <pubTime>2018-09-01T09:29:39.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
           
         </display>
     </data>
@@ -221,9 +221,9 @@
         <title>CCNA学习笔记二 -- TCP/IP协议</title>
         <pubTime>2018-08-27T13:08:24.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -243,9 +243,9 @@
         <title>CCNA学习笔记七 -- IPv6</title>
         <pubTime>2018-08-28T07:27:57.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -265,9 +265,9 @@
         <title>CCNA学习笔记六 -- NAT</title>
         <pubTime>2018-08-28T07:24:46.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -287,9 +287,9 @@
         <title>CCNA学习笔记五 -- ACL</title>
         <pubTime>2018-08-28T07:20:39.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -309,9 +309,9 @@
         <title>CCNA学习笔记四 -- VLAN</title>
         <pubTime>2018-08-28T07:18:21.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -331,9 +331,9 @@
         <title>CCNA学习笔记三 -- 路由和交换</title>
         <pubTime>2018-08-28T06:52:47.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            

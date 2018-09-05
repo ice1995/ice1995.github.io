@@ -108,7 +108,7 @@
 <meta property="og:description" content="为什么使用Nginx 更快&amp;emsp;&amp;emsp;主要表现在两个方面：1，正常情况下，单次请求会得到更快的响应；2，在高峰期（数以万计的并发请求），Nginx可以比其他web服务器更快地请求响应。 高扩展性&amp;emsp;&amp;emsp;它完全是由多个不同功能、 不同层次、 不同类型且耦合度低的模块组成。 高可靠性 &amp;emsp;&amp;emsp;Nginx 的高可靠性来自于其核心框架代码的优秀设计、 模块设计的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://zhangbohan.xyz/images/nginx/nginx-1.png">
-<meta property="og:updated_time" content="2018-09-02T07:36:47.151Z">
+<meta property="og:updated_time" content="2018-09-05T12:56:17.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx的使用（二）-- 详细了解Nginx">
 <meta name="twitter:description" content="为什么使用Nginx 更快&amp;emsp;&amp;emsp;主要表现在两个方面：1，正常情况下，单次请求会得到更快的响应；2，在高峰期（数以万计的并发请求），Nginx可以比其他web服务器更快地请求响应。 高扩展性&amp;emsp;&amp;emsp;它完全是由多个不同功能、 不同层次、 不同类型且耦合度低的模块组成。 高可靠性 &amp;emsp;&amp;emsp;Nginx 的高可靠性来自于其核心框架代码的优秀设计、 模块设计的">
@@ -425,7 +425,9 @@
 <li>低内存消耗<br> &emsp;&emsp;一般情况下， 10 000 个非活跃的 HTTP Keep-Alive 连接在 Nginx 中仅消耗 2.5MB 的内存， 这是 Nginx 支持高并发连接的基础。</li>
 <li>单机支持 10 万以上的并发连接   </li>
 <li>热部署<br> &emsp;&emsp;可以在 7×24 小时不间断服务的前提下， 升级 Nginx 的可执行文件。 当然， 它也支持不停止服务就更新配置项、 更换日志文件等功能。</li>
-<li>最自由的BSD许可协议<br> &emsp;&emsp;允许用户在自己的项目中直接使用或修改 Nginx 源码。<h4 id="使用Nginx的必备软件"><a href="#使用Nginx的必备软件" class="headerlink" title="使用Nginx的必备软件"></a>使用Nginx的必备软件</h4></li>
+<li>最自由的BSD许可协议<br> &emsp;&emsp;允许用户在自己的项目中直接使用或修改 Nginx 源码。</li>
+</ol>
+<h4 id="使用Nginx的必备软件"><a href="#使用Nginx的必备软件" class="headerlink" title="使用Nginx的必备软件"></a>使用Nginx的必备软件</h4><ol>
 <li>GCC编译器<br>&emsp;&emsp;用来编译nginx的各个模块  </li>
 <li>PCRE库<br>&emsp;&emsp;PCRE（Perl Compatible Regular Expressions， Perl 兼容正则表达式） 是由 Philip Hazel开发的函数库， 目前为很多软件所使用， 该库支持正则表达式。当然，如果不打算在nginx中使用正则表达式，那么这个就不是必需的。</li>
 <li>zlib库<br> &emsp;&emsp;zlib 库用于对 HTTP 包的内容做 gzip 格式的压缩， 如果我们在 nginx.conf 里配置了 gzip on， 并指定对于某些类型（content-type） 的 HTTP 响应使用 gzip 来进行压缩以减少网络传， 那么， 在编译时就必须把 zlib 编译进 Nginx。</li>

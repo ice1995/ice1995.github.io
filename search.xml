@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[nginx的使用（二）-- 详细了解Nginx]]></title>
     <url>%2F2018%2F09%2F01%2Fnginx-2%2F</url>
-    <content type="text"><![CDATA[为什么使用Nginx 更快&emsp;&emsp;主要表现在两个方面：1，正常情况下，单次请求会得到更快的响应；2，在高峰期（数以万计的并发请求），Nginx可以比其他web服务器更快地请求响应。 高扩展性&emsp;&emsp;它完全是由多个不同功能、 不同层次、 不同类型且耦合度低的模块组成。 高可靠性 &emsp;&emsp;Nginx 的高可靠性来自于其核心框架代码的优秀设计、 模块设计的简单性。每个 worker进程相对独立， master 进程在 1 个 worker 进程出错时可以快速“拉起”新的 worker 子进程提供服务。 低内存消耗 &emsp;&emsp;一般情况下， 10 000 个非活跃的 HTTP Keep-Alive 连接在 Nginx 中仅消耗 2.5MB 的内存， 这是 Nginx 支持高并发连接的基础。 单机支持 10 万以上的并发连接 热部署 &emsp;&emsp;可以在 7×24 小时不间断服务的前提下， 升级 Nginx 的可执行文件。 当然， 它也支持不停止服务就更新配置项、 更换日志文件等功能。 最自由的BSD许可协议 &emsp;&emsp;允许用户在自己的项目中直接使用或修改 Nginx 源码。使用Nginx的必备软件 GCC编译器&emsp;&emsp;用来编译nginx的各个模块 PCRE库&emsp;&emsp;PCRE（Perl Compatible Regular Expressions， Perl 兼容正则表达式） 是由 Philip Hazel开发的函数库， 目前为很多软件所使用， 该库支持正则表达式。当然，如果不打算在nginx中使用正则表达式，那么这个就不是必需的。 zlib库 &emsp;&emsp;zlib 库用于对 HTTP 包的内容做 gzip 格式的压缩， 如果我们在 nginx.conf 里配置了 gzip on， 并指定对于某些类型（content-type） 的 HTTP 响应使用 gzip 来进行压缩以减少网络传， 那么， 在编译时就必须把 zlib 编译进 Nginx。 OpenSSL 开发库&emsp;&emsp;在SSL 协议上传输 HTTP，以及使用MD5、 SHA1 等散列函数都需要OpenSSL 开发库的支持。运行中的Nginx进程间的关系&emsp;&emsp;部署 Nginx 时都是使用一个 master 进程来管理多个worker 进程， 一般情况下， worker 进程的数量与服务器上的 CPU 核心数相等。 Nginx文件路径的常用定义 以 root 方式设置资源路径语法： root path;默认： root html;配置块： http、 server、 location、 if&emsp;&emsp;例如， 定义资源文件相对于 HTTP 请求的根目录。 123location /download/ &#123; root /opt/web/html/;&#125; &emsp;&emsp;在上面的配置中， 如果有一个请求的 URI 是 /download/index/test.html， 那么 Web 服务器将会返回服务器上 /opt/web/html/download/index/test.html 文件的内容。 以 alias 方式设置资源路径语法： alias path;配置块： location&emsp;&emsp;alias 也是用来设置文件资源路径的， 它与 root 的不同点主要在于如何解读紧跟 location后面的 uri 参数， 这将会致使 alias 与 root 以不同的方式将用户请求映射到真正的磁盘文件上。 例如， 如果有一个请求的 URI 是 /conf/nginx.conf， 而用户实际想访问的文件在 /usr/local/nginx/conf/nginx.conf， 那么想要使用 alias 来进行设置的话， 可以采用如下方式： 123location /conf &#123;alias /usr/local/nginx/conf/;&#125; 如果用 root 设置， 那么语句如下所示： 123location /conf &#123;root /usr/local/nginx/;&#125; alias 后面还可以添加正则表达式， 例如： 123location ~ ^/test/(\w+)\.(\w+)$ &#123;alias /usr/local/nginx/$2/$1.$2;&#125; &emsp;&emsp;这样， 请求在访问 /test/nginx.conf 时， Nginx 会返回 /usr/local/nginx/conf/nginx.conf 文件中的内容。 访问首页语法： index file …;默认： index index.html;配置块： http、 server、 location&emsp;&emsp;有时， 访问站点时的 URI 是 /， 这时一般是返回网站的首页， 而这与 root 和 alias 都不同。 这里用 ngx_http_index_module 模块提供的 index 配置实现。 index 后可以跟多个文件参数， Nginx 将会按照顺序来访问这些文件， 例如： 1234location / &#123;root path;index /index.html /html/index.php /index.php;&#125;]]></content>
+    <content type="text"><![CDATA[为什么使用Nginx 更快&emsp;&emsp;主要表现在两个方面：1，正常情况下，单次请求会得到更快的响应；2，在高峰期（数以万计的并发请求），Nginx可以比其他web服务器更快地请求响应。 高扩展性&emsp;&emsp;它完全是由多个不同功能、 不同层次、 不同类型且耦合度低的模块组成。 高可靠性 &emsp;&emsp;Nginx 的高可靠性来自于其核心框架代码的优秀设计、 模块设计的简单性。每个 worker进程相对独立， master 进程在 1 个 worker 进程出错时可以快速“拉起”新的 worker 子进程提供服务。 低内存消耗 &emsp;&emsp;一般情况下， 10 000 个非活跃的 HTTP Keep-Alive 连接在 Nginx 中仅消耗 2.5MB 的内存， 这是 Nginx 支持高并发连接的基础。 单机支持 10 万以上的并发连接 热部署 &emsp;&emsp;可以在 7×24 小时不间断服务的前提下， 升级 Nginx 的可执行文件。 当然， 它也支持不停止服务就更新配置项、 更换日志文件等功能。 最自由的BSD许可协议 &emsp;&emsp;允许用户在自己的项目中直接使用或修改 Nginx 源码。 使用Nginx的必备软件 GCC编译器&emsp;&emsp;用来编译nginx的各个模块 PCRE库&emsp;&emsp;PCRE（Perl Compatible Regular Expressions， Perl 兼容正则表达式） 是由 Philip Hazel开发的函数库， 目前为很多软件所使用， 该库支持正则表达式。当然，如果不打算在nginx中使用正则表达式，那么这个就不是必需的。 zlib库 &emsp;&emsp;zlib 库用于对 HTTP 包的内容做 gzip 格式的压缩， 如果我们在 nginx.conf 里配置了 gzip on， 并指定对于某些类型（content-type） 的 HTTP 响应使用 gzip 来进行压缩以减少网络传， 那么， 在编译时就必须把 zlib 编译进 Nginx。 OpenSSL 开发库&emsp;&emsp;在SSL 协议上传输 HTTP，以及使用MD5、 SHA1 等散列函数都需要OpenSSL 开发库的支持。运行中的Nginx进程间的关系&emsp;&emsp;部署 Nginx 时都是使用一个 master 进程来管理多个worker 进程， 一般情况下， worker 进程的数量与服务器上的 CPU 核心数相等。 Nginx文件路径的常用定义 以 root 方式设置资源路径语法： root path;默认： root html;配置块： http、 server、 location、 if&emsp;&emsp;例如， 定义资源文件相对于 HTTP 请求的根目录。 123location /download/ &#123; root /opt/web/html/;&#125; &emsp;&emsp;在上面的配置中， 如果有一个请求的 URI 是 /download/index/test.html， 那么 Web 服务器将会返回服务器上 /opt/web/html/download/index/test.html 文件的内容。 以 alias 方式设置资源路径语法： alias path;配置块： location&emsp;&emsp;alias 也是用来设置文件资源路径的， 它与 root 的不同点主要在于如何解读紧跟 location后面的 uri 参数， 这将会致使 alias 与 root 以不同的方式将用户请求映射到真正的磁盘文件上。 例如， 如果有一个请求的 URI 是 /conf/nginx.conf， 而用户实际想访问的文件在 /usr/local/nginx/conf/nginx.conf， 那么想要使用 alias 来进行设置的话， 可以采用如下方式： 123location /conf &#123;alias /usr/local/nginx/conf/;&#125; 如果用 root 设置， 那么语句如下所示： 123location /conf &#123;root /usr/local/nginx/;&#125; alias 后面还可以添加正则表达式， 例如： 123location ~ ^/test/(\w+)\.(\w+)$ &#123;alias /usr/local/nginx/$2/$1.$2;&#125; &emsp;&emsp;这样， 请求在访问 /test/nginx.conf 时， Nginx 会返回 /usr/local/nginx/conf/nginx.conf 文件中的内容。 访问首页语法： index file …;默认： index index.html;配置块： http、 server、 location&emsp;&emsp;有时， 访问站点时的 URI 是 /， 这时一般是返回网站的首页， 而这与 root 和 alias 都不同。 这里用 ngx_http_index_module 模块提供的 index 配置实现。 index 后可以跟多个文件参数， Nginx 将会按照顺序来访问这些文件， 例如： 1234location / &#123;root path;index /index.html /html/index.php /index.php;&#125;]]></content>
       <categories>
         <category>linux</category>
       </categories>
@@ -84,8 +84,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -96,8 +96,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -108,8 +108,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -120,8 +120,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -132,8 +132,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -144,8 +144,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -156,8 +156,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
