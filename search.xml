@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[c++学习记录（一）]]></title>
     <url>%2F2018%2F09%2F06%2Fcpp-1%2F</url>
-    <content type="text"><![CDATA[学习背景&emsp;&emsp;因为想写一些图形化界面，需要使用到QT，然而QT需要c++的基础，故而学习一哈，顺便为以后算法做准备。 基本语法&emsp;&emsp;都差不多，故略 函数传参 值传递 &emsp;&emsp;是一种单项传递 123456789101112void swap(int a,int b)&#123; int t = a ; a = b ; b = t;&#125;int main()&#123; int x= 5; int y = 10; swap(x,y); cout &lt;&lt; x &lt;&lt; "\t" &lt;&lt; y &lt;&lt;endl; //结果未交换 return 0;&#125; 引用传递 &emsp;&emsp;引用可以作为形参进行双向传递，引用（&amp;）是标识符的别名 定义一个引用时，必须同时对其初始化，使它指向一个已经存在的对象，初始化后，不能改为指向其他对象 例如： 123456789101112void swap(int&amp; a,int&amp; b)&#123; int t = a ; a = b ; b = t;&#125;int main()&#123; int x= 5; int y = 10; swap(x,y);. cout &lt;&lt; x &lt;&lt; "\t" &lt;&lt; y &lt;&lt;endl; //结果交换 return 0;&#125;]]></content>
+    <content type="text"><![CDATA[学习背景&emsp;&emsp;因为想写一些图形化界面，需要使用到QT，然而QT需要c++的基础，故而学习一哈，顺便为以后算法做准备。 基本语法&emsp;&emsp;都差不多，故略 函数传参 值传递 &emsp;&emsp;是一种单项传递 123456789101112void swap(int a,int b)&#123; int t = a ; a = b ; b = t;&#125;int main()&#123; int x= 5; int y = 10; swap(x,y); cout &lt;&lt; x &lt;&lt; "\t" &lt;&lt; y &lt;&lt;endl; //结果未交换 return 0;&#125; 引用传递 &emsp;&emsp;引用可以作为形参进行双向传递，引用（&amp;）是标识符的别名 定义一个引用时，必须同时对其初始化，使它指向一个已经存在的对象，初始化后，不能改为指向其他对象 例如： 123456789101112void swap(int&amp; a,int&amp; b)&#123; int t = a ; a = b ; b = t;&#125;int main()&#123; int x= 5; int y = 10; swap(x,y);. cout &lt;&lt; x &lt;&lt; "\t" &lt;&lt; y &lt;&lt;endl; //结果交换 return 0;&#125; 内联函数&emsp;&emsp;调用简单函数的时候提高运行效率的一种机制，声明使用inline，期望用函数体内的语句在调用替换，inline只是一种建议，编译器不一定按照声明执行内联函数体内不能有循环语句和switch语句对内联函数不能进行异常接口声明12345678910#include &lt;siostream&gt;using namespace std;coust double PI = 3.14159265358979;inline double calArea(double radius)&#123; return PI*radius*radius;&#125;int main()&#123; double radius = 25; cout &lt;&lt; calArea(radius) &lt;&lt; endl;&#125; 函数重载&emsp;&emsp;c++允许功能相近的函数在相同的作用域内以相同函数名声明，从而形成重载，方便使用，利于记忆。形参类型或者个数必须不同， 析构函数&emsp;&emsp;析构函数完成对象被删除前的一些清理工作，对象消亡的时候自动调用1~ClassName(); 前向引用声明&emsp;&emsp;前向引用声明仅仅是为类引入一个标识符注意事项：&emsp;&emsp; 在提供一个完整的类声明之前，不能声明该类的对象，也不能在内联成员函数中使用该类的对象。123456789class B;class A&#123; public : void f(B b);&#125;class B&#123; public : void g(A a);&#125;]]></content>
       <categories>
         <category>c/c++</category>
       </categories>
@@ -32,9 +32,9 @@
         <category>middleware</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>mycat</tag>
         <tag>db</tag>
+        <tag>linux</tag>
         <tag>middleware</tag>
       </tags>
   </entry>
@@ -84,8 +84,8 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regular</tag>
         <tag>regex</tag>
+        <tag>regular</tag>
       </tags>
   </entry>
   <entry>
@@ -181,9 +181,9 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regular</tag>
-        <tag>regex</tag>
         <tag>code</tag>
+        <tag>regex</tag>
+        <tag>regular</tag>
       </tags>
   </entry>
   <entry>
