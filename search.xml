@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[crypt-1]]></title>
+    <url>%2F2018%2F09%2F18%2Fcrypt-1%2F</url>
+    <content type="text"><![CDATA[保密学 = 密码学 + 密码分析学]]></content>
+      <categories>
+        <category>cryptology</category>
+      </categories>
+      <tags>
+        <tag>password</tag>
+        <tag>cryption</tag>
+        <tag>cryptology</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据结构 - 树]]></title>
+    <url>%2F2018%2F09%2F17%2Falgorithm-tree%2F</url>
+    <content type="text"><![CDATA[树&emsp;&emsp; 一棵树是一些节点的集合。如果这棵树非空，则一棵树由称作根（root）节点的r以及0个或者多个非空的(子)树组成，这些子树中每一棵的根都被来自根r的一条有向的边（edge）所连接。&emsp;&emsp;每一棵子树的根叫做r的儿子，r是每一棵子树的根的父亲。没有儿子的节点称为树叶，具有相同父节点的节点称为兄弟。]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
+        <tag>data structure</tag>
+        <tag>tree</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PyQT学习记录（二）]]></title>
     <url>%2F2018%2F09%2F11%2Fpyqt-2%2F</url>
     <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
@@ -91,7 +117,7 @@
   <entry>
     <title><![CDATA[正则表达式应用（持续更新）]]></title>
     <url>%2F2018%2F08%2F28%2Fregex-using%2F</url>
-    <content type="text"><![CDATA[编程过程中使用的正则记录 b[^:b#/]+.$ 统计代码行数（不包括以# / 开头的 亦不包括空行）]]></content>
+    <content type="text"><![CDATA[编程过程中使用的正则记录 b[^:b#/]+.$ 统计代码行数（不包括以# / 开头的 亦不包括空行） \d(9|[0-7])\d{4} 中国邮政编码 ^((13[0-9])|(15[^4,\D])|(18[0,5-9]))\d{8}$ 手机号 ^([a-z0-9A-Z]+[-|\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$ 邮箱 ^[\u4e00-\u9fa5]{0,}$ 汉字 http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=])? url (((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])).){3}((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])) ipv4 &lt;!-{2,}.*-{2,}&gt; html注释 [1-8]\d{5}((18)|(19)|(20))?\d{2}[0-1]\d[0-3]\d{4}[\dX]? 中华人民共和国身份证号码]]></content>
       <categories>
         <category>regular</category>
       </categories>
