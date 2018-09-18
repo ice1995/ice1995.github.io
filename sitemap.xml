@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://http://132.232.42.89/2018/08/30/linux-command/</loc>
+    
+    <lastmod>2018-09-18T01:39:17.471Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://http://132.232.42.89/2018/09/18/crypt-1/</loc>
     
     <lastmod>2018-09-18T01:27:56.266Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://http://132.232.42.89/2018/09/11/pyqt-1/</loc>
     
     <lastmod>2018-09-12T07:11:44.542Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/30/linux-command/</loc>
-    
-    <lastmod>2018-09-11T01:52:05.706Z</lastmod>
     
   </url>
   
