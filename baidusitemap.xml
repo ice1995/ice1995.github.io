@@ -4,6 +4,72 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/09/20/springboot-mail/</loc>
+    <lastmod>2018-09-20T08:37:08.258Z</lastmod>
+    <data>
+        <display>
+        <title>springboot-mail</title>
+        <pubTime>2018-09-20T06:59:26.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>springboot</tag>
+         
+        <tag>email</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://http://132.232.42.89/categories/springboot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/09/19/algorithm-start/</loc>
+    <lastmod>2018-09-20T06:58:57.532Z</lastmod>
+    <data>
+        <display>
+        <title>algorithm-start</title>
+        <pubTime>2018-09-19T12:28:52.000Z</pubTime>
+        
+        <tag>algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="algorithm" url="http://http://132.232.42.89/categories/algorithm/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/09/19/python-thread/</loc>
+    <lastmod>2018-09-19T05:21:59.647Z</lastmod>
+    <data>
+        <display>
+        <title>python多线程</title>
+        <pubTime>2018-09-19T01:21:29.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>Thread</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://http://132.232.42.89/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://http://132.232.42.89/2018/08/30/linux-command/</loc>
     <lastmod>2018-09-18T01:39:17.471Z</lastmod>
     <data>
