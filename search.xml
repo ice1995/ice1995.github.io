@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Centos使用记录]]></title>
+    <url>%2F2018%2F09%2F26%2Fcentos-using%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp;个人喜欢使用CentOS7 系统，本帖记录使用CentOS所使用的过程，安装过程 略 （我习惯采用最小化安装） 安装图形化界面123yum groupinstall "GNOME Desktop" "Graphical Administration Tools" #安装GNOME图形化界面(时间较长，耐心等待)ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target #设置图形化界面为默认启动选项reboot # 重启CentOS 启动网络连接（手动配置网卡信息）&emsp;&emsp;安装过程没选择网络或者网卡没有自动连接,或者修改网卡配置（比如修改为固定ip等等） 123ip addr #查看你的网卡信息cat /etc/sysconfig/network-scripts/ifcfg-ens33 #打印查看网卡信息vi /etc/sysconfig/network-scripts/ifcfg-ens33 #修改网卡信息如下 123456789101112131415TYPE=EthernetPROXY_METHOD=noneBROWSER_ONLY=noBOOTPROTO=dhcpDEFROUTE=yesIPV4_FAILURE_FATAL=noIPV6INIT=yesIPV6_AUTOCONF=yesIPV6_DEFROUTE=yesIPV6_FAILURE_FATAL=noIPV6_ADDR_GEN_MODE=stable-privacyNAME=ens33UUID=a6bf4243-3908-4096-a87d-aabc853fffbaDEVICE=ens33ONBOOT=yes #修改的地方，改no为yes ，自动启动 安装网络工具包1yum install -y net-tools #包含ifconfig等命令 修改yum安装源为阿里源1234567 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo_bak #备份原有源信息wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo #下载阿里源到本地yum makecache #建立缓存yum -y update #对现有安装程序升级 安装中文输入法1yum install -y ibus ibus-libpinyin 设置 -&gt; 区域和语言 -&gt; 输入源 -&gt; 新加 -&gt; 汉语（中国） -&gt; 汉语（intelligent Pinyin） 安装jdk12345678rpm -qa | grep java #查找已经安装的jdkrpm -e --nodeps java-1.7.0-openjdk # 卸载掉rpm -e --nodeps java-1.8.0-openjdk # 卸载掉rpm -e --nodeps java-1.8.0-openjdk-headless # 卸载掉rpm -e --nodeps java-1.7.0-openjdk-headless # 卸载掉rpm -ivh jdk-8u181-linux-x64.rpm # 安装下载好的rpmvim /etc/profile # 添加jdk到环境变量如下source /etc/profile #是环境变量有效 12345#/etc/profile 末尾添加一下内容#java environmentexport JAVA_HOME=/usr/java/jdk1.8.0_181-amd64export CLASSPATH=.:$&#123;JAVA_HOME&#125;/jre/lib/rt.jar:$&#123;JAVA_HOME&#125;/lib/dt.jar:$&#123;JAVA_HOME&#125;/lib/tools.jarexport PATH=$PATH:$&#123;JAVA_HOME&#125;/bin 安装hadoop123456#已经安装并且配置jdkcd /opt/hadoop # 切换目录wget https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz #下载hadooptar -zxvf hadoop-2.9.0.tar.gz # 解压cd hadoop-2.9.0 # 进入hadoop目录./bin/hadoop version # 查看hadoop是否能使用]]></content>
+      <categories>
+        <category>CentOS7</category>
+      </categories>
+      <tags>
+        <tag>CentOS7</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法分析]]></title>
+    <url>%2F2018%2F09%2F26%2Falgorithm-analysis%2F</url>
+    <content type="text"><![CDATA[算法分析&emsp;&emsp;两个主要任务 = 正确性（ 不变性 × 单调性 ） + 复杂度 级数&emsp;&emsp;幂方级数 ： 比幂次方高出一阶&emsp;&emsp;几何级数 ： 与末项同阶&emsp;&emsp;收敛级数]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
+        <tag>algorithm analysis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[springboot-mail]]></title>
     <url>%2F2018%2F09%2F20%2Fspringboot-mail%2F</url>
-    <content type="text"><![CDATA[配置springboot发送邮件&emsp;&emsp;配置springboot发送简易右键 maven依赖123456&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt; &lt;/dependency&gt;&lt;/dependencies&gt; 编写service以及实现123456789101112131415161718192021222324252627282930//Servicepublic interface MailService &#123; void sendSimpleMail(String to, String subject, String content);&#125;//ServiceImpl@Component@Logpublic class MailServiceImpl implements MailService &#123; @Resource private JavaMailSender javaMailSender; @Value("$&#123;mail.fromMail.addr&#125;") private String from; @Override public void sendSimpleMail(String to, String subject, String content) &#123; SimpleMailMessage message = new SimpleMailMessage(); message.setFrom(from); message.setTo(to); message.setSubject(subject); message.setText(content); try &#123; javaMailSender.send(message); log.info("简单邮件已经发送。"); &#125; catch (Exception e) &#123; log.info("发送简单邮件时发生异常！"+e); &#125; &#125;&#125; 配置必要属性设置123456789spring: mail: host: smtp.qq.com username: xzx@qq.com default-encoding: UTF-8 password: passwordmail: fromMail: addr: xzx@qq.com 测试1234567891011121314@RunWith(SpringJUnit4ClassRunner.class)@SpringBootTest(classes = WebsiteApplication.class)@WebAppConfigurationpublic class MailServiceTest &#123; @Resource private MailService mailServiceImpl; @Test public void testSimpleMail() throws Exception &#123; mailServiceImpl.sendSimpleMail("mir2285@outlook.com", "test simple mail", " hello this is simple mail"); &#125;&#125;]]></content>
+    <content type="text"><![CDATA[&emsp;&emsp;配置springboot发送简易右键 maven依赖123456&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt; &lt;/dependency&gt;&lt;/dependencies&gt; 编写service以及实现123456789101112131415161718192021222324252627282930//Servicepublic interface MailService &#123; void sendSimpleMail(String to, String subject, String content);&#125;//ServiceImpl@Component@Logpublic class MailServiceImpl implements MailService &#123; @Resource private JavaMailSender javaMailSender; @Value("$&#123;mail.fromMail.addr&#125;") private String from; @Override public void sendSimpleMail(String to, String subject, String content) &#123; SimpleMailMessage message = new SimpleMailMessage(); message.setFrom(from); message.setTo(to); message.setSubject(subject); message.setText(content); try &#123; javaMailSender.send(message); log.info("简单邮件已经发送。"); &#125; catch (Exception e) &#123; log.info("发送简单邮件时发生异常！"+e); &#125; &#125;&#125; 配置必要属性设置123456789spring: mail: host: smtp.qq.com username: xzx@qq.com default-encoding: UTF-8 password: passwordmail: fromMail: addr: xzx@qq.com 测试1234567891011121314@RunWith(SpringJUnit4ClassRunner.class)@SpringBootTest(classes = WebsiteApplication.class)@WebAppConfigurationpublic class MailServiceTest &#123; @Resource private MailService mailServiceImpl; @Test public void testSimpleMail() throws Exception &#123; mailServiceImpl.sendSimpleMail("mir2285@outlook.com", "test simple mail", " hello this is simple mail"); &#125;&#125;]]></content>
       <categories>
         <category>springboot</category>
       </categories>
@@ -16,7 +40,7 @@
   <entry>
     <title><![CDATA[algorithm-start]]></title>
     <url>%2F2018%2F09%2F19%2Falgorithm-start%2F</url>
-    <content type="text"><![CDATA[####]]></content>
+    <content type="text"></content>
       <categories>
         <category>algorithm</category>
       </categories>
@@ -71,8 +95,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>GUI</tag>
         <tag>PyQt</tag>
+        <tag>GUI</tag>
       </tags>
   </entry>
   <entry>
@@ -84,8 +108,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>PyQT</tag>
         <tag>GUI</tag>
+        <tag>PyQT</tag>
       </tags>
   </entry>
   <entry>
@@ -159,8 +183,8 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regex</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
       </tags>
   </entry>
   <entry>
@@ -171,8 +195,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -183,8 +207,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -195,8 +219,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -207,8 +231,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -219,8 +243,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -231,8 +255,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -243,8 +267,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -256,9 +280,9 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>code</tag>
-        <tag>regex</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
