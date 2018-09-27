@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="algorithm,probability theory," />
 
 
 
@@ -99,17 +99,18 @@
 
 
 
-<meta name="description" content="没有什么大牛学霸，有的只是厚积薄发">
-<meta name="keywords" content="张博涵,icecap">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Icecap">
-<meta property="og:url" content="http://http://132.232.42.89/archives/index.html">
+<meta name="description" content="问题描述&amp;emsp;&amp;emsp;假设A、B两个人赌博，假设每一局中每人获胜的概率是相同的，刚开始下的赌注均是100法郎，并且约定双方谁先获胜3局，谁就拿走所有的赌本，但是中途由于一些原因，不得不终止比赛，此时A胜2局，B胜1局，问此时赌本该怎么分配才均匀？注意：假设在赛点不会出现平局。 思路解析 假设继续赌下去，至多两局结束 若接下来的第四局A胜（1/2），则A获得所有赌注 若接下来的第四局B胜（">
+<meta name="keywords" content="algorithm,probability theory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分赌本问题">
+<meta property="og:url" content="http://http://132.232.42.89/2018/09/27/points_bookies/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="没有什么大牛学霸，有的只是厚积薄发">
+<meta property="og:description" content="问题描述&amp;emsp;&amp;emsp;假设A、B两个人赌博，假设每一局中每人获胜的概率是相同的，刚开始下的赌注均是100法郎，并且约定双方谁先获胜3局，谁就拿走所有的赌本，但是中途由于一些原因，不得不终止比赛，此时A胜2局，B胜1局，问此时赌本该怎么分配才均匀？注意：假设在赛点不会出现平局。 思路解析 假设继续赌下去，至多两局结束 若接下来的第四局A胜（1/2），则A获得所有赌注 若接下来的第四局B胜（">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-27T03:14:05.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Icecap">
-<meta name="twitter:description" content="没有什么大牛学霸，有的只是厚积薄发">
+<meta name="twitter:title" content="分赌本问题">
+<meta name="twitter:description" content="问题描述&amp;emsp;&amp;emsp;假设A、B两个人赌博，假设每一局中每人获胜的概率是相同的，刚开始下的赌注均是100法郎，并且约定双方谁先获胜3局，谁就拿走所有的赌本，但是中途由于一些原因，不得不终止比赛，此时A胜2局，B胜1局，问此时赌本该怎么分配才均匀？注意：假设在赛点不会出现平局。 思路解析 假设继续赌下去，至多两局结束 若接下来的第四局A胜（1/2），则A获得所有赌注 若接下来的第四局B胜（">
 
 
 
@@ -139,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/archives/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2018/09/27/points_bookies/"/>
 
 
 
 
 
-  <title>归档 | Icecap</title>
+  <title>分赌本问题 | Icecap</title>
   
 
 
@@ -164,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,411 +303,197 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/09/27/points_bookies/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bohan Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/game.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Icecap">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">分赌本问题</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T10:52:35+08:00">
+                2018-09-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-27T11:14:05+08:00">
+                2018-09-27
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 28 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/probability-theory/" itemprop="url" rel="index">
+                    <span itemprop="name">probability theory</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/27/points_bookies/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/27/points_bookies/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/27/points_bookies/" itemprop="url">
-              
-                <span itemprop="name">分赌本问题</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-27T10:52:35+08:00"
-              content="2018-09-27" >
-          09-27
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/27/three-door/" itemprop="url">
-              
-                <span itemprop="name">蒙提霍尔三门问题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-27T09:55:42+08:00"
-              content="2018-09-27" >
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/26/centos-using/" itemprop="url">
-              
-                <span itemprop="name">Centos使用记录</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-26T14:13:25+08:00"
-              content="2018-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/26/algorithm-analysis/" itemprop="url">
-              
-                <span itemprop="name">算法分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-26T09:29:18+08:00"
-              content="2018-09-26" >
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/20/springboot-mail/" itemprop="url">
-              
-                <span itemprop="name">springboot-mail</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-20T14:59:26+08:00"
-              content="2018-09-20" >
-          09-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>&emsp;&emsp;假设A、B两个人赌博，假设每一局中每人获胜的概率是相同的，刚开始下的赌注均是100法郎，并且约定双方谁先获胜3局，谁就拿走所有的赌本，但是中途由于一些原因，不得不终止比赛，此时A胜2局，B胜1局，问此时赌本该怎么分配才均匀？<font color="red">注意：假设在赛点不会出现平局。</font></p>
+<h4 id="思路解析"><a href="#思路解析" class="headerlink" title="思路解析"></a>思路解析</h4><ol>
+<li>假设继续赌下去，至多两局结束</li>
+<li>若接下来的第四局A胜（1/2），则A获得所有赌注</li>
+<li>若接下来的第四局B胜（1/2），则进行第五局，第五局中，A胜（1/2*1/2=1/4）才能获得所有赌注</li>
+</ol>
+<h4 id="python模拟"><a href="#python模拟" class="headerlink" title="python模拟"></a>python模拟</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">""" @author zhangbohan.dell@gmail.com</span></span><br><span class="line"><span class="string">    @function: 分赌本问题</span></span><br><span class="line"><span class="string">    @create 2018/9/27 11:00"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">:param n 赢钱所需要的局数</span></span><br><span class="line"><span class="string">:param n1 第一个人已经赢得局数</span></span><br><span class="line"><span class="string">:param n2 第二个人已经赢得局数</span></span><br><span class="line"><span class="string">本程序中取n =3,n1 = 2,n2 = 1</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Bookies</span><span class="params">(n, n1, n2)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span> * n - n1 - n2 - <span class="number">1</span>):</span><br><span class="line">        D = random.randint(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> D == <span class="number">1</span>:</span><br><span class="line">            n1 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            n2 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n1 == n:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n2 == n:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n = <span class="number">10000</span></span><br><span class="line">win = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="keyword">if</span> Bookies(<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>) == <span class="number">1</span>:</span><br><span class="line">        win += <span class="number">1</span></span><br><span class="line">print(<span class="string">"A获得赢钱的可能为&#123;&#125;"</span>.format(float(win / n)))</span><br></pre></td></tr></table></figure>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/19/algorithm-start/" itemprop="url">
-              
-                <span itemprop="name">algorithm-start</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-19T20:28:52+08:00"
-              content="2018-09-19" >
-          09-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/19/python-thread/" itemprop="url">
-              
-                <span itemprop="name">python多线程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-19T09:21:29+08:00"
-              content="2018-09-19" >
-          09-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/18/crypt-1/" itemprop="url">
-              
-                <span itemprop="name">crypt-1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-18T09:25:10+08:00"
-              content="2018-09-18" >
-          09-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/17/algorithm-tree/" itemprop="url">
-              
-                <span itemprop="name">数据结构 - 树</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-17T16:30:38+08:00"
-              content="2018-09-17" >
-          09-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/11/pyqt-1/" itemprop="url">
-              
-                <span itemprop="name">PyQt学习记录（一） -- 初识PyQt</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-11T17:12:25+08:00"
-              content="2018-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+       
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+            <a href="/tags/probability-theory/" rel="tag"># probability theory</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/27/three-door/" rel="next" title="蒙提霍尔三门问题">
+                <i class="fa fa-chevron-left"></i> 蒙提霍尔三门问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -714,6 +501,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/09/27/points_bookies/"
+           data-title="分赌本问题" data-url="http://http://132.232.42.89/2018/09/27/points_bookies/">
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -734,8 +532,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -863,6 +670,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路解析"><span class="nav-number">2.</span> <span class="nav-text">思路解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python模拟"><span class="nav-number">3.</span> <span class="nav-text">python模拟</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1015,6 +838,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
