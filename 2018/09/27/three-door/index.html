@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="linux,mycat,db,middleware," />
+  <meta name="keywords" content="algorithm,probability theory," />
 
 
 
@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="rkdownm 背景条件&amp;emsp;&amp;emsp;现有app流量数据统计分析系统，因数据量过大使用单数据库性能有限，打算将现有数据库进行优化，计划使用mycat实现分布式，在本地搭建环境学习 环境&amp;emsp;&amp;emsp;VMware虚拟机下的Cetnos7 × 3台 mycat的安装 下载mycat，这里我选择的是1.6.5版本，也就是目前的release版本。 上传至linux系统，解压至/opt">
-<meta name="keywords" content="linux,mycat,db,middleware">
+<meta name="description" content="&amp;emsp;&amp;emsp;蒙提霍尔三门问题亦称蒙提霍尔悖论 问题描述&amp;emsp;&amp;emsp;参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。主持人其后会问参赛者要不要换另一扇仍然关上的门。&amp;emsp;&amp;emsp;问题是：换另一扇门会否">
+<meta name="keywords" content="algorithm,probability theory">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mycat使用记录一 -- 安装与配置">
-<meta property="og:url" content="http://http://132.232.42.89/2018/08/30/mycat-1/index.html">
+<meta property="og:title" content="蒙提霍尔三门问题">
+<meta property="og:url" content="http://http://132.232.42.89/2018/09/27/three-door/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="rkdownm 背景条件&amp;emsp;&amp;emsp;现有app流量数据统计分析系统，因数据量过大使用单数据库性能有限，打算将现有数据库进行优化，计划使用mycat实现分布式，在本地搭建环境学习 环境&amp;emsp;&amp;emsp;VMware虚拟机下的Cetnos7 × 3台 mycat的安装 下载mycat，这里我选择的是1.6.5版本，也就是目前的release版本。 上传至linux系统，解压至/opt">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;蒙提霍尔三门问题亦称蒙提霍尔悖论 问题描述&amp;emsp;&amp;emsp;参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。主持人其后会问参赛者要不要换另一扇仍然关上的门。&amp;emsp;&amp;emsp;问题是：换另一扇门会否">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-05T08:28:01.118Z">
+<meta property="og:updated_time" content="2018-09-27T02:29:00.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mycat使用记录一 -- 安装与配置">
-<meta name="twitter:description" content="rkdownm 背景条件&amp;emsp;&amp;emsp;现有app流量数据统计分析系统，因数据量过大使用单数据库性能有限，打算将现有数据库进行优化，计划使用mycat实现分布式，在本地搭建环境学习 环境&amp;emsp;&amp;emsp;VMware虚拟机下的Cetnos7 × 3台 mycat的安装 下载mycat，这里我选择的是1.6.5版本，也就是目前的release版本。 上传至linux系统，解压至/opt">
+<meta name="twitter:title" content="蒙提霍尔三门问题">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;蒙提霍尔三门问题亦称蒙提霍尔悖论 问题描述&amp;emsp;&amp;emsp;参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。主持人其后会问参赛者要不要换另一扇仍然关上的门。&amp;emsp;&amp;emsp;问题是：换另一扇门会否">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/2018/08/30/mycat-1/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2018/09/27/three-door/"/>
 
 
 
 
 
-  <title>mycat使用记录一 -- 安装与配置 | Icecap</title>
+  <title>蒙提霍尔三门问题 | Icecap</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/30/mycat-1/">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/09/27/three-door/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bohan Zhang">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mycat使用记录一 -- 安装与配置</h1>
+          <h1 class="post-title" itemprop="name headline">蒙提霍尔三门问题</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-30T09:23:00+08:00">
-                2018-08-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T09:55:42+08:00">
+                2018-09-27
               </time>
             
 
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-05T16:28:01+08:00">
-                2018-09-05
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-27T10:29:00+08:00">
+                2018-09-27
               </time>
             
           </span>
@@ -381,8 +381,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/middleware/" itemprop="url" rel="index">
-                    <span itemprop="name">middleware</span>
+                  <a href="/categories/probability-theory/" itemprop="url" rel="index">
+                    <span itemprop="name">probability theory</span>
                   </a>
                 </span>
 
@@ -399,8 +399,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/30/mycat-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/30/mycat-1/" itemprop="commentCount"></span>
+                <a href="/2018/09/27/three-door/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/27/three-door/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -428,58 +428,18 @@
       
 
       
-        <p>rkdownm</p>
-<h4 id="背景条件"><a href="#背景条件" class="headerlink" title="背景条件"></a>背景条件</h4><p>&emsp;&emsp;现有app流量数据统计分析系统，因数据量过大使用单数据库性能有限，打算将现有数据库进行优化，计划使用mycat实现分布式，在本地搭建环境学习</p>
-<h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p>&emsp;&emsp;VMware虚拟机下的Cetnos7 × 3台</p>
-<h4 id="mycat的安装"><a href="#mycat的安装" class="headerlink" title="mycat的安装"></a>mycat的安装</h4><ol>
-<li><a href="http://dl.mycat.io" target="_blank" rel="noopener">下载</a>mycat，这里我选择的是1.6.5版本，也就是目前的release版本。</li>
-<li>上传至linux系统，解压至/opt/mycat(我习惯的目录)</li>
+        <p>&emsp;&emsp;蒙提霍尔三门问题亦称蒙提霍尔悖论</p>
+<h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>&emsp;&emsp;参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。主持人其后会问参赛者要不要换另一扇仍然关上的门。<br>&emsp;&emsp;<font color="red">问题是</font>：换另一扇门会否增加参赛者赢得汽车的机率？</p>
+<h4 id="思路解析"><a href="#思路解析" class="headerlink" title="思路解析"></a>思路解析</h4><ol>
+<li>三扇门，只有一扇门后有有汽车，其余的为山羊</li>
+<li>汽车事前等可能放置到三扇门中的其中一个</li>
+<li>参赛者等可能选择其中一扇，挑选前不知道门后有什么</li>
+<li>主持人清楚的知道门后有什么</li>
+<li>如果参赛者挑选了一扇有山羊的门，则主持人必须打开另一扇有山羊的门</li>
+<li>如果参赛者挑选了有汽车的门，主持人等可能在另外两扇有山羊的门选择一扇打开</li>
+<li>参赛者会被问保持原先选择还是转而选择另一扇门</li>
 </ol>
-<h4 id="mycat的配置"><a href="#mycat的配置" class="headerlink" title="mycat的配置"></a>mycat的配置</h4><h5 id="配置文件路径"><a href="#配置文件路径" class="headerlink" title="配置文件路径"></a>配置文件路径</h5><p>\$mycat_home\$指的是安装目录<br>\$mycat_home\$/conf/server.xml    Mycat的配置文件，设置账号、参数等<br>\$mycat_home\$/conf/schema.xml  Mycat对应的物理数据库和数据库表的配置<br>\$mycat_home\$/conf/rule.xml    Mycat分片（分库分表）规则  </p>
-<h5 id="具体配置"><a href="#具体配置" class="headerlink" title="具体配置"></a>具体配置</h5><ol>
-<li><p>wrapper.conf<br>–配置jdk(如果已经配置java环境变量，这一步可以忽略)</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wrapper.java.command=/usr/bin/java</span><br><span class="line">#配置java的路径</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>server.xml</p>
-<ol>
-<li><p>user标签</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">name</span>=<span class="string">"root"</span> <span class="attr">defaultAccount</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>your_password<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"schemas"</span>&gt;</span>db1,db2<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"readOnly"</span>&gt;</span>false<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>user    用户配置节点<br>–name    登录的用户名，也就是连接Mycat的用户名<br>–password    登录的密码，也就是连接Mycat的密码<br>–schemas    数据库名，这里会和schema.xml中的配置关联，多个用逗号分开，例如需要这个用户需要管理两个数据库db1,db2，则配置db1,dbs  </p>
-</li>
-<li><p>privileges标签</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">privileges</span> <span class="attr">check</span>=<span class="string">"false"</span>&gt;</span> 默认关闭</span><br><span class="line">    <span class="tag">&lt;<span class="name">schema</span> <span class="attr">name</span>=<span class="string">"TESTDB"</span> <span class="attr">dml</span>=<span class="string">"0110"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">table</span> <span class="attr">name</span>=<span class="string">"tb 01"</span> <span class="attr">dml</span>=<span class="string">"0000"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">table</span> <span class="attr">name</span>=<span class="string">"tb02"</span> <span class="attr">dml</span>=<span class="string">"1111"</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">        1 代表有权限</span><br><span class="line">        0 代表无权限</span><br><span class="line">    顺序为  insert,update,select,delete</span><br><span class="line">    <span class="tag">&lt;/<span class="name">schema</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">privileges</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>system标签<br>&emsp;&emsp;这个标签内嵌套的所有 property 标签都与系统配置有关。  </p>
-</li>
-<li>firewall标签<br>&emsp;&emsp;有关防火墙的标签，也就是在网络层对请求的地址进行限制，主要是从安全角度来保证Mycat不被匿名IP进行访问  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">&lt;!-- 全局SQL防火墙设置 --&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--白名单可以使用通配符%或着*--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--例如&lt;host host="127.0.0.*" user="root"/&gt;--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--例如&lt;host host="127.0.*" user="root"/&gt;--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--例如&lt;host host="127.*" user="root"/&gt;--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--例如&lt;host host="1*7.*" user="root"/&gt;--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--这些配置情况下对于127.0.0.1都能以root账户登录--&gt;</span></span><br><span class="line"> <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment"> &lt;firewall&gt;</span></span><br><span class="line"><span class="comment">    &lt;whitehost&gt;</span></span><br><span class="line"><span class="comment">       &lt;host host="1*7.0.0.*" user="root"/&gt;</span></span><br><span class="line"><span class="comment">    &lt;/whitehost&gt;</span></span><br><span class="line"><span class="comment">    &lt;blacklist check="false"&gt;</span></span><br><span class="line"><span class="comment">    &lt;/blacklist&gt;</span></span><br><span class="line"><span class="comment">&lt;/firewall&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>schema.xml<br>– schema      数据库设置，此数据库为逻辑数据库，name与server.xml中schema对应<br>– dataNode    分片信息，也就是分库相关配置<br>– dataHost    物理数据库，真正存储数据的数据库  </p>
-<ol>
-<li><p>schema标签<br>&emsp;&emsp;schema标签用来定义mycat实例中的逻辑库，mycat可以有多个逻辑库，每个逻辑库都有自己的相关配置。可以使用schema标签来划分这些不同的逻辑库<br>&emsp;&emsp;如果不配置schema标签，所有表的配置会属于同一个默认的逻辑库。逻辑库的概念和MySql的database的概念一样，我们在查询两个不同逻辑库中的表的时候，需要切换到该逻辑库下进行查询。</p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">schema</span> <span class="attr">name</span>=<span class="string">" "</span> <span class="attr">checkSQLschema</span>=<span class="string">"false"</span> <span class="attr">sqlMaxLimit</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">schema</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">name        逻辑数据库名,与server.xml中的schema对应</span></span><br><span class="line"><span class="comment">checkSQLschema     数据库前缀相关设置，当该值为true时，例如我们执行语句select * from TESTDB.company 。mycat会把语句修改为 select * from company 去掉TESTDB。</span></span><br><span class="line"><span class="comment">sqlMaxLimit        当该值设置为某个数值时，每条执行的sql语句，如果没有加上limit语句，Mycat会自动加上对应的值。不写的话，默认返回所有的值。</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>table标签<br>–name  表名，物理数据库中表名<br>–dataNode  表存储到哪些节点，多个节点用逗号分隔。节点为下文dataNode设置的name<br>–primaryKey主键字段名，自动生成主键时需要设置<br>–autoIncrement 是否自增<br>–rule  分片规则名，具体规则下文rule详细介绍<br>–type 该属性定义了逻辑表的类型，目前逻辑表只有全局表和普通表。全局表： global 普通表：无<br>&emsp;&emsp;注：全局表查询任意节点，普通表查询所有节点效率低<br>–autoIncrement mysql对非自增长主键，使用last_insert_id() 是不会返回结果的，只会返回0。所以，只有定义了自增长主键的表，才可以用last_insert_id()返回主键值。<br>mycat提供了自增长主键功能，但是对应的mysql节点上数据表，没有auto_increment,那么在mycat层调用last_insert_id()也是不会返回结果的。<br>–needAddLimit 指定表是否需要自动的在每个语句后面加上limit限制，由于使用了分库分表，数据量有时候会特别庞大，这时候执行查询语句，忘记加上limt就会等好久，所以mycat自动为我们加上了limit 100，这个属性默认为true，可以自己设置为false禁用。如果使用这个功能，最好配合使用数据库模式的全局序列。<br>–subTables 分表，分表目前不支持Join。</p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">name</span>=<span class="string">“test”</span> <span class="attr">primaryKey</span>=<span class="string">"ID"</span> <span class="attr">autoIncrement</span>=<span class="string">"true"</span> <span class="attr">dataNode</span>=<span class="string">“dn1,dn2,dn3”</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">name</span>=<span class="string">“mine”</span> <span class="attr">primaryKey</span>=<span class="string">"ID"</span> <span class="attr">autoIncrement</span>=<span class="string">"true"</span> <span class="attr">dataNode</span>=<span class="string">“dn1,dn2,dn3”</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">name</span>=<span class="string">“new”</span> <span class="attr">primaryKey</span>=<span class="string">"ID"</span> <span class="attr">autoIncrement</span>=<span class="string">"true"</span> <span class="attr">dataNode</span>=<span class="string">“dn1,dn2,dn3”</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>childTable标签<br>–childTable 标签用于定义 E-R 分片的子表。通过标签上的属性与父表进行关联。<br>–name    子表的名称<br>–joinKey    子表中字段的名称<br>–parentKey    父表中字段名称<br>–primaryKey    同Table<br>–needAddLimit    同Table </p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">name</span>=<span class="string">"customer"</span> <span class="attr">primaryKey</span>=<span class="string">"ID"</span> <span class="attr">dataNode</span>=<span class="string">"dn1,dn2"</span> <span class="attr">rule</span>=<span class="string">"sharding-by-intfile"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">childTable</span> <span class="attr">name</span>=<span class="string">"c_a"</span> <span class="attr">primaryKey</span>=<span class="string">"ID"</span> <span class="attr">joinKey</span>=<span class="string">"customer_id"</span> <span class="attr">parentKey</span>=<span class="string">"id"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>dataNode标签<br>&emsp;&emsp;datanode标签定义了mycat中的数据节点，也就是我们所说的数据分片。一个datanode标签就是一个独立的数据分片。<br>&emsp;&emsp;例子中的表述的意思为，使用名字为localhost1数据库实例上的db1物理数据库，这就组成一个数据分片，最后我们用dn1来标示这个分片。<br>–name    定义数据节点的名字，这个名字需要唯一。我们在table标签上用这个名字来建立表与分片对应的关系<br>–dataHost    用于定义该分片属于哪个数据库实例，属性与datahost标签上定义的name对应<br>–database    用于定义该分片属于数据库实例上 的具体库。  </p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dataNode</span> <span class="attr">name</span>=<span class="string">"dn1"</span> <span class="attr">dataHost</span>=<span class="string">"localhost1"</span> <span class="attr">database</span>=<span class="string">"db1"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>dataHost标签<br>–name    唯一标示dataHost标签，供上层使用<br>–maxCon    指定每个读写实例连接池的最大连接。<br>–minCon    指定每个读写实例连接池的最小连接，初始化连接池的大小<br>–balance    负载均称类型<br>&emsp;&emsp;balance=”0”：不开启读写分离机制，所有读操作都发送到当前可用的writeHost上<br>&emsp;&emsp;balance=”1”：全部的readHost与stand by writeHost参与select语句的负载均衡，简单的说，当双主双从模式（M1-S1，M2-S2 并且M1 M2互为主备），正常情况下，M2,S1,S2都参与select语句的负载均衡。<br>&emsp;&emsp;balance=”2”：所有读操作都随机的在writeHost、readHost上分发<br>&emsp;&emsp;balance=”3”：所有读请求随机的分发到writeHst对应的readHost执行，writeHost不负担读写压力。（1.4之后版本有）<br>–writeType    负载均衡类型。<br>&emsp;&emsp;writeType=”0”, 所有写操作发送到配置的第一个 writeHost，第一个挂了切到还生存的第二个writeHost，重新启动后已切换后的为准，切换记录在配置文件中:dnindex.properties .<br>&emsp;&emsp;writeType=”1”，所有写操作都随机的发送到配置的 writeHost。1.5以后版本废弃不推荐。<br>–switchType<br>&emsp;&emsp;-1 不自动切换<br>&emsp;&emsp;1 默认值 自动切换<br>&emsp;&emsp;2 基于MySql主从同步的状态决定是否切换，心跳语句为 show slave status<br>&emsp;&emsp;3 基于 MySQL galary cluster 的切换机制（适合集群）（1.4.1）,心跳语句为 show status like ‘wsrep%’<br>–dbType 指定后端链接的数据库类型目前支持二进制的mysql协议，还有其他使用jdbc链接的数据库，例如：mongodb，oracle，spark等<br>–dbDriver    指定连接后段数据库使用的driver，目前可选的值有native和JDBC。使用native的话，因为这个值执行的是二进制的mysql协议，所以可以使用mysql和mariadb，其他类型的则需要使用JDBC驱动来支持。<br>1.6版本开始支持postgresql的原始协议。<br>如果使用JDBC的话需要符合JDBC4标准的驱动jar 放到mycat\lib目录下，并检查驱动jar包中包括如下目录结构文件 META-INF\services\java.sql.Driver。 在这个文件写上具体的driver类名，例如com.mysql.jdbc.Driver<br>–tempReadHostAvailable<br>&emsp;&emsp;如果配置了这个属性 writeHost 下面的 readHost 仍旧可用，默认 0 可配置（0、1）。</p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dataHost</span> <span class="attr">name</span>=<span class="string">"localhost1"</span> <span class="attr">maxCon</span>=<span class="string">"1000"</span> <span class="attr">minCon</span>=<span class="string">"10"</span> <span class="attr">balance</span>=<span class="string">"0"</span> <span class="attr">writeType</span>=<span class="string">"0"</span> <span class="attr">dbType</span>=<span class="string">"mysql"</span> <span class="attr">dbDriver</span>=<span class="string">"native"</span> <span class="attr">switchType</span>=<span class="string">"1"</span> <span class="attr">slaveThreshold</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">heartbeat</span>&gt;</span>select user()<span class="tag">&lt;/<span class="name">heartbeat</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">writeHost</span> <span class="attr">host</span>=<span class="string">"hostM1"</span> <span class="attr">url</span>=<span class="string">"192.168.1.100:3306"</span> <span class="attr">user</span>=<span class="string">"root"</span> <span class="attr">password</span>=<span class="string">"123456"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">readHost</span> <span class="attr">host</span>=<span class="string">"hostS1"</span> <span class="attr">url</span>=<span class="string">"192.168.1.101:3306"</span> <span class="attr">user</span>=<span class="string">"root"</span> <span class="attr">password</span>=<span class="string">"123456"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">writeHost</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dataHost</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>heartbeat标签<br>&emsp;&emsp;这个标签内指明用于和后端数据库进行心跳检查的语句。例如：MYSQL 可以使用 select user()，Oracle 可以使用 select 1 from dual 等。<br>&emsp;&emsp;这个标签还有一个 connectionInitSql 属性，主要是当使用 Oracla 数据库时，需要执行的初始化 SQL 语句就放到这里面来。例如：alter session set nls_date_format=’yyyy-mm-dd hh24:mi:ss ‘<br>1.4 主从切换的语句必须是：show slave status  </p>
-</li>
-<li><p>writeHost /readHost 标签<br>&emsp;&emsp;这两个标签都指定后端数据库的相关配置，用于实例化后端连接池。唯一不同的是，writeHost 指定写实例、readHost 指定读实例。<br>&emsp;&emsp;在一个 dataHost 内可以定义多个 writeHost 和 readHost。但是，如果 writeHost 指定的后端数据库宕机，那么这个 writeHost 绑定的所有 readHost 都将不可用。<br>&emsp;&emsp;另一方面，由于这个 writeHost 宕机，系统会自动的检测到，并切换到备用的 writeHost 上去。这两个标签的属性相同，这里就一起介绍。<br>–host    用于标识不同实例，一般 writeHost 我们使用<em>M</em>1，readHost我们用<em>S</em>1。<br>–url    后端实例连接地址。Native：地址：端口 JDBC：jdbc的url<br>–password    后端存储实例需要的密码<br>–user    后端存储实例需要的用户名字<br>–weight    权重 配置在 readhost 中作为读节点的权重<br>–usingDecrypt    是否对密码加密，默认0。具体加密方法看官方文档。  </p>
-</li>
-</ol>
-</li>
-</ol>
-
+<h4 id="Python模拟以上过程"><a href="#Python模拟以上过程" class="headerlink" title="Python模拟以上过程"></a>Python模拟以上过程</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">""" @author zhangbohan.dell@gmail.com</span></span><br><span class="line"><span class="string">    @function: 蒙提霍尔三门问题</span></span><br><span class="line"><span class="string">    @create 2018/9/27 10:09"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MontyHall</span><span class="params">(Dselect, Dchange)</span>:</span></span><br><span class="line">    Dcar = random.randint(<span class="number">1</span>, <span class="number">3</span>)  <span class="comment"># 随机等可能放置汽车</span></span><br><span class="line">    <span class="keyword">if</span> Dcar == Dselect <span class="keyword">and</span> Dchange == <span class="number">0</span>:  <span class="comment"># 一开始选中并且没有改变选择</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> Dcar != Dselect <span class="keyword">and</span> Dchange == <span class="number">0</span>:  <span class="comment"># 一开始没选中也没有改变选择</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">elif</span> Dcar == Dselect <span class="keyword">and</span> Dchange == <span class="number">1</span>:  <span class="comment"># 一开始选中并且改变选择</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:  <span class="comment"># 一开始没选中并且改变选择</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n = <span class="number">10000</span></span><br><span class="line">win = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    select = random.randint(<span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line">    win += MontyHall(select, random.randint(<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">print(<span class="string">"不确认是够改变选择&#123;&#125;"</span>.format(float(win / n)))</span><br><span class="line"></span><br><span class="line">win = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    select = random.randint(<span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line">    win += MontyHall(select, <span class="number">0</span>)</span><br><span class="line">print(<span class="string">"确认不改变选择&#123;&#125;"</span>.format(float(win / n)))</span><br><span class="line"></span><br><span class="line">win = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    select = random.randint(<span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line">    win += MontyHall(select, <span class="number">1</span>)</span><br><span class="line">print(<span class="string">"确认改变选择&#123;&#125;"</span>.format(float(win / n)))</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -495,13 +455,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
           
-            <a href="/tags/mycat/" rel="tag"># mycat</a>
-          
-            <a href="/tags/db/" rel="tag"># db</a>
-          
-            <a href="/tags/middleware/" rel="tag"># middleware</a>
+            <a href="/tags/probability-theory/" rel="tag"># probability theory</a>
           
         </div>
       
@@ -514,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/30/linux-command/" rel="next" title="Linux指令记录合集（长期更新）">
-                <i class="fa fa-chevron-left"></i> Linux指令记录合集（长期更新）
+              <a href="/2018/09/26/centos-using/" rel="next" title="Centos使用记录">
+                <i class="fa fa-chevron-left"></i> Centos使用记录
               </a>
             
           </div>
@@ -523,10 +479,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/01/nginx-2/" rel="prev" title="nginx的使用（二）-- 详细了解Nginx">
-                nginx的使用（二）-- 详细了解Nginx <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -557,8 +509,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/08/30/mycat-1/"
-           data-title="mycat使用记录一 -- 安装与配置" data-url="http://http://132.232.42.89/2018/08/30/mycat-1/">
+      <div class="ds-thread" data-thread-key="2018/09/27/three-door/"
+           data-title="蒙提霍尔三门问题" data-url="http://http://132.232.42.89/2018/09/27/three-door/">
       </div>
     </div>
 
@@ -733,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景条件"><span class="nav-number">1.</span> <span class="nav-text">背景条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境"><span class="nav-number">2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mycat的安装"><span class="nav-number">3.</span> <span class="nav-text">mycat的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mycat的配置"><span class="nav-number">4.</span> <span class="nav-text">mycat的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#配置文件路径"><span class="nav-number">4.1.</span> <span class="nav-text">配置文件路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#具体配置"><span class="nav-number">4.2.</span> <span class="nav-text">具体配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路解析"><span class="nav-number">2.</span> <span class="nav-text">思路解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python模拟以上过程"><span class="nav-number">3.</span> <span class="nav-text">Python模拟以上过程</span></a></li></ol></div>
             
 
           </div>
