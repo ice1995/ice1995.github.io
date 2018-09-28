@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://http://132.232.42.89/2018/09/28/linux-namespace-interface/</loc>
+    
+    <lastmod>2018-09-28T12:52:51.771Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://http://132.232.42.89/2018/09/28/linux-cgroup-interface/</loc>
+    
+    <lastmod>2018-09-28T12:07:59.718Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://http://132.232.42.89/2018/09/28/docker-using/</loc>
     
-    <lastmod>2018-09-28T02:41:22.875Z</lastmod>
+    <lastmod>2018-09-28T03:17:04.354Z</lastmod>
     
   </url>
   

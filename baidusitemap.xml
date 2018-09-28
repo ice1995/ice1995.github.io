@@ -4,16 +4,64 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/09/28/linux-namespace-interface/</loc>
+    <lastmod>2018-09-28T12:52:51.771Z</lastmod>
+    <data>
+        <display>
+        <title>Namespace简介</title>
+        <pubTime>2018-09-28T12:09:45.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>kernel</tag>
+         
+        <tag>namespace</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/09/28/linux-cgroup-interface/</loc>
+    <lastmod>2018-09-28T12:07:59.718Z</lastmod>
+    <data>
+        <display>
+        <title>Cgroup简介</title>
+        <pubTime>2018-09-28T06:29:54.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>cgroup</tag>
+         
+        <tag>kernel</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://http://132.232.42.89/2018/09/28/docker-using/</loc>
-    <lastmod>2018-09-28T02:41:22.875Z</lastmod>
+    <lastmod>2018-09-28T03:17:04.354Z</lastmod>
     <data>
         <display>
         <title>Docker使用记录</title>
         <pubTime>2018-09-28T02:13:57.000Z</pubTime>
         
-        <tag>docker</tag>
-         
         <tag>linux</tag>
+         
+        <tag>docker</tag>
          
          
            
@@ -257,9 +305,9 @@
         <title>CCNA学习笔记三 -- 路由和交换</title>
         <pubTime>2018-08-28T06:52:47.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -279,9 +327,9 @@
         <title>CCNA学习笔记五 -- ACL</title>
         <pubTime>2018-08-28T07:20:39.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -301,9 +349,9 @@
         <title>CCNA学习笔记六 -- NAT</title>
         <pubTime>2018-08-28T07:24:46.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -323,9 +371,9 @@
         <title>CCNA学习笔记七 -- IPv6</title>
         <pubTime>2018-08-28T07:27:57.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -395,9 +443,9 @@
         
         <tag>python</tag>
          
-        <tag>PyQT</tag>
-         
         <tag>GUI</tag>
+         
+        <tag>PyQT</tag>
          
          
            
@@ -419,9 +467,9 @@
         
         <tag>python</tag>
          
-        <tag>GUI</tag>
-         
         <tag>PyQt</tag>
+         
+        <tag>GUI</tag>
          
          
            
@@ -441,9 +489,9 @@
         <title>CCNA学习笔记四 -- VLAN</title>
         <pubTime>2018-08-28T07:18:21.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -531,9 +579,9 @@
         <title>CCNA学习笔记一 -- 计算机网络详解</title>
         <pubTime>2018-08-27T06:27:56.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
@@ -601,9 +649,9 @@
         <title>CCNA学习笔记二 -- TCP/IP协议</title>
         <pubTime>2018-08-27T13:08:24.000Z</pubTime>
         
-        <tag>ccna</tag>
-         
         <tag>net</tag>
+         
+        <tag>ccna</tag>
          
          
            
