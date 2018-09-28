@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="net,ccna," />
+  <meta name="keywords" content="linux,nginx," />
 
 
 
@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 IPv4、ARP、RARP、ICMP网络接口 各种通信网络接口（以太网等物理网络） 传输层协议可靠传输 TCP 分段传输 建立会话（消耗系统资源） 丢失重传不可靠传输 UDP 一个数据包就能表达完整 屏幕广播 应用层协议默认端口http=TCP+80ftp=TCP+21（接受命令、验证身">
-<meta name="keywords" content="net,ccna">
+<meta name="description" content="一、nginx简介1、nginx是什么Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。 2、nginx可以用来做什么（不加载第三方模块） 反向代理 负载均衡 HTTP服务器（包含动静分离） 正向代理 缓存  二、nginx安装以及简单的配置">
+<meta name="keywords" content="linux,nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CCNA学习笔记二 -- TCP&#x2F;IP协议">
-<meta property="og:url" content="http://http://132.232.42.89/2018/08/27/ccna-2/index.html">
+<meta property="og:title" content="nginx的使用（一）-- 简单的安装使用">
+<meta property="og:url" content="http://http://132.232.42.89/2018/08/25/middleware/nginx-1/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 IPv4、ARP、RARP、ICMP网络接口 各种通信网络接口（以太网等物理网络） 传输层协议可靠传输 TCP 分段传输 建立会话（消耗系统资源） 丢失重传不可靠传输 UDP 一个数据包就能表达完整 屏幕广播 应用层协议默认端口http=TCP+80ftp=TCP+21（接受命令、验证身">
+<meta property="og:description" content="一、nginx简介1、nginx是什么Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。 2、nginx可以用来做什么（不加载第三方模块） 反向代理 负载均衡 HTTP服务器（包含动静分离） 正向代理 缓存  二、nginx安装以及简单的配置">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-28T07:36:45.950Z">
+<meta property="og:updated_time" content="2018-09-28T12:57:07.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CCNA学习笔记二 -- TCP&#x2F;IP协议">
-<meta name="twitter:description" content="DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 IPv4、ARP、RARP、ICMP网络接口 各种通信网络接口（以太网等物理网络） 传输层协议可靠传输 TCP 分段传输 建立会话（消耗系统资源） 丢失重传不可靠传输 UDP 一个数据包就能表达完整 屏幕广播 应用层协议默认端口http=TCP+80ftp=TCP+21（接受命令、验证身">
+<meta name="twitter:title" content="nginx的使用（一）-- 简单的安装使用">
+<meta name="twitter:description" content="一、nginx简介1、nginx是什么Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。 2、nginx可以用来做什么（不加载第三方模块） 反向代理 负载均衡 HTTP服务器（包含动静分离） 正向代理 缓存  二、nginx安装以及简单的配置">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/2018/08/27/ccna-2/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2018/08/25/middleware/nginx-1/"/>
 
 
 
 
 
-  <title>CCNA学习笔记二 -- TCP/IP协议 | Icecap</title>
+  <title>nginx的使用（一）-- 简单的安装使用 | Icecap</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/27/ccna-2/">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/25/middleware/nginx-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bohan Zhang">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CCNA学习笔记二 -- TCP/IP协议</h1>
+          <h1 class="post-title" itemprop="name headline">nginx的使用（一）-- 简单的安装使用</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T21:08:24+08:00">
-                2018-08-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-25T10:10:29+08:00">
+                2018-08-25
               </time>
             
 
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-28T15:36:45+08:00">
-                2018-08-28
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-28T20:57:07+08:00">
+                2018-09-28
               </time>
             
           </span>
@@ -381,8 +381,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/net/" itemprop="url" rel="index">
-                    <span itemprop="name">net</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -399,8 +399,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/27/ccna-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/27/ccna-2/" itemprop="commentCount"></span>
+                <a href="/2018/08/25/middleware/nginx-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/25/middleware/nginx-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -428,60 +428,24 @@
       
 
       
-        <h4 id="DoD模型"><a href="#DoD模型" class="headerlink" title="DoD模型"></a>DoD模型</h4><p>应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议<br>传输层 TCP、UDP<br>网络层 IPv4、ARP、RARP、ICMP<br>网络接口 各种通信网络接口（以太网等物理网络）</p>
-<h4 id="传输层协议"><a href="#传输层协议" class="headerlink" title="传输层协议"></a>传输层协议</h4><p>可靠传输 TCP 分段传输 建立会话（消耗系统资源） 丢失重传<br>不可靠传输 UDP 一个数据包就能表达完整 屏幕广播</p>
-<h4 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h4><h5 id="默认端口"><a href="#默认端口" class="headerlink" title="默认端口"></a>默认端口</h5><p>http=TCP+80<br>ftp=TCP+21（接受命令、验证身份等） 20（传输数据）<br>https=TCP+443<br>SMTP=TCP+25（发邮件）<br>POP3=TCP+110（收邮件）<br>RDP=TCP+3389(远程桌面)<br>DNS=UDP+53（DNS解析）<br>IP地址访问Windows共享文件夹=TCP+445<br>计算机名访问windows共享文件夹=TCP+139<br>SQL=TCP+1433（访问数据库）<br>telnet=TCP+23</p>
-<h4 id="服务和端口的关系"><a href="#服务和端口的关系" class="headerlink" title="服务和端口的关系"></a>服务和端口的关系</h4><p>服务侦听端口<br>客户端请求服务 使用目标端口来区分（服务器根据数据包的目标端口来区分客户端）<br>服务停止 侦听的端口关闭<br>查看侦听的端口 netstat -anb|find “content”<br>检测端口  telnet ip 端口</p>
-<h4 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h4><p>win2003service tcp/ip筛选不影响出去的流量<br>wf.msc windows高级防火墙</p>
-<h4 id="网络层协议"><a href="#网络层协议" class="headerlink" title="网络层协议"></a>网络层协议</h4><p>IP协议 选择最佳路径的协议（RIP OSPF EIGRP BGP）<br>ICMP协议 测试网络是否畅通<br>ping 估计带宽 查看网络是否畅通 断定远程系统 每过一个路由器TTL-1<br>TTL 128 windows系统<br>TTL 64  linux系统<br>pathping 跟踪路径 计算丢包情况<br>IGMP协议 组播<br>点到点 广播 多播（组播）<br>ARP协议 将计算机的IP地址解析成MAC地址<br>数据跨网段通讯和同一网段通信过程<br>MAC地址决定了下一跳给那个设备<br>IP地址决定最终计算机</p>
-<h4 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h4><p>32位二进制组成</p>
-<h5 id="ip地址分类"><a href="#ip地址分类" class="headerlink" title="ip地址分类"></a>ip地址分类</h5><p>  x:network id  y:host id</p>
-<table>
-<thead>
-<tr>
-<th>类别</th>
-<th>功能</th>
-<th>开头</th>
-<th>个头</th>
-<th>缺省子网掩码</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A</td>
-<td>xyyy</td>
-<td>1-127</td>
-<td>256^3-2</td>
-<td>255.0.0.0</td>
-</tr>
-<tr>
-<td>B</td>
-<td>xxyy</td>
-<td>128-191</td>
-<td>256^2-2</td>
-<td>255.255.0.0</td>
-</tr>
-<tr>
-<td>C</td>
-<td>xxxy</td>
-<td>192-223</td>
-<td>256-2</td>
-<td>255.255.255.0</td>
-</tr>
-<tr>
-<td>D</td>
-<td>组播</td>
-<td>224-239</td>
-</tr>
-<tr>
-<td>E</td>
-<td>研究</td>
-<td>240-255</td>
-</tr>
-</tbody>
-</table>
-<h5 id="保留的私网地址"><a href="#保留的私网地址" class="headerlink" title="保留的私网地址"></a>保留的私网地址</h5><p>A 10.0.0.0<br>B 172.16.0.0-172.31.0.0<br>C 192.168.0.0-192.168.255.0</p>
-<h5 id="本地环回地址"><a href="#本地环回地址" class="headerlink" title="本地环回地址"></a>本地环回地址</h5><p>127.0.0.1  ping通过表示TCP/IP协议安装正常<br>169.254.0.0 DHCP获取网络地址未果的时候得到的地址</p>
+        <h2 id="一、nginx简介"><a href="#一、nginx简介" class="headerlink" title="一、nginx简介"></a>一、nginx简介</h2><h4 id="1、nginx是什么"><a href="#1、nginx是什么" class="headerlink" title="1、nginx是什么"></a>1、nginx是什么</h4><p>Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。</p>
+<h4 id="2、nginx可以用来做什么（不加载第三方模块）"><a href="#2、nginx可以用来做什么（不加载第三方模块）" class="headerlink" title="2、nginx可以用来做什么（不加载第三方模块）"></a>2、nginx可以用来做什么（不加载第三方模块）</h4><ol>
+<li>反向代理</li>
+<li>负载均衡</li>
+<li>HTTP服务器（包含动静分离）</li>
+<li>正向代理</li>
+<li>缓存</li>
+</ol>
+<h2 id="二、nginx安装以及简单的配置"><a href="#二、nginx安装以及简单的配置" class="headerlink" title="二、nginx安装以及简单的配置"></a>二、nginx安装以及简单的配置</h2><h4 id="1、安装nginx（环境-centos7）"><a href="#1、安装nginx（环境-centos7）" class="headerlink" title="1、安装nginx（环境 centos7）"></a>1、安装nginx（环境 centos7）</h4><p>采取最简单的方法，yum install nginx -y</p>
+<h4 id="2、配置nginx"><a href="#2、配置nginx" class="headerlink" title="2、配置nginx"></a>2、配置nginx</h4><p>① 修改user为root（你用来启动nginx的账户）<br>② 添加转发服务器<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">upstream web_server&#123; # 名字随便起</span><br><span class="line">   server 127.0.0.1:8080  max_fails=1  fail_timeout=10s;  #Tomcat服务器1 ip</span><br><span class="line">   server 127.0.0.2:8080  max_fails=1  fail_timeout=10s;  #Tomcat服务器2 ip</span><br><span class="line">   #注意服务器的ip以及端口不要重复</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80 default_server;</span><br><span class="line">    listen       [::]:80 default_server;</span><br><span class="line">    server_name  _;</span><br><span class="line">    root         /usr/share/nginx/html;</span><br><span class="line">    # Load configuration <span class="keyword">files</span> <span class="keyword">for</span> the default server block.</span><br><span class="line">    include /etc/nginx/default.d/*.conf;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://web_server;   #和上边定义的upstream 对应起来</span><br><span class="line">        proxy_connect_timeout 10;</span><br><span class="line">        proxy_read_timeout  10;</span><br><span class="line">        proxy_send_timeout  10;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page 404 /404.html;</span><br><span class="line">        location = /<span class="number">40</span><span class="keyword">x</span>.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page 500 502 503 504 /50x.html;</span><br><span class="line">        location = /<span class="number">50</span><span class="keyword">x</span>.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="3、nginx的启动、停止、重启"><a href="#3、nginx的启动、停止、重启" class="headerlink" title="3、nginx的启动、停止、重启"></a>3、nginx的启动、停止、重启</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx <span class="comment">#启动nginx</span></span><br><span class="line">systemctl stop nginx <span class="comment">#停止nginx</span></span><br><span class="line">systemctl restart nginx <span class="comment">#重新启动nginx</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nginx <span class="comment">#开机启动nginx</span></span><br></pre></td></tr></table></figure>
+<h4 id="4、nginx踩过的一些坑"><a href="#4、nginx踩过的一些坑" class="headerlink" title="4、nginx踩过的一些坑"></a>4、nginx踩过的一些坑</h4><p>selinux引起的权限访问受限问题，cat /var/log/Audit/Audit.log 发现有nginx访问阻止记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>=AVC msg=audit(1416406823.013:3137): avc:  denied  &#123; search &#125; <span class="keyword">for</span>  pid=15488 comm=<span class="string">"nginx"</span> name=<span class="string">"www"</span> dev=<span class="string">"dm-3"</span> ino=146 scontext=system_u:system_r:httpd_t:s0 tcontext=unconfined_u:object_r:user_home_dir_t:s0 tclass=dir</span><br></pre></td></tr></table></figure></p>
+<p>解决方案1、（<font color="red">建议采用</font>）<br>设置selinux允许nginx<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install policycoreutils-python</span><br><span class="line">cat /var/<span class="built_in">log</span>/audit/audit.log | grep nginx | grep denied | audit2allow -M mynginx</span><br><span class="line">semodule -i mynginx.pp</span><br></pre></td></tr></table></figure></p>
+<p>解决方案2.1、<br>临时关闭selinux<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0  <span class="comment">#重启后失效</span></span><br></pre></td></tr></table></figure></p>
+<p>解决方案2.2、<br>永久关闭selinux</p>
+<p>打开 selinux 配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/selinux/config</span><br></pre></td></tr></table></figure></p>
+<p>修改 selinux 配置文件<br>将SELINUX=enforcing改为SELINUX=disabled，保存后退出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file controls the state of SELinux on the system.</span></span><br><span class="line"><span class="comment"># SELINUX= can take one of these three values:</span></span><br><span class="line"><span class="comment">#     enforcing - SELinux security policy is enforced.</span></span><br><span class="line"><span class="comment">#     permissive - SELinux prints warnings instead of enforcing.</span></span><br><span class="line"><span class="comment">#     disabled - No SELinux policy is loaded.</span></span><br><span class="line">SELINUX=enforcing</span><br><span class="line"><span class="comment"># SELINUXTYPE= can take one of three two values:</span></span><br><span class="line"><span class="comment">#     targeted - Targeted processes are protected,</span></span><br><span class="line"><span class="comment">#     minimum - Modification of targeted policy. Only selected processes are protected.</span></span><br><span class="line"><span class="comment">#     mls - Multi Level Security protection.</span></span><br><span class="line">SELINUXTYPE=targeted</span><br></pre></td></tr></table></figure></p>
+<p>重启电脑（<font color="red">一定重启</font>，否则无效）</p>
 
       
     </div>
@@ -498,9 +462,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/net/" rel="tag"># net</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/ccna/" rel="tag"># ccna</a>
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
           
         </div>
       
@@ -513,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/27/ccna-1/" rel="next" title="CCNA学习笔记一 -- 计算机网络详解">
-                <i class="fa fa-chevron-left"></i> CCNA学习笔记一 -- 计算机网络详解
+              <a href="/2018/08/25/first/" rel="next" title="测试">
+                <i class="fa fa-chevron-left"></i> 测试
               </a>
             
           </div>
@@ -523,8 +487,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/28/ccna-3/" rel="prev" title="CCNA学习笔记三 -- 路由和交换">
-                CCNA学习笔记三 -- 路由和交换 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/25/Git/" rel="prev" title="Git命令">
+                Git命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -556,8 +520,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/08/27/ccna-2/"
-           data-title="CCNA学习笔记二 -- TCP/IP协议" data-url="http://http://132.232.42.89/2018/08/27/ccna-2/">
+      <div class="ds-thread" data-thread-key="2018/08/25/middleware/nginx-1/"
+           data-title="nginx的使用（一）-- 简单的安装使用" data-url="http://http://132.232.42.89/2018/08/25/middleware/nginx-1/">
       </div>
     </div>
 
@@ -732,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#DoD模型"><span class="nav-number">1.</span> <span class="nav-text">DoD模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传输层协议"><span class="nav-number">2.</span> <span class="nav-text">传输层协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用层协议"><span class="nav-number">3.</span> <span class="nav-text">应用层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#默认端口"><span class="nav-number">3.1.</span> <span class="nav-text">默认端口</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务和端口的关系"><span class="nav-number">4.</span> <span class="nav-text">服务和端口的关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络安全"><span class="nav-number">5.</span> <span class="nav-text">网络安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络层协议"><span class="nav-number">6.</span> <span class="nav-text">网络层协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IP地址"><span class="nav-number">7.</span> <span class="nav-text">IP地址</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ip地址分类"><span class="nav-number">7.1.</span> <span class="nav-text">ip地址分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#保留的私网地址"><span class="nav-number">7.2.</span> <span class="nav-text">保留的私网地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#本地环回地址"><span class="nav-number">7.3.</span> <span class="nav-text">本地环回地址</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、nginx简介"><span class="nav-number">1.</span> <span class="nav-text">一、nginx简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、nginx是什么"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、nginx是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、nginx可以用来做什么（不加载第三方模块）"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、nginx可以用来做什么（不加载第三方模块）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、nginx安装以及简单的配置"><span class="nav-number">2.</span> <span class="nav-text">二、nginx安装以及简单的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装nginx（环境-centos7）"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、安装nginx（环境 centos7）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、配置nginx"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、配置nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、nginx的启动、停止、重启"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、nginx的启动、停止、重启</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、nginx踩过的一些坑"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、nginx踩过的一些坑</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

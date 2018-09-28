@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="VLAN虚拟局域网&amp;emsp;&amp;emsp;VLAN是交换机组网才有的概念，按部门或管理的要求来组网，而不是按照位置组网，更灵活，安全一个VLAN=一个广播域=一个网段12345#show vlan 查看VLAN(config)#vlan 2 创建VLAN2(config)#interrface range fastEthernet 0/13 - 24 选中13-24接口(config-if-ran">
+<meta name="description" content="网络安全物理层安全 墙上不用的网线接口，连接交换机的端口关掉数据链路层安全 ADSL拨号账号和密码 MAC地址绑定 交换机连接计算机数量控制 创建VLAN网络层安全 基于源ip地址目标IP地址的控制传输层安全 会话攻击 LAND攻击 syn洪水攻击应用层安全 登录密码   网络层安全标准的ACL  基于源地址进行控制1234567891011#config terminal  (config)#a">
 <meta name="keywords" content="net,ccna">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CCNA学习笔记四 -- VLAN">
-<meta property="og:url" content="http://http://132.232.42.89/2018/08/28/ccna-4/index.html">
+<meta property="og:title" content="CCNA学习笔记五 -- ACL">
+<meta property="og:url" content="http://http://132.232.42.89/2018/08/28/ccna/ccna-5/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="VLAN虚拟局域网&amp;emsp;&amp;emsp;VLAN是交换机组网才有的概念，按部门或管理的要求来组网，而不是按照位置组网，更灵活，安全一个VLAN=一个广播域=一个网段12345#show vlan 查看VLAN(config)#vlan 2 创建VLAN2(config)#interrface range fastEthernet 0/13 - 24 选中13-24接口(config-if-ran">
+<meta property="og:description" content="网络安全物理层安全 墙上不用的网线接口，连接交换机的端口关掉数据链路层安全 ADSL拨号账号和密码 MAC地址绑定 交换机连接计算机数量控制 创建VLAN网络层安全 基于源ip地址目标IP地址的控制传输层安全 会话攻击 LAND攻击 syn洪水攻击应用层安全 登录密码   网络层安全标准的ACL  基于源地址进行控制1234567891011#config terminal  (config)#a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-11T01:51:56.011Z">
+<meta property="og:updated_time" content="2018-09-28T12:56:32.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CCNA学习笔记四 -- VLAN">
-<meta name="twitter:description" content="VLAN虚拟局域网&amp;emsp;&amp;emsp;VLAN是交换机组网才有的概念，按部门或管理的要求来组网，而不是按照位置组网，更灵活，安全一个VLAN=一个广播域=一个网段12345#show vlan 查看VLAN(config)#vlan 2 创建VLAN2(config)#interrface range fastEthernet 0/13 - 24 选中13-24接口(config-if-ran">
+<meta name="twitter:title" content="CCNA学习笔记五 -- ACL">
+<meta name="twitter:description" content="网络安全物理层安全 墙上不用的网线接口，连接交换机的端口关掉数据链路层安全 ADSL拨号账号和密码 MAC地址绑定 交换机连接计算机数量控制 创建VLAN网络层安全 基于源ip地址目标IP地址的控制传输层安全 会话攻击 LAND攻击 syn洪水攻击应用层安全 登录密码   网络层安全标准的ACL  基于源地址进行控制1234567891011#config terminal  (config)#a">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/2018/08/28/ccna-4/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2018/08/28/ccna/ccna-5/"/>
 
 
 
 
 
-  <title>CCNA学习笔记四 -- VLAN | Icecap</title>
+  <title>CCNA学习笔记五 -- ACL | Icecap</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/28/ccna-4/">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/28/ccna/ccna-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bohan Zhang">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CCNA学习笔记四 -- VLAN</h1>
+          <h1 class="post-title" itemprop="name headline">CCNA学习笔记五 -- ACL</h1>
         
 
         <div class="post-meta">
@@ -346,7 +346,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T15:18:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T15:20:39+08:00">
                 2018-08-28
               </time>
             
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-11T09:51:56+08:00">
-                2018-09-11
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-28T20:56:32+08:00">
+                2018-09-28
               </time>
             
           </span>
@@ -399,8 +399,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/28/ccna-4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/28/ccna-4/" itemprop="commentCount"></span>
+                <a href="/2018/08/28/ccna/ccna-5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/28/ccna/ccna-5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -428,10 +428,27 @@
       
 
       
-        <h4 id="VLAN虚拟局域网"><a href="#VLAN虚拟局域网" class="headerlink" title="VLAN虚拟局域网"></a>VLAN虚拟局域网</h4><p>&emsp;&emsp;VLAN是交换机组网才有的概念，按部门或管理的要求来组网，而不是按照位置组网，更灵活，安全<br>一个VLAN=一个广播域=一个网段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#show vlan 查看VLAN</span><br><span class="line">(config)#vlan 2 创建VLAN2</span><br><span class="line">(config)#interrface range fastEthernet 0/13 - 24 选中13-24接口</span><br><span class="line">(config-if-range)#switchport mode access 设置计算机接口</span><br><span class="line">(config-if-range)#switchport access vlan 2 设置为vlan2</span><br></pre></td></tr></table></figure></p>
-<h6 id="单臂路由器实现VLAN间路由"><a href="#单臂路由器实现VLAN间路由" class="headerlink" title="单臂路由器实现VLAN间路由"></a>单臂路由器实现VLAN间路由</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(config)#interface gigabitEthernet 1/1 打开Gbit1/1接口</span><br><span class="line">(config-if)#switchport mode trunk 设置干道链路</span><br></pre></td></tr></table></figure>
-<h6 id="三层交换机上的配置"><a href="#三层交换机上的配置" class="headerlink" title="三层交换机上的配置"></a>三层交换机上的配置</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(config)#ip routing 启用路由功能</span><br><span class="line">(config-if)#switchport trunk encapsulation dotlq设置trunk封装格式为dotlq</span><br><span class="line">(config-if)#switchport mode trunk</span><br><span class="line">(config)#Interface vlan 1</span><br><span class="line">(config-if)#ip address ip_address mask </span><br><span class="line">(config-if)# no shutdown </span><br><span class="line">(config)#interface vlan 2</span><br><span class="line">(config-if)#ip address ip_address mask </span><br><span class="line">(config-if)# no shutdown</span><br></pre></td></tr></table></figure>
-<h4 id="VTP协议"><a href="#VTP协议" class="headerlink" title="VTP协议"></a>VTP协议</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(condig)#vtp domain name   设置vtp域名</span><br><span class="line">(condig)#vtp password passwd  设置vtp密码</span><br><span class="line">(condig)#vtp mode client/server  设置客户端或者服务端，服务端可以更改整个域的VLAN的添加删除，但是不能更改其他的交换机的端口是否属于该vlan</span><br></pre></td></tr></table></figure>
+        <h4 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h4><p>物理层安全 墙上不用的网线接口，连接交换机的端口关掉<br>数据链路层安全 ADSL拨号账号和密码 MAC地址绑定 交换机连接计算机数量控制 创建VLAN<br>网络层安全 基于源ip地址目标IP地址的控制<br>传输层安全 会话攻击 LAND攻击 syn洪水攻击<br>应用层安全 登录密码  </p>
+<h4 id="网络层安全"><a href="#网络层安全" class="headerlink" title="网络层安全"></a>网络层安全</h4><p>标准的ACL  基于源地址进行控制<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#config terminal  </span><br><span class="line">(config)#access-list 10 deny host 192.168.1.2</span><br><span class="line">(config)#access-list 10 permit 192.168.1.0 0.0.0.255 允许192.168.1.0访问，使用翻转子网掩码</span><br><span class="line">(config)(config)#interface serial 3/0</span><br><span class="line">(config-if)#ip access-group 10 in/out 绑定控制列表到物理接口并确定出还是进检查访问列表</span><br><span class="line">(config)#no access-list 10 删除ACL10</span><br><span class="line">ACL的顺序影响访问控制</span><br><span class="line">扩展的ACL  基于源地址、目标地址、协议、端口号进行控制</span><br><span class="line">(config)#access-list 100 permit ip 192.168.1.0 0.0.0.255 any 允许192.168.1.0/24访问任何</span><br><span class="line">(config)#access-list 100 permit tcp 192.18.2.0 0.0.0.255 10.0.0.0 0.0.0.255 eq 80 允许192.18.2.0/24访问10.0.0.0/8上的web服务器</span><br><span class="line">(config)#access-list 100 permit icmp 192.18.2.0 0.0.0.255 any 允许192.18.2.0/24ping任何因特网</span><br></pre></td></tr></table></figure></p>
+<p>将acl绑定到telnet接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(config-line)#access-class 10 in/out</span><br></pre></td></tr></table></figure></p>
+<h4 id="acl具体应用"><a href="#acl具体应用" class="headerlink" title="acl具体应用"></a>acl具体应用</h4><ol>
+<li><p>入站————决不允许任何源地址是内部主机地址或网络地址的数据包进入一个私有的网络</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#access-list 150 deny ip 127.0.0.0 0.255.255.255 any log</span><br><span class="line">#access-list 150 deny ip 0.0.0.0 255.255.255.255 any log</span><br><span class="line">#access-list 150 deny ip 10.0.0.0 0.255.255.255 any log</span><br><span class="line">#access-list 150 deny ip 127.16.0.0 0.15.255.255 any log</span><br><span class="line">#access-list 150 deny ip 192.168.0.0 0.0.255.255 any log</span><br><span class="line">#access-list 150 deny ip 224.0.0.0 15.255.255.255 any log</span><br><span class="line">#access-list 150 deny ip host 255.255.255.255 any log</span><br><span class="line">#access-list 150 permit ip any any</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>出站————决不允许任何含有非内部网络有效的ip数据包出站</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#access-list 150 permit 192.168.0.0 0.0.255.255 any</span><br><span class="line">#access-list 150 deny ip any any log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>阻塞外部访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#access-list 109 permit any 192.268.0.0 0.0.255.255 established </span><br><span class="line">#access-list 109 deny ip any any log</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>过滤ICMP消息————禁止ping命令进内网</p>
+<pre><code>#access-list 112 deny icmp any any echo log 
+#access-list 112 deny icmp any any redirect log 
+#access-list 112 deny icmp any any mask-request log
+#access-list 112 permit icmp any 192.168.0.0 0.0.255.255  
+</code></pre></li>
+</ol>
+
       
     </div>
     
@@ -462,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/28/ccna-3/" rel="next" title="CCNA学习笔记三 -- 路由和交换">
-                <i class="fa fa-chevron-left"></i> CCNA学习笔记三 -- 路由和交换
+              <a href="/2018/08/28/ccna/ccna-4/" rel="next" title="CCNA学习笔记四 -- VLAN">
+                <i class="fa fa-chevron-left"></i> CCNA学习笔记四 -- VLAN
               </a>
             
           </div>
@@ -472,8 +489,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/28/ccna-5/" rel="prev" title="CCNA学习笔记五 -- ACL">
-                CCNA学习笔记五 -- ACL <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/28/ccna/ccna-6/" rel="prev" title="CCNA学习笔记六 -- NAT">
+                CCNA学习笔记六 -- NAT <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -505,8 +522,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/08/28/ccna-4/"
-           data-title="CCNA学习笔记四 -- VLAN" data-url="http://http://132.232.42.89/2018/08/28/ccna-4/">
+      <div class="ds-thread" data-thread-key="2018/08/28/ccna/ccna-5/"
+           data-title="CCNA学习笔记五 -- ACL" data-url="http://http://132.232.42.89/2018/08/28/ccna/ccna-5/">
       </div>
     </div>
 
@@ -681,7 +698,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#VLAN虚拟局域网"><span class="nav-number">1.</span> <span class="nav-text">VLAN虚拟局域网</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#单臂路由器实现VLAN间路由"><span class="nav-number">1.0.1.</span> <span class="nav-text">单臂路由器实现VLAN间路由</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三层交换机上的配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">三层交换机上的配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VTP协议"><span class="nav-number">2.</span> <span class="nav-text">VTP协议</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络安全"><span class="nav-number">1.</span> <span class="nav-text">网络安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络层安全"><span class="nav-number">2.</span> <span class="nav-text">网络层安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#acl具体应用"><span class="nav-number">3.</span> <span class="nav-text">acl具体应用</span></a></li></ol></div>
             
 
           </div>

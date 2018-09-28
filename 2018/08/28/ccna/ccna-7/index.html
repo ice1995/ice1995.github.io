@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="网络畅通的条件数据包能去能回沿途的路由器必须知道到目标地址如何转发沿途的路由器必须知道回来的数据包如何转发   路由器直连的网络 不用告诉路由器如何转发路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由123456(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0  设置数据包 到192.168.1.0/24的数">
+<meta name="description" content="DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 ND、MLD、ICMPv6、IPv6网络接口 各种通信网络接口（以太网等物理网络）   IPv6地址（128位） 首选的格式128比特分成8段，每段的16比特用16进制表示，中间用:隔开xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx 压缩格式，允许0压缩x">
 <meta name="keywords" content="net,ccna">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CCNA学习笔记三 -- 路由和交换">
-<meta property="og:url" content="http://http://132.232.42.89/2018/08/28/ccna-3/index.html">
+<meta property="og:title" content="CCNA学习笔记七 -- IPv6">
+<meta property="og:url" content="http://http://132.232.42.89/2018/08/28/ccna/ccna-7/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="网络畅通的条件数据包能去能回沿途的路由器必须知道到目标地址如何转发沿途的路由器必须知道回来的数据包如何转发   路由器直连的网络 不用告诉路由器如何转发路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由123456(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0  设置数据包 到192.168.1.0/24的数">
+<meta property="og:description" content="DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 ND、MLD、ICMPv6、IPv6网络接口 各种通信网络接口（以太网等物理网络）   IPv6地址（128位） 首选的格式128比特分成8段，每段的16比特用16进制表示，中间用:隔开xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx 压缩格式，允许0压缩x">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-18T01:26:13.433Z">
+<meta property="og:updated_time" content="2018-09-28T12:56:32.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CCNA学习笔记三 -- 路由和交换">
-<meta name="twitter:description" content="网络畅通的条件数据包能去能回沿途的路由器必须知道到目标地址如何转发沿途的路由器必须知道回来的数据包如何转发   路由器直连的网络 不用告诉路由器如何转发路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由123456(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0  设置数据包 到192.168.1.0/24的数">
+<meta name="twitter:title" content="CCNA学习笔记七 -- IPv6">
+<meta name="twitter:description" content="DoD模型应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议传输层 TCP、UDP网络层 ND、MLD、ICMPv6、IPv6网络接口 各种通信网络接口（以太网等物理网络）   IPv6地址（128位） 首选的格式128比特分成8段，每段的16比特用16进制表示，中间用:隔开xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx 压缩格式，允许0压缩x">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/2018/08/28/ccna-3/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2018/08/28/ccna/ccna-7/"/>
 
 
 
 
 
-  <title>CCNA学习笔记三 -- 路由和交换 | Icecap</title>
+  <title>CCNA学习笔记七 -- IPv6 | Icecap</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/28/ccna-3/">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/28/ccna/ccna-7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bohan Zhang">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CCNA学习笔记三 -- 路由和交换</h1>
+          <h1 class="post-title" itemprop="name headline">CCNA学习笔记七 -- IPv6</h1>
         
 
         <div class="post-meta">
@@ -346,7 +346,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T14:52:47+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T15:27:57+08:00">
                 2018-08-28
               </time>
             
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-18T09:26:13+08:00">
-                2018-09-18
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-28T20:56:32+08:00">
+                2018-09-28
               </time>
             
           </span>
@@ -399,8 +399,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/28/ccna-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/28/ccna-3/" itemprop="commentCount"></span>
+                <a href="/2018/08/28/ccna/ccna-7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/28/ccna/ccna-7/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -428,11 +428,52 @@
       
 
       
-        <h4 id="网络畅通的条件"><a href="#网络畅通的条件" class="headerlink" title="网络畅通的条件"></a>网络畅通的条件</h4><p>数据包能去能回<br>沿途的路由器必须知道到目标地址如何转发<br>沿途的路由器必须知道回来的数据包如何转发  </p>
-<p>路由器直连的网络 不用告诉路由器如何转发<br>路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0  设置数据包 到192.168.1.0/24的数据包下一跳给192.168.2.0</span><br><span class="line">(config)#tracroute ip_address 跟踪数据包路径</span><br><span class="line">#show ip route 查看路由表</span><br><span class="line">(config)#no ip route 192.168.1.0 255.255.255.0 删除路由表</span><br><span class="line">windows上添加路由表 route add ip_adress mask ip_web</span><br><span class="line">windows查看路由表 netstat-r    route print</span><br></pre></td></tr></table></figure></p>
-<h4 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h4><p>优先级 直连0 静态路由1 eigp90  rip120<br>RIP协议 跳数判断，周期性（30s）更新路由表，最大跳数16跳<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(config)#router rip  启用rip协议  </span><br><span class="line">(config-router)#network 192.168.1.0 该网段参与rip协议  </span><br><span class="line">#debug ip rip 显示rip协议信息</span><br><span class="line">#undebug all  关闭rip协议信息显示</span><br><span class="line">#show ip protocols 显示应用协议</span><br><span class="line">EIGP协议 优先级高于RIP</span><br><span class="line">(config)#router eigp 10  启用eigp协议,相同编号路由器才可以交换路由信息</span><br><span class="line">(config-router)#network 192.168.1.0 该网段参与eigp协议</span><br></pre></td></tr></table></figure></p>
-<h4 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h4><p>集线器 不安全、冲突域、带宽共享<br>交换机 基于目标MAC地址转发、学习MAC地址、端口独享带宽、没有冲突、广播会出问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#show mac-address-table 显示MAC地址表</span><br><span class="line">  #config terminal </span><br><span class="line">  (config)#interrface fastEthernet 0/4</span><br><span class="line">  (config-if)#switchport mode access 接机算机的接口</span><br><span class="line">  (config-if)#switchport port-security 启用安全</span><br><span class="line">  (config-if)#switchport port-security violation shutdown 违反安全规则down掉</span><br><span class="line">  (config-if)#switchport port-security maxium 2 限制连接数量</span><br><span class="line">  (config)#interrface range fastEthernet 0/1 - 24 选中1-24个口</span><br><span class="line">  (config-if-range)#switchport port-security mac-adddress sticky MAC地址终止学习</span><br></pre></td></tr></table></figure></p>
-<h4 id="生成树协议"><a href="#生成树协议" class="headerlink" title="生成树协议"></a>生成树协议</h4><p> 为了高可用局域网交换机连接有了环路<br>为了阻断网络中的广播有了生成树协议<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#show spanning-tree 查看交换机端口以及生成树状态</span><br><span class="line">(config)#spanning-tree vlan 1 priority 4096更改路由器优先级为4096，值越小优先级越高</span><br><span class="line">(config)#no spanning-tree vlan 1 关闭生成树协议</span><br></pre></td></tr></table></figure></p>
+        <h4 id="DoD模型"><a href="#DoD模型" class="headerlink" title="DoD模型"></a>DoD模型</h4><p>应用层 Telent、FTP、SMTP、DNS、HTTP以及其他应用协议<br>传输层 TCP、UDP<br>网络层 ND、MLD、ICMPv6、IPv6<br>网络接口 各种通信网络接口（以太网等物理网络）  </p>
+<h4 id="IPv6地址（128位）"><a href="#IPv6地址（128位）" class="headerlink" title="IPv6地址（128位）"></a>IPv6地址（128位）</h4><ol>
+<li>首选的格式<br>128比特分成8段，每段的16比特用16进制表示，中间用:隔开<br>xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx</li>
+<li>压缩格式，允许0压缩<br>xxxx:xxxx::xx:xxx:x:xxxx<br>一对::在一个地址中只能出现1次</li>
+<li>IPv4构造IPv6<br>0:0:0:0:0:0:192.168.0.1或者::192.168.0.1</li>
+<li>子网掩码<br>xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx/n 前n位是网络部分，后边是主机部分<h4 id="单播地址"><a href="#单播地址" class="headerlink" title="单播地址"></a>单播地址</h4>全球路由前缀  |子网|接口ID<br>2001:0db8:3c4d:0012:a:d:1234:56ab<br>链路本地地址 link local address  该地址用于同一网段中IPv6计算机通信<br>多播地址<br>任播地址  </li>
+</ol>
+<p>::  相当于0.0.0.0<br>::1 相当于127.0.0.1<br>2000::/3 全球单播地址范围，前三位是001<br>FE80::/10 链路本地单播地址<br>FF00::/8 组播地址范围<br>3FFF:FFFF::/32 示例和文档保留地址<br>2001:oDB8::/32 示例和文档保留地址<br>2002::/16 用于IPv6到IPv4的转换系统</p>
+<h4 id="IPv6地址分配"><a href="#IPv6地址分配" class="headerlink" title="IPv6地址分配"></a>IPv6地址分配</h4><ol>
+<li>静态</li>
+<li>自动<br>无状态 向路由器发送路由前缀请求，配置IPv6的路由器接口收到，然后发送路由通告，计算机获得网络部分+自己的MAC地址，进行构造IPv6地址<br>有DHCP服务器 路由通告中M=1，则向DHCP服务器请求ip地址；路由通告中O=1，则向DHCP服务器请求其他设置如DNS服务器、搜索后缀等  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(config)#ipv6 unicast-routing 启用IPv6</span><br><span class="line">(config)#interface fastEthernet 0/0</span><br><span class="line">(config-if)#ipv6 address 2001:13::1/64</span><br><span class="line"></span><br><span class="line">(config-if)#ipv6 nd managed-config-flag  令路由通告中M=1</span><br><span class="line">(config-if)#ipv6 nd other-config-flag 令路由通告中O=1</span><br></pre></td></tr></table></figure>
+<h4 id="IPv6路由添加"><a href="#IPv6路由添加" class="headerlink" title="IPv6路由添加"></a>IPv6路由添加</h4><h5 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#show ipv6 interface fastEthernet 0/0 </span><br><span class="line">#show ipv6 route 查看IPv6路由表查</span><br><span class="line">(config)#ipv6 route 2001:1::/64 2001:1::1</span><br><span class="line">(config-if)#ipv6 address 2001:1::/64 eui-64 自己根据前缀和自己的MAC地址构造IPv6地址</span><br><span class="line">(config-if)#ipv6 address 2001:1::1/64</span><br></pre></td></tr></table></figure>
+<h5 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h5><ol>
+<li><p>RIPng协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(config)#ipv6 unicast-routing</span><br><span class="line">(config)#ipv6 router rip 1</span><br><span class="line">(config-rtr)#exit</span><br><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 rip 1 enable</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>EIGRPv6协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(config)#ipv6 unicast-routing</span><br><span class="line">(config)#ipv6 router eigrp 10</span><br><span class="line">(config-rtr)#no shutdown</span><br><span class="line">(config-rtr)#router-id 4.0.0.1</span><br><span class="line">(config-rtr)#exit</span><br><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 eigrp 10</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>OSPFv3协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(config)#ipv6 unicast-routing</span><br><span class="line">(config)#ipv6 router ospf 1</span><br><span class="line">(config-rtr)#router-id 4.0.0.1</span><br><span class="line">(config-rtr)#exit</span><br><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 ospf 1 area 0</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="IPv4和IPv6共存技术"><a href="#IPv4和IPv6共存技术" class="headerlink" title="IPv4和IPv6共存技术"></a>IPv4和IPv6共存技术</h4><p>双协议栈</p>
+<ol>
+<li><p>IPv6 to IPv4隧道技术</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(config)#ipv6 unicast-routing</span><br><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 address 2001:1::1/64 </span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#interface tunnel 0 隧道虚拟端口</span><br><span class="line">(config-if)#no shutdown</span><br><span class="line">(config-if)#ipv6 address 2001:2::1/64 给隧道虚拟端口配置IPv6</span><br><span class="line">(config-if)#tunnel source 10.0.0.1  隧道源地址</span><br><span class="line">(config-if)#tunnel destination 10.0.1.2 隧道目标地址</span><br><span class="line">(config-if)#tunnel mode ipv6ip 设置隧道加密模式</span><br><span class="line">(config-if)#exit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ISATAP隧道</p>
+<ol>
+<li><p>配置ISATAP路由(该路由与IPv4网络接口为192.168.0.2)</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(config)#interface tunnel 0</span><br><span class="line">(config-if)#ipv6 address 2001:1::/64 eui-64</span><br><span class="line">(config-if)#no ipv6 nd suppress-ra</span><br><span class="line">(config-if)#tunnel source 10.0.0.1</span><br><span class="line">(config-if)#tunnel mode ipv6ip isatap</span><br><span class="line">(config-if)#no shutdown</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>windows下</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;netsh</span><br><span class="line">netsh&gt;interface</span><br><span class="line">netsh interface&gt;ipv6</span><br><span class="line">netsh interface ipv6&gt;isatap</span><br><span class="line">netsh interface ipv6 isatap&gt;set router 192.168.0.2</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>静态NAT-PT</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 nat </span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#interface serial 1/0</span><br><span class="line">(config-if)#ipv6 nat </span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#ipv6 nat v6v4 source 10.0.0.2 2001:2::2 </span><br><span class="line">(config)#ipv6 nat v6v4 source 2001:2::4 10.0.0.4</span><br><span class="line">(config)#ipv6 prefix 2001:3::/96</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>动态NAT-PT 只能由IPv6网络主动向IPv4网络发起通信</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(config)#interface fastEthernet 0/1</span><br><span class="line">(config-if)#ipv6 nat </span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#interface serial 1/0</span><br><span class="line">(config-if)#ipv6 nat </span><br><span class="line">(config-if)#exit</span><br><span class="line">(config)#ipv6 access-list v4map </span><br><span class="line">(config-ipv6-acl)#permit 2001:2::/64 any </span><br><span class="line">(config-ipv6-acl)#exit</span><br><span class="line">(config)#ipv6 access-list v6map</span><br><span class="line">(config-ipv6-acl)#permit 2001:2::/64 any </span><br><span class="line">(config-ipv6-acl)#exit</span><br><span class="line">(config)#ipv6 nat</span><br><span class="line">(config)#ipv6 nat v6v4 pool v4pool 10.0.2.100 10.0.2.200 prefix-length 24 </span><br><span class="line">(config)#ipv6 nat v6v4 source list v6list pool v4pool </span><br><span class="line">(config)#ipv6 nat prefix 2001::/96 v4-mapped v4map  2001::/96用v4map里的地址替代</span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -464,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/27/ccna-2/" rel="next" title="CCNA学习笔记二 -- TCP/IP协议">
-                <i class="fa fa-chevron-left"></i> CCNA学习笔记二 -- TCP/IP协议
+              <a href="/2018/08/28/ccna/ccna-6/" rel="next" title="CCNA学习笔记六 -- NAT">
+                <i class="fa fa-chevron-left"></i> CCNA学习笔记六 -- NAT
               </a>
             
           </div>
@@ -474,8 +515,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/28/ccna-4/" rel="prev" title="CCNA学习笔记四 -- VLAN">
-                CCNA学习笔记四 -- VLAN <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/28/regex-using/" rel="prev" title="正则表达式应用（持续更新）">
+                正则表达式应用（持续更新） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -507,8 +548,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/08/28/ccna-3/"
-           data-title="CCNA学习笔记三 -- 路由和交换" data-url="http://http://132.232.42.89/2018/08/28/ccna-3/">
+      <div class="ds-thread" data-thread-key="2018/08/28/ccna/ccna-7/"
+           data-title="CCNA学习笔记七 -- IPv6" data-url="http://http://132.232.42.89/2018/08/28/ccna/ccna-7/">
       </div>
     </div>
 
@@ -683,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络畅通的条件"><span class="nav-number">1.</span> <span class="nav-text">网络畅通的条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态路由"><span class="nav-number">2.</span> <span class="nav-text">动态路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交换"><span class="nav-number">3.</span> <span class="nav-text">交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成树协议"><span class="nav-number">4.</span> <span class="nav-text">生成树协议</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#DoD模型"><span class="nav-number">1.</span> <span class="nav-text">DoD模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv6地址（128位）"><span class="nav-number">2.</span> <span class="nav-text">IPv6地址（128位）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单播地址"><span class="nav-number">3.</span> <span class="nav-text">单播地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv6地址分配"><span class="nav-number">4.</span> <span class="nav-text">IPv6地址分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv6路由添加"><span class="nav-number">5.</span> <span class="nav-text">IPv6路由添加</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#静态路由"><span class="nav-number">5.1.</span> <span class="nav-text">静态路由</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#动态路由"><span class="nav-number">5.2.</span> <span class="nav-text">动态路由</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IPv4和IPv6共存技术"><span class="nav-number">6.</span> <span class="nav-text">IPv4和IPv6共存技术</span></a></li></ol></div>
             
 
           </div>

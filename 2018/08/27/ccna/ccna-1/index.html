@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="linux,nginx," />
+  <meta name="keywords" content="net,ccna," />
 
 
 
@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="一、nginx简介1、nginx是什么Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。 2、nginx可以用来做什么（不加载第三方模块） 反向代理 负载均衡 HTTP服务器（包含动静分离） 正向代理 缓存  二、nginx安装以及简单的配置">
-<meta name="keywords" content="linux,nginx">
+<meta name="description" content="局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽  OSI参考模型↑7 应用层      能产生网络流量的应用程序 ↑6 表示层      表示数据，处理数据 加密 压缩 等 ↑5 会话层      msconfig netstat -nb (显示程序) ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3">
+<meta name="keywords" content="net,ccna">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx的使用（一）-- 简单的安装使用">
-<meta property="og:url" content="http://http://132.232.42.89/2018/08/25/nginx-1/index.html">
+<meta property="og:title" content="CCNA学习笔记一 -- 计算机网络详解">
+<meta property="og:url" content="http://http://132.232.42.89/2018/08/27/ccna/ccna-1/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="一、nginx简介1、nginx是什么Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。 2、nginx可以用来做什么（不加载第三方模块） 反向代理 负载均衡 HTTP服务器（包含动静分离） 正向代理 缓存  二、nginx安装以及简单的配置">
+<meta property="og:description" content="局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽  OSI参考模型↑7 应用层      能产生网络流量的应用程序 ↑6 表示层      表示数据，处理数据 加密 压缩 等 ↑5 会话层      msconfig netstat -nb (显示程序) ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-01T09:36:13.563Z">
+<meta property="og:updated_time" content="2018-09-28T12:56:32.914Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="nginx的使用（一）-- 简单的安装使用">
-<meta name="twitter:description" content="一、nginx简介1、nginx是什么Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。 2、nginx可以用来做什么（不加载第三方模块） 反向代理 负载均衡 HTTP服务器（包含动静分离） 正向代理 缓存  二、nginx安装以及简单的配置">
+<meta name="twitter:title" content="CCNA学习笔记一 -- 计算机网络详解">
+<meta name="twitter:description" content="局域网与广域网 局域网 自己花钱买设备自己搭配服务器，带宽固定 广域网 花钱租带宽  OSI参考模型↑7 应用层      能产生网络流量的应用程序 ↑6 表示层      表示数据，处理数据 加密 压缩 等 ↑5 会话层      msconfig netstat -nb (显示程序) ↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源 ↑3">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/2018/08/25/nginx-1/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2018/08/27/ccna/ccna-1/"/>
 
 
 
 
 
-  <title>nginx的使用（一）-- 简单的安装使用 | Icecap</title>
+  <title>CCNA学习笔记一 -- 计算机网络详解 | Icecap</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/25/nginx-1/">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/27/ccna/ccna-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bohan Zhang">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">nginx的使用（一）-- 简单的安装使用</h1>
+          <h1 class="post-title" itemprop="name headline">CCNA学习笔记一 -- 计算机网络详解</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-25T10:10:29+08:00">
-                2018-08-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T14:27:56+08:00">
+                2018-08-27
               </time>
             
 
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-01T17:36:13+08:00">
-                2018-09-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-28T20:56:32+08:00">
+                2018-09-28
               </time>
             
           </span>
@@ -381,8 +381,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/net/" itemprop="url" rel="index">
+                    <span itemprop="name">net</span>
                   </a>
                 </span>
 
@@ -399,8 +399,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/25/nginx-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/25/nginx-1/" itemprop="commentCount"></span>
+                <a href="/2018/08/27/ccna/ccna-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/27/ccna/ccna-1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -428,24 +428,88 @@
       
 
       
-        <h2 id="一、nginx简介"><a href="#一、nginx简介" class="headerlink" title="一、nginx简介"></a>一、nginx简介</h2><h4 id="1、nginx是什么"><a href="#1、nginx是什么" class="headerlink" title="1、nginx是什么"></a>1、nginx是什么</h4><p>Nginx (engine x) 是一个高性能的HTTP和反向代理服务，也是一个IMAP/POP3/SMTP服务。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好。</p>
-<h4 id="2、nginx可以用来做什么（不加载第三方模块）"><a href="#2、nginx可以用来做什么（不加载第三方模块）" class="headerlink" title="2、nginx可以用来做什么（不加载第三方模块）"></a>2、nginx可以用来做什么（不加载第三方模块）</h4><ol>
-<li>反向代理</li>
-<li>负载均衡</li>
-<li>HTTP服务器（包含动静分离）</li>
-<li>正向代理</li>
-<li>缓存</li>
+        <h4 id="局域网与广域网"><a href="#局域网与广域网" class="headerlink" title="局域网与广域网"></a>局域网与广域网</h4><ol>
+<li>局域网 自己花钱买设备自己搭配服务器，带宽固定</li>
+<li>广域网 花钱租带宽</li>
 </ol>
-<h2 id="二、nginx安装以及简单的配置"><a href="#二、nginx安装以及简单的配置" class="headerlink" title="二、nginx安装以及简单的配置"></a>二、nginx安装以及简单的配置</h2><h4 id="1、安装nginx（环境-centos7）"><a href="#1、安装nginx（环境-centos7）" class="headerlink" title="1、安装nginx（环境 centos7）"></a>1、安装nginx（环境 centos7）</h4><p>采取最简单的方法，yum install nginx -y</p>
-<h4 id="2、配置nginx"><a href="#2、配置nginx" class="headerlink" title="2、配置nginx"></a>2、配置nginx</h4><p>① 修改user为root（你用来启动nginx的账户）<br>② 添加转发服务器<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">upstream web_server&#123; # 名字随便起</span><br><span class="line">   server 127.0.0.1:8080  max_fails=1  fail_timeout=10s;  #Tomcat服务器1 ip</span><br><span class="line">   server 127.0.0.2:8080  max_fails=1  fail_timeout=10s;  #Tomcat服务器2 ip</span><br><span class="line">   #注意服务器的ip以及端口不要重复</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       80 default_server;</span><br><span class="line">    listen       [::]:80 default_server;</span><br><span class="line">    server_name  _;</span><br><span class="line">    root         /usr/share/nginx/html;</span><br><span class="line">    # Load configuration <span class="keyword">files</span> <span class="keyword">for</span> the default server block.</span><br><span class="line">    include /etc/nginx/default.d/*.conf;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass  http://web_server;   #和上边定义的upstream 对应起来</span><br><span class="line">        proxy_connect_timeout 10;</span><br><span class="line">        proxy_read_timeout  10;</span><br><span class="line">        proxy_send_timeout  10;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page 404 /404.html;</span><br><span class="line">        location = /<span class="number">40</span><span class="keyword">x</span>.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page 500 502 503 504 /50x.html;</span><br><span class="line">        location = /<span class="number">50</span><span class="keyword">x</span>.html &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="3、nginx的启动、停止、重启"><a href="#3、nginx的启动、停止、重启" class="headerlink" title="3、nginx的启动、停止、重启"></a>3、nginx的启动、停止、重启</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx <span class="comment">#启动nginx</span></span><br><span class="line">systemctl stop nginx <span class="comment">#停止nginx</span></span><br><span class="line">systemctl restart nginx <span class="comment">#重新启动nginx</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nginx <span class="comment">#开机启动nginx</span></span><br></pre></td></tr></table></figure>
-<h4 id="4、nginx踩过的一些坑"><a href="#4、nginx踩过的一些坑" class="headerlink" title="4、nginx踩过的一些坑"></a>4、nginx踩过的一些坑</h4><p>selinux引起的权限访问受限问题，cat /var/log/Audit/Audit.log 发现有nginx访问阻止记录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>=AVC msg=audit(1416406823.013:3137): avc:  denied  &#123; search &#125; <span class="keyword">for</span>  pid=15488 comm=<span class="string">"nginx"</span> name=<span class="string">"www"</span> dev=<span class="string">"dm-3"</span> ino=146 scontext=system_u:system_r:httpd_t:s0 tcontext=unconfined_u:object_r:user_home_dir_t:s0 tclass=dir</span><br></pre></td></tr></table></figure></p>
-<p>解决方案1、（<font color="red">建议采用</font>）<br>设置selinux允许nginx<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install policycoreutils-python</span><br><span class="line">cat /var/<span class="built_in">log</span>/audit/audit.log | grep nginx | grep denied | audit2allow -M mynginx</span><br><span class="line">semodule -i mynginx.pp</span><br></pre></td></tr></table></figure></p>
-<p>解决方案2.1、<br>临时关闭selinux<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0  <span class="comment">#重启后失效</span></span><br></pre></td></tr></table></figure></p>
-<p>解决方案2.2、<br>永久关闭selinux</p>
-<p>打开 selinux 配置文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/selinux/config</span><br></pre></td></tr></table></figure></p>
-<p>修改 selinux 配置文件<br>将SELINUX=enforcing改为SELINUX=disabled，保存后退出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file controls the state of SELinux on the system.</span></span><br><span class="line"><span class="comment"># SELINUX= can take one of these three values:</span></span><br><span class="line"><span class="comment">#     enforcing - SELinux security policy is enforced.</span></span><br><span class="line"><span class="comment">#     permissive - SELinux prints warnings instead of enforcing.</span></span><br><span class="line"><span class="comment">#     disabled - No SELinux policy is loaded.</span></span><br><span class="line">SELINUX=enforcing</span><br><span class="line"><span class="comment"># SELINUXTYPE= can take one of three two values:</span></span><br><span class="line"><span class="comment">#     targeted - Targeted processes are protected,</span></span><br><span class="line"><span class="comment">#     minimum - Modification of targeted policy. Only selected processes are protected.</span></span><br><span class="line"><span class="comment">#     mls - Multi Level Security protection.</span></span><br><span class="line">SELINUXTYPE=targeted</span><br></pre></td></tr></table></figure></p>
-<p>重启电脑（<font color="red">一定重启</font>，否则无效）</p>
+<h4 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h4><pre><code>↑7 应用层      能产生网络流量的应用程序
+↑6 表示层      表示数据，处理数据 加密 压缩 等
+↑5 会话层      msconfig netstat -nb (显示程序)
+↑4 传输层      可靠传输 建立会话 流量控制 差错检查 不可靠传输 不建立会话 节省服务器资源
+↑3 网络层      选择最佳路径
+↑2 数据链路层  网络设备 如何封装数据帧 设备地址
+↑1 物理层      规定了电压标准、接口标准
+</code></pre><p>程序员的工作层  应用层、表示层、会话层<br>网络工程师的工作层  传输层、网络层、数据链路层、物理层<br>网络分层的好处：每一层互不干扰，没有影响；有主于设备标准化</p>
+<h4 id="网络排错和OSI参考模型"><a href="#网络排错和OSI参考模型" class="headerlink" title="网络排错和OSI参考模型"></a>网络排错和OSI参考模型</h4><table>
+<thead>
+<tr>
+<th>网络层</th>
+<th>可能出现的错误</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>物理层</td>
+<td>连接问题</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+<td>MAC地址冲突 ADSL拨号密码错误</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>计算机网关设置错误、路由器路由表错误</td>
+</tr>
+<tr>
+<td>应用层</td>
+<td>IE代理设置错误</td>
+</tr>
+</tbody>
+</table>
+<h4 id="网络安全和OSI参考模型"><a href="#网络安全和OSI参考模型" class="headerlink" title="网络安全和OSI参考模型"></a>网络安全和OSI参考模型</h4><table>
+<thead>
+<tr>
+<th>网络层</th>
+<th>安全问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>物理层安全</td>
+<td></td>
+</tr>
+<tr>
+<td>数据链路层安全</td>
+<td>MAC地址认证 ADSL拨号上网账号密码 划分VLAN</td>
+</tr>
+<tr>
+<td>网络层安全</td>
+<td>路由器ACL</td>
+</tr>
+<tr>
+<td>传输层安全</td>
+<td>计算机端口安全</td>
+</tr>
+<tr>
+<td>应用层安全</td>
+<td>网站安全、操作系统安全</td>
+</tr>
+</tbody>
+</table>
+<h4 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h4><ol>
+<li>网线<br>双绞线  4对 8根 100米 10M 100M（实际用了4根） 1000M （实际用了8根）<br>线序 直通线（都按B连） 同类设备用交叉线（一个A 一个B）<br>不同类设备用直通线<br><font color="#12a112">水晶头接法</font><ul>
+<li>RJ45 A 绿白 绿 橙白 蓝 蓝白 橙 棕白 棕</li>
+<li>RJ45 B 橙白 橙 绿白 蓝 蓝白 绿 棕白 棕</li>
+</ul>
+</li>
+<li>网卡 MAC地址（物理地址）不能更改<br>MAC地址由48位二进制组成，前24位代表厂家 后边为厂家自己所设置的序号<br>查看MAC地址的指令（dos下） ipconfig /all</li>
+<li>集线器 HUB 不安全 带宽共享 效率低下 半双工</li>
+<li>网桥 隔绝冲突域</li>
+<li>交换机 基于MAC地址转发数据、带宽独享、全双工、安全、学习MAC地址</li>
+<li>路由器 负责在不同网段转发数据 一般有广域网接口 隔绝广播（MAC地址全1）</li>
+</ol>
+<h4 id="网络设备和OSI参考模型"><a href="#网络设备和OSI参考模型" class="headerlink" title="网络设备和OSI参考模型"></a>网络设备和OSI参考模型</h4><p>集线器 物理层设备<br>交换机 基于MAC地址转发 数据链路层设备<br>路由器 基于IP地址转发 三层设备  </p>
+<h4 id="分层考虑问题"><a href="#分层考虑问题" class="headerlink" title="分层考虑问题"></a>分层考虑问题</h4><p>网络排错方法 替换法</p>
 
       
     </div>
@@ -462,9 +526,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/net/" rel="tag"># net</a>
           
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
+            <a href="/tags/ccna/" rel="tag"># ccna</a>
           
         </div>
       
@@ -477,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/25/first/" rel="next" title="测试">
-                <i class="fa fa-chevron-left"></i> 测试
+              <a href="/2018/08/25/regex/" rel="next" title="Regular Expression 正则表达式">
+                <i class="fa fa-chevron-left"></i> Regular Expression 正则表达式
               </a>
             
           </div>
@@ -487,8 +551,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/25/Git/" rel="prev" title="Git命令">
-                Git命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/27/ccna/ccna-2/" rel="prev" title="CCNA学习笔记二 -- TCP/IP协议">
+                CCNA学习笔记二 -- TCP/IP协议 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -520,8 +584,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/08/25/nginx-1/"
-           data-title="nginx的使用（一）-- 简单的安装使用" data-url="http://http://132.232.42.89/2018/08/25/nginx-1/">
+      <div class="ds-thread" data-thread-key="2018/08/27/ccna/ccna-1/"
+           data-title="CCNA学习笔记一 -- 计算机网络详解" data-url="http://http://132.232.42.89/2018/08/27/ccna/ccna-1/">
       </div>
     </div>
 
@@ -696,7 +760,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、nginx简介"><span class="nav-number">1.</span> <span class="nav-text">一、nginx简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、nginx是什么"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、nginx是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、nginx可以用来做什么（不加载第三方模块）"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、nginx可以用来做什么（不加载第三方模块）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、nginx安装以及简单的配置"><span class="nav-number">2.</span> <span class="nav-text">二、nginx安装以及简单的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装nginx（环境-centos7）"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、安装nginx（环境 centos7）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、配置nginx"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、配置nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、nginx的启动、停止、重启"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、nginx的启动、停止、重启</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、nginx踩过的一些坑"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、nginx踩过的一些坑</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#局域网与广域网"><span class="nav-number">1.</span> <span class="nav-text">局域网与广域网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OSI参考模型"><span class="nav-number">2.</span> <span class="nav-text">OSI参考模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络排错和OSI参考模型"><span class="nav-number">3.</span> <span class="nav-text">网络排错和OSI参考模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络安全和OSI参考模型"><span class="nav-number">4.</span> <span class="nav-text">网络安全和OSI参考模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络设备"><span class="nav-number">5.</span> <span class="nav-text">网络设备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络设备和OSI参考模型"><span class="nav-number">6.</span> <span class="nav-text">网络设备和OSI参考模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分层考虑问题"><span class="nav-number">7.</span> <span class="nav-text">分层考虑问题</span></a></li></ol></div>
             
 
           </div>

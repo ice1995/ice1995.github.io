@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="linux,command," />
+  <meta name="keywords" content="net,ccna," />
 
 
 
@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name        #启动某服务systemctl stop service-name         #停止某服务systemctl restart service-name      #重启某服务systemctl enable service-name">
-<meta name="keywords" content="linux,command">
+<meta name="description" content="网络畅通的条件数据包能去能回沿途的路由器必须知道到目标地址如何转发沿途的路由器必须知道回来的数据包如何转发   路由器直连的网络 不用告诉路由器如何转发路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由123456(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0  设置数据包 到192.168.1.0/24的数">
+<meta name="keywords" content="net,ccna">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux指令记录合集（长期更新）">
-<meta property="og:url" content="http://http://132.232.42.89/2018/08/30/linux-command/index.html">
+<meta property="og:title" content="CCNA学习笔记三 -- 路由和交换">
+<meta property="og:url" content="http://http://132.232.42.89/2018/08/28/ccna/ccna-3/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name        #启动某服务systemctl stop service-name         #停止某服务systemctl restart service-name      #重启某服务systemctl enable service-name">
+<meta property="og:description" content="网络畅通的条件数据包能去能回沿途的路由器必须知道到目标地址如何转发沿途的路由器必须知道回来的数据包如何转发   路由器直连的网络 不用告诉路由器如何转发路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由123456(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0  设置数据包 到192.168.1.0/24的数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-18T01:39:17.471Z">
+<meta property="og:updated_time" content="2018-09-28T12:56:32.913Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux指令记录合集（长期更新）">
-<meta name="twitter:description" content="此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name        #启动某服务systemctl stop service-name         #停止某服务systemctl restart service-name      #重启某服务systemctl enable service-name">
+<meta name="twitter:title" content="CCNA学习笔记三 -- 路由和交换">
+<meta name="twitter:description" content="网络畅通的条件数据包能去能回沿途的路由器必须知道到目标地址如何转发沿途的路由器必须知道回来的数据包如何转发   路由器直连的网络 不用告诉路由器如何转发路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由123456(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0  设置数据包 到192.168.1.0/24的数">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/2018/08/30/linux-command/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2018/08/28/ccna/ccna-3/"/>
 
 
 
 
 
-  <title>Linux指令记录合集（长期更新） | Icecap</title>
+  <title>CCNA学习笔记三 -- 路由和交换 | Icecap</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/30/linux-command/">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/08/28/ccna/ccna-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bohan Zhang">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux指令记录合集（长期更新）</h1>
+          <h1 class="post-title" itemprop="name headline">CCNA学习笔记三 -- 路由和交换</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-30T08:55:12+08:00">
-                2018-08-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T14:52:47+08:00">
+                2018-08-28
               </time>
             
 
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-18T09:39:17+08:00">
-                2018-09-18
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-28T20:56:32+08:00">
+                2018-09-28
               </time>
             
           </span>
@@ -381,8 +381,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/net/" itemprop="url" rel="index">
+                    <span itemprop="name">net</span>
                   </a>
                 </span>
 
@@ -399,8 +399,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/30/linux-command/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/30/linux-command/" itemprop="commentCount"></span>
+                <a href="/2018/08/28/ccna/ccna-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/28/ccna/ccna-3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -428,28 +428,12 @@
       
 
       
-        <p>此命令合集适合于Centos <font color="#40B245">7</font></p>
-<h4 id="systemctl"><a href="#systemctl" class="headerlink" title="systemctl"></a>systemctl</h4><h6 id="服务相关指令"><a href="#服务相关指令" class="headerlink" title="服务相关指令"></a>服务相关指令</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl start service-name        <span class="comment">#启动某服务</span></span><br><span class="line">systemctl stop service-name         <span class="comment">#停止某服务</span></span><br><span class="line">systemctl restart service-name      <span class="comment">#重启某服务</span></span><br><span class="line">systemctl <span class="built_in">enable</span> service-name       <span class="comment">#设置开机自动启动某服务</span></span><br><span class="line">systemctl <span class="built_in">disable</span> service-name      <span class="comment">#设置开机停止自动启动某服务</span></span><br><span class="line">systemctl list-units --<span class="built_in">type</span>=service <span class="comment">#查看所有已启动的服务</span></span><br><span class="line">systemctl list-unit-files           <span class="comment">#查看已经安装的所有服务</span></span><br></pre></td></tr></table></figure>
-<h6 id="添加程序到服务"><a href="#添加程序到服务" class="headerlink" title="添加程序到服务"></a>添加程序到服务</h6><p>systemctl脚本存放在:/usr/lib/systemd/<br>&emsp;&emsp;[Unit]部分主要是对这个服务的说明，内容包括Description和After，Description 用于描述服务，After用于描述服务类别<br>&emsp;&emsp;[Service]部分是服务的关键，是服务的一些具体运行参数的设置.<br>&emsp;&emsp;Type=forking是后台运行的形式，<br>&emsp;&emsp;User=users是设置服务运行的用户,<br>&emsp;&emsp;Group=users是设置服务运行的用户组,<br>&emsp;&emsp;PIDFile为存放PID的文件路径，<br>&emsp;&emsp;ExecStart为服务的具体运行命令,<br>&emsp;&emsp;ExecReload为重启命令，<br>&emsp;&emsp;ExecStop为停止命令，<br>&emsp;&emsp;PrivateTmp=True表示给服务分配独立的临时空间<br>    注意：[Service]部分的启动、重启、停止命令全部要求使用绝对路径，使用相对路径则会报错！<br>    [Install]部分是服务安装的相关设置，可设置为多用户的  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#以tomcat为例</span></span><br><span class="line"><span class="comment">#vim /usr/lib/systemd/system/tomcat.service</span></span><br><span class="line"> </span><br><span class="line">[Unit]</span><br><span class="line">Description=java tomcat project</span><br><span class="line">After=tomcat.service</span><br><span class="line">  </span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">User=users</span><br><span class="line">Group=users</span><br><span class="line">PIDFile=/usr/<span class="built_in">local</span>/tomcat/tomcat.pid</span><br><span class="line">ExecStart=/usr/<span class="built_in">local</span>/tomcat/bin/startup.sh</span><br><span class="line">ExecReload=</span><br><span class="line">ExecStop=/usr/<span class="built_in">local</span>/tomcat/bin/shutdown.sh</span><br><span class="line">PrivateTmp=<span class="literal">true</span></span><br><span class="line">  </span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-<h4 id="firewall-cmd"><a href="#firewall-cmd" class="headerlink" title="firewall-cmd"></a>firewall-cmd</h4><p>防火墙相关<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --add-port=port-number/protocols --zone=zone-name --permanent <span class="comment">#在zone-name区域永久开启protocol协议的port-number端口</span></span><br><span class="line">firewall-cmd --zone=public --list-all   <span class="comment"># 显示所有公共区域（public）</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s <span class="built_in">source</span> link  <span class="comment">#创建一个指向source的link（快捷方式）</span></span><br></pre></td></tr></table></figure>
-<h4 id="后台运行命令"><a href="#后台运行命令" class="headerlink" title="后台运行命令"></a>后台运行命令</h4><ol>
-<li><p>&amp;<br>&emsp;&emsp;当在前台运行某个作业时，终端被该作业占据；可以在命令后面加上&amp; 实现后台运行。例如：sh test.sh &amp; 适合在后台运行的命令有f i n d、费时的排序及一些s h e l l脚本。在后台运行作业时要当心：需要用户交互的命令不要放在后台执行，因为这样你的机器就会在那里傻等。不过，作业在后台运行一样会将结果输出到屏幕上，干扰你的工作。如果放在后台运行的作业会产生大量的输出，最好使用下面的方法把它的输出重定向到某个文件中：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span>  &gt;  out.file  2&gt;&amp;1  &amp;   <span class="comment">#所有的标准输出和错误输出都将被重定向到一个叫做out.file 的文件中。</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2&gt;&amp;1解析<br>&emsp;&emsp;2&gt;&amp;1 是将标准出错重定向到标准输出，这里的标准输出已经重定向到了out.file文件，即将标准出错也输出到out.file文件中。最后一个&amp;， 是让该命令在后台执行。<br>&emsp;&emsp;试想2&gt;1代表什么，2与&gt;结合代表错误重定向，而1则代表错误重定向到一个文件1，而不代表标准输出；换成2&gt;&amp;1，&amp;与1结合就代表标准输出了，就变成错误重定向到标准输出.</p>
-</li>
-<li><p>nohup<br>&emsp;&emsp;使用&amp;命令后，作业被提交到后台运行，当前控制台没有被占用，但是一但把当前控制台关掉(退出帐户时)，作业就会停止运行。nohup命令可以在你退出帐户之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。该命令的一般形式为：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nohup <span class="built_in">command</span> &amp;  <span class="comment">#在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：</span></span><br><span class="line">nohup <span class="built_in">command</span> &gt; myout.file 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ctrl + z<br>&emsp;&emsp;可以将一个正在前台执行的命令放到后台，并且处于暂停状态。</p>
-</li>
-<li>jobs<br>&emsp;&emsp;查看当前有多少在后台运行的命令。  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">jobs</span> -l <span class="comment">#可显示所有任务的PID，jobs的状态可以是running, stopped, Terminated。但是如果任务被终止了（kill），shell 从当前的shell环境已知的列表中删除任务的进程标识。</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="硬件信息查看"><a href="#硬件信息查看" class="headerlink" title="硬件信息查看"></a>硬件信息查看</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo |grep <span class="string">"physical id"</span>|sort|uniq|wc -l    <span class="comment">#查看物理cpu个数</span></span><br><span class="line">cat /proc/cpuinfo |grep <span class="string">"cpu cores"</span>|wc -l       <span class="comment">#查看每个物理cpu中的core个数</span></span><br><span class="line">cat /proc/cpuinfo |grep <span class="string">"processor"</span>|wc -l       <span class="comment">#逻辑cpu的个数</span></span><br></pre></td></tr></table></figure>
-<h4 id="性能信息查看"><a href="#性能信息查看" class="headerlink" title="性能信息查看"></a>性能信息查看</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">top         <span class="comment">#性能监控程序</span></span><br><span class="line">free -m     <span class="comment">#查看内存使用情况</span></span><br></pre></td></tr></table></figure>
+        <h4 id="网络畅通的条件"><a href="#网络畅通的条件" class="headerlink" title="网络畅通的条件"></a>网络畅通的条件</h4><p>数据包能去能回<br>沿途的路由器必须知道到目标地址如何转发<br>沿途的路由器必须知道回来的数据包如何转发  </p>
+<p>路由器直连的网络 不用告诉路由器如何转发<br>路由器没有直连的网络 管理员需要告诉路由器到目标网络如何转发 即添加静态路由<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(config)#ip route 192.168.1.0 255.255.255.0 192.268.2.0  设置数据包 到192.168.1.0/24的数据包下一跳给192.168.2.0</span><br><span class="line">(config)#tracroute ip_address 跟踪数据包路径</span><br><span class="line">#show ip route 查看路由表</span><br><span class="line">(config)#no ip route 192.168.1.0 255.255.255.0 删除路由表</span><br><span class="line">windows上添加路由表 route add ip_adress mask ip_web</span><br><span class="line">windows查看路由表 netstat-r    route print</span><br></pre></td></tr></table></figure></p>
+<h4 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h4><p>优先级 直连0 静态路由1 eigp90  rip120<br>RIP协议 跳数判断，周期性（30s）更新路由表，最大跳数16跳<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(config)#router rip  启用rip协议  </span><br><span class="line">(config-router)#network 192.168.1.0 该网段参与rip协议  </span><br><span class="line">#debug ip rip 显示rip协议信息</span><br><span class="line">#undebug all  关闭rip协议信息显示</span><br><span class="line">#show ip protocols 显示应用协议</span><br><span class="line">EIGP协议 优先级高于RIP</span><br><span class="line">(config)#router eigp 10  启用eigp协议,相同编号路由器才可以交换路由信息</span><br><span class="line">(config-router)#network 192.168.1.0 该网段参与eigp协议</span><br></pre></td></tr></table></figure></p>
+<h4 id="交换"><a href="#交换" class="headerlink" title="交换"></a>交换</h4><p>集线器 不安全、冲突域、带宽共享<br>交换机 基于目标MAC地址转发、学习MAC地址、端口独享带宽、没有冲突、广播会出问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#show mac-address-table 显示MAC地址表</span><br><span class="line">  #config terminal </span><br><span class="line">  (config)#interrface fastEthernet 0/4</span><br><span class="line">  (config-if)#switchport mode access 接机算机的接口</span><br><span class="line">  (config-if)#switchport port-security 启用安全</span><br><span class="line">  (config-if)#switchport port-security violation shutdown 违反安全规则down掉</span><br><span class="line">  (config-if)#switchport port-security maxium 2 限制连接数量</span><br><span class="line">  (config)#interrface range fastEthernet 0/1 - 24 选中1-24个口</span><br><span class="line">  (config-if-range)#switchport port-security mac-adddress sticky MAC地址终止学习</span><br></pre></td></tr></table></figure></p>
+<h4 id="生成树协议"><a href="#生成树协议" class="headerlink" title="生成树协议"></a>生成树协议</h4><p> 为了高可用局域网交换机连接有了环路<br>为了阻断网络中的广播有了生成树协议<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#show spanning-tree 查看交换机端口以及生成树状态</span><br><span class="line">(config)#spanning-tree vlan 1 priority 4096更改路由器优先级为4096，值越小优先级越高</span><br><span class="line">(config)#no spanning-tree vlan 1 关闭生成树协议</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -465,9 +449,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/net/" rel="tag"># net</a>
           
-            <a href="/tags/command/" rel="tag"># command</a>
+            <a href="/tags/ccna/" rel="tag"># ccna</a>
           
         </div>
       
@@ -480,8 +464,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/28/lombok/" rel="next" title="lombok使用方法记录">
-                <i class="fa fa-chevron-left"></i> lombok使用方法记录
+              <a href="/2018/08/27/ccna/ccna-2/" rel="next" title="CCNA学习笔记二 -- TCP/IP协议">
+                <i class="fa fa-chevron-left"></i> CCNA学习笔记二 -- TCP/IP协议
               </a>
             
           </div>
@@ -490,8 +474,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/30/mycat-1/" rel="prev" title="mycat使用记录一 -- 安装与配置">
-                mycat使用记录一 -- 安装与配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/28/ccna/ccna-4/" rel="prev" title="CCNA学习笔记四 -- VLAN">
+                CCNA学习笔记四 -- VLAN <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -523,8 +507,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/08/30/linux-command/"
-           data-title="Linux指令记录合集（长期更新）" data-url="http://http://132.232.42.89/2018/08/30/linux-command/">
+      <div class="ds-thread" data-thread-key="2018/08/28/ccna/ccna-3/"
+           data-title="CCNA学习笔记三 -- 路由和交换" data-url="http://http://132.232.42.89/2018/08/28/ccna/ccna-3/">
       </div>
     </div>
 
@@ -699,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#systemctl"><span class="nav-number">1.</span> <span class="nav-text">systemctl</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#服务相关指令"><span class="nav-number">1.0.1.</span> <span class="nav-text">服务相关指令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#添加程序到服务"><span class="nav-number">1.0.2.</span> <span class="nav-text">添加程序到服务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#firewall-cmd"><span class="nav-number">2.</span> <span class="nav-text">firewall-cmd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ln"><span class="nav-number">3.</span> <span class="nav-text">ln</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后台运行命令"><span class="nav-number">4.</span> <span class="nav-text">后台运行命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#硬件信息查看"><span class="nav-number">5.</span> <span class="nav-text">硬件信息查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能信息查看"><span class="nav-number">6.</span> <span class="nav-text">性能信息查看</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络畅通的条件"><span class="nav-number">1.</span> <span class="nav-text">网络畅通的条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态路由"><span class="nav-number">2.</span> <span class="nav-text">动态路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交换"><span class="nav-number">3.</span> <span class="nav-text">交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成树协议"><span class="nav-number">4.</span> <span class="nav-text">生成树协议</span></a></li></ol></div>
             
 
           </div>
