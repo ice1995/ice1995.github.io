@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/09/28/docker-using/</loc>
+    <lastmod>2018-09-28T02:41:22.875Z</lastmod>
+    <data>
+        <display>
+        <title>Docker使用记录</title>
+        <pubTime>2018-09-28T02:13:57.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="docker" url="http://http://132.232.42.89/categories/docker/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://http://132.232.42.89/2018/09/27/points_bookies/</loc>
-    <lastmod>2018-09-27T03:14:05.085Z</lastmod>
+    <lastmod>2018-09-28T02:04:49.355Z</lastmod>
     <data>
         <display>
         <title>分赌本问题</title>
@@ -75,9 +97,9 @@
         <title>Centos使用记录</title>
         <pubTime>2018-09-26T06:13:25.000Z</pubTime>
         
-        <tag>CentOS7</tag>
-         
         <tag>linux</tag>
+         
+        <tag>CentOS7</tag>
          
          
            
@@ -373,9 +395,9 @@
         
         <tag>python</tag>
          
-        <tag>GUI</tag>
-         
         <tag>PyQT</tag>
+         
+        <tag>GUI</tag>
          
          
            
@@ -397,9 +419,9 @@
         
         <tag>python</tag>
          
-        <tag>PyQt</tag>
-         
         <tag>GUI</tag>
+         
+        <tag>PyQt</tag>
          
          
            
