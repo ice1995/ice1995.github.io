@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mariadb使用记录]]></title>
+    <url>%2F2018%2F09%2F29%2Fdb%2Fmariadb-using%2F</url>
+    <content type="text"><![CDATA[安装与配置1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859yum -y install mariadb mariadb-server #安装mariadb的客户端与服务端systemctl start mariadb # 启动mariadbmysql_secure_installation # 进行初始的设置# NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB# SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY!# In order to log into MariaDB to secure it, we'll need the current# password for the root user. If you've just installed MariaDB, and# you haven't set the root password yet, the password will be blank,# so you should just press enter here.# Enter current password for root (enter for none): #默认无密码登录# OK, successfully used password, moving on...# Setting the root password ensures that nobody can log into the MariaDB# root user without the proper authorisation.# Set root password? [Y/n] y # 是否设置新的root密码# New password: # Re-enter new password: # Password updated successfully!# Reloading privilege tables..# ... Success!# By default, a MariaDB installation has an anonymous user, allowing anyone# to log into MariaDB without having to have a user account created for# them. This is intended only for testing, and to make the installation# go a bit smoother. You should remove them before moving into a# production environment.# Remove anonymous users? [Y/n] Y # 是否删除匿名用户# ... Success!# Normally, root should only be allowed to connect from 'localhost'. This# ensures that someone cannot guess at the root password from the network.# Disallow root login remotely? [Y/n] n # 是否禁止root账户远程登录# ... skipping.# By default, MariaDB comes with a database named 'test' that anyone can# access. This is also intended only for testing, and should be removed# before moving into a production environment.# Remove test database and access to it? [Y/n] n # 是否删除test数据库# ... skipping.# Reloading the privilege tables will ensure that all changes made so far# will take effect immediately.# Reload privilege tables now? [Y/n] y # 是否重新加载权限表# ... Success!# Cleaning up...# All done! If you've completed all of the above steps, your MariaDB# installation should now be secure.# Thanks for using MariaDB! 远程登录设置1mysql -uroot -p #登录mysql 12GRANT ALL ON database_name.table_name TO databaseuser@&apos;ip_address&apos; IDENTIFIED BY &apos;password&apos;; flush privileges; #重新加载权限表 database_name 你要访问的数据库名称（*代表所有） table_name 你要访问的表名（*代表所有） databaseuser 新的数据库用户 password 设置新的密码（mysql将会对你的设置进行加密再到user表中） ip_address 可访问的ip地址（使用%可以让所有的IP都可以访问）]]></content>
+      <categories>
+        <category>datebase</category>
+      </categories>
+      <tags>
+        <tag>datebase</tag>
+        <tag>mysql</tag>
+        <tag>mariadb</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Namespace简介]]></title>
     <url>%2F2018%2F09%2F28%2Flinux%2Flinux-namespace-interface%2F</url>
     <content type="text"><![CDATA[&emsp;&emsp;Namespace是将内核的全局资源做封装，使得每个Namespace都有一份独立的资源，因此，不同的进程在各自的namespace内对同一资源的使用不会产生相互干扰。&emsp;&emsp;目前，linux内核总共实现了6中namespace： IPC ： 隔离System V IPC 和POSIX消息队列&emsp;&emsp;IPC：Inter-Process Communication（进程间通信）,IPC namespace针对的是SystemV IPC和Posix消息队列，这些IPC机制都会用到标识符。IPC Namespace 能做到的就是使相同的标识符在两个Namespace中代表不同的消息队列，这样就使得两个Namespace中的进程不能通过IPC进程通信了。 Network ：隔离网络资源&emsp;&emsp;每个Network Namespace都有自己的网络设备、IP地址、路由表、/proc/net目录，端口号等 1234ip nets add new_ns #创建network namespaceip nets exec new_ns ip link list #使用 ip nets exec可以对特定的network namespace执行网络管理ip nets exec new_ns ip link set dev lo up #启用lopopback接口ip nets delete new_ns #删除namespace Mount ： 隔离文件系统挂载点&emsp;&emsp;用来隔离文件系统挂载点，每个进程能看到的文件系统都记录在/proc/$$/mounts里，在创建了一个新的Mount Namespace后，进程系统对文件系统挂载/卸载的动作不会影响到其他Namespace。 PID ： 隔离进程ID&emsp;&emsp;用于隔离进程PID号，这样一来，不同的Namespace中的进程PID号就可以是一样的了 UTS ： 隔离主机名和域名&emsp;&emsp;因为主机名可以代替IP，因此可以使用主机名在网络上访问某台机器，如果不做隔离，这个机制在容器里就会出问题。 User ：隔离用户ID和组ID&emsp;&emsp;一个进程在namespace里的用户和组ID与它在host里的ID可以不一样，最有用的地方在于可以在容器内部启用0号用户（root），但是它的特权被限定在容器内，离开容器就只是普通用户权限了]]></content>
@@ -70,8 +84,8 @@
         <category>CentOS7</category>
       </categories>
       <tags>
-        <tag>CentOS7</tag>
         <tag>linux</tag>
+        <tag>CentOS7</tag>
       </tags>
   </entry>
   <entry>
@@ -234,8 +248,8 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regex</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
       </tags>
   </entry>
   <entry>
@@ -246,8 +260,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -258,8 +272,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -270,8 +284,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -282,8 +296,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -294,8 +308,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -306,8 +320,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -318,8 +332,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -331,9 +345,9 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>code</tag>
-        <tag>regex</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
