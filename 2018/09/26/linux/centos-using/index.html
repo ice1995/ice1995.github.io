@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="Icecap">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;个人喜欢使用CentOS7 系统，本帖记录使用CentOS所使用的过程，安装过程 略  （我习惯采用最小化安装） 安装图形化界面123yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot; #安装GNOME图形化界面(时间较长，耐心等待)ln -sf /lib/systemd/system/runl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-28T12:59:13.149Z">
+<meta property="og:updated_time" content="2018-10-01T14:47:21.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos使用记录">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;个人喜欢使用CentOS7 系统，本帖记录使用CentOS所使用的过程，安装过程 略  （我习惯采用最小化安装） 安装图形化界面123yum groupinstall &quot;GNOME Desktop&quot; &quot;Graphical Administration Tools&quot; #安装GNOME图形化界面(时间较长，耐心等待)ln -sf /lib/systemd/system/runl">
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-28T20:59:13+08:00">
-                2018-09-28
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-01T22:47:21+08:00">
+                2018-10-01
               </time>
             
           </span>
@@ -440,6 +440,9 @@
 <h4 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep java  <span class="comment">#查找已经安装的jdk</span></span><br><span class="line">rpm -e --nodeps java-1.7.0-openjdk <span class="comment"># 卸载掉</span></span><br><span class="line">rpm -e --nodeps java-1.8.0-openjdk <span class="comment"># 卸载掉</span></span><br><span class="line">rpm -e --nodeps java-1.8.0-openjdk-headless <span class="comment"># 卸载掉</span></span><br><span class="line">rpm -e --nodeps java-1.7.0-openjdk-headless <span class="comment"># 卸载掉</span></span><br><span class="line">rpm -ivh jdk-8u181-linux-x64.rpm <span class="comment"># 安装下载好的rpm</span></span><br><span class="line">vim /etc/profile <span class="comment"># 添加jdk到环境变量如下</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile <span class="comment">#是环境变量有效</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#/etc/<span class="keyword">profile</span> 末尾添加一下内容</span><br><span class="line">#java environment</span><br><span class="line">export JAVA_HOME=/usr/java/jdk1.<span class="number">8.0</span>_181-amd64</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/jre/lib/rt.jar:$&#123;JAVA_HOME&#125;/lib/dt.jar:$&#123;JAVA_HOME&#125;/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$&#123;JAVA_HOME&#125;/bin</span><br></pre></td></tr></table></figure>
 <h4 id="安装hadoop"><a href="#安装hadoop" class="headerlink" title="安装hadoop"></a>安装hadoop</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#已经安装并且配置jdk</span></span><br><span class="line"><span class="built_in">cd</span> /opt/hadoop <span class="comment"># 切换目录</span></span><br><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz <span class="comment">#下载hadoop</span></span><br><span class="line">tar -zxvf hadoop-2.9.0.tar.gz <span class="comment"># 解压</span></span><br><span class="line"><span class="built_in">cd</span> hadoop-2.9.0 <span class="comment"># 进入hadoop目录</span></span><br><span class="line">./bin/hadoop version <span class="comment"># 查看hadoop是否能使用</span></span><br></pre></td></tr></table></figure>
+<h4 id="安装redis以及基础配置"><a href="#安装redis以及基础配置" class="headerlink" title="安装redis以及基础配置"></a>安装redis以及基础配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release -y <span class="comment"># 下载fedora的epel仓库</span></span><br><span class="line">yum install -y redis  <span class="comment"># 安装redis</span></span><br></pre></td></tr></table></figure>
+<p>redis配置信息</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">file</span>   &gt;&gt;  /etc/redis.<span class="keyword">conf</span></span><br><span class="line">###  添加密码</span><br><span class="line">requirepass yourpassword </span><br><span class="line">### redis远程连接</span><br><span class="line">#bind <span class="number">127.0</span>.<span class="number">0.1</span>   添加注释</span><br><span class="line">protected-<span class="keyword">mode</span> <span class="keyword">no</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -570,7 +573,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -592,7 +595,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -689,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装图形化界面"><span class="nav-number">1.</span> <span class="nav-text">安装图形化界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动网络连接（手动配置网卡信息）"><span class="nav-number">2.</span> <span class="nav-text">启动网络连接（手动配置网卡信息）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装网络工具包"><span class="nav-number">3.</span> <span class="nav-text">安装网络工具包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改yum安装源为阿里源"><span class="nav-number">4.</span> <span class="nav-text">修改yum安装源为阿里源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装中文输入法"><span class="nav-number">5.</span> <span class="nav-text">安装中文输入法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装jdk"><span class="nav-number">6.</span> <span class="nav-text">安装jdk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装hadoop"><span class="nav-number">7.</span> <span class="nav-text">安装hadoop</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装图形化界面"><span class="nav-number">1.</span> <span class="nav-text">安装图形化界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动网络连接（手动配置网卡信息）"><span class="nav-number">2.</span> <span class="nav-text">启动网络连接（手动配置网卡信息）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装网络工具包"><span class="nav-number">3.</span> <span class="nav-text">安装网络工具包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改yum安装源为阿里源"><span class="nav-number">4.</span> <span class="nav-text">修改yum安装源为阿里源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装中文输入法"><span class="nav-number">5.</span> <span class="nav-text">安装中文输入法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装jdk"><span class="nav-number">6.</span> <span class="nav-text">安装jdk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装hadoop"><span class="nav-number">7.</span> <span class="nav-text">安装hadoop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装redis以及基础配置"><span class="nav-number">8.</span> <span class="nav-text">安装redis以及基础配置</span></a></li></ol></div>
             
 
           </div>
@@ -741,7 +744,9 @@
 </div>
 -->
 
-  <div class="footer-custom">鲁ICP备18038198号</div>
+  <div class="footer-custom">鲁ICP备18038198号</div>	<div style="width:300px;margin:0 auto; padding:20px 0;">
+		 		<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37072402371021" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">鲁公网安备 37072402371021号</p></a>
+		 	</div>
 
 
         
