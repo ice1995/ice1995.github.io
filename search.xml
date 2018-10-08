@@ -120,9 +120,9 @@
         <category>springboot</category>
       </categories>
       <tags>
+        <tag>java</tag>
         <tag>springboot</tag>
         <tag>email</tag>
-        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -183,8 +183,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>PyQT</tag>
         <tag>GUI</tag>
+        <tag>PyQT</tag>
       </tags>
   </entry>
   <entry>
@@ -196,8 +196,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>GUI</tag>
         <tag>PyQt</tag>
+        <tag>GUI</tag>
       </tags>
   </entry>
   <entry>
