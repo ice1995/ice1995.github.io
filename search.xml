@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微服务----Spring Cloud(二)]]></title>
+    <url>%2F2018%2F10%2F11%2Fjava%2Fspringcloud-2%2F</url>
+    <content type="text"><![CDATA[服务治理：Spring Cloud Eureka&emsp;&emsp;Spring Cloud Eureka是Spring Cloud Netflix的一部分，它是基于Netflix Eureka 做了二次的封装，主要完成微服务的服务治理功能。 服务治理&emsp;&emsp;服务治理可以说是微服务架构中的最核心和最基础的模块，它主要用来实现各个微服务实例的自动化注册和发现。 为什么需要服务治理&emsp;&emsp;随着业务的发展，系统功能越来越复杂，相应的微服务不断增加，使用静态配置的话，就会变得越来越难以维护，并且面对不断发展业务，群集规模、服务位置、服务命名规则可能发生变化。 服务注册&emsp;&emsp;在服务治理治理框架中，通常都会构建一个注册中心，每个服务单元向注册中心登记自己提供的服务，将主机与端口号、版本号、通信协议等一些附加信息告知注册中心，而注册中心形成一种清单来存储这些信息。另外，服务注册中心还需要以心跳的方式来监测清单中的服务是否可用，不可用则需要从清单中剔除。 服务发现&emsp;&emsp;在服务治理框架下运转，服务间的调用不再通过具体的实例地址来实现，通过向服务名发起请求调用实现。因此，服务调用方在发起调用的时候并不知道服务实例的位置，因此，调用方需要向注册中心发出咨询服务来获取服务实例清单，以实现对具体服务实例的访问。 EurekaEureka服务端&emsp;&emsp;Eureka服务端，亦称之为服务注册中心，同其他服务注册中心一样，支持高可用配置。它依托于强一致性提供良好的服务实例可用性，可以应对多种不同的故障场景。 搭建服务注册中心 创建SprinBoot工程（略），在此，我命名为eurekaserver，添加maven依赖 1234567891011121314151617181920212223242526&lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;spring-cloud.version&gt;Edgware.SR4&lt;/spring-cloud.version&gt;&lt;/properties&gt;&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt; &lt;/dependency&gt;&lt;/dependencies&gt;&lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;$&#123;spring-cloud.version&#125;&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt;&lt;/dependencyManagement&gt; 通过注解EnableEurekaServer启动一个注册服务中心提供给其他应用进行对话 1234567@SpringBootApplication@EnableEurekaServerpublic class EurekaServerApplication &#123; public static void main(String[] args) &#123; SpringApplication.run(EurekaServerApplication.class, args); &#125;&#125; 默认配置下，该注册服务中心会将自己作为客户端来尝试注册他自己，通过配置application.yml/application.properties来增加配置来禁用它的客户端注册行为。 12345678910server: port: 1111 #在同一个服务器下进行学习测试，需要修改端口eureka: instance: hostname: localhostclient: register-with-eureka: false #设置为false，不向注册中心注册自己 fetch-registry: false #注册中心的职责是维护服务实例，因此不需要去检索服务 serviceUrl: defaultZone: http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/ 通过浏览http://localhost:1111/可以查看注册中心的控制台信息 Eureka客户端&emsp;&emsp;Eureka客户端，主要处理服务的注册与发现，Eureka客户端向注册中心注册自身提供的服务并周期性地发送心跳来更新它的租服务租约，同时，他也能从服务段查询当前注册的服务信息并把它们缓存到本地并周期性地刷新服务状态。 注册服务提供者 创建SprinBoot工程（略），在此，我命名为eurekaclient，添加maven依赖 1234567891011121314151617181920212223242526272829303132333435&lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;spring-cloud.version&gt;Edgware.SR4&lt;/spring-cloud.version&gt;&lt;/properties&gt;&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt; &lt;/dependency&gt;&lt;/dependencies&gt;&lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;$&#123;spring-cloud.version&#125;&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt;&lt;/dependencyManagement&gt;&lt;build&gt; &lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt; &lt;/plugin&gt; &lt;/plugins&gt;&lt;/build&gt; 编写/hello请求处理接口，在日志中打印出服务相关 1234567891011121314151617181920212223242526272829303132333435363738394041@RestController@Log4jpublic class HelloController &#123; @Resource private DiscoveryClient client; @Resource private Registration registration; @RequestMapping(value = "/hello", method = RequestMethod.GET) public String index() &#123; //getLocalServiceInstance 方法已经过时，可以采用下边的testBalance ServiceInstance instance = client.getLocalServiceInstance(); log.info( "/test, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() ); return "From Service-A"; &#125; @RequestMapping(value = "/testBalance", method = RequestMethod.GET) public String testBalance(@RequestParam String param) &#123; ServiceInstance instance = serviceInstance(); String result = "/testBalance, host:port=" + instance.getUri() + ", " + "service_id:" + instance.getServiceId(); log.info(result); return "From Service-A , " + result; &#125; public ServiceInstance serviceInstance() &#123; List&lt;ServiceInstance&gt; list = client.getInstances(registration.getServiceId()); if (list != null &amp;&amp; list.size() &gt; 0) &#123; for(ServiceInstance itm : list)&#123; if (itm.getPort() == 2001) &#123; return itm; &#125; &#125; &#125; return null; &#125;&#125; 在启动类上添加EnableDiscoveryClient注释，激活Eureka中的DiscoveryClient实现 1234567@SpringBootApplication@EnableDiscoveryClientpublic class EurekaclientApplication &#123; public static void main(String[] args) &#123; SpringApplication.run(EurekaclientApplication.class, args); &#125;&#125; 修改配置文件 123456789server: port: 1112 #因为在同一台服务器下学习测试，需要修改端口spring: application: name: hello-service #为服务命名eureka: client: serviceUrl: defaultZone: http://localhost:1111/eureka/ # 指定注册中心的地址 通过浏览http://localhost:1111/可以查看注册中心中有hello-service，在注册中心的日志中可以发现 12018-10-12 04:07:43.379 INFO 11069 --- [nio-1111-exec-5] c.n.e.registry.AbstractInstanceRegistry : Registered instance HELLO-SERVICE/bogon:hello-service:1112 with status UP (replication=false) 访问http://localhost:1112/hello之后，可以在控制台中发现以下日志信息 12018-10-12 04:19:53.087 INFO 11306 --- [nio-1112-exec-1] x.z.e.controller.HelloController : /test, host:bogon, service_id:hello-service 高可用注册中心]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Spring Cloud</tag>
+        <tag>Microservice</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[微服务----Spring Cloud(一)]]></title>
     <url>%2F2018%2F10%2F11%2Fjava%2Fspringcloud-1%2F</url>
     <content type="text"><![CDATA[Spring Cloud简介 什么是微服务（Microservice） &emsp;&emsp;微服务英文名称Microservice，Microservice架构模式就是将整个Web应用组织为一系列小的Web服务。这些小的Web服务可以独立地编译及部署，并通过各自暴露的API接口相互通讯。它们彼此相互协作，作为一个整体为用户提供功能，却可以独立地进行扩展。由于有了轻量级的通信协作基础，所以这个微服务可以通过不同的语言进行开发编写。 &emsp;&emsp;目前主流的微服务框架：Dubbo、 Spring Cloud、thrift、Hessian等。 微服务框架适合的场景 我们把整个系统根据业务拆分成几个子系统。 每个子系统可以部署多个应用，多个应用之间使用负载均衡。 需要一个服务注册中心，所有的服务都在注册中心注册，负载均衡也是通过在注册中心注册的服务来使用一定策略来实现。 所有的客户端都通过同一个网关地址访问后台的服务，通过路由配置，网关来判断一个URL请求由哪个服务处理。请求转发到服务上的时候也使用负载均衡。 服务之间有时候也需要相互访问。例如有一个用户模块，其他服务在处理一些业务的时候，要获取用户服务的用户数据。 需要一个断路器，及时处理服务调用时的超时和错误，防止由于其中一个服务的问题而导致整体系统的瘫痪。 还需要一个监控功能，监控每个服务调用花费的时间等。 初探Spring Cloud&emsp;&emsp;Spring Cloud是一个基于Spring Boot实现的微服务架构开发工具，为微服务架构中的配置管理、服务治理、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等操作提供了一种简单的开发方式。&emsp;&emsp;Spring Cloud包含多个子项目： Spring Cloud Config 配置管理工具，支持使用git存储配置内容，并支持客户端配置信息刷新、加密/解密配置内容等。 Spring Cloud Netflix 核心组件，对多个Netflix进行整合。 Eureka 服务治理组件，包含服务注册中心、服务注册与发现机制的实现 Hystrix 容错管理组件，实现断路器模式，帮助服务依赖中出现的延迟启动和为故障提供强大的容错能力。 Ribbon 客户端负载均衡的服务调用组件 Feign 基于 Ribbon和Hystrix的声明式服务调用组件 Zuul 网关组件，提供智能路由、过滤访问等功能 Archaius 外部化配置组件 Spring Cloud Bus 事件、消息总线，用于传播集群中的状态变化或者事件，以触发后续的处理，比如来动态刷新配置 Spring Cloud Cluster 针对ZooKeeper、Redis、Hazelacst、Consul的选举算法和通用状态模式的实现 Spring Cloud Cloudfoundry 与Pivotal Cloudfoundry的整合支持 Spring Cloud Consul 服务发现与配置管理工具 Spring Cloud Stream 通过Redis、Rabbit或者Kafka实现的消费微服务，可以通过简单的声明式模型来发送和接受消息。 Spring Cloud AWS 简化整合aws的组件 Spring Cloud Security 安全工具包，提供Zuul代理中对于OAuth2客户端请求中的中继器 Spring Cloud Sleuth Spring Cloud应用的分布式跟踪实现，可以完美整合ZipKin Spring Cloud ZooKeeper 基于ZooKeeper的服务发现与配置管理组件 Spring Cloud Starters Spring Cloud的基础组件，基于Spring Boot风格项目的基础依赖模块 Spring Cloud CLI 用于Groovy中快速创建Spring Boot项目的Spring Boot CLI插件 …]]></content>
@@ -36,8 +49,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>namespace</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -49,8 +62,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>cgroup</tag>
         <tag>kernel</tag>
+        <tag>cgroup</tag>
       </tags>
   </entry>
   <entry>
@@ -176,19 +189,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyQT学习记录（二）]]></title>
-    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-2%2F</url>
-    <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
-      <categories>
-        <category>PyQT</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>GUI</tag>
-        <tag>PyQT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
     <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
     <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —- PyQt编程指南（Mark Summerfield 著 ）]]></content>
@@ -199,6 +199,19 @@
         <tag>python</tag>
         <tag>PyQt</tag>
         <tag>GUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyQT学习记录（二）]]></title>
+    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-2%2F</url>
+    <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
+      <categories>
+        <category>PyQT</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>GUI</tag>
+        <tag>PyQT</tag>
       </tags>
   </entry>
   <entry>
@@ -261,8 +274,8 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regular</tag>
         <tag>regex</tag>
+        <tag>regular</tag>
       </tags>
   </entry>
   <entry>
@@ -273,8 +286,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -285,8 +298,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -297,8 +310,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -309,8 +322,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -321,8 +334,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -333,8 +346,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -345,8 +358,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -358,9 +371,9 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regular</tag>
-        <tag>regex</tag>
         <tag>code</tag>
+        <tag>regex</tag>
+        <tag>regular</tag>
       </tags>
   </entry>
   <entry>
