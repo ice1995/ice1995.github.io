@@ -23,8 +23,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>namespace</tag>
         <tag>kernel</tag>
+        <tag>namespace</tag>
       </tags>
   </entry>
   <entry>
@@ -36,8 +36,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>cgroup</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -234,8 +234,8 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>tools</tag>
         <tag>java</tag>
+        <tag>tools</tag>
         <tag>reconsitution</tag>
       </tags>
   </entry>
