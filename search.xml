@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微服务----Spring Cloud(一)]]></title>
+    <url>%2F2018%2F10%2F11%2Fjava%2Fspringcloud-1%2F</url>
+    <content type="text"><![CDATA[Spring Cloud简介 什么是微服务（Microservice） &emsp;&emsp;微服务英文名称Microservice，Microservice架构模式就是将整个Web应用组织为一系列小的Web服务。这些小的Web服务可以独立地编译及部署，并通过各自暴露的API接口相互通讯。它们彼此相互协作，作为一个整体为用户提供功能，却可以独立地进行扩展。由于有了轻量级的通信协作基础，所以这个微服务可以通过不同的语言进行开发编写。 &emsp;&emsp;目前主流的微服务框架：Dubbo、 Spring Cloud、thrift、Hessian等。 微服务框架适合的场景 我们把整个系统根据业务拆分成几个子系统。 每个子系统可以部署多个应用，多个应用之间使用负载均衡。 需要一个服务注册中心，所有的服务都在注册中心注册，负载均衡也是通过在注册中心注册的服务来使用一定策略来实现。 所有的客户端都通过同一个网关地址访问后台的服务，通过路由配置，网关来判断一个URL请求由哪个服务处理。请求转发到服务上的时候也使用负载均衡。 服务之间有时候也需要相互访问。例如有一个用户模块，其他服务在处理一些业务的时候，要获取用户服务的用户数据。 需要一个断路器，及时处理服务调用时的超时和错误，防止由于其中一个服务的问题而导致整体系统的瘫痪。 还需要一个监控功能，监控每个服务调用花费的时间等。 初探Spring Cloud&emsp;&emsp;Spring Cloud是一个基于Spring Boot实现的微服务架构开发工具，为微服务架构中的配置管理、服务治理、断路器、智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等操作提供了一种简单的开发方式。&emsp;&emsp;Spring Cloud包含多个子项目： Spring Cloud Config 配置管理工具，支持使用git存储配置内容，并支持客户端配置信息刷新、加密/解密配置内容等。 Spring Cloud Netflix 核心组件，对多个Netflix进行整合。 Eureka 服务治理组件，包含服务注册中心、服务注册与发现机制的实现 Hystrix 容错管理组件，实现断路器模式，帮助服务依赖中出现的延迟启动和为故障提供强大的容错能力。 Ribbon 客户端负载均衡的服务调用组件 Feign 基于 Ribbon和Hystrix的声明式服务调用组件 Zuul 网关组件，提供智能路由、过滤访问等功能 Archaius 外部化配置组件 Spring Cloud Bus 事件、消息总线，用于传播集群中的状态变化或者事件，以触发后续的处理，比如来动态刷新配置 Spring Cloud Cluster 针对ZooKeeper、Redis、Hazelacst、Consul的选举算法和通用状态模式的实现 Spring Cloud Cloudfoundry 与Pivotal Cloudfoundry的整合支持 Spring Cloud Consul 服务发现与配置管理工具 Spring Cloud Stream 通过Redis、Rabbit或者Kafka实现的消费微服务，可以通过简单的声明式模型来发送和接受消息。 Spring Cloud AWS 简化整合aws的组件 Spring Cloud Security 安全工具包，提供Zuul代理中对于OAuth2客户端请求中的中继器 Spring Cloud Sleuth Spring Cloud应用的分布式跟踪实现，可以完美整合ZipKin Spring Cloud ZooKeeper 基于ZooKeeper的服务发现与配置管理组件 Spring Cloud Starters Spring Cloud的基础组件，基于Spring Boot风格项目的基础依赖模块 Spring Cloud CLI 用于Groovy中快速创建Spring Boot项目的Spring Boot CLI插件 …]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Spring Cloud</tag>
+        <tag>Microservice</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mariadb使用记录]]></title>
     <url>%2F2018%2F09%2F29%2Fdb%2Fmariadb-using%2F</url>
     <content type="text"><![CDATA[MariaDB简介&emsp;&emsp;MariaDB数据库管理系统是MySQL的一个分支，主要由开源社区在维护，采用GPL授权许可 MariaDB的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。在存储引擎方面，使用XtraDB（英语：XtraDB）来代替MySQL的InnoDB。 安装与配置&emsp;&emsp;记录Mariadb的安装配置过程 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859yum -y install mariadb mariadb-server #安装mariadb的客户端与服务端systemctl start mariadb # 启动mariadbmysql_secure_installation # 进行初始的设置# NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB# SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY!# In order to log into MariaDB to secure it, we'll need the current# password for the root user. If you've just installed MariaDB, and# you haven't set the root password yet, the password will be blank,# so you should just press enter here.# Enter current password for root (enter for none): #默认无密码登录# OK, successfully used password, moving on...# Setting the root password ensures that nobody can log into the MariaDB# root user without the proper authorisation.# Set root password? [Y/n] y # 是否设置新的root密码# New password: # Re-enter new password: # Password updated successfully!# Reloading privilege tables..# ... Success!# By default, a MariaDB installation has an anonymous user, allowing anyone# to log into MariaDB without having to have a user account created for# them. This is intended only for testing, and to make the installation# go a bit smoother. You should remove them before moving into a# production environment.# Remove anonymous users? [Y/n] Y # 是否删除匿名用户# ... Success!# Normally, root should only be allowed to connect from 'localhost'. This# ensures that someone cannot guess at the root password from the network.# Disallow root login remotely? [Y/n] n # 是否禁止root账户远程登录# ... skipping.# By default, MariaDB comes with a database named 'test' that anyone can# access. This is also intended only for testing, and should be removed# before moving into a production environment.# Remove test database and access to it? [Y/n] n # 是否删除test数据库# ... skipping.# Reloading the privilege tables will ensure that all changes made so far# will take effect immediately.# Reload privilege tables now? [Y/n] y # 是否重新加载权限表# ... Success!# Cleaning up...# All done! If you've completed all of the above steps, your MariaDB# installation should now be secure.# Thanks for using MariaDB! 远程登录设置1mysql -uroot -p #登录mysql 12GRANT ALL ON database_name.table_name TO databaseuser@&apos;ip_address&apos; IDENTIFIED BY &apos;password&apos;;flush privileges; #重新加载权限表 database_name 你要访问的数据库名称（*代表所有） table_name 你要访问的表名（*代表所有） databaseuser 新的数据库用户 password 设置新的密码（mysql将会对你的设置进行加密再到user表中） ip_address 可访问的ip地址（使用%可以让所有的IP都可以访问）]]></content>
@@ -163,19 +176,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
-    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
-    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —- PyQt编程指南（Mark Summerfield 著 ）]]></content>
-      <categories>
-        <category>PyQt</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>PyQt</tag>
-        <tag>GUI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PyQT学习记录（二）]]></title>
     <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-2%2F</url>
     <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
@@ -186,6 +186,19 @@
         <tag>python</tag>
         <tag>GUI</tag>
         <tag>PyQT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
+    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
+    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —- PyQt编程指南（Mark Summerfield 著 ）]]></content>
+      <categories>
+        <category>PyQt</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>PyQt</tag>
+        <tag>GUI</tag>
       </tags>
   </entry>
   <entry>
@@ -260,8 +273,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -272,8 +285,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -284,8 +297,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -296,8 +309,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -308,8 +321,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -320,8 +333,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -332,8 +345,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
