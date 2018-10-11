@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[微服务----Spring Cloud(二)]]></title>
     <url>%2F2018%2F10%2F11%2Fjava%2Fspringcloud-2%2F</url>
-    <content type="text"><![CDATA[服务治理：Spring Cloud Eureka&emsp;&emsp;Spring Cloud Eureka是Spring Cloud Netflix的一部分，它是基于Netflix Eureka 做了二次的封装，主要完成微服务的服务治理功能。 服务治理&emsp;&emsp;服务治理可以说是微服务架构中的最核心和最基础的模块，它主要用来实现各个微服务实例的自动化注册和发现。 为什么需要服务治理&emsp;&emsp;随着业务的发展，系统功能越来越复杂，相应的微服务不断增加，使用静态配置的话，就会变得越来越难以维护，并且面对不断发展业务，群集规模、服务位置、服务命名规则可能发生变化。 服务注册&emsp;&emsp;在服务治理治理框架中，通常都会构建一个注册中心，每个服务单元向注册中心登记自己提供的服务，将主机与端口号、版本号、通信协议等一些附加信息告知注册中心，而注册中心形成一种清单来存储这些信息。另外，服务注册中心还需要以心跳的方式来监测清单中的服务是否可用，不可用则需要从清单中剔除。 服务发现&emsp;&emsp;在服务治理框架下运转，服务间的调用不再通过具体的实例地址来实现，通过向服务名发起请求调用实现。因此，服务调用方在发起调用的时候并不知道服务实例的位置，因此，调用方需要向注册中心发出咨询服务来获取服务实例清单，以实现对具体服务实例的访问。 EurekaEureka服务端&emsp;&emsp;Eureka服务端，亦称之为服务注册中心，同其他服务注册中心一样，支持高可用配置。它依托于强一致性提供良好的服务实例可用性，可以应对多种不同的故障场景。 搭建服务注册中心 创建SprinBoot工程（略），在此，我命名为eurekaserver，添加maven依赖 1234567891011121314151617181920212223242526&lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;spring-cloud.version&gt;Edgware.SR4&lt;/spring-cloud.version&gt;&lt;/properties&gt;&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt; &lt;/dependency&gt;&lt;/dependencies&gt;&lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;$&#123;spring-cloud.version&#125;&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt;&lt;/dependencyManagement&gt; 通过注解EnableEurekaServer启动一个注册服务中心提供给其他应用进行对话 1234567@SpringBootApplication@EnableEurekaServerpublic class EurekaServerApplication &#123; public static void main(String[] args) &#123; SpringApplication.run(EurekaServerApplication.class, args); &#125;&#125; 默认配置下，该注册服务中心会将自己作为客户端来尝试注册他自己，通过配置application.yml/application.properties来增加配置来禁用它的客户端注册行为。 12345678910server: port: 1111 #在同一个服务器下进行学习测试，需要修改端口eureka: instance: hostname: localhostclient: register-with-eureka: false #设置为false，不向注册中心注册自己 fetch-registry: false #注册中心的职责是维护服务实例，因此不需要去检索服务 serviceUrl: defaultZone: http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/ 通过浏览http://localhost:1111/可以查看注册中心的控制台信息 Eureka客户端&emsp;&emsp;Eureka客户端，主要处理服务的注册与发现，Eureka客户端向注册中心注册自身提供的服务并周期性地发送心跳来更新它的租服务租约，同时，他也能从服务段查询当前注册的服务信息并把它们缓存到本地并周期性地刷新服务状态。 注册服务提供者 创建SprinBoot工程（略），在此，我命名为eurekaclient，添加maven依赖 1234567891011121314151617181920212223242526272829303132333435&lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;spring-cloud.version&gt;Edgware.SR4&lt;/spring-cloud.version&gt;&lt;/properties&gt;&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt; &lt;/dependency&gt;&lt;/dependencies&gt;&lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;$&#123;spring-cloud.version&#125;&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt;&lt;/dependencyManagement&gt;&lt;build&gt; &lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt; &lt;/plugin&gt; &lt;/plugins&gt;&lt;/build&gt; 编写/hello请求处理接口，在日志中打印出服务相关 1234567891011121314151617181920212223242526272829303132333435363738394041@RestController@Log4jpublic class HelloController &#123; @Resource private DiscoveryClient client; @Resource private Registration registration; @RequestMapping(value = "/hello", method = RequestMethod.GET) public String index() &#123; //getLocalServiceInstance 方法已经过时，可以采用下边的testBalance ServiceInstance instance = client.getLocalServiceInstance(); log.info( "/test, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() ); return "From Service-A"; &#125; @RequestMapping(value = "/testBalance", method = RequestMethod.GET) public String testBalance(@RequestParam String param) &#123; ServiceInstance instance = serviceInstance(); String result = "/testBalance, host:port=" + instance.getUri() + ", " + "service_id:" + instance.getServiceId(); log.info(result); return "From Service-A , " + result; &#125; public ServiceInstance serviceInstance() &#123; List&lt;ServiceInstance&gt; list = client.getInstances(registration.getServiceId()); if (list != null &amp;&amp; list.size() &gt; 0) &#123; for(ServiceInstance itm : list)&#123; if (itm.getPort() == 2001) &#123; return itm; &#125; &#125; &#125; return null; &#125;&#125; 在启动类上添加EnableDiscoveryClient注释，激活Eureka中的DiscoveryClient实现 1234567@SpringBootApplication@EnableDiscoveryClientpublic class EurekaclientApplication &#123; public static void main(String[] args) &#123; SpringApplication.run(EurekaclientApplication.class, args); &#125;&#125; 修改配置文件 123456789server: port: 1112 #因为在同一台服务器下学习测试，需要修改端口spring: application: name: hello-service #为服务命名eureka: client: serviceUrl: defaultZone: http://localhost:1111/eureka/ # 指定注册中心的地址 通过浏览http://localhost:1111/可以查看注册中心中有hello-service，在注册中心的日志中可以发现 12018-10-12 04:07:43.379 INFO 11069 --- [nio-1111-exec-5] c.n.e.registry.AbstractInstanceRegistry : Registered instance HELLO-SERVICE/bogon:hello-service:1112 with status UP (replication=false) 访问http://localhost:1112/hello之后，可以在控制台中发现以下日志信息 12018-10-12 04:19:53.087 INFO 11306 --- [nio-1112-exec-1] x.z.e.controller.HelloController : /test, host:bogon, service_id:hello-service 高可用注册中心]]></content>
+    <content type="text"><![CDATA[服务治理：Spring Cloud Eureka&emsp;&emsp;Spring Cloud Eureka是Spring Cloud Netflix的一部分，它是基于Netflix Eureka 做了二次的封装，主要完成微服务的服务治理功能。 服务治理&emsp;&emsp;服务治理可以说是微服务架构中的最核心和最基础的模块，它主要用来实现各个微服务实例的自动化注册和发现。 为什么需要服务治理&emsp;&emsp;随着业务的发展，系统功能越来越复杂，相应的微服务不断增加，使用静态配置的话，就会变得越来越难以维护，并且面对不断发展业务，群集规模、服务位置、服务命名规则可能发生变化。 服务注册&emsp;&emsp;在服务治理治理框架中，通常都会构建一个注册中心，每个服务单元向注册中心登记自己提供的服务，将主机与端口号、版本号、通信协议等一些附加信息告知注册中心，而注册中心形成一种清单来存储这些信息。另外，服务注册中心还需要以心跳的方式来监测清单中的服务是否可用，不可用则需要从清单中剔除。 服务发现&emsp;&emsp;在服务治理框架下运转，服务间的调用不再通过具体的实例地址来实现，通过向服务名发起请求调用实现。因此，服务调用方在发起调用的时候并不知道服务实例的位置，因此，调用方需要向注册中心发出咨询服务来获取服务实例清单，以实现对具体服务实例的访问。 EurekaEureka服务端&emsp;&emsp;Eureka服务端，亦称之为服务注册中心，同其他服务注册中心一样，支持高可用配置。它依托于强一致性提供良好的服务实例可用性，可以应对多种不同的故障场景。 搭建服务注册中心 创建SprinBoot工程（略），在此，我命名为eurekaserver，添加maven依赖 1234567891011121314151617181920212223242526&lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;spring-cloud.version&gt;Edgware.SR4&lt;/spring-cloud.version&gt;&lt;/properties&gt;&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt; &lt;/dependency&gt;&lt;/dependencies&gt;&lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;$&#123;spring-cloud.version&#125;&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt;&lt;/dependencyManagement&gt; 通过注解EnableEurekaServer启动一个注册服务中心提供给其他应用进行对话 1234567@SpringBootApplication@EnableEurekaServerpublic class EurekaServerApplication &#123; public static void main(String[] args) &#123; SpringApplication.run(EurekaServerApplication.class, args); &#125;&#125; 默认配置下，该注册服务中心会将自己作为客户端来尝试注册他自己，通过配置application.yml/application.properties来增加配置来禁用它的客户端注册行为。 12345678910server: port: 1111 #在同一个服务器下进行学习测试，需要修改端口eureka: instance: hostname: localhostclient: register-with-eureka: false #设置为false，不向注册中心注册自己 fetch-registry: false #注册中心的职责是维护服务实例，因此不需要去检索服务 serviceUrl: defaultZone: http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/ 通过浏览http://localhost:1111/可以查看注册中心的控制台信息 高可用注册中心&emsp;&emsp;在微服务架构的分布式环境中，我们需要充分考虑发生故障的情况，所以在生产中我们需要进行高可用部署。对于服务中心，亦是如此。&emsp;&emsp;Eureka Server设计之初就好率了高可用的问题，在Eureka的服务治理设计中，所有节点既是服务提供方，也是服务消费方，Eureka Server的高可用实际上就是将自己做为服务向其他注册中心注册自己 ，形成一组互相注册的服务注册中心，实现服务清单的互相同步，实现高可用的效果。 在以前搭建注册中心的基础上，添加application-peer1.yml和application-peer2.yml 1234567891011121314151617181920212223##### application-peer1.ymlserver:port: 1111 #在同一个服务器下进行学习测试，需要修改端口eureka:instance: hostname: peer1client: register-with-eureka: false #设置为false，不向注册中心注册自己 fetch-registry: false #注册中心的职责是维护服务实例，因此不需要去检索服务 serviceUrl: defaultZone: http://peer2:1112/eureka/##### application-peer2.ymlserver:port: 1112 #在同一个服务器下进行学习测试，需要修改端口eureka:instance: hostname: peer2client: register-with-eureka: false #设置为false，不向注册中心注册自己 fetch-registry: false #注册中心的职责是维护服务实例，因此不需要去检索服务 serviceUrl: defaultZone: http://peer1:1111/eureka/ 因为在同一台服务器下操作，需要在hosts文件中添加peer1和peer2的转换，修改/etc/hosts,新增以下内容 12127.0.0.1 peer1127.0.0.1 peer2 通过spring.profiles.active属性分别启动peer1和peer2，启动指令 12java -jar eurekserver-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer2java -jar eurekserver-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1 Eureka客户端&emsp;&emsp;Eureka客户端，主要处理服务的注册与发现，Eureka客户端向注册中心注册自身提供的服务并周期性地发送心跳来更新它的租服务租约，同时，他也能从服务段查询当前注册的服务信息并把它们缓存到本地并周期性地刷新服务状态。 注册服务提供者 创建SprinBoot工程（略），在此，我命名为eurekaclient，添加maven依赖 1234567891011121314151617181920212223242526272829303132333435&lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;spring-cloud.version&gt;Edgware.SR4&lt;/spring-cloud.version&gt;&lt;/properties&gt;&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt; &lt;/dependency&gt;&lt;/dependencies&gt;&lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;$&#123;spring-cloud.version&#125;&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt;&lt;/dependencyManagement&gt;&lt;build&gt; &lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt; &lt;/plugin&gt; &lt;/plugins&gt;&lt;/build&gt; 编写/hello请求处理接口，在日志中打印出服务相关 1234567891011121314151617181920212223242526272829303132333435363738394041@RestController@Log4jpublic class HelloController &#123; @Resource private DiscoveryClient client; @Resource private Registration registration; @RequestMapping(value = "/hello", method = RequestMethod.GET) public String index() &#123; //getLocalServiceInstance 方法已经过时，可以采用下边的testBalance ServiceInstance instance = client.getLocalServiceInstance(); log.info( "/test, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() ); return "From Service-A"; &#125; @RequestMapping(value = "/testBalance", method = RequestMethod.GET) public String testBalance(@RequestParam String param) &#123; ServiceInstance instance = serviceInstance(); String result = "/testBalance, host:port=" + instance.getUri() + ", " + "service_id:" + instance.getServiceId(); log.info(result); return "From Service-A , " + result; &#125; public ServiceInstance serviceInstance() &#123; List&lt;ServiceInstance&gt; list = client.getInstances(registration.getServiceId()); if (list != null &amp;&amp; list.size() &gt; 0) &#123; for(ServiceInstance itm : list)&#123; if (itm.getPort() == 2001) &#123; return itm; &#125; &#125; &#125; return null; &#125;&#125; 在启动类上添加EnableDiscoveryClient注释，激活Eureka中的DiscoveryClient实现 1234567@SpringBootApplication@EnableDiscoveryClientpublic class EurekaclientApplication &#123; public static void main(String[] args) &#123; SpringApplication.run(EurekaclientApplication.class, args); &#125;&#125; 修改配置文件 123456789server: port: 1211 #因为在同一台服务器下学习测试，需要修改端口spring: application: name: hello-service #为服务命名eureka: client: serviceUrl: defaultZone: http://localhost:1111/eureka/ # 指定注册中心的地址 通过浏览http://localhost:1111/可以查看注册中心中有hello-service，在注册中心的日志中可以发现 12018-10-12 04:07:43.379 INFO 11069 --- [nio-1111-exec-5] c.n.e.registry.AbstractInstanceRegistry : Registered instance HELLO-SERVICE/bogon:hello-service:1211 with status UP (replication=false) 访问http://localhost:1211/hello之后，可以在控制台中发现以下日志信息 12018-10-12 04:19:53.087 INFO 11306 --- [nio-1211-exec-1] x.z.e.controller.HelloController : /test, host:bogon, service_id:hello-service]]></content>
       <categories>
         <category>java</category>
       </categories>
@@ -34,10 +34,10 @@
         <category>datebase</category>
       </categories>
       <tags>
+        <tag>linux</tag>
         <tag>datebase</tag>
         <tag>mysql</tag>
         <tag>mariadb</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -49,8 +49,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>namespace</tag>
         <tag>kernel</tag>
+        <tag>namespace</tag>
       </tags>
   </entry>
   <entry>
@@ -62,8 +62,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>cgroup</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -110,8 +110,8 @@
         <category>CentOS7</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>CentOS7</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -274,8 +274,8 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regex</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
       </tags>
   </entry>
   <entry>
@@ -286,8 +286,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -298,8 +298,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -310,8 +310,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -322,8 +322,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -334,8 +334,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -346,8 +346,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -358,8 +358,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -371,9 +371,9 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>code</tag>
-        <tag>regex</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
