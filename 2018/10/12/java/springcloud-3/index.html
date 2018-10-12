@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="Icecap">
 <meta property="og:description" content="客户端负载均衡： Spring Cloud Ribbon&amp;emsp;&amp;emsp;Spring Cloud Ribbon是一个基于HTTP和TCP的客户端负载均衡工具，它基于Hetflix Ribbon实现。 客户端负载均衡&amp;emsp;&amp;emsp;负载均衡是对一个系统的高可用、网络压力的缓解、和处理能力扩容的重要手段之一。通常说的负载均衡都指的是服务端负载均衡，主要分为软件负载均衡和硬件负载均衡。硬">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-12T07:37:02.995Z">
+<meta property="og:updated_time" content="2018-10-12T08:35:39.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微服务----Spring Cloud(三)">
 <meta name="twitter:description" content="客户端负载均衡： Spring Cloud Ribbon&amp;emsp;&amp;emsp;Spring Cloud Ribbon是一个基于HTTP和TCP的客户端负载均衡工具，它基于Hetflix Ribbon实现。 客户端负载均衡&amp;emsp;&amp;emsp;负载均衡是对一个系统的高可用、网络压力的缓解、和处理能力扩容的重要手段之一。通常说的负载均衡都指的是服务端负载均衡，主要分为软件负载均衡和硬件负载均衡。硬">
@@ -362,7 +362,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-12T15:37:02+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-12T16:35:39+08:00">
                 2018-10-12
               </time>
             
@@ -430,6 +430,52 @@
       
         <h2 id="客户端负载均衡：-Spring-Cloud-Ribbon"><a href="#客户端负载均衡：-Spring-Cloud-Ribbon" class="headerlink" title="客户端负载均衡： Spring Cloud Ribbon"></a>客户端负载均衡： Spring Cloud Ribbon</h2><p>&emsp;&emsp;Spring Cloud Ribbon是一个基于HTTP和TCP的客户端负载均衡工具，它基于Hetflix Ribbon实现。</p>
 <h3 id="客户端负载均衡"><a href="#客户端负载均衡" class="headerlink" title="客户端负载均衡"></a>客户端负载均衡</h3><p>&emsp;&emsp;负载均衡是对一个系统的高可用、网络压力的缓解、和处理能力扩容的重要手段之一。通常说的负载均衡都指的是服务端负载均衡，主要分为软件负载均衡和硬件负载均衡。硬件负载均衡主要通过在服务器节点之间安装专门用于负载均衡的设备，比如F5。而软件负载均衡则是通过在服务器中安装一些具有负载均衡功能或者模块的软件来完成请求分发工作，比如Nginx。服务端负载均衡都是维护一个下挂可用的服务器清单，通过某种算法（轮询、按照权重、按照流量等）从可用的服务器清单中取出一台服务器的地址，然后进行转发。客户端负载均衡不同与服务端负载均衡的是所有的客户端都要维护自己要访问的服务器清单，这些清单都来自于注册中心。</p>
+<h4 id="Spring-Cloud-Ribbon使用客户端负载均衡"><a href="#Spring-Cloud-Ribbon使用客户端负载均衡" class="headerlink" title="Spring Cloud Ribbon使用客户端负载均衡"></a>Spring Cloud Ribbon使用客户端负载均衡</h4><ol>
+<li>服务提供者只需要启动多个服务实例并注册一个注册中心或者多个相关联的服务注册中心</li>
+<li>服务注册者直接通过调用被@LoadBalanced注解修饰过的RestTemplate来实现面向服务的接口调用。</li>
+</ol>
+<h4 id="RestTemplate详解"><a href="#RestTemplate详解" class="headerlink" title="RestTemplate详解"></a>RestTemplate详解</h4><h5 id="GET请求（2种方法）"><a href="#GET请求（2种方法）" class="headerlink" title="GET请求（2种方法）"></a>GET请求（2种方法）</h5><h6 id="getForEntity函数"><a href="#getForEntity函数" class="headerlink" title="getForEntity函数"></a>getForEntity函数</h6><p>&emsp;&emsp;该方法返回ResponseEntity（Spring对HTTP请求相应的封装）</p>
+<ol>
+<li><p>getForEntity(String url, Class<t> responseType, Object… uriVariables)<br> url : 请求的地址<br> responseType : 请求响应体body的包装类型<br> uriVariables : url中的参数绑定，数组内容替代{1}这样的占位符。<br> 例：</t></p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getForEntity(<span class="string">"http://USER-SERVICE/user?name=&#123;1&#125;"</span>,String.class,<span class="string">"didi"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getForEntity(String url, Class<t> responseType, Map&lt;String, ?&gt; uriVariables)<br> 与1中只有uriVariables不同，替代的是制定参数的{key}这样的占位符。<br> 例:</t></p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getForEntity(<span class="string">"http://USER-SERVICE/user?name=&#123;name&#125;"</span>,String.class,<span class="keyword">new</span> HashMap&lt;&gt;().put(<span class="string">"name"</span>,<span class="string">"peter"</span>));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>getForEntity(URI url, Class<t> responseType)<br> 使用URI（统一资源标识符）来代替url</t></p>
+</li>
+</ol>
+<h6 id="getForObject函数"><a href="#getForObject函数" class="headerlink" title="getForObject函数"></a>getForObject函数</h6><p>&emsp;&emsp;可以认为是getForEntity的进一步封装，通过HttpMessageConverterExtractor对HTTP的请求响应体进行对象转换。</p>
+<ol>
+<li>getForObject(String url, Class<t> responseType, Object… uriVariables)</t></li>
+<li>getForObject(String url, Class<t> responseType, Map&lt;String, ?&gt; uriVariables)</t></li>
+<li>getForObject(URI url, Class<t> responseType)</t></li>
+</ol>
+<h5 id="POST请求（3种方法）"><a href="#POST请求（3种方法）" class="headerlink" title="POST请求（3种方法）"></a>POST请求（3种方法）</h5><h6 id="posrFotEntity函数"><a href="#posrFotEntity函数" class="headerlink" title="posrFotEntity函数"></a>posrFotEntity函数</h6><p>&emsp;&emsp;绝大部分和getForEntity用法相同  </p>
+<ol>
+<li>postForEntity(String url, Object request, Class<t> responseType, Object… uriVariables)<br>request : 可以是一个普通对象（REstTemlate会将其转化成一个HttpEntity来处理，类型为Object，request的内容被视为body内容），也可以是一个HttpEntity对象（完整的Http请求，包含body和header）</t></li>
+<li>postForEntity(String url, Object request, Class<t> responseType, Map&lt;String, ?&gt; uriVariables)</t></li>
+<li>postForEntity(URI url, Object request, Class<t> responseType)</t></li>
+</ol>
+<h6 id="postForObject函数"><a href="#postForObject函数" class="headerlink" title="postForObject函数"></a>postForObject函数</h6><p>&emsp;&emsp;与getForObject类似</p>
+<h6 id="postForLocation函数"><a href="#postForLocation函数" class="headerlink" title="postForLocation函数"></a>postForLocation函数</h6><p>&emsp;&emsp;以POST方式提交资源，并返回新资源的URI。因为返回新资源的URI，因此不需要指定responseType。</p>
+<ol>
+<li>postForLocation(String url, Object request, Object… uriVariables)</li>
+<li>postForLocation(String url, Object request, Map&lt;String, ?&gt; uriVariables)</li>
+<li>postForLocation(URI url, Object request)</li>
+</ol>
+<h5 id="PUT请求"><a href="#PUT请求" class="headerlink" title="PUT请求"></a>PUT请求</h5><h6 id="put函数"><a href="#put函数" class="headerlink" title="put函数"></a>put函数</h6><p>&emsp;&emsp;put方法无返回值，因此也就没有responseType，其他与postForObject类似</p>
+<ol>
+<li>put(String url, Object request, Object… uriVariables)</li>
+<li>put(String url, Object request, Map&lt;String, ?&gt; uriVariables)</li>
+<li>put(URI url, Object request)</li>
+</ol>
+<h5 id="DELETE请求"><a href="#DELETE请求" class="headerlink" title="DELETE请求"></a>DELETE请求</h5><h6 id="delete函数"><a href="#delete函数" class="headerlink" title="delete函数"></a>delete函数</h6><p>&emsp;&emsp;通常使用唯一标识，因此无需request的body信息。</p>
+<ol>
+<li>delete(String url, Object… uriVariables)</li>
+<li>delete(String url, Map&lt;String, ?&gt; uriVariables)</li>
+<li>delete(URI url)</li>
+</ol>
 
       
     </div>
@@ -678,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端负载均衡：-Spring-Cloud-Ribbon"><span class="nav-number">1.</span> <span class="nav-text">客户端负载均衡： Spring Cloud Ribbon</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端负载均衡"><span class="nav-number">1.1.</span> <span class="nav-text">客户端负载均衡</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端负载均衡：-Spring-Cloud-Ribbon"><span class="nav-number">1.</span> <span class="nav-text">客户端负载均衡： Spring Cloud Ribbon</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端负载均衡"><span class="nav-number">1.1.</span> <span class="nav-text">客户端负载均衡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-Cloud-Ribbon使用客户端负载均衡"><span class="nav-number">1.1.1.</span> <span class="nav-text">Spring Cloud Ribbon使用客户端负载均衡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RestTemplate详解"><span class="nav-number">1.1.2.</span> <span class="nav-text">RestTemplate详解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GET请求（2种方法）"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">GET请求（2种方法）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#getForEntity函数"><span class="nav-number">1.1.2.1.1.</span> <span class="nav-text">getForEntity函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#getForObject函数"><span class="nav-number">1.1.2.1.2.</span> <span class="nav-text">getForObject函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#POST请求（3种方法）"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">POST请求（3种方法）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#posrFotEntity函数"><span class="nav-number">1.1.2.2.1.</span> <span class="nav-text">posrFotEntity函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#postForObject函数"><span class="nav-number">1.1.2.2.2.</span> <span class="nav-text">postForObject函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#postForLocation函数"><span class="nav-number">1.1.2.2.3.</span> <span class="nav-text">postForLocation函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PUT请求"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">PUT请求</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#put函数"><span class="nav-number">1.1.2.3.1.</span> <span class="nav-text">put函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DELETE请求"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">DELETE请求</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#delete函数"><span class="nav-number">1.1.2.4.1.</span> <span class="nav-text">delete函数</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
