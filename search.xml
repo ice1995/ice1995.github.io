@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微服务----Spring Cloud(四)]]></title>
+    <url>%2F2018%2F10%2F13%2Fjava%2Fspringcloud-4%2F</url>
+    <content type="text"><![CDATA[服务容错保护： Spring Cloud Hystrix&emsp;&emsp;在微服务架构中，我们将系统拆分为很多服务单元，因为各单元的应用间通过服务注册与订阅的方式相互依赖，并且各单元运行在不同的进程中，因此有可能因为网络原因或者自己问题出现调用服务故障或者延迟。随着服务数量的增加，故障亦随之累加，最后导致自身服务的瘫痪。为了解决这种问题，出现了断路器等一系列的保护机制。而Spring Cloud Hystrix就实现了断路器、线程隔离等一系列系统保护功能，为系统的延迟和故障提供更加强大的容错能力。]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Spring Cloud</tag>
+        <tag>Microservice</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[微服务----Spring Cloud(三)]]></title>
     <url>%2F2018%2F10%2F12%2Fjava%2Fspringcloud-3%2F</url>
     <content type="text"><![CDATA[客户端负载均衡： Spring Cloud Ribbon&emsp;&emsp;Spring Cloud Ribbon是一个基于HTTP和TCP的客户端负载均衡工具，它基于Hetflix Ribbon实现。 客户端负载均衡&emsp;&emsp;负载均衡是对一个系统的高可用、网络压力的缓解、和处理能力扩容的重要手段之一。通常说的负载均衡都指的是服务端负载均衡，主要分为软件负载均衡和硬件负载均衡。硬件负载均衡主要通过在服务器节点之间安装专门用于负载均衡的设备，比如F5。而软件负载均衡则是通过在服务器中安装一些具有负载均衡功能或者模块的软件来完成请求分发工作，比如Nginx。服务端负载均衡都是维护一个下挂可用的服务器清单，通过某种算法（轮询、按照权重、按照流量等）从可用的服务器清单中取出一台服务器的地址，然后进行转发。客户端负载均衡不同与服务端负载均衡的是所有的客户端都要维护自己要访问的服务器清单，这些清单都来自于注册中心。 Spring Cloud Ribbon使用客户端负载均衡 服务提供者只需要启动多个服务实例并注册一个注册中心或者多个相关联的服务注册中心 服务注册者直接通过调用被@LoadBalanced注解修饰过的RestTemplate来实现面向服务的接口调用。 RestTemplate详解GET请求（2种方法）getForEntity函数&emsp;&emsp;该方法返回ResponseEntity（Spring对HTTP请求相应的封装） getForEntity(String url, Class responseType, Object… uriVariables) url : 请求的地址 responseType : 请求响应体body的包装类型 uriVariables : url中的参数绑定，数组内容替代{1}这样的占位符。 例： 1getForEntity("http://USER-SERVICE/user?name=&#123;1&#125;",String.class,"didi"); getForEntity(String url, Class responseType, Map&lt;String, ?&gt; uriVariables) 与1中只有uriVariables不同，替代的是制定参数的{key}这样的占位符。 例: 1getForEntity("http://USER-SERVICE/user?name=&#123;name&#125;",String.class,new HashMap&lt;&gt;().put("name","peter")); getForEntity(URI url, Class responseType) 使用URI（统一资源标识符）来代替url getForObject函数&emsp;&emsp;可以认为是getForEntity的进一步封装，通过HttpMessageConverterExtractor对HTTP的请求响应体进行对象转换。 getForObject(String url, Class responseType, Object… uriVariables) getForObject(String url, Class responseType, Map&lt;String, ?&gt; uriVariables) getForObject(URI url, Class responseType) POST请求（3种方法）posrFotEntity函数&emsp;&emsp;绝大部分和getForEntity用法相同 postForEntity(String url, Object request, Class responseType, Object… uriVariables)request : 可以是一个普通对象（REstTemlate会将其转化成一个HttpEntity来处理，类型为Object，request的内容被视为body内容），也可以是一个HttpEntity对象（完整的Http请求，包含body和header） postForEntity(String url, Object request, Class responseType, Map&lt;String, ?&gt; uriVariables) postForEntity(URI url, Object request, Class responseType) postForObject函数&emsp;&emsp;与getForObject类似 postForLocation函数&emsp;&emsp;以POST方式提交资源，并返回新资源的URI。因为返回新资源的URI，因此不需要指定responseType。 postForLocation(String url, Object request, Object… uriVariables) postForLocation(String url, Object request, Map&lt;String, ?&gt; uriVariables) postForLocation(URI url, Object request) PUT请求put函数&emsp;&emsp;put方法无返回值，因此也就没有responseType，其他与postForObject类似 put(String url, Object request, Object… uriVariables) put(String url, Object request, Map&lt;String, ?&gt; uriVariables) put(URI url, Object request) DELETE请求delete函数&emsp;&emsp;通常使用唯一标识，因此无需request的body信息。 delete(String url, Object… uriVariables) delete(String url, Map&lt;String, ?&gt; uriVariables) delete(URI url)]]></content>
@@ -47,10 +60,10 @@
         <category>datebase</category>
       </categories>
       <tags>
+        <tag>linux</tag>
         <tag>datebase</tag>
         <tag>mysql</tag>
         <tag>mariadb</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -62,8 +75,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>namespace</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -75,8 +88,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>cgroup</tag>
         <tag>kernel</tag>
+        <tag>cgroup</tag>
       </tags>
   </entry>
   <entry>
@@ -202,19 +215,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
-    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
-    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —- PyQt编程指南（Mark Summerfield 著 ）]]></content>
-      <categories>
-        <category>PyQt</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>PyQt</tag>
-        <tag>GUI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PyQT学习记录（二）]]></title>
     <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-2%2F</url>
     <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
@@ -225,6 +225,19 @@
         <tag>python</tag>
         <tag>GUI</tag>
         <tag>PyQT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
+    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
+    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —- PyQt编程指南（Mark Summerfield 著 ）]]></content>
+      <categories>
+        <category>PyQt</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>PyQt</tag>
+        <tag>GUI</tag>
       </tags>
   </entry>
   <entry>
@@ -256,7 +269,7 @@
   <entry>
     <title><![CDATA[Linux指令记录合集（长期更新）]]></title>
     <url>%2F2018%2F08%2F30%2Flinux%2Flinux-command%2F</url>
-    <content type="text"><![CDATA[此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name #启动某服务systemctl stop service-name #停止某服务systemctl restart service-name #重启某服务systemctl enable service-name #设置开机自动启动某服务systemctl disable service-name #设置开机停止自动启动某服务systemctl list-units --type=service #查看所有已启动的服务systemctl list-unit-files #查看已经安装的所有服务 添加程序到服务systemctl脚本存放在:/usr/lib/systemd/&emsp;&emsp;[Unit]部分主要是对这个服务的说明，内容包括Description和After，Description 用于描述服务，After用于描述服务类别&emsp;&emsp;[Service]部分是服务的关键，是服务的一些具体运行参数的设置.&emsp;&emsp;Type=forking是后台运行的形式，&emsp;&emsp;User=users是设置服务运行的用户,&emsp;&emsp;Group=users是设置服务运行的用户组,&emsp;&emsp;PIDFile为存放PID的文件路径，&emsp;&emsp;ExecStart为服务的具体运行命令,&emsp;&emsp;ExecReload为重启命令，&emsp;&emsp;ExecStop为停止命令，&emsp;&emsp;PrivateTmp=True表示给服务分配独立的临时空间 注意：[Service]部分的启动、重启、停止命令全部要求使用绝对路径，使用相对路径则会报错！ [Install]部分是服务安装的相关设置，可设置为多用户的 12345678910111213141516171819#以tomcat为例#vim /usr/lib/systemd/system/tomcat.service [Unit]Description=java tomcat projectAfter=tomcat.service [Service]Type=forkingUser=usersGroup=usersPIDFile=/usr/local/tomcat/tomcat.pidExecStart=/usr/local/tomcat/bin/startup.shExecReload=ExecStop=/usr/local/tomcat/bin/shutdown.shPrivateTmp=true [Install]WantedBy=multi-user.target firewall-cmd防火墙相关12firewall-cmd --add-port=port-number/protocols --zone=zone-name --permanent #在zone-name区域永久开启protocol协议的port-number端口firewall-cmd --zone=public --list-all # 显示所有公共区域（public） ln1ln -s source link #创建一个指向source的link（快捷方式） 后台运行命令 &amp;&emsp;&emsp;当在前台运行某个作业时，终端被该作业占据；可以在命令后面加上&amp; 实现后台运行。例如：sh test.sh &amp; 适合在后台运行的命令有f i n d、费时的排序及一些s h e l l脚本。在后台运行作业时要当心：需要用户交互的命令不要放在后台执行，因为这样你的机器就会在那里傻等。不过，作业在后台运行一样会将结果输出到屏幕上，干扰你的工作。如果放在后台运行的作业会产生大量的输出，最好使用下面的方法把它的输出重定向到某个文件中： 1command &gt; out.file 2&gt;&amp;1 &amp; #所有的标准输出和错误输出都将被重定向到一个叫做out.file 的文件中。 2&gt;&amp;1解析&emsp;&emsp;2&gt;&amp;1 是将标准出错重定向到标准输出，这里的标准输出已经重定向到了out.file文件，即将标准出错也输出到out.file文件中。最后一个&amp;， 是让该命令在后台执行。&emsp;&emsp;试想2&gt;1代表什么，2与&gt;结合代表错误重定向，而1则代表错误重定向到一个文件1，而不代表标准输出；换成2&gt;&amp;1，&amp;与1结合就代表标准输出了，就变成错误重定向到标准输出. nohup&emsp;&emsp;使用&amp;命令后，作业被提交到后台运行，当前控制台没有被占用，但是一但把当前控制台关掉(退出帐户时)，作业就会停止运行。nohup命令可以在你退出帐户之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。该命令的一般形式为： 12nohup command &amp; #在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：nohup command &gt; myout.file 2&gt;&amp;1 &amp; ctrl + z&emsp;&emsp;可以将一个正在前台执行的命令放到后台，并且处于暂停状态。 jobs&emsp;&emsp;查看当前有多少在后台运行的命令。 1jobs -l #可显示所有任务的PID，jobs的状态可以是running, stopped, Terminated。但是如果任务被终止了（kill），shell 从当前的shell环境已知的列表中删除任务的进程标识。 硬件信息查看123cat /proc/cpuinfo |grep "physical id"|sort|uniq|wc -l #查看物理cpu个数cat /proc/cpuinfo |grep "cpu cores"|wc -l #查看每个物理cpu中的core个数cat /proc/cpuinfo |grep "processor"|wc -l #逻辑cpu的个数 性能信息查看12top #性能监控程序free -m #查看内存使用情况]]></content>
+    <content type="text"><![CDATA[此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name #启动某服务systemctl stop service-name #停止某服务systemctl restart service-name #重启某服务systemctl enable service-name #设置开机自动启动某服务systemctl disable service-name #设置开机停止自动启动某服务systemctl list-units --type=service #查看所有已启动的服务systemctl list-unit-files #查看已经安装的所有服务 添加程序到服务systemctl脚本存放在:/usr/lib/systemd/&emsp;&emsp;[Unit]部分主要是对这个服务的说明，内容包括Description和After，Description 用于描述服务，After用于描述服务类别&emsp;&emsp;[Service]部分是服务的关键，是服务的一些具体运行参数的设置.&emsp;&emsp;Type=forking是后台运行的形式，&emsp;&emsp;User=users是设置服务运行的用户,&emsp;&emsp;Group=users是设置服务运行的用户组,&emsp;&emsp;PIDFile为存放PID的文件路径，&emsp;&emsp;ExecStart为服务的具体运行命令,&emsp;&emsp;ExecReload为重启命令，&emsp;&emsp;ExecStop为停止命令，&emsp;&emsp;PrivateTmp=True表示给服务分配独立的临时空间 注意：[Service]部分的启动、重启、停止命令全部要求使用绝对路径，使用相对路径则会报错！ [Install]部分是服务安装的相关设置，可设置为多用户的 12345678910111213141516171819#以tomcat为例#vim /usr/lib/systemd/system/tomcat.service[Unit]Description=java tomcat projectAfter=tomcat.service [Service]Type=forkingUser=usersGroup=usersPIDFile=/usr/local/tomcat/tomcat.pidExecStart=/usr/local/tomcat/bin/startup.shExecReload=ExecStop=/usr/local/tomcat/bin/shutdown.shPrivateTmp=true [Install]WantedBy=multi-user.target firewall-cmd防火墙相关 12firewall-cmd --add-port=port-number/protocols --zone=zone-name --permanent #在zone-name区域永久开启protocol协议的port-number端口firewall-cmd --zone=public --list-all # 显示所有公共区域（public） ln1ln -s source link #创建一个指向source的link（快捷方式） 后台运行命令 &amp; &emsp;&emsp;当在前台运行某个作业时，终端被该作业占据；可以在命令后面加上&amp; 实现后台运行。例如：sh test.sh &amp; 适合在后台运行的命令有f i n d、费时的排序及一些s h e l l脚本。在后台运行作业时要当心：需要用户交互的命令不要放在后台执行，因为这样你的机器就会在那里傻等。不过，作业在后台运行一样会将结果输出到屏幕上，干扰你的工作。如果放在后台运行的作业会产生大量的输出，最好使用下面的方法把它的输出重定向到某个文件中： 1command &gt; out.file 2&gt;&amp;1 &amp; #所有的标准输出和错误输出都将被重定向到一个叫做out.file 的文件中。 2&gt;&amp;1解析 &emsp;&emsp;2&gt;&amp;1 是将标准出错重定向到标准输出，这里的标准输出已经重定向到了out.file文件，即将标准出错也输出到out.file文件中。最后一个&amp;， 是让该命令在后台执行。 &emsp;&emsp;试想2&gt;1代表什么，2与&gt;结合代表错误重定向，而1则代表错误重定向到一个文件1，而不代表标准输出；换成2&gt;&amp;1，&amp;与1结合就代表标准输出了，就变成错误重定向到标准输出. nohup &emsp;&emsp;使用&amp;命令后，作业被提交到后台运行，当前控制台没有被占用，但是一但把当前控制台关掉(退出帐户时)，作业就会停止运行。nohup命令可以在你退出帐户之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。该命令的一般形式为： 12nohup command &amp; #在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：nohup command &gt; myout.file 2&gt;&amp;1 &amp; ctrl + z &emsp;&emsp;可以将一个正在前台执行的命令放到后台，并且处于暂停状态。 jobs &emsp;&emsp;查看当前有多少在后台运行的命令。 1jobs -l #可显示所有任务的PID，jobs的状态可以是running, stopped, Terminated。但是如果任务被终止了（kill），shell 从当前的shell环境已知的列表中删除任务的进程标识。 硬件信息查看123cat /proc/cpuinfo |grep "physical id"|sort|uniq|wc -l #查看物理cpu个数cat /proc/cpuinfo |grep "cpu cores"|wc -l #查看每个物理cpu中的core个数cat /proc/cpuinfo |grep "processor"|wc -l #逻辑cpu的个数 性能信息查看12top #性能监控程序free -m #查看内存使用情况 保存程序运行pid到文件1234567##通过命令行启动进程，然后通过ps ,grep, awk 关键字获取对应pidps -ef|grep s |grep -v grep |awk '&#123;print $2&#125;' &gt; process.PIDFile###如果是使用nohup创建，查看当前shell最后一个后台进程pid $!##注意，下面的命令要放到sh文件里面执行，不能从命令行执行**nohup command &amp; echo $! &gt; process.pid# 既写入文件又输出到标准输出nohup command &amp; echo $!|tee process.pid]]></content>
       <categories>
         <category>linux</category>
       </categories>

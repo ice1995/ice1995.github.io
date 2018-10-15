@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,Spring Cloud,Microservice," />
 
 
 
@@ -99,17 +99,18 @@
 
 
 
-<meta name="description" content="没有什么大牛学霸，有的只是厚积薄发">
-<meta name="keywords" content="张博涵,icecap">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Icecap">
-<meta property="og:url" content="http://http://132.232.42.89/tags/git/index.html">
+<meta name="description" content="服务容错保护： Spring Cloud Hystrix&amp;emsp;&amp;emsp;在微服务架构中，我们将系统拆分为很多服务单元，因为各单元的应用间通过服务注册与订阅的方式相互依赖，并且各单元运行在不同的进程中，因此有可能因为网络原因或者自己问题出现调用服务故障或者延迟。随着服务数量的增加，故障亦随之累加，最后导致自身服务的瘫痪。为了解决这种问题，出现了断路器等一系列的保护机制。而Spring Clo">
+<meta name="keywords" content="java,Spring Cloud,Microservice">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微服务----Spring Cloud(四)">
+<meta property="og:url" content="http://http://132.232.42.89/2018/10/13/java/springcloud-4/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="没有什么大牛学霸，有的只是厚积薄发">
+<meta property="og:description" content="服务容错保护： Spring Cloud Hystrix&amp;emsp;&amp;emsp;在微服务架构中，我们将系统拆分为很多服务单元，因为各单元的应用间通过服务注册与订阅的方式相互依赖，并且各单元运行在不同的进程中，因此有可能因为网络原因或者自己问题出现调用服务故障或者延迟。随着服务数量的增加，故障亦随之累加，最后导致自身服务的瘫痪。为了解决这种问题，出现了断路器等一系列的保护机制。而Spring Clo">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-13T02:52:22.327Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Icecap">
-<meta name="twitter:description" content="没有什么大牛学霸，有的只是厚积薄发">
+<meta name="twitter:title" content="微服务----Spring Cloud(四)">
+<meta name="twitter:description" content="服务容错保护： Spring Cloud Hystrix&amp;emsp;&amp;emsp;在微服务架构中，我们将系统拆分为很多服务单元，因为各单元的应用间通过服务注册与订阅的方式相互依赖，并且各单元运行在不同的进程中，因此有可能因为网络原因或者自己问题出现调用服务故障或者延迟。随着服务数量的增加，故障亦随之累加，最后导致自身服务的瘫痪。为了解决这种问题，出现了断路器等一系列的保护机制。而Spring Clo">
 
 
 
@@ -139,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/tags/git/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2018/10/13/java/springcloud-4/"/>
 
 
 
 
 
-  <title>标签: git | Icecap</title>
+  <title>微服务----Spring Cloud(四) | Icecap</title>
   
 
 
@@ -164,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,54 +303,194 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>git<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/10/13/java/springcloud-4/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bohan Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/game.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Icecap">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/25/Git/" itemprop="url">
-              
-                <span itemprop="name">Git命令</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">微服务----Spring Cloud(四)</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-25T17:56:36+08:00"
-              content="2018-08-25" >
-          08-25
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-13T10:39:53+08:00">
+                2018-10-13
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-13T10:52:22+08:00">
+                2018-10-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/13/java/springcloud-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/10/13/java/springcloud-4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="服务容错保护：-Spring-Cloud-Hystrix"><a href="#服务容错保护：-Spring-Cloud-Hystrix" class="headerlink" title="服务容错保护： Spring Cloud Hystrix"></a>服务容错保护： Spring Cloud Hystrix</h2><p>&emsp;&emsp;在微服务架构中，我们将系统拆分为很多服务单元，因为各单元的应用间通过服务注册与订阅的方式相互依赖，并且各单元运行在不同的进程中，因此有可能因为网络原因或者自己问题出现调用服务故障或者延迟。随着服务数量的增加，故障亦随之累加，最后导致自身服务的瘫痪。为了解决这种问题，出现了断路器等一系列的保护机制。而Spring Cloud Hystrix就实现了断路器、线程隔离等一系列系统保护功能，为系统的延迟和故障提供更加强大的容错能力。</p>
 
       
     </div>
+    
+    
+    
+       
 
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/Spring-Cloud/" rel="tag"># Spring Cloud</a>
+          
+            <a href="/tags/Microservice/" rel="tag"># Microservice</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/12/java/springcloud-3/" rel="next" title="微服务----Spring Cloud(三)">
+                <i class="fa fa-chevron-left"></i> 微服务----Spring Cloud(三)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -357,6 +498,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/10/13/java/springcloud-4/"
+           data-title="微服务----Spring Cloud(四)" data-url="http://http://132.232.42.89/2018/10/13/java/springcloud-4/">
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -377,8 +529,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -506,6 +667,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务容错保护：-Spring-Cloud-Hystrix"><span class="nav-number">1.</span> <span class="nav-text">服务容错保护： Spring Cloud Hystrix</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -650,6 +827,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
