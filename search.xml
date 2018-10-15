@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[机器学习（一）---初识]]></title>
+    <url>%2F2018%2F10%2F15%2Falgorithm%2Fmachinelearning%2Fmachinelearning-1%2F</url>
+    <content type="text"><![CDATA[什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 —-Arthur Samuel&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 —-Tom Mitchell&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 什么是监督学习？&emsp;&emsp;给算法一个数据集，该数据集内包含有正确的答案，让算法给出更多的准确答案。 回归问题&emsp;&emsp;回归指的是，我们在试着推测出一系列的连续值属性。 分类问题&emsp;&emsp;分类指的是，我们试着退出离散的输出值 什么是无监督学习？&emsp;&emsp;给算法一个数据集，让算法自动的将该数据集分成n类。（与监督学习不同，数据集没有任何的标签：或者有相同的标签；或者没有标签） 无监督学习的应用领域&emsp;&emsp;社交网络分析、细分市场、天文数据分析、组织大型计算机集群等]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>Machine Learning</tag>
+        <tag>AI</tag>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[微服务----Spring Cloud(五)]]></title>
     <url>%2F2018%2F10%2F15%2Fjava%2Fspringcloud-5%2F</url>
     <content type="text"><![CDATA[声明式服务调用 ：Spring Cloud Feign&emsp;&emsp;Spring Cloud Feign基于Netflix Feign实现，整合了Spring Cloud Ribbon和Spring Cloud Hystrix，除此之外，还提供了一种声明式的Web服务端定义方式。 快速入门 引入POM依赖 123456789101112131415161718&lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;spring-cloud.version&gt;Edgware.SR4&lt;/spring-cloud.version&gt; &lt;/properties&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt; &lt;/dependency&gt; &lt;/dependencies&gt; 创建启动类，并添加EnableFeignClients注释开启Spring Cloud Feign支持 123456789@SpringBootApplication@EnableFeignClients@EnableDiscoveryClientpublic class FeignconsumerApplication &#123; public static void main(String[] args) &#123; SpringApplication.run(FeignconsumerApplication.class, args); &#125;&#125; 编写HelloService接口,通过FeignClient注解指定服务名来绑定服务，然后通过SpringMVC注解来绑定具体该服务提供的REST接口 12345@FeignClient("hello-service") public interface HelloService &#123; @RequestMapping("/hello") String hello(); &#125; 编写Controller层，调用HelloService接口 12345678910111213141516@RestControllerpublic class HelloController &#123; private final HelloService helloService; @Autowired public HelloController(HelloService helloService) &#123; this.helloService = helloService; &#125; @RequestMapping(value = "/feign-consumer", method = RequestMethod.GET) public String helloConsumer () &#123; return helloService.hello(); &#125;&#125; 修改配置文件 123456789server: port: 1401spring: application: name: feign-consumereureka: client: serviceUrl: defaultZone: http://localhost:1111/eureka/ 通过浏览http://localhost:1111/可以查看注册中心新增了feign-consumer,通过访问http://localhost:1401/feign-consumer查看结果 参数绑定&emsp;&emsp;与SpringMVC不同，FeignClient中绑定参数必须通过value属性指定具体的参数名，不然会抛出IllegalStateException异常，value属性不能为空。 12345678910111213141516@FeignClient("hello-service")public interface HelloService &#123; @RequestMapping("/hello") String hello(); @RequestMapping(value = "/hello1", method = RequestMethod.GET) String hello(@RequestParam("name") String name); @RequestMapping(value = "/hello2", method = RequestMethod.GET) User hello(@RequestParam("name") String name, @RequestParam("age") Integer age); @RequestMapping(value = "/hello3", method = RequestMethod.POST) String hello(@RequestBody User user);&#125; 继承特性&emsp;&emsp;可以将项目中的几个子系统的共同部分抽象出来作为一个子项目，在maven中使用依赖减少代码量，但是同时会导致项目耦合度增加，需要严格按照面向对象的开闭原则，，否则可能出现牵一发而动全身的后果，增加不必要的维护工作量。 Ribbon配置&emsp;&emsp;Spring Cloud Feign的客户端负载均衡是通过Spring Cloud Ribbon实现的，因此可以通过直接配置Ribbon客户端来实现自定义各个服务端调用的参数。 Ribbon全局配置1234ribbon: ConnectTimeout: 500 ReadTimeout: 500 指定服务配置&emsp;&emsp;在使用Spring Cloud Feign的时候，针对各个服务客户端进行个性化配置的方式和Ribbon一致，都是\.ribbon.key=value,client是@FeignClient(value=”value”)中的value设置值。在我们使用@FeignClient(value=”value”)的同时创建了一个名为value的Ribbon客户端。 1234567hello-service: #对value为hello-service的客户端进行设置 ribbon: ReadTimeout: 2000 OkToRetryOnAllOperation: true MaxAutoRetriesNextServer: 2 MaxAutoRetries: 1 重试机制&emsp;&emsp;在Spring Cloud Feign中，默认实现了请求的重试机制，上面的配置中我们已经做了相应配置 Hystrix设置&emsp;&emsp;默认情况下，Spring Cloud Feign会将所有Feign客户端的方法都封装到Hystrix命令中进行服务保护。 Hystrix全局配置12345678910111213hystrix: command: default: # execution: # timeout: # enabled: false #关闭熔断功能 isolation: thread: timeoutInMilliseconds: 5000#feign:# hystrix:# enabled: false #关闭Feign对Hystrix的支持 某个客户端关闭Hystrix&emsp;&emsp;需要通过使用@Scope(“properte”)注解为指定的客户端配置Feign.Builder实例。 12345678910111213141516//配置类 DisableHystrixConfig.java@Configurationpublic class DisableHystrixConfig &#123; @Bean @Scope("prototype") public Feign.Builder feignBuilder() &#123; return Feign.builder(); &#125;&#125;//对某个服务关闭Hystrix@FeignClient(value = "hello-service",configuration = DisableHystrixConfig.class)public interface HelloService &#123; ...&#125;]]></content>
@@ -228,19 +242,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
-    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
-    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —- PyQt编程指南（Mark Summerfield 著 ）]]></content>
-      <categories>
-        <category>PyQt</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>PyQt</tag>
-        <tag>GUI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PyQT学习记录（二）]]></title>
     <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-2%2F</url>
     <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
@@ -251,6 +252,19 @@
         <tag>python</tag>
         <tag>GUI</tag>
         <tag>PyQT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
+    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
+    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —- PyQt编程指南（Mark Summerfield 著 ）]]></content>
+      <categories>
+        <category>PyQt</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>PyQt</tag>
+        <tag>GUI</tag>
       </tags>
   </entry>
   <entry>
@@ -313,8 +327,8 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regex</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
       </tags>
   </entry>
   <entry>
@@ -325,8 +339,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -337,8 +351,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -349,8 +363,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -361,8 +375,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -373,8 +387,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -385,8 +399,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -397,8 +411,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -410,9 +424,9 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>code</tag>
-        <tag>regex</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
