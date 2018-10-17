@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微服务----Spring Cloud(五)]]></title>
+    <url>%2F2018%2F10%2F17%2Fjava%2Fspringcloud-6%2F</url>
+    <content type="text"><![CDATA[API网关服务 ： Spring Cloud Zuul&emsp;&emsp;Spring Cloud Zuul通过与Spring Cloud Eureka进行整合，将自身注册为Eureka服务治理下的应用，同时从Eureka中获得所有其他微服务的实力信息，使得自动完成维护服务实例的工作。对于路由规则的维护，Zuul默认会通过服务名作为ContextPath的方式来创建路由映射。 &emsp;&emsp;开发者可以通过使用Zuul来创建各种检校过滤器，然后指定那些规则的请求需要执行检校逻辑，只有通过检校的才会被路由到具体的微服务里接口，否则返回错误提示。 快速入门构建网关 构建spring boot工程，引入依赖 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt;&lt;/dependency&gt; 创建启动类，添加EnableZuulProxy注解开启API网关服务功能 12345678@SpringCloudApplication@EnableZuulProxypublic class ApigatewayApplication &#123; public static void main(String[] args) &#123; new SpringApplicationBuilder(ApigatewayApplication.class).web(true).run(args); &#125;&#125; 修改配置文件 12345server:port: 1501spring:application: name: api-gateway 请求路由传统路由方式/api-a-url/**的路由都会到http://localhost:8080/；如：访问http://localhost:1501/api-a-url/hello会到http://localhost:8080/hello 12345zuul: routes: api-a-url: path: /api-a-url/** url: http://localhost:8080/ 面向服务的路由&emsp;&emsp;具体的路由由Eureka服务发现机制负责自动维护 添加Eureka的依赖 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;&lt;/dependency&gt; 配置服务路由 12345678zuul: routes: api-b: path: /api-a/** serviceId: hello-service api-b: path: /api-b/** serviceId: feign-consurme 请求过滤&emsp;&emsp;继承ZuulFilter抽象类并实现定义的4个抽象函数就可以完成对请求的拦截和过滤。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647@Log4jpublic class RoleFilter extends ZuulFilter &#123; /** * 过滤器类型，决定过滤器在请求的哪个周期中执行 * 定义为pre，在请求被路由之前执行 */ @Override public String filterType() &#123; return "pre"; &#125; /** * 过滤器的执行顺序，当一个阶段中存在多个过滤器的时候，根据该方法返回值一次执行 */ @Override public int filterOrder() &#123; return 0; &#125; /** * 判断该过滤器是否需要执行。这里我们直接返回true，因此该过滤器对所有请求都生效。实际中利用该函数来指定过滤器的有效范围 */ @Override public boolean shouldFilter() &#123; return true; &#125; /** * 过滤器的具体逻辑 */ @Override public Object run() throws ZuulException &#123; RequestContext currentContext = RequestContext.getCurrentContext(); HttpServletRequest request = currentContext.getRequest(); log.info(String.format("send %s request to %s",request.getMethod(),request.getRequestURL().toString())); String accessToken = request.getParameter("accessToken"); if (accessToken == null) &#123; log.warn("access token is empty"); currentContext.setSendZuulResponse(false); //设置不对其进行路由 currentContext.setResponseStatusCode(401); //设置错误返回码 currentContext.setResponseBody("没有access token"); //设置返回的body内容 return null; &#125; log.info("access token ok"); return null; &#125;&#125; &emsp;&emsp;设置具体的配置类配置bean 1234567@Configurationpublic class FilterConfig &#123; @Bean public RoleFilter roleFilter() &#123; return new RoleFilter(); &#125;&#125;]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Spring Cloud</tag>
+        <tag>Microservice</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[机器学习（二）---- 单变量线性回归]]></title>
+    <url>%2F2018%2F10%2F15%2Falgorithm%2Fmachinelearning%2Fmachinelearning-2%2F</url>
+    <content type="text"><![CDATA[模型表示&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。 例&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表 Size in feet2(x) Price($) in 1000’s(y) 2104 460 1416 232 1534 315 852 178 … … &lt;i&gt;m&lt;/i&gt;代表训练集中的实例数目 &lt;i&gt;x&lt;/i&gt;代表特征/输入变量 &lt;i&gt;y&lt;/i&gt;代表目标变量/输出变量 &lt;i&gt;(x,y)&lt;/i&gt;代表训练集中的实例 &lt;i&gt;(x&lt;sup&gt;(i)&lt;/sup&gt;,y&lt;sup&gt;(i)&lt;/sup&gt;)&lt;/i&gt;代表第i个观察实例 &lt;i&gt;h&lt;/i&gt;代表学习算法的解决方案或函数也称为假设（Hypothesis）]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>Machine Learning</tag>
+        <tag>Algorithm</tag>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[机器学习（一）---初识]]></title>
     <url>%2F2018%2F10%2F15%2Falgorithm%2Fmachinelearning%2Fmachinelearning-1%2F</url>
     <content type="text"><![CDATA[什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 —-Arthur Samuel&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 —-Tom Mitchell&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 什么是监督学习？&emsp;&emsp;给算法一个数据集，该数据集内包含有正确的答案，让算法给出更多的准确答案。 回归问题&emsp;&emsp;回归指的是，我们在试着推测出一系列的连续值属性。 分类问题&emsp;&emsp;分类指的是，我们试着退出离散的输出值 什么是无监督学习？&emsp;&emsp;给算法一个数据集，让算法自动的将该数据集分成n类。（与监督学习不同，数据集没有任何的标签：或者有相同的标签；或者没有标签） 无监督学习的应用领域&emsp;&emsp;社交网络分析、细分市场、天文数据分析、组织大型计算机集群等]]></content>
@@ -10,8 +37,8 @@
       <tags>
         <tag>python</tag>
         <tag>Machine Learning</tag>
-        <tag>AI</tag>
         <tag>Algorithm</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -87,10 +114,10 @@
         <category>datebase</category>
       </categories>
       <tags>
+        <tag>linux</tag>
         <tag>datebase</tag>
         <tag>mysql</tag>
         <tag>mariadb</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -102,8 +129,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>namespace</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -115,8 +142,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>cgroup</tag>
         <tag>kernel</tag>
+        <tag>cgroup</tag>
       </tags>
   </entry>
   <entry>
@@ -163,20 +190,8 @@
         <category>CentOS7</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>CentOS7</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[算法分析]]></title>
-    <url>%2F2018%2F09%2F26%2Falgorithm%2Falgorithm-analysis%2F</url>
-    <content type="text"><![CDATA[算法分析&emsp;&emsp;两个主要任务 = 正确性（ 不变性 × 单调性 ） + 复杂度 级数&emsp;&emsp;幂方级数 ： 比幂次方高出一阶&emsp;&emsp;几何级数 ： 与末项同阶&emsp;&emsp;收敛级数]]></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-      <tags>
-        <tag>algorithm</tag>
-        <tag>algorithm analysis</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -190,17 +205,6 @@
         <tag>java</tag>
         <tag>springboot</tag>
         <tag>email</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[algorithm-start]]></title>
-    <url>%2F2018%2F09%2F19%2Falgorithm%2Falgorithm-start%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>algorithm</category>
-      </categories>
-      <tags>
-        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
