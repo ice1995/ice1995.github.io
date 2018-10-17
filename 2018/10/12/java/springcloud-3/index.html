@@ -439,7 +439,7 @@
 <li><p>getForEntity(String url, Class<t> responseType, Object… uriVariables)<br> url : 请求的地址<br> responseType : 请求响应体body的包装类型<br> uriVariables : url中的参数绑定，数组内容替代{1}这样的占位符。<br> 例：</t></p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getForEntity(<span class="string">"http://USER-SERVICE/user?name=&#123;1&#125;"</span>,String.class,<span class="string">"didi"</span>);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>getForEntity(String url, Class<t> responseType, Map&lt;String, ?&gt; uriVariables)<br> 与1中只有uriVariables不同，替代的是制定参数的{key}这样的占位符。<br> 例:</t></p>
+<li><p>getForEntity(String url, Class<t> responseType, Map<string, ?=""> uriVariables)<br> 与1中只有uriVariables不同，替代的是制定参数的{key}这样的占位符。<br> 例:</string,></t></p>
  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getForEntity(<span class="string">"http://USER-SERVICE/user?name=&#123;name&#125;"</span>,String.class,<span class="keyword">new</span> HashMap&lt;&gt;().put(<span class="string">"name"</span>,<span class="string">"peter"</span>));</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>getForEntity(URI url, Class<t> responseType)<br> 使用URI（统一资源标识符）来代替url</t></p>
@@ -448,32 +448,32 @@
 <h6 id="getForObject函数"><a href="#getForObject函数" class="headerlink" title="getForObject函数"></a>getForObject函数</h6><p>&emsp;&emsp;可以认为是getForEntity的进一步封装，通过HttpMessageConverterExtractor对HTTP的请求响应体进行对象转换。</p>
 <ol>
 <li>getForObject(String url, Class<t> responseType, Object… uriVariables)</t></li>
-<li>getForObject(String url, Class<t> responseType, Map&lt;String, ?&gt; uriVariables)</t></li>
+<li>getForObject(String url, Class<t> responseType, Map<string, ?=""> uriVariables)</string,></t></li>
 <li>getForObject(URI url, Class<t> responseType)</t></li>
 </ol>
 <h5 id="POST请求（3种方法）"><a href="#POST请求（3种方法）" class="headerlink" title="POST请求（3种方法）"></a>POST请求（3种方法）</h5><h6 id="posrFotEntity函数"><a href="#posrFotEntity函数" class="headerlink" title="posrFotEntity函数"></a>posrFotEntity函数</h6><p>&emsp;&emsp;绝大部分和getForEntity用法相同  </p>
 <ol>
 <li>postForEntity(String url, Object request, Class<t> responseType, Object… uriVariables)<br>request : 可以是一个普通对象（REstTemlate会将其转化成一个HttpEntity来处理，类型为Object，request的内容被视为body内容），也可以是一个HttpEntity对象（完整的Http请求，包含body和header）</t></li>
-<li>postForEntity(String url, Object request, Class<t> responseType, Map&lt;String, ?&gt; uriVariables)</t></li>
+<li>postForEntity(String url, Object request, Class<t> responseType, Map<string, ?=""> uriVariables)</string,></t></li>
 <li>postForEntity(URI url, Object request, Class<t> responseType)</t></li>
 </ol>
 <h6 id="postForObject函数"><a href="#postForObject函数" class="headerlink" title="postForObject函数"></a>postForObject函数</h6><p>&emsp;&emsp;与getForObject类似</p>
 <h6 id="postForLocation函数"><a href="#postForLocation函数" class="headerlink" title="postForLocation函数"></a>postForLocation函数</h6><p>&emsp;&emsp;以POST方式提交资源，并返回新资源的URI。因为返回新资源的URI，因此不需要指定responseType。</p>
 <ol>
 <li>postForLocation(String url, Object request, Object… uriVariables)</li>
-<li>postForLocation(String url, Object request, Map&lt;String, ?&gt; uriVariables)</li>
+<li>postForLocation(String url, Object request, Map<string, ?=""> uriVariables)</string,></li>
 <li>postForLocation(URI url, Object request)</li>
 </ol>
 <h5 id="PUT请求"><a href="#PUT请求" class="headerlink" title="PUT请求"></a>PUT请求</h5><h6 id="put函数"><a href="#put函数" class="headerlink" title="put函数"></a>put函数</h6><p>&emsp;&emsp;put方法无返回值，因此也就没有responseType，其他与postForObject类似</p>
 <ol>
 <li>put(String url, Object request, Object… uriVariables)</li>
-<li>put(String url, Object request, Map&lt;String, ?&gt; uriVariables)</li>
+<li>put(String url, Object request, Map<string, ?=""> uriVariables)</string,></li>
 <li>put(URI url, Object request)</li>
 </ol>
 <h5 id="DELETE请求"><a href="#DELETE请求" class="headerlink" title="DELETE请求"></a>DELETE请求</h5><h6 id="delete函数"><a href="#delete函数" class="headerlink" title="delete函数"></a>delete函数</h6><p>&emsp;&emsp;通常使用唯一标识，因此无需request的body信息。</p>
 <ol>
 <li>delete(String url, Object… uriVariables)</li>
-<li>delete(String url, Map&lt;String, ?&gt; uriVariables)</li>
+<li>delete(String url, Map<string, ?=""> uriVariables)</string,></li>
 <li>delete(URI url)</li>
 </ol>
 

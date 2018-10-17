@@ -443,7 +443,9 @@
 <li>GCC编译器<br>&emsp;&emsp;用来编译nginx的各个模块  </li>
 <li>PCRE库<br>&emsp;&emsp;PCRE（Perl Compatible Regular Expressions， Perl 兼容正则表达式） 是由 Philip Hazel开发的函数库， 目前为很多软件所使用， 该库支持正则表达式。当然，如果不打算在nginx中使用正则表达式，那么这个就不是必需的。</li>
 <li>zlib库<br> &emsp;&emsp;zlib 库用于对 HTTP 包的内容做 gzip 格式的压缩， 如果我们在 nginx.conf 里配置了 gzip on， 并指定对于某些类型（content-type） 的 HTTP 响应使用 gzip 来进行压缩以减少网络传， 那么， 在编译时就必须把 zlib 编译进 Nginx。</li>
-<li>OpenSSL 开发库<br>&emsp;&emsp;在SSL 协议上传输 HTTP，以及使用MD5、 SHA1 等散列函数都需要OpenSSL 开发库的支持。<h4 id="运行中的Nginx进程间的关系"><a href="#运行中的Nginx进程间的关系" class="headerlink" title="运行中的Nginx进程间的关系"></a>运行中的Nginx进程间的关系</h4><center><br><img src="http://zhangbohan.xyz/images/nginx/nginx-1.png"><br></center><br>&emsp;&emsp;部署 Nginx 时都是使用一个 master 进程来管理多个worker 进程， 一般情况下， worker 进程的数量与服务器上的 CPU 核心数相等。</li>
+<li>OpenSSL 开发库<br>&emsp;&emsp;在SSL 协议上传输 HTTP，以及使用MD5、 SHA1 等散列函数都需要OpenSSL 开发库的支持。<h4 id="运行中的Nginx进程间的关系"><a href="#运行中的Nginx进程间的关系" class="headerlink" title="运行中的Nginx进程间的关系"></a>运行中的Nginx进程间的关系</h4><center>
+<img src="http://zhangbohan.xyz/images/nginx/nginx-1.png">
+</center><br>&emsp;&emsp;部署 Nginx 时都是使用一个 master 进程来管理多个worker 进程， 一般情况下， worker 进程的数量与服务器上的 CPU 核心数相等。</li>
 </ol>
 <h4 id="Nginx文件路径的常用定义"><a href="#Nginx文件路径的常用定义" class="headerlink" title="Nginx文件路径的常用定义"></a>Nginx文件路径的常用定义</h4><ol>
 <li><p>以 root 方式设置资源路径<br>语法： root path;<br>默认： root html;<br>配置块： http、 server、 location、 if<br>&emsp;&emsp;例如， 定义资源文件相对于 HTTP 请求的根目录。</p>

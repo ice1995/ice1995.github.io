@@ -430,7 +430,8 @@
       
         <h4 id="maven引入jar包"><a href="#maven引入jar包" class="headerlink" title="maven引入jar包"></a>maven引入jar包</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.16.20<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="给IDE安装插件"><a href="#给IDE安装插件" class="headerlink" title="给IDE安装插件"></a>给IDE安装插件</h4><p>&emsp;&emsp;由于 Lombok 采取的注解形式的，在编译后，自动生成相应的方法，为了不让 IDE’疯了’，需要下载插件了支持它.<br>&emsp;&emsp;以 idea 为例：查找插件 lombok plugin 安装即可。</p>
-<h4 id="一般注解"><a href="#一般注解" class="headerlink" title="一般注解"></a>一般注解</h4><table>
+<h4 id="一般注解"><a href="#一般注解" class="headerlink" title="一般注解"></a>一般注解</h4><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>注解代码</th>
@@ -472,8 +473,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h4><ol>
-<li>使用staticName启用静态工厂模式，如下所示：@RequiredArgsConstructor(staticName=”of”)。与普通构造函数不同，这种静态工厂方法将推断泛型。这意味着您的API用户可以写入MapEntry.of(“foo”, 5)而不是使用new MapEntry&lt;String, Integer&gt;(“foo”, 5)。</li>
+<li>使用staticName启用静态工厂模式，如下所示：@RequiredArgsConstructor(staticName=”of”)。与普通构造函数不同，这种静态工厂方法将推断泛型。这意味着您的API用户可以写入MapEntry.of(“foo”, 5)而不是使用new MapEntry<string, integer="">(“foo”, 5)。</string,></li>
 <li><p>在构造方法上添加注解。使用方法  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequiredArgsConstructor</span>(onConstructor=@__(&#123;<span class="meta">@AnnotationsGoHere</span>&#125;))&#125;</span><br><span class="line"><span class="meta">@RequiredArgsConstructor</span>(onConstructor=@__(&#123;<span class="meta">@Autowired</span>&#125;))&#125;  <span class="comment">//例子</span></span><br></pre></td></tr></table></figure>
 </li>
