@@ -16,7 +16,7 @@
   <entry>
     <title><![CDATA[机器学习（二）---- 单变量线性回归]]></title>
     <url>%2F2018%2F10%2F15%2Falgorithm%2Fmachinelearning%2Fmachinelearning-2%2F</url>
-    <content type="text"><![CDATA[模型表示&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。 例&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表 Size in feet2(x) Price($) in 1000's(y) 2104 460 1416 232 1534 315 852 178 ... ... &emsp;&emsp;&emsp;&emsp;m代表训练集中的实例数目&emsp;&emsp;&emsp;&emsp;x代表特征/输入变量&emsp;&emsp;&emsp;&emsp;y代表目标变量/输出变量&emsp;&emsp;&emsp;&emsp;(x,y)代表训练集中的实例&emsp;&emsp;&emsp;&emsp;(x(i),y(i))代表第i个观察实例&emsp;&emsp;&emsp;&emsp;h代表学习算法的解决方案或函数也称为假设（Hypothesis）&emsp;&emsp;h的一种可能的表达式 h(x)=θ0+θ1x,即单变量线性回归 代价函数&emsp;&emsp;代价函数，有时候也称为平方误差函数/平方误差代价函数 例J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2注：$J(θ_0,θ_1)$就是代价函数（cost function）&emsp;&emsp;m:样本空间容量$h_\theta(x^{(i)})=\theta_0+\theta_1(x^{(i)})$ $^{minimize}_{θ_0,θ_1}J(θ_0,θ_1)$既是我们所想达到的目的 梯度下降算法$\theta_j := \theta_j-\alpha \frac{\partial}{\partial \theta_j}J(θ_0,θ_1)$ (for i = 0 and j =1 ) 注：$\alpha$为一个数字，代表学习效率；如果太大，会导致结果不准确甚至无法收敛；如果太小，会导致算法效率低下。 注意：$\theta_0:=\theta_0 , \theta_1:=\theta_1$应该同时更新 也就是：&emsp;&emsp;$temp0 = \theta_0 -\alpha \frac{\partial}{\partial \theta_0}J(θ_0,θ_1)$&emsp;&emsp;$temp1 = \theta_1 -\alpha \frac{\partial}{\partial \theta_1}J(θ_0,θ_1)$&emsp;&emsp;$\theta_0:=temp0$&emsp;&emsp;$\theta_1:=temp1$ 对上述化简计算可得梯度下降算法 :&emsp;&emsp;$\theta_0:=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})$&emsp;&emsp;$\theta_1:=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}$]]></content>
+    <content type="text"><![CDATA[模型表示&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。 例&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表 Size in feet2(x) Price($) in 1000's(y) 2104 460 1416 232 1534 315 852 178 ... ... &emsp;&emsp;&emsp;&emsp;m代表训练集中的实例数目&emsp;&emsp;&emsp;&emsp;x代表特征/输入变量&emsp;&emsp;&emsp;&emsp;y代表目标变量/输出变量&emsp;&emsp;&emsp;&emsp;(x,y)代表训练集中的实例&emsp;&emsp;&emsp;&emsp;(x(i),y(i))代表第i个观察实例&emsp;&emsp;&emsp;&emsp;h代表学习算法的解决方案或函数也称为假设（Hypothesis）&emsp;&emsp;h的一种可能的表达式 h(x)=θ0+θ1x,即单变量线性回归 代价函数&emsp;&emsp;代价函数，有时候也称为平方误差函数/平方误差代价函数 例$J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2$注：$J(θ_0,θ_1)$就是代价函数（cost function）&emsp;&emsp;m:样本空间容量$h_\theta(x^{(i)})=\theta_0+\theta_1(x^{(i)})$ $^{minimize}_{θ_0,θ_1}J(θ_0,θ_1)$既是我们所想达到的目的 梯度下降算法$\theta_j := \theta_j-\alpha \frac{\partial}{\partial \theta_j}J(θ_0,θ_1)$ (for i = 0 and j =1 ) 注：$\alpha$为一个数字，代表学习效率；如果太大，会导致结果不准确甚至无法收敛；如果太小，会导致算法效率低下。 注意：$\theta_0:=\theta_0 , \theta_1:=\theta_1$应该同时更新 也就是：&emsp;&emsp;$temp0 = \theta_0 -\alpha \frac{\partial}{\partial \theta_0}J(θ_0,θ_1)$&emsp;&emsp;$temp1 = \theta_1 -\alpha \frac{\partial}{\partial \theta_1}J(θ_0,θ_1)$&emsp;&emsp;$\theta_0:=temp0$&emsp;&emsp;$\theta_1:=temp1$ 对上述化简计算可得梯度下降算法 :&emsp;&emsp;$\theta_0:=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})$&emsp;&emsp;$\theta_1:=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}$]]></content>
       <categories>
         <category>Machine Learning</category>
       </categories>
@@ -254,8 +254,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>PyQt</tag>
         <tag>GUI</tag>
+        <tag>PyQt</tag>
       </tags>
   </entry>
   <entry>
@@ -267,8 +267,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>GUI</tag>
         <tag>PyQT</tag>
+        <tag>GUI</tag>
       </tags>
   </entry>
   <entry>
@@ -317,8 +317,8 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>tools</tag>
         <tag>java</tag>
+        <tag>tools</tag>
         <tag>reconsitution</tag>
       </tags>
   </entry>
@@ -331,8 +331,8 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regular</tag>
         <tag>regex</tag>
+        <tag>regular</tag>
       </tags>
   </entry>
   <entry>
@@ -428,9 +428,9 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regular</tag>
-        <tag>regex</tag>
         <tag>code</tag>
+        <tag>regex</tag>
+        <tag>regular</tag>
       </tags>
   </entry>
   <entry>
