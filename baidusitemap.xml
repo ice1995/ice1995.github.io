@@ -4,11 +4,131 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/10/17/java/springcloud-6/</loc>
-    <lastmod>2018-10-17T06:29:47.645Z</lastmod>
+    <loc>http://http://132.232.42.89/2018/10/11/java/springcloud-1/</loc>
+    <lastmod>2018-10-17T06:33:40.965Z</lastmod>
     <data>
         <display>
-        <title>微服务----Spring Cloud(五)</title>
+        <title>Spring Cloud(一) 简介</title>
+        <pubTime>2018-10-11T07:55:32.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>Spring Cloud</tag>
+         
+        <tag>Microservice</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/10/11/java/springcloud-2/</loc>
+    <lastmod>2018-10-17T06:33:31.697Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud(二) Eureka</title>
+        <pubTime>2018-10-11T08:31:07.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>Spring Cloud</tag>
+         
+        <tag>Microservice</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/10/12/java/springcloud-3/</loc>
+    <lastmod>2018-10-17T06:33:20.470Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud(三) Ribbon</title>
+        <pubTime>2018-10-12T05:52:03.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>Spring Cloud</tag>
+         
+        <tag>Microservice</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/10/13/java/springcloud-4/</loc>
+    <lastmod>2018-10-17T06:33:07.074Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud(四) Hystrix</title>
+        <pubTime>2018-10-13T02:39:53.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>Spring Cloud</tag>
+         
+        <tag>Microservice</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/10/15/java/springcloud-5/</loc>
+    <lastmod>2018-10-17T06:32:56.667Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud(五) Feign</title>
+        <pubTime>2018-10-15T06:03:32.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>Spring Cloud</tag>
+         
+        <tag>Microservice</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/10/17/java/springcloud-6/</loc>
+    <lastmod>2018-10-17T06:32:47.461Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud(六) Zuul</title>
         <pubTime>2018-10-17T02:07:10.000Z</pubTime>
         
         <tag>java</tag>
@@ -39,9 +159,9 @@
          
         <tag>Machine Learning</tag>
          
-        <tag>Algorithm</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -65,62 +185,14 @@
          
         <tag>Machine Learning</tag>
          
-        <tag>Algorithm</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
              
               <breadCrumb title="Machine Learning" url="http://http://132.232.42.89/categories/Machine-Learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/10/15/java/springcloud-5/</loc>
-    <lastmod>2018-10-15T11:07:09.158Z</lastmod>
-    <data>
-        <display>
-        <title>微服务----Spring Cloud(五)</title>
-        <pubTime>2018-10-15T06:03:32.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>Spring Cloud</tag>
-         
-        <tag>Microservice</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/10/13/java/springcloud-4/</loc>
-    <lastmod>2018-10-15T06:02:46.956Z</lastmod>
-    <data>
-        <display>
-        <title>微服务----Spring Cloud(四)</title>
-        <pubTime>2018-10-13T02:39:53.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>Spring Cloud</tag>
-         
-        <tag>Microservice</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
           
         </display>
     </data>
@@ -150,78 +222,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/10/12/java/springcloud-3/</loc>
-    <lastmod>2018-10-12T08:35:39.680Z</lastmod>
-    <data>
-        <display>
-        <title>微服务----Spring Cloud(三)</title>
-        <pubTime>2018-10-12T05:52:03.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>Spring Cloud</tag>
-         
-        <tag>Microservice</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/10/11/java/springcloud-2/</loc>
-    <lastmod>2018-10-12T02:57:08.549Z</lastmod>
-    <data>
-        <display>
-        <title>微服务----Spring Cloud(二)</title>
-        <pubTime>2018-10-11T08:31:07.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>Spring Cloud</tag>
-         
-        <tag>Microservice</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/10/11/java/springcloud-1/</loc>
-    <lastmod>2018-10-11T08:30:26.856Z</lastmod>
-    <data>
-        <display>
-        <title>微服务----Spring Cloud(一)</title>
-        <pubTime>2018-10-11T07:55:32.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>Spring Cloud</tag>
-         
-        <tag>Microservice</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/09/29/db/mariadb-using/</loc>
     <lastmod>2018-10-11T07:54:12.638Z</lastmod>
     <data>
@@ -229,13 +229,13 @@
         <title>mariadb使用记录</title>
         <pubTime>2018-09-29T00:53:10.000Z</pubTime>
         
-        <tag>linux</tag>
-         
         <tag>datebase</tag>
          
         <tag>mysql</tag>
          
         <tag>mariadb</tag>
+         
+        <tag>linux</tag>
          
          
            
@@ -256,38 +256,14 @@
         <title>Centos使用记录</title>
         <pubTime>2018-09-26T06:13:25.000Z</pubTime>
         
-        <tag>CentOS7</tag>
-         
         <tag>linux</tag>
+         
+        <tag>CentOS7</tag>
          
          
            
              
               <breadCrumb title="CentOS7" url="http://http://132.232.42.89/categories/CentOS7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/09/20/java/springboot-mail/</loc>
-    <lastmod>2018-09-28T12:59:55.714Z</lastmod>
-    <data>
-        <display>
-        <title>springboot-mail</title>
-        <pubTime>2018-09-20T06:59:26.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>springboot</tag>
-         
-        <tag>email</tag>
-         
-         
-           
-             
-              <breadCrumb title="springboot" url="http://http://132.232.42.89/categories/springboot/"/>
           
         </display>
     </data>
@@ -312,6 +288,30 @@
            
              
               <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/09/20/java/springboot-mail/</loc>
+    <lastmod>2018-09-28T12:59:55.714Z</lastmod>
+    <data>
+        <display>
+        <title>springboot-mail</title>
+        <pubTime>2018-09-20T06:59:26.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>springboot</tag>
+         
+        <tag>email</tag>
+         
+         
+           
+             
+              <breadCrumb title="springboot" url="http://http://132.232.42.89/categories/springboot/"/>
           
         </display>
     </data>
@@ -558,9 +558,9 @@
         
         <tag>linux</tag>
          
-        <tag>kernel</tag>
-         
         <tag>cgroup</tag>
+         
+        <tag>kernel</tag>
          
          
            
@@ -582,9 +582,9 @@
         
         <tag>linux</tag>
          
-        <tag>namespace</tag>
-         
         <tag>kernel</tag>
+         
+        <tag>namespace</tag>
          
          
            
@@ -597,34 +597,12 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-6/</loc>
+    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-2/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记六 -- NAT</title>
-        <pubTime>2018-08-28T07:24:46.000Z</pubTime>
-        
-        <tag>ccna</tag>
-         
-        <tag>net</tag>
-         
-         
-           
-             
-              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-1/</loc>
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
-    <data>
-        <display>
-        <title>CCNA学习笔记一 -- 计算机网络详解</title>
-        <pubTime>2018-08-27T06:27:56.000Z</pubTime>
+        <title>CCNA学习笔记二 -- TCP/IP协议</title>
+        <pubTime>2018-08-27T13:08:24.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -663,12 +641,34 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-4/</loc>
+    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-1/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记四 -- VLAN</title>
-        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
+        <title>CCNA学习笔记一 -- 计算机网络详解</title>
+        <pubTime>2018-08-27T06:27:56.000Z</pubTime>
+        
+        <tag>ccna</tag>
+         
+        <tag>net</tag>
+         
+         
+           
+             
+              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-6/</loc>
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>CCNA学习笔记六 -- NAT</title>
+        <pubTime>2018-08-28T07:24:46.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -707,12 +707,12 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-2/</loc>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-4/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记二 -- TCP/IP协议</title>
-        <pubTime>2018-08-27T13:08:24.000Z</pubTime>
+        <title>CCNA学习笔记四 -- VLAN</title>
+        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
         
         <tag>ccna</tag>
          
