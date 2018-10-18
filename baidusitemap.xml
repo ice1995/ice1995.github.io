@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://http://132.232.42.89/2018/10/15/algorithm/machinelearning/machinelearning-2/</loc>
-    <lastmod>2018-10-18T02:21:12.178Z</lastmod>
+    <lastmod>2018-10-18T02:33:30.837Z</lastmod>
     <data>
         <display>
         <title>机器学习（二）---- 单变量线性回归</title>
@@ -350,9 +350,9 @@
         
         <tag>python</tag>
          
-        <tag>PyQT</tag>
-         
         <tag>GUI</tag>
+         
+        <tag>PyQT</tag>
          
          
            
@@ -374,9 +374,9 @@
         
         <tag>python</tag>
          
-        <tag>GUI</tag>
-         
         <tag>PyQt</tag>
+         
+        <tag>GUI</tag>
          
          
            
@@ -549,30 +549,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/09/28/linux/linux-namespace-interface/</loc>
-    <lastmod>2018-09-28T12:56:40.665Z</lastmod>
-    <data>
-        <display>
-        <title>Namespace简介</title>
-        <pubTime>2018-09-28T12:09:45.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>kernel</tag>
-         
-        <tag>namespace</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/09/28/linux/linux-cgroup-interface/</loc>
     <lastmod>2018-09-28T12:56:40.665Z</lastmod>
     <data>
@@ -597,12 +573,36 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-5/</loc>
+    <loc>http://http://132.232.42.89/2018/09/28/linux/linux-namespace-interface/</loc>
+    <lastmod>2018-09-28T12:56:40.665Z</lastmod>
+    <data>
+        <display>
+        <title>Namespace简介</title>
+        <pubTime>2018-09-28T12:09:45.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>kernel</tag>
+         
+        <tag>namespace</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-1/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记五 -- ACL</title>
-        <pubTime>2018-08-28T07:20:39.000Z</pubTime>
+        <title>CCNA学习笔记一 -- 计算机网络详解</title>
+        <pubTime>2018-08-27T06:27:56.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -619,12 +619,12 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-1/</loc>
+    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-2/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记一 -- 计算机网络详解</title>
-        <pubTime>2018-08-27T06:27:56.000Z</pubTime>
+        <title>CCNA学习笔记二 -- TCP/IP协议</title>
+        <pubTime>2018-08-27T13:08:24.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -685,12 +685,12 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-4/</loc>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-5/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记四 -- VLAN</title>
-        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
+        <title>CCNA学习笔记五 -- ACL</title>
+        <pubTime>2018-08-28T07:20:39.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -707,12 +707,12 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-2/</loc>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-4/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记二 -- TCP/IP协议</title>
-        <pubTime>2018-08-27T13:08:24.000Z</pubTime>
+        <title>CCNA学习笔记四 -- VLAN</title>
+        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
         
         <tag>ccna</tag>
          
