@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://http://132.232.42.89/2018/10/15/algorithm/machinelearning/machinelearning-2/</loc>
-    <lastmod>2018-10-18T02:04:49.864Z</lastmod>
+    <lastmod>2018-10-18T02:06:50.539Z</lastmod>
     <data>
         <display>
         <title>机器学习（二）---- 单变量线性回归</title>
@@ -278,9 +278,9 @@
         <title>lombok使用方法记录</title>
         <pubTime>2018-08-28T12:01:45.000Z</pubTime>
         
-        <tag>tools</tag>
-         
         <tag>java</tag>
+         
+        <tag>tools</tag>
          
         <tag>reconsitution</tag>
          
@@ -341,30 +341,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/09/11/python/pyqt-2/</loc>
-    <lastmod>2018-09-28T12:59:40.892Z</lastmod>
-    <data>
-        <display>
-        <title>PyQT学习记录（二）</title>
-        <pubTime>2018-09-11T09:12:25.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>GUI</tag>
-         
-        <tag>PyQT</tag>
-         
-         
-           
-             
-              <breadCrumb title="PyQT" url="http://http://132.232.42.89/categories/PyQT/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/09/11/python/pyqt-1/</loc>
     <lastmod>2018-09-28T12:59:40.892Z</lastmod>
     <data>
@@ -382,6 +358,30 @@
            
              
               <breadCrumb title="PyQt" url="http://http://132.232.42.89/categories/PyQt/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/09/11/python/pyqt-2/</loc>
+    <lastmod>2018-09-28T12:59:40.892Z</lastmod>
+    <data>
+        <display>
+        <title>PyQT学习记录（二）</title>
+        <pubTime>2018-09-11T09:12:25.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>GUI</tag>
+         
+        <tag>PyQT</tag>
+         
+         
+           
+             
+              <breadCrumb title="PyQT" url="http://http://132.232.42.89/categories/PyQT/"/>
           
         </display>
     </data>
@@ -641,28 +641,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-6/</loc>
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
-    <data>
-        <display>
-        <title>CCNA学习笔记六 -- NAT</title>
-        <pubTime>2018-08-28T07:24:46.000Z</pubTime>
-        
-        <tag>ccna</tag>
-         
-        <tag>net</tag>
-         
-         
-           
-             
-              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-7/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
@@ -685,12 +663,12 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-4/</loc>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-6/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记四 -- VLAN</title>
-        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
+        <title>CCNA学习笔记六 -- NAT</title>
+        <pubTime>2018-08-28T07:24:46.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -713,6 +691,28 @@
         <display>
         <title>CCNA学习笔记一 -- 计算机网络详解</title>
         <pubTime>2018-08-27T06:27:56.000Z</pubTime>
+        
+        <tag>ccna</tag>
+         
+        <tag>net</tag>
+         
+         
+           
+             
+              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-4/</loc>
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>CCNA学习笔记四 -- VLAN</title>
+        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -784,9 +784,9 @@
         
         <tag>tools</tag>
          
-        <tag>regex</tag>
-         
         <tag>regular</tag>
+         
+        <tag>regex</tag>
          
          
            
@@ -808,11 +808,11 @@
         
         <tag>tools</tag>
          
-        <tag>code</tag>
+        <tag>regular</tag>
          
         <tag>regex</tag>
          
-        <tag>regular</tag>
+        <tag>code</tag>
          
          
            
