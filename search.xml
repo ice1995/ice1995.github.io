@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[marchine-leaning]]></title>
-    <url>%2F2018%2F10%2F18%2Falgorithm%2Fmachinelearning%2Fmarchineleaning%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[Spring Cloud(六) Zuul]]></title>
     <url>%2F2018%2F10%2F17%2Fjava%2Fspringcloud-6%2F</url>
     <content type="text"><![CDATA[API网关服务 ： Spring Cloud Zuul&emsp;&emsp;Spring Cloud Zuul通过与Spring Cloud Eureka进行整合，将自身注册为Eureka服务治理下的应用，同时从Eureka中获得所有其他微服务的实力信息，使得自动完成维护服务实例的工作。对于路由规则的维护，Zuul默认会通过服务名作为ContextPath的方式来创建路由映射。 &emsp;&emsp;开发者可以通过使用Zuul来创建各种检校过滤器，然后指定那些规则的请求需要执行检校逻辑，只有通过检校的才会被路由到具体的微服务里接口，否则返回错误提示。 快速入门构建网关 构建spring boot工程，引入依赖 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt;&lt;/dependency&gt; 创建启动类，添加EnableZuulProxy注解开启API网关服务功能 12345678@SpringCloudApplication@EnableZuulProxypublic class ApigatewayApplication &#123; public static void main(String[] args) &#123; new SpringApplicationBuilder(ApigatewayApplication.class).web(true).run(args); &#125;&#125; 修改配置文件 12345server:port: 1501spring:application: name: api-gateway 请求路由传统路由方式/api-a-url/**的路由都会到http://localhost:8080/；如：访问http://localhost:1501/api-a-url/hello会到http://localhost:8080/hello 12345zuul: routes: api-a-url: path: /api-a-url/** url: http://localhost:8080/ 面向服务的路由&emsp;&emsp;具体的路由由Eureka服务发现机制负责自动维护 添加Eureka的依赖 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;&lt;/dependency&gt; 配置服务路由 12345678zuul: routes: api-b: path: /api-a/** serviceId: hello-service api-b: path: /api-b/** serviceId: feign-consurme 请求过滤&emsp;&emsp;继承ZuulFilter抽象类并实现定义的4个抽象函数就可以完成对请求的拦截和过滤。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647@Log4jpublic class RoleFilter extends ZuulFilter &#123; /** * 过滤器类型，决定过滤器在请求的哪个周期中执行 * 定义为pre，在请求被路由之前执行 */ @Override public String filterType() &#123; return "pre"; &#125; /** * 过滤器的执行顺序，当一个阶段中存在多个过滤器的时候，根据该方法返回值一次执行 */ @Override public int filterOrder() &#123; return 0; &#125; /** * 判断该过滤器是否需要执行。这里我们直接返回true，因此该过滤器对所有请求都生效。实际中利用该函数来指定过滤器的有效范围 */ @Override public boolean shouldFilter() &#123; return true; &#125; /** * 过滤器的具体逻辑 */ @Override public Object run() throws ZuulException &#123; RequestContext currentContext = RequestContext.getCurrentContext(); HttpServletRequest request = currentContext.getRequest(); log.info(String.format("send %s request to %s",request.getMethod(),request.getRequestURL().toString())); String accessToken = request.getParameter("accessToken"); if (accessToken == null) &#123; log.warn("access token is empty"); currentContext.setSendZuulResponse(false); //设置不对其进行路由 currentContext.setResponseStatusCode(401); //设置错误返回码 currentContext.setResponseBody("没有access token"); //设置返回的body内容 return null; &#125; log.info("access token ok"); return null; &#125;&#125; &emsp;&emsp;设置具体的配置类配置bean 1234567@Configurationpublic class FilterConfig &#123; @Bean public RoleFilter roleFilter() &#123; return new RoleFilter(); &#125;&#125;]]></content>
@@ -251,19 +246,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyQT学习记录（二）]]></title>
-    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-2%2F</url>
-    <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
-      <categories>
-        <category>PyQT</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>GUI</tag>
-        <tag>PyQT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
     <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
     <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —— PyQt编程指南（Mark Summerfield 著 ）]]></content>
@@ -274,6 +256,19 @@
         <tag>python</tag>
         <tag>PyQt</tag>
         <tag>GUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyQT学习记录（二）]]></title>
+    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-2%2F</url>
+    <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
+      <categories>
+        <category>PyQT</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>GUI</tag>
+        <tag>PyQT</tag>
       </tags>
   </entry>
   <entry>

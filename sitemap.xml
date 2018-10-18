@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://http://132.232.42.89/2018/10/18/algorithm/machinelearning/marchineleaning/</loc>
-    
-    <lastmod>2018-10-18T03:26:23.495Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://http://132.232.42.89/2018/10/15/algorithm/machinelearning/machinelearning-2/</loc>
     
     <lastmod>2018-10-18T03:25:17.635Z</lastmod>
@@ -177,14 +170,14 @@
   </url>
   
   <url>
-    <loc>http://http://132.232.42.89/2018/09/28/linux/linux-namespace-interface/</loc>
+    <loc>http://http://132.232.42.89/2018/09/28/linux/linux-cgroup-interface/</loc>
     
     <lastmod>2018-09-28T12:56:40.665Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://http://132.232.42.89/2018/09/28/linux/linux-cgroup-interface/</loc>
+    <loc>http://http://132.232.42.89/2018/09/28/linux/linux-namespace-interface/</loc>
     
     <lastmod>2018-09-28T12:56:40.665Z</lastmod>
     
@@ -198,21 +191,7 @@
   </url>
   
   <url>
-    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-2/</loc>
-    
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-1/</loc>
-    
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-6/</loc>
     
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     
@@ -226,7 +205,21 @@
   </url>
   
   <url>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-6/</loc>
+    
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-5/</loc>
+    
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-2/</loc>
     
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     

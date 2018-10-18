@@ -4,21 +4,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/10/18/algorithm/machinelearning/marchineleaning/</loc>
-    <lastmod>2018-10-18T03:26:23.495Z</lastmod>
-    <data>
-        <display>
-        <title>marchine-leaning</title>
-        <pubTime>2018-10-18T03:25:31.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/10/15/algorithm/machinelearning/machinelearning-2/</loc>
     <lastmod>2018-10-18T03:25:17.635Z</lastmod>
     <data>
@@ -564,30 +549,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/09/28/linux/linux-namespace-interface/</loc>
-    <lastmod>2018-09-28T12:56:40.665Z</lastmod>
-    <data>
-        <display>
-        <title>Namespace简介</title>
-        <pubTime>2018-09-28T12:09:45.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>kernel</tag>
-         
-        <tag>namespace</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/09/28/linux/linux-cgroup-interface/</loc>
     <lastmod>2018-09-28T12:56:40.665Z</lastmod>
     <data>
@@ -612,21 +573,23 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-7/</loc>
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <loc>http://http://132.232.42.89/2018/09/28/linux/linux-namespace-interface/</loc>
+    <lastmod>2018-09-28T12:56:40.665Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记七 -- IPv6</title>
-        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
+        <title>Namespace简介</title>
+        <pubTime>2018-09-28T12:09:45.000Z</pubTime>
         
-        <tag>ccna</tag>
+        <tag>linux</tag>
          
-        <tag>net</tag>
+        <tag>kernel</tag>
+         
+        <tag>namespace</tag>
          
          
            
              
-              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
           
         </display>
     </data>
@@ -634,12 +597,12 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-2/</loc>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-7/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记二 -- TCP/IP协议</title>
-        <pubTime>2018-08-27T13:08:24.000Z</pubTime>
+        <title>CCNA学习笔记七 -- IPv6</title>
+        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -678,28 +641,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-6/</loc>
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
-    <data>
-        <display>
-        <title>CCNA学习笔记六 -- NAT</title>
-        <pubTime>2018-08-28T07:24:46.000Z</pubTime>
-        
-        <tag>ccna</tag>
-         
-        <tag>net</tag>
-         
-         
-           
-             
-              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-4/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
@@ -722,12 +663,56 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-6/</loc>
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>CCNA学习笔记六 -- NAT</title>
+        <pubTime>2018-08-28T07:24:46.000Z</pubTime>
+        
+        <tag>ccna</tag>
+         
+        <tag>net</tag>
+         
+         
+           
+             
+              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-5/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
         <title>CCNA学习笔记五 -- ACL</title>
         <pubTime>2018-08-28T07:20:39.000Z</pubTime>
+        
+        <tag>ccna</tag>
+         
+        <tag>net</tag>
+         
+         
+           
+             
+              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/27/ccna/ccna-2/</loc>
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>CCNA学习笔记二 -- TCP/IP协议</title>
+        <pubTime>2018-08-27T13:08:24.000Z</pubTime>
         
         <tag>ccna</tag>
          
