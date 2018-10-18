@@ -31,7 +31,7 @@
       <title>机器学习（二）---- 单变量线性回归</title>
       <link href="/2018/10/15/algorithm/machinelearning/machinelearning-2/"/>
       <url>/2018/10/15/algorithm/machinelearning/machinelearning-2/</url>
-      <content type="html"><![CDATA[<h3 id="模型表示"><a href="#模型表示" class="headerlink" title="模型表示"></a>模型表示</h3><p>&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。</p><h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p>&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表</p><div class="table-container"><table><thead><tr><th><div style="text-align:center;">Size in feet<sup>2</sup>(x)</div></th><th><div style="text-align:center;">Price($) in 1000's(y)</div></th></tr></thead><tbody><tr><td><div style="text-align:center;">2104</div></td><td><div style="text-align:center;">460</div></td></tr><tr><td><div style="text-align:center;"> 1416</div></td><td><div style="text-align:center;">232</div></td></tr><tr><td><div style="text-align:center;"> 1534</div></td><td><div style="text-align:center;">315</div></td></tr><tr><td><div style="text-align:center;">852</div></td><td><div style="text-align:center;">178</div></td></tr><tr><td><div style="text-align:center;">...</div></td><td><div style="text-align:center;">...</div></td></tr></tbody></table></div><p>&emsp;&emsp;&emsp;&emsp;<i>m</i>代表训练集中的实例数目<br>&emsp;&emsp;&emsp;&emsp;<i>x</i>代表特征/输入变量<br>&emsp;&emsp;&emsp;&emsp;<i>y</i>代表目标变量/输出变量<br>&emsp;&emsp;&emsp;&emsp;<i>(x,y)</i>代表训练集中的实例<br>&emsp;&emsp;&emsp;&emsp;$(x^{(i)},y^{(i)})$代表第i个观察实例<br>&emsp;&emsp;&emsp;&emsp;<i>h</i>代表学习算法的解决方案或函数也称为假设（Hypothesis）<br>&emsp;&emsp;<i>h</i>的一种可能的表达式 $h(x)=\theta_0+\theta_1(x^)$,即单变量线性回归  </p><h3 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h3><p>&emsp;&emsp;代价函数，有时候也称为平方误差函数/平方误差代价函数</p><h4 id="例-1"><a href="#例-1" class="headerlink" title="例"></a>例</h4><p>$J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2$<br>注：$J(θ_0,θ_1)$就是代价函数（cost function）<br>&emsp;&emsp;m:样本空间容量<br>$h_\theta(x^{(i)})=\theta_0+\theta_1(x^{(i)})$</p><p>$^{minimize}_{θ_0,θ_1}J(θ_0,θ_1)$既是我们所想达到的目的</p><h3 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h3><p>$\theta_j := \theta_j-\alpha \frac{\partial}{\partial \theta_j}J(θ_0,θ_1)$ (for i = 0 and j =1 )</p><p>注：$\alpha$为一个数字，代表学习效率；如果太大，会导致结果不准确甚至无法收敛；如果太小，会导致算法效率低下。  </p><p><font color="red">注意：$\theta_0:=\theta_0 , \theta_1:=\theta_1$应该同时更新</font>  也就是：<br>&emsp;&emsp;$temp0 = \theta_0 -\alpha \frac{\partial}{\partial \theta_0}J(θ_0,θ_1)$<br>&emsp;&emsp;$temp1 = \theta_1 -\alpha \frac{\partial}{\partial \theta_1}J(θ_0,θ_1)$<br>&emsp;&emsp;$\theta_0:=temp0$<br>&emsp;&emsp;$\theta_1:=temp1$</p><p>对上述化简计算可得梯度下降算法  :  </p><script type="math/tex; mode=display">\theta_0:=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})</script><script type="math/tex; mode=display">\theta_1:=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}</script>]]></content>
+      <content type="html"><![CDATA[<h3 id="模型表示"><a href="#模型表示" class="headerlink" title="模型表示"></a>模型表示</h3><p>&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。</p><h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p>&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表</p><div class="table-container"><table><thead><tr><th><div style="text-align:center;">Size in feet<sup>2</sup>(x)</div></th><th><div style="text-align:center;">Price($) in 1000's(y)</div></th></tr></thead><tbody><tr><td><div style="text-align:center;">2104</div></td><td><div style="text-align:center;">460</div></td></tr><tr><td><div style="text-align:center;"> 1416</div></td><td><div style="text-align:center;">232</div></td></tr><tr><td><div style="text-align:center;"> 1534</div></td><td><div style="text-align:center;">315</div></td></tr><tr><td><div style="text-align:center;">852</div></td><td><div style="text-align:center;">178</div></td></tr><tr><td><div style="text-align:center;">...</div></td><td><div style="text-align:center;">...</div></td></tr></tbody></table></div><p>&emsp;&emsp;&emsp;&emsp;<i>m</i>代表训练集中的实例数目<br>&emsp;&emsp;&emsp;&emsp;<i>x</i>代表特征/输入变量<br>&emsp;&emsp;&emsp;&emsp;<i>y</i>代表目标变量/输出变量<br>&emsp;&emsp;&emsp;&emsp;<i>(x,y)</i>代表训练集中的实例<br>&emsp;&emsp;&emsp;&emsp;$(x^{(i)},y^{(i)})$代表第i个观察实例<br>&emsp;&emsp;&emsp;&emsp;<i>h</i>代表学习算法的解决方案或函数也称为假设（Hypothesis）<br>&emsp;&emsp;<i>h</i>的一种可能的表达式 $h(x)=\theta_0+\theta_1(x)$,即单变量线性回归  </p><h3 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h3><p>&emsp;&emsp;代价函数，有时候也称为平方误差函数/平方误差代价函数</p><h4 id="例-1"><a href="#例-1" class="headerlink" title="例"></a>例</h4><p>$J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2$<br>注：$J(θ_0,θ_1)$就是代价函数（cost function）<br>&emsp;&emsp;m:样本空间容量<br>$h_\theta(x^{(i)})=\theta_0+\theta_1(x^{(i)})$</p><p>$^{minimize}_{θ_0,θ_1}J(θ_0,θ_1)$既是我们所想达到的目的</p><h3 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h3><p>$\theta_j := \theta_j-\alpha \frac{\partial}{\partial \theta_j}J(θ_0,θ_1)$ (for i = 0 and j =1 )</p><p>注：$\alpha$为一个数字，代表学习效率；如果太大，会导致结果不准确甚至无法收敛；如果太小，会导致算法效率低下。  </p><p><font color="red">注意：$\theta_0:=\theta_0 , \theta_1:=\theta_1$应该同时更新</font>  也就是：<br>&emsp;&emsp;$temp0 = \theta_0 -\alpha \frac{\partial}{\partial \theta_0}J(θ_0,θ_1)$<br>&emsp;&emsp;$temp1 = \theta_1 -\alpha \frac{\partial}{\partial \theta_1}J(θ_0,θ_1)$<br>&emsp;&emsp;$\theta_0:=temp0$<br>&emsp;&emsp;$\theta_1:=temp1$</p><p>对上述化简计算可得梯度下降算法  :  </p><script type="math/tex; mode=display">\theta_0:=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})</script><script type="math/tex; mode=display">\theta_1:=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}</script>]]></content>
       
       <categories>
           
@@ -474,31 +474,6 @@
     </entry>
     
     <entry>
-      <title>PyQT学习记录（二）</title>
-      <link href="/2018/09/11/python/pyqt-2/"/>
-      <url>/2018/09/11/python/pyqt-2/</url>
-      <content type="html"><![CDATA[<h4 id="PyQt5-程序基础解析"><a href="#PyQt5-程序基础解析" class="headerlink" title="PyQt5 程序基础解析"></a>PyQt5 程序基础解析</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time </span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure><ol><li>导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数  </li><li>导入time模块，使用time.sleep()  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app = QApplication(sys.argv)</span><br></pre></td></tr></table></figure></li></ol><p>&emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。<br>&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。</p><p>&emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。<br>&emsp;&emsp;事件循环用伪代码展示就是这个样子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while True:</span><br><span class="line">    event = getNextEvent()</span><br><span class="line">    if event:</span><br><span class="line">        if event == Terminates:</span><br><span class="line">            break</span><br><span class="line">        processEvent(Event)</span><br></pre></td></tr></table></figure></p><p>&emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。</p><h4 id="PyQt5布局"><a href="#PyQt5布局" class="headerlink" title="PyQt5布局"></a>PyQt5布局</h4><h5 id="1-绝对定位"><a href="#1-绝对定位" class="headerlink" title="1. 绝对定位"></a>1. 绝对定位</h5><p>&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。<br>绝对定位有以下限制:<br>&emsp;- 如果我们调整窗口，控件的大小和位置不会改变<br>&emsp;- 在各种平台上应用程序看起来会不一样<br>&emsp;- 如果改变字体，我们的应用程序的布局就会改变<br>&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局  </p><h5 id="2-盒布局-Boxlayout"><a href="#2-盒布局-Boxlayout" class="headerlink" title="2. 盒布局 Boxlayout"></a>2. 盒布局 Boxlayout</h5><p>&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局<br>&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。  </p><h5 id="3-格栅布局"><a href="#3-格栅布局" class="headerlink" title="3. 格栅布局"></a>3. 格栅布局</h5><p>&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。  </p><h4 id="做了一个小型的demo"><a href="#做了一个小型的demo" class="headerlink" title="做了一个小型的demo"></a>做了一个小型的demo</h4><p>关于pyqt的更多知识，有空余时间的时候会继续补充。<br>项目地址： <a href="https://github.com/ice1995/ncmdump" target="_blank" rel="noopener">ncmdump</a><br>项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化  </p>]]></content>
-      
-      <categories>
-          
-          <category> PyQT </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-            <tag> GUI </tag>
-            
-            <tag> PyQT </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>PyQt学习记录（一） -- 初识PyQt</title>
       <link href="/2018/09/11/python/pyqt-1/"/>
       <url>/2018/09/11/python/pyqt-1/</url>
@@ -518,6 +493,31 @@
             <tag> PyQt </tag>
             
             <tag> GUI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>PyQT学习记录（二）</title>
+      <link href="/2018/09/11/python/pyqt-2/"/>
+      <url>/2018/09/11/python/pyqt-2/</url>
+      <content type="html"><![CDATA[<h4 id="PyQt5-程序基础解析"><a href="#PyQt5-程序基础解析" class="headerlink" title="PyQt5 程序基础解析"></a>PyQt5 程序基础解析</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time </span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure><ol><li>导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数  </li><li>导入time模块，使用time.sleep()  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app = QApplication(sys.argv)</span><br></pre></td></tr></table></figure></li></ol><p>&emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。<br>&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。</p><p>&emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。<br>&emsp;&emsp;事件循环用伪代码展示就是这个样子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while True:</span><br><span class="line">    event = getNextEvent()</span><br><span class="line">    if event:</span><br><span class="line">        if event == Terminates:</span><br><span class="line">            break</span><br><span class="line">        processEvent(Event)</span><br></pre></td></tr></table></figure></p><p>&emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。</p><h4 id="PyQt5布局"><a href="#PyQt5布局" class="headerlink" title="PyQt5布局"></a>PyQt5布局</h4><h5 id="1-绝对定位"><a href="#1-绝对定位" class="headerlink" title="1. 绝对定位"></a>1. 绝对定位</h5><p>&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。<br>绝对定位有以下限制:<br>&emsp;- 如果我们调整窗口，控件的大小和位置不会改变<br>&emsp;- 在各种平台上应用程序看起来会不一样<br>&emsp;- 如果改变字体，我们的应用程序的布局就会改变<br>&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局  </p><h5 id="2-盒布局-Boxlayout"><a href="#2-盒布局-Boxlayout" class="headerlink" title="2. 盒布局 Boxlayout"></a>2. 盒布局 Boxlayout</h5><p>&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局<br>&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。  </p><h5 id="3-格栅布局"><a href="#3-格栅布局" class="headerlink" title="3. 格栅布局"></a>3. 格栅布局</h5><p>&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。  </p><h4 id="做了一个小型的demo"><a href="#做了一个小型的demo" class="headerlink" title="做了一个小型的demo"></a>做了一个小型的demo</h4><p>关于pyqt的更多知识，有空余时间的时候会继续补充。<br>项目地址： <a href="https://github.com/ice1995/ncmdump" target="_blank" rel="noopener">ncmdump</a><br>项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化  </p>]]></content>
+      
+      <categories>
+          
+          <category> PyQT </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> GUI </tag>
+            
+            <tag> PyQT </tag>
             
         </tags>
       
