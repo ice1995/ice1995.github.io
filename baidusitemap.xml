@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://http://132.232.42.89/2018/10/15/algorithm/machinelearning/machinelearning-2/</loc>
-    <lastmod>2018-10-18T02:34:21.210Z</lastmod>
+    <lastmod>2018-10-18T02:38:13.180Z</lastmod>
     <data>
         <display>
         <title>机器学习（二）---- 单变量线性回归</title>
@@ -15,9 +15,9 @@
          
         <tag>Machine Learning</tag>
          
-        <tag>Algorithm</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -185,9 +185,9 @@
          
         <tag>Machine Learning</tag>
          
-        <tag>Algorithm</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -271,6 +271,30 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/08/28/java/lombok/</loc>
+    <lastmod>2018-09-28T12:59:55.714Z</lastmod>
+    <data>
+        <display>
+        <title>lombok使用方法记录</title>
+        <pubTime>2018-08-28T12:01:45.000Z</pubTime>
+        
+        <tag>tools</tag>
+         
+        <tag>java</tag>
+         
+        <tag>reconsitution</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://http://132.232.42.89/2018/09/20/java/springboot-mail/</loc>
     <lastmod>2018-09-28T12:59:55.714Z</lastmod>
     <data>
@@ -288,30 +312,6 @@
            
              
               <breadCrumb title="springboot" url="http://http://132.232.42.89/categories/springboot/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/28/java/lombok/</loc>
-    <lastmod>2018-09-28T12:59:55.714Z</lastmod>
-    <data>
-        <display>
-        <title>lombok使用方法记录</title>
-        <pubTime>2018-08-28T12:01:45.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>tools</tag>
-         
-        <tag>reconsitution</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
           
         </display>
     </data>
@@ -341,30 +341,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/09/11/python/pyqt-1/</loc>
-    <lastmod>2018-09-28T12:59:40.892Z</lastmod>
-    <data>
-        <display>
-        <title>PyQt学习记录（一） -- 初识PyQt</title>
-        <pubTime>2018-09-11T09:12:25.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>PyQt</tag>
-         
-        <tag>GUI</tag>
-         
-         
-           
-             
-              <breadCrumb title="PyQt" url="http://http://132.232.42.89/categories/PyQt/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/09/11/python/pyqt-2/</loc>
     <lastmod>2018-09-28T12:59:40.892Z</lastmod>
     <data>
@@ -382,6 +358,30 @@
            
              
               <breadCrumb title="PyQT" url="http://http://132.232.42.89/categories/PyQT/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/09/11/python/pyqt-1/</loc>
+    <lastmod>2018-09-28T12:59:40.892Z</lastmod>
+    <data>
+        <display>
+        <title>PyQt学习记录（一） -- 初识PyQt</title>
+        <pubTime>2018-09-11T09:12:25.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>PyQt</tag>
+         
+        <tag>GUI</tag>
+         
+         
+           
+             
+              <breadCrumb title="PyQt" url="http://http://132.232.42.89/categories/PyQt/"/>
           
         </display>
     </data>
@@ -501,28 +501,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/09/01/middleware/nginx-2/</loc>
-    <lastmod>2018-09-28T12:57:07.634Z</lastmod>
-    <data>
-        <display>
-        <title>nginx的使用（二）-- 详细了解Nginx</title>
-        <pubTime>2018-09-01T09:29:39.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/08/30/middleware/mycat-1/</loc>
     <lastmod>2018-09-28T12:57:07.634Z</lastmod>
     <data>
@@ -549,18 +527,16 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/09/28/linux/linux-cgroup-interface/</loc>
-    <lastmod>2018-09-28T12:56:40.665Z</lastmod>
+    <loc>http://http://132.232.42.89/2018/09/01/middleware/nginx-2/</loc>
+    <lastmod>2018-09-28T12:57:07.634Z</lastmod>
     <data>
         <display>
-        <title>Cgroup简介</title>
-        <pubTime>2018-09-28T06:29:54.000Z</pubTime>
+        <title>nginx的使用（二）-- 详细了解Nginx</title>
+        <pubTime>2018-09-01T09:29:39.000Z</pubTime>
         
         <tag>linux</tag>
          
-        <tag>cgroup</tag>
-         
-        <tag>kernel</tag>
+        <tag>nginx</tag>
          
          
            
@@ -597,21 +573,23 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-7/</loc>
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <loc>http://http://132.232.42.89/2018/09/28/linux/linux-cgroup-interface/</loc>
+    <lastmod>2018-09-28T12:56:40.665Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记七 -- IPv6</title>
-        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
+        <title>Cgroup简介</title>
+        <pubTime>2018-09-28T06:29:54.000Z</pubTime>
         
-        <tag>ccna</tag>
+        <tag>linux</tag>
          
-        <tag>net</tag>
+        <tag>cgroup</tag>
+         
+        <tag>kernel</tag>
          
          
            
              
-              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+              <breadCrumb title="linux" url="http://http://132.232.42.89/categories/linux/"/>
           
         </display>
     </data>
@@ -625,28 +603,6 @@
         <display>
         <title>CCNA学习笔记一 -- 计算机网络详解</title>
         <pubTime>2018-08-27T06:27:56.000Z</pubTime>
-        
-        <tag>ccna</tag>
-         
-        <tag>net</tag>
-         
-         
-           
-             
-              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-4/</loc>
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
-    <data>
-        <display>
-        <title>CCNA学习笔记四 -- VLAN</title>
-        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -691,6 +647,50 @@
         <display>
         <title>CCNA学习笔记五 -- ACL</title>
         <pubTime>2018-08-28T07:20:39.000Z</pubTime>
+        
+        <tag>ccna</tag>
+         
+        <tag>net</tag>
+         
+         
+           
+             
+              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-4/</loc>
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>CCNA学习笔记四 -- VLAN</title>
+        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
+        
+        <tag>ccna</tag>
+         
+        <tag>net</tag>
+         
+         
+           
+             
+              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/28/ccna/ccna-7/</loc>
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>CCNA学习笔记七 -- IPv6</title>
+        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
         
         <tag>ccna</tag>
          
