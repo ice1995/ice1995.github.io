@@ -31,7 +31,7 @@
       <title>机器学习（二）---- 单变量线性回归</title>
       <link href="/2018/10/15/algorithm/machinelearning/machinelearning-2/"/>
       <url>/2018/10/15/algorithm/machinelearning/machinelearning-2/</url>
-      <content type="html"><![CDATA[<h3 id="模型表示"><a href="#模型表示" class="headerlink" title="模型表示"></a>模型表示</h3><p>&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。</p><h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p>&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表</p><div class="table-container"><table><thead><tr><th><div style="text-align:center;">Size in feet<sup>2</sup>(x)</div></th><th><div style="text-align:center;">Price($) in 1000's(y)</div></th></tr></thead><tbody><tr><td><div style="text-align:center;">2104</div></td><td><div style="text-align:center;">460</div></td></tr><tr><td><div style="text-align:center;"> 1416</div></td><td><div style="text-align:center;">232</div></td></tr><tr><td><div style="text-align:center;"> 1534</div></td><td><div style="text-align:center;">315</div></td></tr><tr><td><div style="text-align:center;">852</div></td><td><div style="text-align:center;">178</div></td></tr><tr><td><div style="text-align:center;">...</div></td><td><div style="text-align:center;">...</div></td></tr></tbody></table></div><p>&emsp;&emsp;&emsp;&emsp;<i>m</i>代表训练集中的实例数目<br>&emsp;&emsp;&emsp;&emsp;<i>x</i>代表特征/输入变量<br>&emsp;&emsp;&emsp;&emsp;<i>y</i>代表目标变量/输出变量<br>&emsp;&emsp;&emsp;&emsp;<i>(x,y)</i>代表训练集中的实例<br>&emsp;&emsp;&emsp;&emsp;<i>(x<sup>(i)</sup>,y<sup>(i)</sup>)</i>代表第i个观察实例<br>&emsp;&emsp;&emsp;&emsp;<i>h</i>代表学习算法的解决方案或函数也称为假设（Hypothesis）<br>&emsp;&emsp;<i>h</i>的一种可能的表达式 <i>h(x)=θ<sub>0</sub>+θ<sub>1</sub>x</i>,即单变量线性回归  </p><h3 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h3><p>&emsp;&emsp;代价函数，有时候也称为平方误差函数/平方误差代价函数</p><h4 id="例-1"><a href="#例-1" class="headerlink" title="例"></a>例</h4><pre><code>$$J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2$$</code></pre><p>$J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2$<br>注：$J(θ_0,θ_1)$就是代价函数（cost function）<br>&emsp;&emsp;m:样本空间容量<br>$h_\theta(x^{(i)})=\theta_0+\theta_1(x^{(i)})$</p><p>$^{minimize}_{θ_0,θ_1}J(θ_0,θ_1)$既是我们所想达到的目的</p><h3 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h3><p>$\theta_j := \theta_j-\alpha \frac{\partial}{\partial \theta_j}J(θ_0,θ_1)$ (for i = 0 and j =1 )</p><p>注：$\alpha$为一个数字，代表学习效率；如果太大，会导致结果不准确甚至无法收敛；如果太小，会导致算法效率低下。  </p><p><font color="red">注意：$\theta_0:=\theta_0 , \theta_1:=\theta_1$应该同时更新</font>  也就是：<br>&emsp;&emsp;$temp0 = \theta_0 -\alpha \frac{\partial}{\partial \theta_0}J(θ_0,θ_1)$<br>&emsp;&emsp;$temp1 = \theta_1 -\alpha \frac{\partial}{\partial \theta_1}J(θ_0,θ_1)$<br>&emsp;&emsp;$\theta_0:=temp0$<br>&emsp;&emsp;$\theta_1:=temp1$</p><p>对上述化简计算可得梯度下降算法  :<br>&emsp;&emsp;$\theta_0:=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})$<br>&emsp;&emsp;$\theta_1:=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}$</p>]]></content>
+      <content type="html"><![CDATA[<h3 id="模型表示"><a href="#模型表示" class="headerlink" title="模型表示"></a>模型表示</h3><p>&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。</p><h4 id="例"><a href="#例" class="headerlink" title="例"></a>例</h4><p>&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表</p><div class="table-container"><table><thead><tr><th><div style="text-align:center;">Size in feet<sup>2</sup>(x)</div></th><th><div style="text-align:center;">Price($) in 1000's(y)</div></th></tr></thead><tbody><tr><td><div style="text-align:center;">2104</div></td><td><div style="text-align:center;">460</div></td></tr><tr><td><div style="text-align:center;"> 1416</div></td><td><div style="text-align:center;">232</div></td></tr><tr><td><div style="text-align:center;"> 1534</div></td><td><div style="text-align:center;">315</div></td></tr><tr><td><div style="text-align:center;">852</div></td><td><div style="text-align:center;">178</div></td></tr><tr><td><div style="text-align:center;">...</div></td><td><div style="text-align:center;">...</div></td></tr></tbody></table></div><p>&emsp;&emsp;&emsp;&emsp;<i>m</i>代表训练集中的实例数目<br>&emsp;&emsp;&emsp;&emsp;<i>x</i>代表特征/输入变量<br>&emsp;&emsp;&emsp;&emsp;<i>y</i>代表目标变量/输出变量<br>&emsp;&emsp;&emsp;&emsp;<i>(x,y)</i>代表训练集中的实例<br>&emsp;&emsp;&emsp;&emsp;<i>(x<sup>(i)</sup>,y<sup>(i)</sup>)</i>代表第i个观察实例<br>&emsp;&emsp;&emsp;&emsp;<i>h</i>代表学习算法的解决方案或函数也称为假设（Hypothesis）<br>&emsp;&emsp;<i>h</i>的一种可能的表达式 <i>h(x)=θ<sub>0</sub>+θ<sub>1</sub>x</i>,即单变量线性回归  </p><h3 id="代价函数"><a href="#代价函数" class="headerlink" title="代价函数"></a>代价函数</h3><p>&emsp;&emsp;代价函数，有时候也称为平方误差函数/平方误差代价函数</p><h4 id="例-1"><a href="#例-1" class="headerlink" title="例"></a>例</h4><script type="math/tex; mode=display">J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2</script><p>$J(θ<em>0,θ_1)=\frac{1}{2m}\sum</em>{i=1}^m (h<em>\theta(x^{(i)}-y^{(1)}))^2$<br>注：$J(θ_0,θ_1)$就是代价函数（cost function）<br>&emsp;&emsp;m:样本空间容量<br>$h</em>\theta(x^{(i)})=\theta_0+\theta_1(x^{(i)})$</p><p>$^{minimize}_{θ_0,θ_1}J(θ_0,θ_1)$既是我们所想达到的目的</p><h3 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h3><p>$\theta_j := \theta_j-\alpha \frac{\partial}{\partial \theta_j}J(θ_0,θ_1)$ (for i = 0 and j =1 )</p><p>注：$\alpha$为一个数字，代表学习效率；如果太大，会导致结果不准确甚至无法收敛；如果太小，会导致算法效率低下。  </p><p><font color="red">注意：$\theta_0:=\theta_0 , \theta_1:=\theta_1$应该同时更新</font>  也就是：<br>&emsp;&emsp;$temp0 = \theta_0 -\alpha \frac{\partial}{\partial \theta_0}J(θ_0,θ_1)$<br>&emsp;&emsp;$temp1 = \theta_1 -\alpha \frac{\partial}{\partial \theta_1}J(θ_0,θ_1)$<br>&emsp;&emsp;$\theta_0:=temp0$<br>&emsp;&emsp;$\theta_1:=temp1$</p><p>对上述化简计算可得梯度下降算法  :<br>&emsp;&emsp;$\theta<em>0:=\theta_0-\alpha\frac{1}{m}\sum</em>{i=1}^m(h<em>\theta(x^{(i)})-y^{(i)})$<br>&emsp;&emsp;$\theta_1:=\theta_1-\alpha\frac{1}{m}\sum</em>{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}$</p>]]></content>
       
       <categories>
           
@@ -46,9 +46,9 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> Algorithm </tag>
-            
             <tag> AI </tag>
+            
+            <tag> Algorithm </tag>
             
         </tags>
       
@@ -73,9 +73,9 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> Algorithm </tag>
-            
             <tag> AI </tag>
+            
+            <tag> Algorithm </tag>
             
         </tags>
       
@@ -611,9 +611,9 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> tools </tag>
+            
+            <tag> java </tag>
             
             <tag> reconsitution </tag>
             
@@ -625,7 +625,7 @@
       <title>正则表达式应用（持续更新）</title>
       <link href="/2018/08/28/regex-using/"/>
       <url>/2018/08/28/regex-using/</url>
-      <content type="html"><![CDATA[<h4 id="编程过程中使用的正则记录"><a href="#编程过程中使用的正则记录" class="headerlink" title="编程过程中使用的正则记录"></a>编程过程中使用的正则记录</h4><ol><li>b<em><sup><a href="#fn_:b#/" id="reffn_:b#/">:b#/</a></sup>+.</em>$        统计代码行数（不包括以# / 开头的 亦不包括空行）</li><li>\d(9|[0-7])\d{4}     中国邮政编码</li><li>^((13[0-9])|(15<sup><a href="#fn_4,\\D" id="reffn_4,\\D">4,\\D</a></sup>)|(18[0,5-9]))\\d{8}$     手机号</li><li>^([a-z0-9A-Z]+[-|\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$      邮箱</li><li>^[\u4e00-\u9fa5]{0,}$    汉字</li><li>http(s)?://([\\w-]+\.)+[\\w-]+(/[\\w- ./?%&amp;=])?  url</li><li>(((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])).){3}((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])) ipv4</li><li>&lt;!-{2,}.*-{2,}&gt;      html注释</li><li>[1-8]\d{5}((18)|(19)|(20))?\d{2}[0-1]\d[0-3]\d{4}[\dX]?      中华人民共和国身份证号码</li></ol>]]></content>
+      <content type="html"><![CDATA[<h4 id="编程过程中使用的正则记录"><a href="#编程过程中使用的正则记录" class="headerlink" title="编程过程中使用的正则记录"></a>编程过程中使用的正则记录</h4><ol><li>b<em><sup><a href="#fn_:b#/" id="reffn_:b#/">:b#/</a></sup>+.</em>$        统计代码行数（不包括以# / 开头的 亦不包括空行）</li><li>\d(9|[0-7])\d{4}     中国邮政编码</li><li>^((13[0-9])|(15<sup><a href="#fn_4,\\D" id="reffn_4,\\D">4,\\D</a></sup>)|(18[0,5-9]))\d{8}$     手机号</li><li>^([a-z0-9A-Z]+[-|\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$      邮箱</li><li>^[\u4e00-\u9fa5]{0,}$    汉字</li><li>http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=])?  url</li><li>(((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])).){3}((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])) ipv4</li><li>&lt;!-{2,}.*-{2,}&gt;      html注释</li><li>[1-8]\d{5}((18)|(19)|(20))?\d{2}[0-1]\d[0-3]\d{4}[\dX]?      中华人民共和国身份证号码</li></ol>]]></content>
       
       <categories>
           
@@ -638,9 +638,9 @@
             
             <tag> tools </tag>
             
-            <tag> regular </tag>
-            
             <tag> regex </tag>
+            
+            <tag> regular </tag>
             
         </tags>
       
@@ -811,7 +811,7 @@
       <title>Regular Expression 正则表达式</title>
       <link href="/2018/08/25/regex/"/>
       <url>/2018/08/25/regex/</url>
-      <content type="html"><![CDATA[<p>Regular Expression（正则表达式） 简称Regex<br>在Javascript中<br>    g(global)表示全局  i表示不区分大小写<br>    .可以匹配任何一个单位的字符<br>    []用于定义字符集合 ^取非</p><h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><div class="table-container"><table><thead><tr><th>元字符</th><th>解释说明</th></tr></thead><tbody><tr><td>[\b]</td><td>Backspace键（退格)</td></tr><tr><td>\n</td><td>换行符</td></tr><tr><td>\f</td><td>换页符</td></tr><tr><td>\r</td><td>回车符</td></tr><tr><td>\t</td><td>制表符（tab）</td></tr><tr><td>\v</td><td>垂直制表符</td></tr><tr><td>\r\n</td><td>回车+换行 许多操作系统以此为行结束，Unix与Linux以\n作为行结束</td></tr><tr><td>\d</td><td>任何一个数字字符    [0-9]</td></tr><tr><td>\D</td><td>任何一个非数字字符     <sup><a href="#fn_0-9" id="reffn_0-9">0-9</a></sup></td></tr><tr><td>\w</td><td>[a-zA-Z0-9_]</td></tr><tr><td>\W</td><td><sup><a href="#fn_a-zA-Z0-9_" id="reffn_a-zA-Z0-9_">a-zA-Z0-9_</a></sup></td></tr><tr><td>\s</td><td>[\f\n\r\t\v]      任一一个空白字符</td></tr><tr><td>\S</td><td><sup><a href="#fn_\f\n\r\t\v" id="reffn_\f\n\r\t\v">\f\n\r\t\v</a></sup>   任一一个非空白字符</td></tr><tr><td>\xXX</td><td>XX:表示十六进制数</td></tr><tr><td>\0XX</td><td>XX:表示八进制数</td></tr></tbody></table></div><h4 id="POSIX字符类-javascript不支持"><a href="#POSIX字符类-javascript不支持" class="headerlink" title="POSIX字符类   javascript不支持"></a>POSIX字符类   javascript不支持</h4><div class="table-container"><table><thead><tr><th>POSIX字符类</th><th>解释说明</th></tr></thead><tbody><tr><td>[:alnum:]</td><td>[\w^_]</td></tr><tr><td>[:upper:]</td><td>[A-Z]</td></tr><tr><td>[:alpha:]</td><td>[a-zA-Z]</td></tr><tr><td>[:blank:]</td><td>[ \t] 注意：这里包含空格</td></tr><tr><td>[:xdigit:]</td><td>任何一个十六进制数     [a-fA-F0-9]</td></tr><tr><td>[:cntrl:]</td><td>ASCII控制字符   0-31加上127</td></tr><tr><td>[:digit:]</td><td>\d</td></tr><tr><td>[:graph:]</td><td>[:print:]去除空格</td></tr><tr><td>[:lower:]</td><td>[a-z]</td></tr><tr><td>[:print:]</td><td>任何一个可打印字符</td></tr><tr><td>[:punct:]</td><td>既不属于[:alnum:]也不属于[:cntrl:]的字符</td></tr><tr><td>[:space:]</td><td>[\f\r\n\t\v ]  注意：这里包含空格</td></tr></tbody></table></div><div class="table-container"><table><thead><tr><th>符号</th><th>解释说明</th></tr></thead><tbody><tr><td>+</td><td>一次或多次重复</td></tr><tr><td>+?</td><td>懒惰型</td></tr><tr><td>*</td><td>零次或多次重复</td></tr><tr><td>*?</td><td>懒惰型</td></tr><tr><td>?</td><td>零次或一次出现</td></tr><tr><td>\{n\}</td><td>重复n次</td></tr><tr><td>\{m,n\}</td><td>至少m次，至多n次</td></tr><tr><td>\{m,\}</td><td>至少出现m次</td></tr><tr><td>\{m,\}?</td><td>懒惰型</td></tr><tr><td>\b</td><td>一个单词的开头或结尾  b：boundary</td></tr><tr><td>\B</td><td>不匹配一个单词边界</td></tr><tr><td>^</td><td>字符串开头    $ 字符串结尾</td></tr><tr><td>(?m)</td><td>置于开头，用于开启分行匹配模式  multline mode   注意：有的语言不支持</td></tr><tr><td>(xx)</td><td>子表达式，视为独立元素</td></tr></tbody></table></div><h4 id="回溯引用-backreference"><a href="#回溯引用-backreference" class="headerlink" title="回溯引用 backreference"></a>回溯引用 backreference</h4><p>替换模式下Javascript使用$代替\</p><div class="table-container"><table><thead><tr><th>符号</th><th>解释说明</th></tr></thead><tbody><tr><td>\1,\2……\n</td><td>第1个表达式，第2个表达式…….第n个表达式</td></tr><tr><td>\0</td><td>代表整个正则表达式</td></tr><tr><td>\E</td><td>结束 \L或\U转换</td></tr><tr><td>\l</td><td>把下一个字符转换为小写</td></tr><tr><td>\L</td><td>把\L到\E之间全部转换为小写</td></tr><tr><td>\u</td><td>把下一个字符转换为大写</td></tr><tr><td>\U</td><td>把\U到\E之间全部转换为大写</td></tr></tbody></table></div><p>注意：<br>1、  Java、Perl、PHP、.NET 支持向后查找<br>2、  Javascript、ColdFusion 不支持向后查找<br>向前查找：(?=x)   匹配但不消费x，即结果不包括x<br> 例 (?=:)   原字符串 https:     匹配结果 http<br>向后查找：(?&lt;=x) 匹配但不消费x，即结果不包括x<br>    例 (?&lt;=$)   原字符串 $400     匹配结果 400<br>注意：向前查找可以任意长度（可以使用.+）  向后查找的长度是固定的<br>    (?=)     正向前查找          (?&lt;=)    正向后查找<br>    (?!)       负向前查找          (?&lt;!)         负向后查找  </p><p>Mysql JAVA1.4<font color="red">不支持</font>条件处理<br>(?(backreference)true-regex)<br>(?(backreference)true-regex|false-regex)<br>Backreference满足时，匹配true-regex 否则匹配false-regex  </p>]]></content>
+      <content type="html"><![CDATA[<p>Regular Expression（正则表达式） 简称Regex<br>在Javascript中<br>    g(global)表示全局  i表示不区分大小写<br>    .可以匹配任何一个单位的字符<br>    []用于定义字符集合 ^取非</p><h4 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h4><div class="table-container"><table><thead><tr><th>元字符</th><th>解释说明</th></tr></thead><tbody><tr><td>[\b]</td><td>Backspace键（退格)</td></tr><tr><td>\n</td><td>换行符</td></tr><tr><td>\f</td><td>换页符</td></tr><tr><td>\r</td><td>回车符</td></tr><tr><td>\t</td><td>制表符（tab）</td></tr><tr><td>\v</td><td>垂直制表符</td></tr><tr><td>\r\n</td><td>回车+换行 许多操作系统以此为行结束，Unix与Linux以\n作为行结束</td></tr><tr><td>\d</td><td>任何一个数字字符    [0-9]</td></tr><tr><td>\D</td><td>任何一个非数字字符     <sup><a href="#fn_0-9" id="reffn_0-9">0-9</a></sup></td></tr><tr><td>\w</td><td>[a-zA-Z0-9_]</td></tr><tr><td>\W</td><td><sup><a href="#fn_a-zA-Z0-9_" id="reffn_a-zA-Z0-9_">a-zA-Z0-9_</a></sup></td></tr><tr><td>\s</td><td>[\f\n\r\t\v]      任一一个空白字符</td></tr><tr><td>\S</td><td><sup><a href="#fn_\f\n\r\t\v" id="reffn_\f\n\r\t\v">\f\n\r\t\v</a></sup>   任一一个非空白字符</td></tr><tr><td>\xXX</td><td>XX:表示十六进制数</td></tr><tr><td>\0XX</td><td>XX:表示八进制数</td></tr></tbody></table></div><h4 id="POSIX字符类-javascript不支持"><a href="#POSIX字符类-javascript不支持" class="headerlink" title="POSIX字符类   javascript不支持"></a>POSIX字符类   javascript不支持</h4><div class="table-container"><table><thead><tr><th>POSIX字符类</th><th>解释说明</th></tr></thead><tbody><tr><td>[:alnum:]</td><td>[\w^_]</td></tr><tr><td>[:upper:]</td><td>[A-Z]</td></tr><tr><td>[:alpha:]</td><td>[a-zA-Z]</td></tr><tr><td>[:blank:]</td><td>[ \t] 注意：这里包含空格</td></tr><tr><td>[:xdigit:]</td><td>任何一个十六进制数     [a-fA-F0-9]</td></tr><tr><td>[:cntrl:]</td><td>ASCII控制字符   0-31加上127</td></tr><tr><td>[:digit:]</td><td>\d</td></tr><tr><td>[:graph:]</td><td>[:print:]去除空格</td></tr><tr><td>[:lower:]</td><td>[a-z]</td></tr><tr><td>[:print:]</td><td>任何一个可打印字符</td></tr><tr><td>[:punct:]</td><td>既不属于[:alnum:]也不属于[:cntrl:]的字符</td></tr><tr><td>[:space:]</td><td>[\f\r\n\t\v ]  注意：这里包含空格</td></tr></tbody></table></div><div class="table-container"><table><thead><tr><th>符号</th><th>解释说明</th></tr></thead><tbody><tr><td>+</td><td>一次或多次重复</td></tr><tr><td>+?</td><td>懒惰型</td></tr><tr><td>*</td><td>零次或多次重复</td></tr><tr><td>*?</td><td>懒惰型</td></tr><tr><td>?</td><td>零次或一次出现</td></tr><tr><td>{n}</td><td>重复n次</td></tr><tr><td>{m,n}</td><td>至少m次，至多n次</td></tr><tr><td>{m,}</td><td>至少出现m次</td></tr><tr><td>{m,}?</td><td>懒惰型</td></tr><tr><td>\b</td><td>一个单词的开头或结尾  b：boundary</td></tr><tr><td>\B</td><td>不匹配一个单词边界</td></tr><tr><td>^</td><td>字符串开头    $ 字符串结尾</td></tr><tr><td>(?m)</td><td>置于开头，用于开启分行匹配模式  multline mode   注意：有的语言不支持</td></tr><tr><td>(xx)</td><td>子表达式，视为独立元素</td></tr></tbody></table></div><h4 id="回溯引用-backreference"><a href="#回溯引用-backreference" class="headerlink" title="回溯引用 backreference"></a>回溯引用 backreference</h4><p>替换模式下Javascript使用$代替\</p><div class="table-container"><table><thead><tr><th>符号</th><th>解释说明</th></tr></thead><tbody><tr><td>\1,\2……\n</td><td>第1个表达式，第2个表达式…….第n个表达式</td></tr><tr><td>\0</td><td>代表整个正则表达式</td></tr><tr><td>\E</td><td>结束 \L或\U转换</td></tr><tr><td>\l</td><td>把下一个字符转换为小写</td></tr><tr><td>\L</td><td>把\L到\E之间全部转换为小写</td></tr><tr><td>\u</td><td>把下一个字符转换为大写</td></tr><tr><td>\U</td><td>把\U到\E之间全部转换为大写</td></tr></tbody></table></div><p>注意：<br>1、  Java、Perl、PHP、.NET 支持向后查找<br>2、  Javascript、ColdFusion 不支持向后查找<br>向前查找：(?=x)   匹配但不消费x，即结果不包括x<br> 例 (?=:)   原字符串 https:     匹配结果 http<br>向后查找：(?&lt;=x) 匹配但不消费x，即结果不包括x<br>    例 (?&lt;=$)   原字符串 $400     匹配结果 400<br>注意：向前查找可以任意长度（可以使用.+）  向后查找的长度是固定的<br>    (?=)     正向前查找          (?&lt;=)    正向后查找<br>    (?!)       负向前查找          (?&lt;!)         负向后查找  </p><p>Mysql JAVA1.4<font color="red">不支持</font>条件处理<br>(?(backreference)true-regex)<br>(?(backreference)true-regex|false-regex)<br>Backreference满足时，匹配true-regex 否则匹配false-regex  </p>]]></content>
       
       <categories>
           
@@ -824,11 +824,11 @@
             
             <tag> tools </tag>
             
-            <tag> regular </tag>
+            <tag> code </tag>
             
             <tag> regex </tag>
             
-            <tag> code </tag>
+            <tag> regular </tag>
             
         </tags>
       
