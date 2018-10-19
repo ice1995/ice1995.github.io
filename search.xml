@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[sklearn学习（一）----广义线性模型]]></title>
+    <url>%2F2018%2F10%2F19%2Falgorithm%2Fmachinelearning%2Fsklearn%2Fsklearn%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp;目标值y是变量x的线性组合，$\hat{y}$是预测值 \hat{y}(\omega,x)=\omega_0+\omega_1x_1+...+\omega_px_p定义向量 $\omega=(\omega_1,\omega_2,…,\omega_p)$作为conf_,定义 $\omega_0$作为intercept_ 普通最小二乘法&emsp;&emsp;拟合一个带有系数 w = (w_1, …, w_p) 的线性模型，使得数据集实际观测数据和预测数据（估计值）之间的残差平方和最小。 岭回归&emsp;&emsp;岭回归，又称脊回归、吉洪诺夫正则化（Tikhonov regularization），是对不适定问题（ill-posed problem)进行回归分析时最经常使用的一种正则化方法。实际上是一种最小二乘法的改良，放弃了最小二乘法的无偏性，以损失部分信息、降低精度为代价获得更为符合实际和可靠的回归系数的回归方法，对于病态数据的拟合要强于最小二乘法。]]></content>
+      <categories>
+        <category>sklearn</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>Machine Learning</tag>
+        <tag>Algorithm</tag>
+        <tag>sklearn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Spring Cloud(六) Zuul]]></title>
     <url>%2F2018%2F10%2F17%2Fjava%2Fspringcloud-6%2F</url>
     <content type="text"><![CDATA[API网关服务 ： Spring Cloud Zuul&emsp;&emsp;Spring Cloud Zuul通过与Spring Cloud Eureka进行整合，将自身注册为Eureka服务治理下的应用，同时从Eureka中获得所有其他微服务的实力信息，使得自动完成维护服务实例的工作。对于路由规则的维护，Zuul默认会通过服务名作为ContextPath的方式来创建路由映射。 &emsp;&emsp;开发者可以通过使用Zuul来创建各种检校过滤器，然后指定那些规则的请求需要执行检校逻辑，只有通过检校的才会被路由到具体的微服务里接口，否则返回错误提示。 快速入门构建网关 构建spring boot工程，引入依赖 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt;&lt;/dependency&gt; 创建启动类，添加EnableZuulProxy注解开启API网关服务功能 12345678@SpringCloudApplication@EnableZuulProxypublic class ApigatewayApplication &#123; public static void main(String[] args) &#123; new SpringApplicationBuilder(ApigatewayApplication.class).web(true).run(args); &#125;&#125; 修改配置文件 12345server:port: 1501spring:application: name: api-gateway 请求路由传统路由方式/api-a-url/**的路由都会到http://localhost:8080/；如：访问http://localhost:1501/api-a-url/hello会到http://localhost:8080/hello 12345zuul: routes: api-a-url: path: /api-a-url/** url: http://localhost:8080/ 面向服务的路由&emsp;&emsp;具体的路由由Eureka服务发现机制负责自动维护 添加Eureka的依赖 1234&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;&lt;/dependency&gt; 配置服务路由 12345678zuul: routes: api-b: path: /api-a/** serviceId: hello-service api-b: path: /api-b/** serviceId: feign-consurme 请求过滤&emsp;&emsp;继承ZuulFilter抽象类并实现定义的4个抽象函数就可以完成对请求的拦截和过滤。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647@Log4jpublic class RoleFilter extends ZuulFilter &#123; /** * 过滤器类型，决定过滤器在请求的哪个周期中执行 * 定义为pre，在请求被路由之前执行 */ @Override public String filterType() &#123; return "pre"; &#125; /** * 过滤器的执行顺序，当一个阶段中存在多个过滤器的时候，根据该方法返回值一次执行 */ @Override public int filterOrder() &#123; return 0; &#125; /** * 判断该过滤器是否需要执行。这里我们直接返回true，因此该过滤器对所有请求都生效。实际中利用该函数来指定过滤器的有效范围 */ @Override public boolean shouldFilter() &#123; return true; &#125; /** * 过滤器的具体逻辑 */ @Override public Object run() throws ZuulException &#123; RequestContext currentContext = RequestContext.getCurrentContext(); HttpServletRequest request = currentContext.getRequest(); log.info(String.format("send %s request to %s",request.getMethod(),request.getRequestURL().toString())); String accessToken = request.getParameter("accessToken"); if (accessToken == null) &#123; log.warn("access token is empty"); currentContext.setSendZuulResponse(false); //设置不对其进行路由 currentContext.setResponseStatusCode(401); //设置错误返回码 currentContext.setResponseBody("没有access token"); //设置返回的body内容 return null; &#125; log.info("access token ok"); return null; &#125;&#125; &emsp;&emsp;设置具体的配置类配置bean 1234567@Configurationpublic class FilterConfig &#123; @Bean public RoleFilter roleFilter() &#123; return new RoleFilter(); &#125;&#125;]]></content>
@@ -16,7 +30,7 @@
   <entry>
     <title><![CDATA[机器学习（二）---- 单变量线性回归]]></title>
     <url>%2F2018%2F10%2F15%2Falgorithm%2Fmachinelearning%2Fmachinelearning-2%2F</url>
-    <content type="text"><![CDATA[模型表示&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。 例&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表 Size in feet2(x) Price($) in 1000's(y) 2104 460 1416 232 1534 315 852 178 ... ... &emsp;&emsp;&emsp;&emsp;m代表训练集中的实例数目&emsp;&emsp;&emsp;&emsp;x代表特征/输入变量&emsp;&emsp;&emsp;&emsp;y代表目标变量/输出变量&emsp;&emsp;&emsp;&emsp;(x,y)代表训练集中的实例&emsp;&emsp;&emsp;&emsp;$(x^{(i)},y^{(i)})$代表第i个观察实例&emsp;&emsp;&emsp;&emsp;h代表学习算法的解决方案或函数也称为假设（Hypothesis）&emsp;&emsp;h的一种可能的表达式 $h(x)=\theta_0+\theta_1(x)$,即单变量线性回归 代价函数&emsp;&emsp;代价函数，有时候也称为平方误差函数/平方误差代价函数 例J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2注：$J(θ_0,θ_1)$就是代价函数（cost function）&emsp;&emsp;m:样本空间容量$h_\theta(x^{(i)})=\theta_0+\theta_1(x^{(i)})$ $^{minimize}_{θ_0,θ_1}J(θ_0,θ_1)$既是我们所想达到的目的 梯度下降算法\theta_j := \theta_j-\alpha \frac{\partial}{\partial \theta_j}J(θ_0,θ_1)\qquad(for\;i = 0\;and\;j =1)注：$\alpha$为一个数字，代表学习效率；如果太大，会导致结果不准确甚至无法收敛；如果太小，会导致算法效率低下。 注意：$\theta_0:=\theta_0 , \theta_1:=\theta_1$应该同时更新 也就是：&emsp;&emsp;$temp0 = \theta_0 -\alpha \frac{\partial}{\partial \theta_0}J(θ_0,θ_1)$&emsp;&emsp;$temp1 = \theta_1 -\alpha \frac{\partial}{\partial \theta_1}J(θ_0,θ_1)$&emsp;&emsp;$\theta_0:=temp0$&emsp;&emsp;$\theta_1:=temp1$ 对上述化简计算可得梯度下降算法 : \theta_0:=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})\theta_1:=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}]]></content>
+    <content type="text"><![CDATA[模型表示&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。 例&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表 Size in feet2(x) Price($) in 1000's(y) 2104 460 1416 232 1534 315 852 178 ... ... &emsp;&emsp;&emsp;&emsp;m代表训练集中的实例数目&emsp;&emsp;&emsp;&emsp;x代表特征/输入变量&emsp;&emsp;&emsp;&emsp;y代表目标变量/输出变量&emsp;&emsp;&emsp;&emsp;(x,y)代表训练集中的实例&emsp;&emsp;&emsp;&emsp;$(x^{(i)},y^{(i)})$代表第i个观察实例&emsp;&emsp;&emsp;&emsp;h代表学习算法的解决方案或函数也称为假设（Hypothesis）&emsp;&emsp;h的一种可能的表达式 $h(x)=\theta_0+\theta_1(x)$,即单变量线性回归 代价函数&emsp;&emsp;代价函数，有时候也称为平方误差函数/平方误差代价函数 例J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2注：$J(θ_0,θ_1)$就是代价函数（cost function）&emsp;&emsp;m:样本空间容量$h_\theta(x^{(i)})=\theta_0+\theta_1(x^{(i)})$ $^{minimize}_{θ_0,θ_1}J(θ_0,θ_1)$既是我们所想达到的目的 梯度下降算法\theta_j := \theta_j-\alpha \frac{\partial}{\partial \theta_j}J(θ_0,θ_1)\qquad(for\;i = 0\;and\;j =1)注：$\alpha$为一个数字，代表学习效率；如果太大，会导致结果不准确甚至无法收敛；如果太小，会导致算法效率低下。 注意：$\theta_0:=\theta_0 , \theta_1:=\theta_1$应该同时更新 也就是：&emsp;&emsp;$temp0 = \theta_0 -\alpha \frac{\partial}{\partial \theta_0}J(θ_0,θ_1)$&emsp;&emsp;$temp1 = \theta_1 -\alpha \frac{\partial}{\partial \theta_1}J(θ_0,θ_1)$&emsp;&emsp;$\theta_0:=temp0$&emsp;&emsp;$\theta_1:=temp1$ 对上述化简计算可得梯度下降算法 : \theta_0:=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})\theta_1:=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}梯度下降，随机梯度下降和批量梯度下降以及小批量梯度下降的联系与区别。&emsp;&emsp; 批量梯度下降：&emsp;&emsp;使误差函数尽可能的小，每次迭代需要整个样本来对参数进行更新，当样本数目变大时，训练速度回逐渐变慢 随机梯度下降：&emsp;&emsp;不同于批量梯度下降，随机梯度下降是每次迭代使用一个样本来对参数进行更新。使得训练速度加快，但是准确度会降低 小批量梯度下降：&emsp;&emsp;是对批量梯度下降以及随机梯度下降的一个折中办法。其思想是：每次迭代 使用 batch_size 个样本来对参数进行更新。batcha_size的选择带来的影响： 1. 在合理地范围内，增大batch_size的好处： a. 内存利用率提高了，大矩阵乘法的并行化效率提高。 b. 跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。 c. 在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。 2. 盲目增大batch_size的坏处： a. 内存利用率提高了，但是内存容量可能撑不住了。 b. 跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。 c. Batch_Size 增大到一定程度，其确定的下降方向已经基本不再变化。]]></content>
       <categories>
         <category>Machine Learning</category>
       </categories>
@@ -30,7 +44,7 @@
   <entry>
     <title><![CDATA[机器学习（一）---初识]]></title>
     <url>%2F2018%2F10%2F15%2Falgorithm%2Fmachinelearning%2Fmachinelearning-1%2F</url>
-    <content type="text"><![CDATA[什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 ----Arthur Samuel&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 ----Tom Mitchell&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 什么是监督学习？&emsp;&emsp;给算法一个数据集，该数据集内包含有正确的答案，让算法给出更多的准确答案。 回归问题&emsp;&emsp;回归指的是，我们在试着推测出一系列的连续值属性。 分类问题&emsp;&emsp;分类指的是，我们试着退出离散的输出值 什么是无监督学习？&emsp;&emsp;给算法一个数据集，让算法自动的将该数据集分成n类。（与监督学习不同，数据集没有任何的标签：或者有相同的标签；或者没有标签） 无监督学习的应用领域&emsp;&emsp;社交网络分析、细分市场、天文数据分析、组织大型计算机集群等]]></content>
+    <content type="text"><![CDATA[什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 ----Arthur Samuel&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 ----Tom Mitchell&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 什么是监督学习？&emsp;&emsp;给算法一个数据集，该数据集内包含有正确的答案，让算法给出更多的准确答案。 属性（特征）&emsp;&emsp;一般来说，一个学习问题通常会考虑一系列 n 个 样本 数据，然后尝试预测未知数据的属性。 如果每个样本是 多个属性的数据 （比如说是一个多维记录），就说它有许多“属性”，或称 features(特征) 。 回归问题&emsp;&emsp;回归指的是，我们在试着推测出一系列的连续值属性。&emsp;&emsp;回归问题的一个例子是预测鲑鱼的长度是其年龄和体重的函数。 分类问题&emsp;&emsp;分类指的是，样本属于两个或更多个类，我们想从已经标记的数据中学习如何预测未标记数据的类别。&emsp;&emsp;分类问题的一个例子是手写数字识别，其目的是将每个输入向量分配给有限数目的离散类别之一。 我们通常把分类视作监督学习的一个离散形式（区别于连续形式），从有限的类别中，给每个样本贴上正确的标签。 什么是无监督学习？&emsp;&emsp;给算法一个数据集，让算法自动的将该数据集分成n类。（与监督学习不同，数据集没有任何的标签：或者有相同的标签；或者没有标签）。&emsp;&emsp; 其中训练数据由没有任何相应目标值的一组输入向量x组成。这种问题的目标可能是在数据中发现彼此类似的示例所聚成的组，这种问题称为 聚类 , 或者，确定输入空间内的数据分布，称为 密度估计 ，又或从高维数据投影数据空间缩小到二维或三维以进行 可视化。 无监督学习的应用领域&emsp;&emsp;社交网络分析、细分市场、天文数据分析、组织大型计算机集群等]]></content>
       <categories>
         <category>Machine Learning</category>
       </categories>
@@ -114,10 +128,10 @@
         <category>datebase</category>
       </categories>
       <tags>
+        <tag>linux</tag>
         <tag>datebase</tag>
         <tag>mysql</tag>
         <tag>mariadb</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -129,8 +143,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>namespace</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -142,8 +156,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>cgroup</tag>
         <tag>kernel</tag>
+        <tag>cgroup</tag>
       </tags>
   </entry>
   <entry>
@@ -190,8 +204,8 @@
         <category>CentOS7</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>CentOS7</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -246,19 +260,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
-    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
-    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —— PyQt编程指南（Mark Summerfield 著 ）]]></content>
-      <categories>
-        <category>PyQt</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>PyQt</tag>
-        <tag>GUI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PyQT学习记录（二）]]></title>
     <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-2%2F</url>
     <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
@@ -269,6 +270,19 @@
         <tag>python</tag>
         <tag>GUI</tag>
         <tag>PyQT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
+    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
+    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —— PyQt编程指南（Mark Summerfield 著 ）]]></content>
+      <categories>
+        <category>PyQt</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>PyQt</tag>
+        <tag>GUI</tag>
       </tags>
   </entry>
   <entry>
@@ -317,8 +331,8 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>tools</tag>
+        <tag>java</tag>
         <tag>reconsitution</tag>
       </tags>
   </entry>
@@ -343,8 +357,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -355,8 +369,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -367,8 +381,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -379,8 +393,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -391,8 +405,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -403,8 +417,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -415,8 +429,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>

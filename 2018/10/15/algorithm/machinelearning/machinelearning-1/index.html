@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="Icecap">
 <meta property="og:description" content="什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 ----Arthur Samuel&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 ----Tom Mitchell&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;em">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T12:36:26.567Z">
+<meta property="og:updated_time" content="2018-10-18T06:11:20.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习（一）---初识">
 <meta name="twitter:description" content="什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 ----Arthur Samuel&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 ----Tom Mitchell&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;em">
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-15T20:36:26+08:00">
-                2018-10-15
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-18T14:11:20+08:00">
+                2018-10-18
               </time>
             
           </span>
@@ -434,10 +434,11 @@
 
 </li>
 </ol>
-<h3 id="什么是监督学习？"><a href="#什么是监督学习？" class="headerlink" title="什么是监督学习？"></a>什么是监督学习？</h3><p>&emsp;&emsp;给算法一个数据集，该数据集内包含有正确的答案，让算法给出更多的准确答案。  </p>
-<h4 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h4><p>&emsp;&emsp;回归指的是，我们在试着推测出一系列的连续值属性。</p>
-<h4 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h4><p>&emsp;&emsp;分类指的是，我们试着退出离散的输出值</p>
-<h3 id="什么是无监督学习？"><a href="#什么是无监督学习？" class="headerlink" title="什么是无监督学习？"></a>什么是无监督学习？</h3><p>&emsp;&emsp;给算法一个数据集，让算法自动的将该数据集分成n类。（与监督学习不同，数据集没有任何的标签：或者有相同的标签；或者没有标签）</p>
+<h3 id="什么是监督学习？"><a href="#什么是监督学习？" class="headerlink" title="什么是监督学习？"></a>什么是监督学习？</h3><p>&emsp;&emsp;给算法一个数据集，该数据集内包含有正确的答案，让算法给出更多的准确答案。 </p>
+<h4 id="属性（特征）"><a href="#属性（特征）" class="headerlink" title="属性（特征）"></a>属性（特征）</h4><p>&emsp;&emsp;一般来说，一个学习问题通常会考虑一系列 n 个 样本 数据，然后尝试预测未知数据的属性。 如果每个样本是 多个属性的数据 （比如说是一个多维记录），就说它有许多“属性”，或称 features(特征) 。</p>
+<h4 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h4><p>&emsp;&emsp;回归指的是，我们在试着推测出一系列的连续值属性。<br>&emsp;&emsp;回归问题的一个例子是预测鲑鱼的长度是其年龄和体重的函数。</p>
+<h4 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h4><p>&emsp;&emsp;分类指的是，样本属于两个或更多个类，我们想从已经标记的数据中学习如何预测未标记数据的类别。<br>&emsp;&emsp;分类问题的一个例子是手写数字识别，其目的是将每个输入向量分配给有限数目的离散类别之一。 我们通常把分类视作监督学习的一个离散形式（区别于连续形式），从有限的类别中，给每个样本贴上正确的标签。</p>
+<h3 id="什么是无监督学习？"><a href="#什么是无监督学习？" class="headerlink" title="什么是无监督学习？"></a>什么是无监督学习？</h3><p>&emsp;&emsp;给算法一个数据集，让算法自动的将该数据集分成n类。（与监督学习不同，数据集没有任何的标签：或者有相同的标签；或者没有标签）。<br>&emsp;&emsp; 其中训练数据由没有任何相应目标值的一组输入向量x组成。这种问题的目标可能是在数据中发现彼此类似的示例所聚成的组，这种问题称为 聚类 , 或者，确定输入空间内的数据分布，称为 密度估计 ，又或从高维数据投影数据空间缩小到二维或三维以进行 可视化。</p>
 <h4 id="无监督学习的应用领域"><a href="#无监督学习的应用领域" class="headerlink" title="无监督学习的应用领域"></a>无监督学习的应用领域</h4><p>&emsp;&emsp;社交网络分析、细分市场、天文数据分析、组织大型计算机集群等</p>
 
       
@@ -574,7 +575,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -585,7 +586,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -596,7 +597,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -693,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是机器学习？"><span class="nav-number">1.</span> <span class="nav-text">什么是机器学习？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是监督学习？"><span class="nav-number">2.</span> <span class="nav-text">什么是监督学习？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回归问题"><span class="nav-number">2.1.</span> <span class="nav-text">回归问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类问题"><span class="nav-number">2.2.</span> <span class="nav-text">分类问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是无监督学习？"><span class="nav-number">3.</span> <span class="nav-text">什么是无监督学习？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督学习的应用领域"><span class="nav-number">3.1.</span> <span class="nav-text">无监督学习的应用领域</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是机器学习？"><span class="nav-number">1.</span> <span class="nav-text">什么是机器学习？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是监督学习？"><span class="nav-number">2.</span> <span class="nav-text">什么是监督学习？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性（特征）"><span class="nav-number">2.1.</span> <span class="nav-text">属性（特征）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回归问题"><span class="nav-number">2.2.</span> <span class="nav-text">回归问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类问题"><span class="nav-number">2.3.</span> <span class="nav-text">分类问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是无监督学习？"><span class="nav-number">3.</span> <span class="nav-text">什么是无监督学习？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督学习的应用领域"><span class="nav-number">3.1.</span> <span class="nav-text">无监督学习的应用领域</span></a></li></ol></li></ol></div>
             
 
           </div>
