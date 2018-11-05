@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[springboot使用过程中踩过的坑]]></title>
+    <url>%2F2018%2F11%2F05%2Fjava%2Fspringboot-question%2F</url>
+    <content type="text"><![CDATA[SpringBoot项目启动过程中出现类似Could not resolve placeholder ‘td.pathprefix’ in value “${td.pathprefix}”的错误。&emsp;&emsp;问题的产生是由于有多个properties文件造成的，如果再第一个properties文件中没有找，就不认为没有了，不继续找下一个properties文件 123456@Beanpublic static PropertySourcesPlaceholderConfigurer placeholderConfigurer() &#123; PropertySourcesPlaceholderConfigurer c = new PropertySourcesPlaceholderConfigurer(); c.setIgnoreUnresolvablePlaceholders(true); return c;&#125;]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>springboot</tag>
+        <tag>bug</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[sklearn学习（一）----广义线性模型]]></title>
-    <url>%2F2018%2F10%2F19%2Falgorithm%2Fmachinelearning%2Fsklearn%2Fsklearn%2F</url>
-    <content type="text"><![CDATA[学习环境Windows 10 + pycharm + anaconda3 广义线性模型&emsp;&emsp;目标值y是变量x的线性组合，$\hat{y}$是预测值 \hat{y}(\omega,x)=\omega_0+\omega_1x_1+...+\omega_px_p定义向量 $\omega=(\omega_1,\omega_2,…,\omega_p)$作为conf_,定义 $\omega_0$作为intercept_ 普通最小二乘法&emsp;&emsp;拟合一个带有系数 w = (w_1, …, w_p) 的线性模型，使得数据集实际观测数据和预测数据（估计值）之间的残差平方和最小。 \min_{\omega}(||X_\omega-y||_2)^2\qquad也就是求 \sum_{i=1}^{\omega}(X_i-y)^2的最小值岭回归&emsp;&emsp;岭回归，又称脊回归、吉洪诺夫正则化（Tikhonov regularization），是对不适定问题（ill-posed problem)进行回归分析时最经常使用的一种正则化方法。实际上是一种最小二乘法的改良，放弃了最小二乘法的无偏性，以损失部分信息、降低精度为代价获得更为符合实际和可靠的回归系数的回归方法，对于病态数据的拟合要强于最小二乘法。 参考文献 http://sklearn.apachecn.org/cn/0.19.0/modules/linear_model.html#ridge-regression]]></content>
+    <url>%2F2018%2F10%2F19%2Falgorithm%2Fmachinelearning%2Fsklearn%2Fsklearn-1%2F</url>
+    <content type="text"><![CDATA[学习环境Windows 10 + pycharm + anaconda3 广义线性模型&emsp;&emsp;目标值y是变量x的线性组合，$\hat{y}$是预测值 \hat{y}(\omega,x)=\omega_0+\omega_1x_1+...+\omega_px_p&emsp;&emsp;定义向量 $\omega=(\omega_1,\omega_2,…,\omega_p)$作为conf_,定义 $\omega_0$作为intercept_ 普通最小二乘法&emsp;&emsp;（LinearRegression ）拟合一个带有系数 w = (w_1, …, w_p) 的线性模型，使得数据集实际观测数据和预测数据（估计值）之间的残差平方和最小。 \min_{\omega}{||X_\omega-y||_2}^2\qquad也就是求 \sum_{i=1}^{\omega}(X_i-y)^2的最小值算法复杂度：该方法使用 X 的奇异值分解来计算最小二乘解。如果 X 是一个 size 为 (n, p) 的矩阵，设 n \geq p ，则该方法的复杂度为 O(n p^2). 岭回归&emsp;&emsp;岭（Ridge）回归，又称脊回归、吉洪诺夫正则化（Tikhonov regularization），是对不适定问题（ill-posed problem)进行回归分析时最经常使用的一种正则化方法。实际上是一种最小二乘法的改良，放弃了最小二乘法的无偏性，以损失部分信息、降低精度为代价获得更为符合实际和可靠的回归系数的回归方法，对于病态数据的拟合要强于最小二乘法。岭回归通过对系数的大小施加惩罚来解决 普通最小二乘法 的一些问题。 岭系数最小化的是带罚项的残差平方和。 \min_\omega{||X_\omega-y||_2}^2+\alpha{||\omega||_2}^2其中， $\alpha \geq 0$ 是控制系数收缩量的复杂性参数： $\alpha$ 的值越大，收缩量越大，这样系数对共线性的鲁棒性也更强。 算法复杂度：该方法使用 X 的奇异值分解来计算最小二乘解。如果 X 是一个 size 为 (n, p) 的矩阵，设 n \geq p ，则该方法的复杂度为 O(n p^2). 设置正则化参数：广义交叉验证&emsp;&emsp;RidgeCV 通过内置的 Alpha 参数的交叉验证来实现岭回归。 该对象与 GridSearchCV 的使用方法相同，只是它默认为 Generalized Cross-Validation(广义交叉验证 GCV)，这是一种有效的留一验证方法（LOO-CV）: Lasso&emsp;&emsp;估计稀疏系数的线性模型。倾向于使用具有较少参数值的情况，有效地减少给定解决方案所依赖变量的数量。 因此，Lasso 及其变体是压缩感知领域的基础。 在一定条件下，它可以恢复一组非零权重的精确集. 最小化的目标函数是： \min_\omega\frac{1}{2n_{samples}}{||X_\omega-y||_2}^2+\alpha||\omega||_1&emsp;&emsp;其中，$\alpha$ 是一个常数， $||w||_1$ 是参数向量的 $\ell_1-norm$ 范数。 参考文献 http://sklearn.apachecn.org/cn/0.19.0/modules/linear_model.html#ridge-regression]]></content>
       <categories>
         <category>sklearn</category>
       </categories>
@@ -128,10 +141,10 @@
         <category>datebase</category>
       </categories>
       <tags>
+        <tag>linux</tag>
         <tag>datebase</tag>
         <tag>mysql</tag>
         <tag>mariadb</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -143,8 +156,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>namespace</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -156,8 +169,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>cgroup</tag>
         <tag>kernel</tag>
+        <tag>cgroup</tag>
       </tags>
   </entry>
   <entry>
@@ -204,8 +217,8 @@
         <category>CentOS7</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>CentOS7</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -268,8 +281,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>GUI</tag>
         <tag>PyQT</tag>
+        <tag>GUI</tag>
       </tags>
   </entry>
   <entry>
@@ -281,8 +294,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>PyQt</tag>
         <tag>GUI</tag>
+        <tag>PyQt</tag>
       </tags>
   </entry>
   <entry>
@@ -331,8 +344,8 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>tools</tag>
+        <tag>java</tag>
         <tag>reconsitution</tag>
       </tags>
   </entry>
@@ -344,9 +357,9 @@
         <category>regular</category>
       </categories>
       <tags>
-        <tag>tools</tag>
         <tag>regular</tag>
         <tag>regex</tag>
+        <tag>tools</tag>
       </tags>
   </entry>
   <entry>
@@ -357,8 +370,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -369,8 +382,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -381,8 +394,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -393,8 +406,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -405,8 +418,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -417,8 +430,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -429,8 +442,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -441,9 +454,9 @@
         <category>regular</category>
       </categories>
       <tags>
-        <tag>tools</tag>
         <tag>regular</tag>
         <tag>regex</tag>
+        <tag>tools</tag>
         <tag>code</tag>
       </tags>
   </entry>
@@ -455,8 +468,8 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>git</tag>
         <tag>tools</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
