@@ -1883,7 +1883,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #57835e;
+  background: #a18b42;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2978,6 +2978,7 @@ hr {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
+    background: rgba(255,255,255,0.9);
   }
   #footer a {
     color: #eee;
