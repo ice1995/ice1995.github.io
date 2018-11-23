@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="Icecap">
 <meta property="og:description" content="此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name        #启动某服务systemctl stop service-name         #停止某服务systemctl restart service-name      #重启某服务systemctl enable service-name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-13T06:05:46.706Z">
+<meta property="og:updated_time" content="2018-11-23T08:52:18.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux指令记录合集（长期更新）">
 <meta name="twitter:description" content="此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name        #启动某服务systemctl stop service-name         #停止某服务systemctl restart service-name      #重启某服务systemctl enable service-name">
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-13T14:05:46+08:00">
-                2018-10-13
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-23T16:52:18+08:00">
+                2018-11-23
               </time>
             
           </span>
@@ -452,6 +452,10 @@
 <h4 id="硬件信息查看"><a href="#硬件信息查看" class="headerlink" title="硬件信息查看"></a>硬件信息查看</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/cpuinfo |grep <span class="string">"physical id"</span>|sort|uniq|wc -l    <span class="comment">#查看物理cpu个数</span></span><br><span class="line">cat /proc/cpuinfo |grep <span class="string">"cpu cores"</span>|wc -l       <span class="comment">#查看每个物理cpu中的core个数</span></span><br><span class="line">cat /proc/cpuinfo |grep <span class="string">"processor"</span>|wc -l       <span class="comment">#逻辑cpu的个数</span></span><br></pre></td></tr></table></figure>
 <h4 id="性能信息查看"><a href="#性能信息查看" class="headerlink" title="性能信息查看"></a>性能信息查看</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">top         <span class="comment">#性能监控程序</span></span><br><span class="line">free -m     <span class="comment">#查看内存使用情况</span></span><br></pre></td></tr></table></figure>
 <h4 id="保存程序运行pid到文件"><a href="#保存程序运行pid到文件" class="headerlink" title="保存程序运行pid到文件"></a>保存程序运行pid到文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##通过命令行启动进程，然后通过ps ,grep, awk 关键字获取对应pid</span></span><br><span class="line">ps -ef|grep s |grep -v grep |awk <span class="string">'&#123;print $2&#125;'</span> &gt; process.PIDFile</span><br><span class="line"><span class="comment">###如果是使用nohup创建，查看当前shell最后一个后台进程pid  $!</span></span><br><span class="line"><span class="comment">##注意，下面的命令要放到sh文件里面执行，不能从命令行执行**</span></span><br><span class="line">nohup <span class="built_in">command</span>  &amp; <span class="built_in">echo</span> $! &gt; process.pid</span><br><span class="line"><span class="comment"># 既写入文件又输出到标准输出</span></span><br><span class="line">nohup <span class="built_in">command</span>  &amp; <span class="built_in">echo</span> $!|tee process.pid</span><br></pre></td></tr></table></figure>
+<h4 id="修改开机启动模式"><a href="#修改开机启动模式" class="headerlink" title="修改开机启动模式"></a>修改开机启动模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">set</span>-default graphical.target <span class="comment">#由命令行模式更改为图形界面模式</span></span><br><span class="line">systemctl <span class="built_in">set</span>-default multi-user.target <span class="comment">#由图形界面模式更改为命令行模式</span></span><br></pre></td></tr></table></figure>
+<h4 id="解压tar-gz"><a href="#解压tar-gz" class="headerlink" title="解压tar.gz"></a>解压tar.gz</h4><p>tar命令说明：<br>&emsp;&emsp;语法：tar [主选项+辅选项] 文件或目录<br>&emsp;&emsp;使用该命令时，主选项必须有，它告诉tar要做什么事情，辅选项是辅助使用的，可以选用。<br>主选项：【一条命令以下5个参数只能有一个】<br>&emsp;&emsp;-c: —create 新建一个压缩文档，即打包<br>&emsp;&emsp;-x: —extract,—get解压文件<br>&emsp;&emsp;-t: —list,查看压缩文档里的所有内容<br>&emsp;&emsp;-r:—append 向压缩文档里追加文件<br>&emsp;&emsp;-u:—update 更新原压缩包中的文件<br>辅助选项：<br>&emsp;&emsp;-z:是否同时具有gzip的属性？即是否需要用gzip压缩或解压？一般格式为x.tar.gz或xx.tgz<br>&emsp;&emsp;-j：是否同时具有bzip2的属性？即是否需要用bzip2压缩或解压？一般格式为x.tar.bz2<br>&emsp;&emsp;-v:显示操作过程！这个参数很常用<br>&emsp;&emsp;-f：使用文档名，注意，在f之后要立即接文档名，不要再加其他参数！<br>&emsp;&emsp;-C:切换到指定目录<br>&emsp;&emsp;—exclude FILE:在压缩过程中，不要将FILE打包  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf xxx.tar.gz -C path</span><br></pre></td></tr></table></figure>
+<h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile    <span class="comment">#修改环境变量文件内容  export xx_home=path</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile <span class="comment">#使环境变量生效</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -582,7 +586,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -593,7 +597,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -604,7 +608,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -701,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#systemctl"><span class="nav-number">1.</span> <span class="nav-text">systemctl</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#服务相关指令"><span class="nav-number">1.1.</span> <span class="nav-text">服务相关指令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#添加程序到服务"><span class="nav-number">1.2.</span> <span class="nav-text">添加程序到服务</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#firewall-cmd"><span class="nav-number">2.</span> <span class="nav-text">firewall-cmd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ln"><span class="nav-number">3.</span> <span class="nav-text">ln</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后台运行命令"><span class="nav-number">4.</span> <span class="nav-text">后台运行命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#硬件信息查看"><span class="nav-number">5.</span> <span class="nav-text">硬件信息查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能信息查看"><span class="nav-number">6.</span> <span class="nav-text">性能信息查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#保存程序运行pid到文件"><span class="nav-number">7.</span> <span class="nav-text">保存程序运行pid到文件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#systemctl"><span class="nav-number">1.</span> <span class="nav-text">systemctl</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#服务相关指令"><span class="nav-number">1.1.</span> <span class="nav-text">服务相关指令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#添加程序到服务"><span class="nav-number">1.2.</span> <span class="nav-text">添加程序到服务</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#firewall-cmd"><span class="nav-number">2.</span> <span class="nav-text">firewall-cmd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ln"><span class="nav-number">3.</span> <span class="nav-text">ln</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后台运行命令"><span class="nav-number">4.</span> <span class="nav-text">后台运行命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#硬件信息查看"><span class="nav-number">5.</span> <span class="nav-text">硬件信息查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#性能信息查看"><span class="nav-number">6.</span> <span class="nav-text">性能信息查看</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#保存程序运行pid到文件"><span class="nav-number">7.</span> <span class="nav-text">保存程序运行pid到文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改开机启动模式"><span class="nav-number">8.</span> <span class="nav-text">修改开机启动模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解压tar-gz"><span class="nav-number">9.</span> <span class="nav-text">解压tar.gz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置环境变量"><span class="nav-number">10.</span> <span class="nav-text">配置环境变量</span></a></li></ol></div>
             
 
           </div>

@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[myabtis进阶]]></title>
+    <url>%2F2018%2F11%2F17%2Fjava%2Fspringboot-myabtis%2F</url>
+    <content type="text"><![CDATA[逆向工程 在数据库中建好表 配置好xml，通过逆向工程生成dao接口、实体类、xml映射文件 当需要添加数据操作的时候，先在xml中写好CRUD语句，然后在DAO接口层写接口，最后到映射文件 &emsp;&emsp;随着数据库表的增加、修改，我们需要做的修改随之增加，增加了不少的工作量。 无xml的myabtis之路 设计需要的实体类 根据实体层在数据库中建表，逆向工程在数据库中生成 当需要进行增删改查的时候，只需要在Mapper映射文件中，用对应的注解@Select、@Delete等进行相应的操作即可 &emsp;&emsp;依然没有自动生成的代码]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>springboot</tag>
+        <tag>orm</tag>
+        <tag>myabtis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[springboot使用过程中踩过的坑]]></title>
     <url>%2F2018%2F11%2F05%2Fjava%2Fspringboot-question%2F</url>
     <content type="text"><![CDATA[SpringBoot项目启动过程中出现类似Could not resolve placeholder ‘td.pathprefix’ in value “${td.pathprefix}”的错误。&emsp;&emsp;问题的产生是由于有多个properties文件造成的，如果再第一个properties文件中没有找，就不认为没有了，不继续找下一个properties文件 123456@Beanpublic static PropertySourcesPlaceholderConfigurer placeholderConfigurer() &#123; PropertySourcesPlaceholderConfigurer c = new PropertySourcesPlaceholderConfigurer(); c.setIgnoreUnresolvablePlaceholders(true); return c;&#125; 项目中用到什么依赖加载什么依赖，不要一股脑都添加上去，springboot会做各种初始设置，可能引起报错]]></content>
@@ -141,10 +155,10 @@
         <category>datebase</category>
       </categories>
       <tags>
+        <tag>linux</tag>
         <tag>datebase</tag>
         <tag>mysql</tag>
         <tag>mariadb</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -156,8 +170,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>namespace</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -169,8 +183,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>cgroup</tag>
         <tag>kernel</tag>
+        <tag>cgroup</tag>
       </tags>
   </entry>
   <entry>
@@ -281,8 +295,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>GUI</tag>
         <tag>PyQt</tag>
+        <tag>GUI</tag>
       </tags>
   </entry>
   <entry>
@@ -294,8 +308,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>PyQT</tag>
         <tag>GUI</tag>
+        <tag>PyQT</tag>
       </tags>
   </entry>
   <entry>
@@ -318,16 +332,16 @@
         <category>middleware</category>
       </categories>
       <tags>
+        <tag>middleware</tag>
         <tag>linux</tag>
         <tag>mycat</tag>
         <tag>db</tag>
-        <tag>middleware</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux指令记录合集（长期更新）]]></title>
     <url>%2F2018%2F08%2F30%2Flinux%2Flinux-command%2F</url>
-    <content type="text"><![CDATA[此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name #启动某服务systemctl stop service-name #停止某服务systemctl restart service-name #重启某服务systemctl enable service-name #设置开机自动启动某服务systemctl disable service-name #设置开机停止自动启动某服务systemctl list-units --type=service #查看所有已启动的服务systemctl list-unit-files #查看已经安装的所有服务 添加程序到服务systemctl脚本存放在:/usr/lib/systemd/&emsp;&emsp;[Unit]部分主要是对这个服务的说明，内容包括Description和After，Description 用于描述服务，After用于描述服务类别&emsp;&emsp;[Service]部分是服务的关键，是服务的一些具体运行参数的设置.&emsp;&emsp;Type=forking是后台运行的形式，&emsp;&emsp;User=users是设置服务运行的用户,&emsp;&emsp;Group=users是设置服务运行的用户组,&emsp;&emsp;PIDFile为存放PID的文件路径，&emsp;&emsp;ExecStart为服务的具体运行命令,&emsp;&emsp;ExecReload为重启命令，&emsp;&emsp;ExecStop为停止命令，&emsp;&emsp;PrivateTmp=True表示给服务分配独立的临时空间 注意：[Service]部分的启动、重启、停止命令全部要求使用绝对路径，使用相对路径则会报错！ [Install]部分是服务安装的相关设置，可设置为多用户的 12345678910111213141516171819#以tomcat为例#vim /usr/lib/systemd/system/tomcat.service[Unit]Description=java tomcat projectAfter=tomcat.service [Service]Type=forkingUser=usersGroup=usersPIDFile=/usr/local/tomcat/tomcat.pidExecStart=/usr/local/tomcat/bin/startup.shExecReload=ExecStop=/usr/local/tomcat/bin/shutdown.shPrivateTmp=true [Install]WantedBy=multi-user.target firewall-cmd防火墙相关 12firewall-cmd --add-port=port-number/protocols --zone=zone-name --permanent #在zone-name区域永久开启protocol协议的port-number端口firewall-cmd --zone=public --list-all # 显示所有公共区域（public） ln1ln -s source link #创建一个指向source的link（快捷方式） 后台运行命令 &amp; &emsp;&emsp;当在前台运行某个作业时，终端被该作业占据；可以在命令后面加上&amp; 实现后台运行。例如：sh test.sh &amp; 适合在后台运行的命令有f i n d、费时的排序及一些s h e l l脚本。在后台运行作业时要当心：需要用户交互的命令不要放在后台执行，因为这样你的机器就会在那里傻等。不过，作业在后台运行一样会将结果输出到屏幕上，干扰你的工作。如果放在后台运行的作业会产生大量的输出，最好使用下面的方法把它的输出重定向到某个文件中： 1command &gt; out.file 2&gt;&amp;1 &amp; #所有的标准输出和错误输出都将被重定向到一个叫做out.file 的文件中。 2&gt;&amp;1解析 &emsp;&emsp;2&gt;&amp;1 是将标准出错重定向到标准输出，这里的标准输出已经重定向到了out.file文件，即将标准出错也输出到out.file文件中。最后一个&amp;， 是让该命令在后台执行。 &emsp;&emsp;试想2&gt;1代表什么，2与&gt;结合代表错误重定向，而1则代表错误重定向到一个文件1，而不代表标准输出；换成2&gt;&amp;1，&amp;与1结合就代表标准输出了，就变成错误重定向到标准输出. nohup &emsp;&emsp;使用&amp;命令后，作业被提交到后台运行，当前控制台没有被占用，但是一但把当前控制台关掉(退出帐户时)，作业就会停止运行。nohup命令可以在你退出帐户之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。该命令的一般形式为： 12nohup command &amp; #在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：nohup command &gt; myout.file 2&gt;&amp;1 &amp; ctrl + z &emsp;&emsp;可以将一个正在前台执行的命令放到后台，并且处于暂停状态。 jobs &emsp;&emsp;查看当前有多少在后台运行的命令。 1jobs -l #可显示所有任务的PID，jobs的状态可以是running, stopped, Terminated。但是如果任务被终止了（kill），shell 从当前的shell环境已知的列表中删除任务的进程标识。 硬件信息查看123cat /proc/cpuinfo |grep "physical id"|sort|uniq|wc -l #查看物理cpu个数cat /proc/cpuinfo |grep "cpu cores"|wc -l #查看每个物理cpu中的core个数cat /proc/cpuinfo |grep "processor"|wc -l #逻辑cpu的个数 性能信息查看12top #性能监控程序free -m #查看内存使用情况 保存程序运行pid到文件1234567##通过命令行启动进程，然后通过ps ,grep, awk 关键字获取对应pidps -ef|grep s |grep -v grep |awk '&#123;print $2&#125;' &gt; process.PIDFile###如果是使用nohup创建，查看当前shell最后一个后台进程pid $!##注意，下面的命令要放到sh文件里面执行，不能从命令行执行**nohup command &amp; echo $! &gt; process.pid# 既写入文件又输出到标准输出nohup command &amp; echo $!|tee process.pid]]></content>
+    <content type="text"><![CDATA[此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name #启动某服务systemctl stop service-name #停止某服务systemctl restart service-name #重启某服务systemctl enable service-name #设置开机自动启动某服务systemctl disable service-name #设置开机停止自动启动某服务systemctl list-units --type=service #查看所有已启动的服务systemctl list-unit-files #查看已经安装的所有服务 添加程序到服务systemctl脚本存放在:/usr/lib/systemd/&emsp;&emsp;[Unit]部分主要是对这个服务的说明，内容包括Description和After，Description 用于描述服务，After用于描述服务类别&emsp;&emsp;[Service]部分是服务的关键，是服务的一些具体运行参数的设置.&emsp;&emsp;Type=forking是后台运行的形式，&emsp;&emsp;User=users是设置服务运行的用户,&emsp;&emsp;Group=users是设置服务运行的用户组,&emsp;&emsp;PIDFile为存放PID的文件路径，&emsp;&emsp;ExecStart为服务的具体运行命令,&emsp;&emsp;ExecReload为重启命令，&emsp;&emsp;ExecStop为停止命令，&emsp;&emsp;PrivateTmp=True表示给服务分配独立的临时空间 注意：[Service]部分的启动、重启、停止命令全部要求使用绝对路径，使用相对路径则会报错！ [Install]部分是服务安装的相关设置，可设置为多用户的 12345678910111213141516171819#以tomcat为例#vim /usr/lib/systemd/system/tomcat.service[Unit]Description=java tomcat projectAfter=tomcat.service [Service]Type=forkingUser=usersGroup=usersPIDFile=/usr/local/tomcat/tomcat.pidExecStart=/usr/local/tomcat/bin/startup.shExecReload=ExecStop=/usr/local/tomcat/bin/shutdown.shPrivateTmp=true [Install]WantedBy=multi-user.target firewall-cmd防火墙相关 12firewall-cmd --add-port=port-number/protocols --zone=zone-name --permanent #在zone-name区域永久开启protocol协议的port-number端口firewall-cmd --zone=public --list-all # 显示所有公共区域（public） ln1ln -s source link #创建一个指向source的link（快捷方式） 后台运行命令 &amp; &emsp;&emsp;当在前台运行某个作业时，终端被该作业占据；可以在命令后面加上&amp; 实现后台运行。例如：sh test.sh &amp; 适合在后台运行的命令有f i n d、费时的排序及一些s h e l l脚本。在后台运行作业时要当心：需要用户交互的命令不要放在后台执行，因为这样你的机器就会在那里傻等。不过，作业在后台运行一样会将结果输出到屏幕上，干扰你的工作。如果放在后台运行的作业会产生大量的输出，最好使用下面的方法把它的输出重定向到某个文件中： 1command &gt; out.file 2&gt;&amp;1 &amp; #所有的标准输出和错误输出都将被重定向到一个叫做out.file 的文件中。 2&gt;&amp;1解析 &emsp;&emsp;2&gt;&amp;1 是将标准出错重定向到标准输出，这里的标准输出已经重定向到了out.file文件，即将标准出错也输出到out.file文件中。最后一个&amp;， 是让该命令在后台执行。 &emsp;&emsp;试想2&gt;1代表什么，2与&gt;结合代表错误重定向，而1则代表错误重定向到一个文件1，而不代表标准输出；换成2&gt;&amp;1，&amp;与1结合就代表标准输出了，就变成错误重定向到标准输出. nohup &emsp;&emsp;使用&amp;命令后，作业被提交到后台运行，当前控制台没有被占用，但是一但把当前控制台关掉(退出帐户时)，作业就会停止运行。nohup命令可以在你退出帐户之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。该命令的一般形式为： 12nohup command &amp; #在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：nohup command &gt; myout.file 2&gt;&amp;1 &amp; ctrl + z &emsp;&emsp;可以将一个正在前台执行的命令放到后台，并且处于暂停状态。 jobs &emsp;&emsp;查看当前有多少在后台运行的命令。 1jobs -l #可显示所有任务的PID，jobs的状态可以是running, stopped, Terminated。但是如果任务被终止了（kill），shell 从当前的shell环境已知的列表中删除任务的进程标识。 硬件信息查看123cat /proc/cpuinfo |grep "physical id"|sort|uniq|wc -l #查看物理cpu个数cat /proc/cpuinfo |grep "cpu cores"|wc -l #查看每个物理cpu中的core个数cat /proc/cpuinfo |grep "processor"|wc -l #逻辑cpu的个数 性能信息查看12top #性能监控程序free -m #查看内存使用情况 保存程序运行pid到文件1234567##通过命令行启动进程，然后通过ps ,grep, awk 关键字获取对应pidps -ef|grep s |grep -v grep |awk '&#123;print $2&#125;' &gt; process.PIDFile###如果是使用nohup创建，查看当前shell最后一个后台进程pid $!##注意，下面的命令要放到sh文件里面执行，不能从命令行执行**nohup command &amp; echo $! &gt; process.pid# 既写入文件又输出到标准输出nohup command &amp; echo $!|tee process.pid 修改开机启动模式12systemctl set-default graphical.target #由命令行模式更改为图形界面模式systemctl set-default multi-user.target #由图形界面模式更改为命令行模式 解压tar.gztar命令说明：&emsp;&emsp;语法：tar [主选项+辅选项] 文件或目录&emsp;&emsp;使用该命令时，主选项必须有，它告诉tar要做什么事情，辅选项是辅助使用的，可以选用。主选项：【一条命令以下5个参数只能有一个】&emsp;&emsp;-c: —create 新建一个压缩文档，即打包&emsp;&emsp;-x: —extract,—get解压文件&emsp;&emsp;-t: —list,查看压缩文档里的所有内容&emsp;&emsp;-r:—append 向压缩文档里追加文件&emsp;&emsp;-u:—update 更新原压缩包中的文件辅助选项：&emsp;&emsp;-z:是否同时具有gzip的属性？即是否需要用gzip压缩或解压？一般格式为x.tar.gz或xx.tgz&emsp;&emsp;-j：是否同时具有bzip2的属性？即是否需要用bzip2压缩或解压？一般格式为x.tar.bz2&emsp;&emsp;-v:显示操作过程！这个参数很常用&emsp;&emsp;-f：使用文档名，注意，在f之后要立即接文档名，不要再加其他参数！&emsp;&emsp;-C:切换到指定目录&emsp;&emsp;—exclude FILE:在压缩过程中，不要将FILE打包 1tar -zxvf xxx.tar.gz -C path 配置环境变量12vim /etc/profile #修改环境变量文件内容 export xx_home=pathsource /etc/profile #使环境变量生效]]></content>
       <categories>
         <category>linux</category>
       </categories>
@@ -344,8 +358,8 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>tools</tag>
+        <tag>java</tag>
         <tag>reconsitution</tag>
       </tags>
   </entry>
