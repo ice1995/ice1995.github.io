@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[shiro框架基础知识]]></title>
+    <url>%2F2018%2F11%2F24%2Fshiro%2F</url>
+    <content type="text"><![CDATA[简介&emsp;&emsp;Shiro是java的一个安全框架。可以帮助我们完成：认证、授权、加密、会话管理、与web集成、缓存等功能。&emsp;&emsp;Shiro不会去维护用户、维护权限，需要我们自己去提供设计，然后通过相应接口注入给shiro。 身份验证&emsp;&emsp;在shiro中，用户需要提供principals(身份)credentials(证明)，从而验证用户身份。 principals： 身份，及主体的标识属性，唯一即可。一个主题可以有多个principals，但是只能拥有一个primary principal。 credentials： 证明/凭证，只有主体知道的安全值。如密码/数字证书等 授权主体&emsp;&emsp;即访问应用的用户，在shiro中使用Subject代表该用户，用户只有在授权后才允许访问相应的资源。 资源&emsp;&emsp;在应用中用户可以访问的任何东西，比如：页面，查看/编辑数据,访问某个业务方法、打印文本等。用户只有授权后才能访问。 权限&emsp;&emsp;安全策略中的原子授权单位，权限代表在用户中能不能访问某个资源。Shiro支持粗颗粒权限（如用户模块的所有权限）和细颗粒权限（操作某个用户的权限）。 角色&emsp;&emsp;角色代表了操作集合，可以理解为权限的集合，一般情况下，我们会赋予用户角色而不是权限。 隐式角色&emsp;&emsp;直接通过角色来验证用户有没有操作权限。粒度是以角色为单位进行访问控制的，粒度较粗；如果进行修改可能造成多处代码修改。 显示角色&emsp;&emsp;在程序中通过权限控制水能访问某个资源，角色聚合一组权限集合。粒度是以资源/实例为单位的，粒度较细。 Permission字符通配符权限&emsp;&emsp;规则：“资源通配符:操作:对象实例id” ，即对那个资源可以进行什么操作。“:”代表资源/操作/实例的分割；“,”表示操作的分割；“*”表示任意资源/操作/实例。 性能问题&emsp;&emsp;可以考虑配合缓存来提供其性能，如果这样性能还打不到要求，我们可以实现位操作算法实现性能更好的权限匹配。也可以考虑在sql查询的时候加上权限字符串以在查询时就完成权限匹配。]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>shiro</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[myabtis进阶]]></title>
     <url>%2F2018%2F11%2F17%2Fjava%2Fspringboot-myabtis%2F</url>
     <content type="text"><![CDATA[逆向工程 在数据库中建好表 配置好xml，通过逆向工程生成dao接口、实体类、xml映射文件 当需要添加数据操作的时候，先在xml中写好CRUD语句，然后在DAO接口层写接口，最后到映射文件 &emsp;&emsp;随着数据库表的增加、修改，我们需要做的修改随之增加，增加了不少的工作量。 无xml的myabtis之路 设计需要的实体类 根据实体层在数据库中建表，逆向工程在数据库中生成 当需要进行增删改查的时候，只需要在Mapper映射文件中，用对应的注解@Select、@Delete等进行相应的操作即可 &emsp;&emsp;依然没有自动生成的代码]]></content>
@@ -57,29 +69,29 @@
   <entry>
     <title><![CDATA[机器学习（二）---- 单变量线性回归]]></title>
     <url>%2F2018%2F10%2F15%2Falgorithm%2Fmachinelearning%2Fmachinelearning-2%2F</url>
-    <content type="text"><![CDATA[模型表示&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。 例&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表 Size in feet2(x) Price($) in 1000's(y) 2104 460 1416 232 1534 315 852 178 ... ... &emsp;&emsp;&emsp;&emsp;m代表训练集中的实例数目&emsp;&emsp;&emsp;&emsp;x代表特征/输入变量&emsp;&emsp;&emsp;&emsp;y代表目标变量/输出变量&emsp;&emsp;&emsp;&emsp;(x,y)代表训练集中的实例&emsp;&emsp;&emsp;&emsp;$(x^{(i)},y^{(i)})$代表第i个观察实例&emsp;&emsp;&emsp;&emsp;h代表学习算法的解决方案或函数也称为假设（Hypothesis）&emsp;&emsp;h的一种可能的表达式 $h(x)=\theta_0+\theta_1(x)$,即单变量线性回归 代价函数&emsp;&emsp;代价函数，有时候也称为平方误差函数/平方误差代价函数 例J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2注：$J(θ_0,θ_1)$就是代价函数（cost function）&emsp;&emsp;m:样本空间容量$h_\theta(x^{(i)})=\theta_0+\theta_1(x^{(i)})$ $^{minimize}_{θ_0,θ_1}J(θ_0,θ_1)$既是我们所想达到的目的 梯度下降算法\theta_j := \theta_j-\alpha \frac{\partial}{\partial \theta_j}J(θ_0,θ_1)\qquad(for\;i = 0\;and\;j =1)注：$\alpha$为一个数字，代表学习效率；如果太大，会导致结果不准确甚至无法收敛；如果太小，会导致算法效率低下。 注意：$\theta_0:=\theta_0 , \theta_1:=\theta_1$应该同时更新 也就是：&emsp;&emsp;$temp0 = \theta_0 -\alpha \frac{\partial}{\partial \theta_0}J(θ_0,θ_1)$&emsp;&emsp;$temp1 = \theta_1 -\alpha \frac{\partial}{\partial \theta_1}J(θ_0,θ_1)$&emsp;&emsp;$\theta_0:=temp0$&emsp;&emsp;$\theta_1:=temp1$ 对上述化简计算可得梯度下降算法 : \theta_0:=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})\theta_1:=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}梯度下降，随机梯度下降和批量梯度下降以及小批量梯度下降的联系与区别。&emsp;&emsp; 批量梯度下降：&emsp;&emsp;使误差函数尽可能的小，每次迭代需要整个样本来对参数进行更新，当样本数目变大时，训练速度回逐渐变慢 随机梯度下降：&emsp;&emsp;不同于批量梯度下降，随机梯度下降是每次迭代使用一个样本来对参数进行更新。使得训练速度加快，但是准确度会降低 小批量梯度下降：&emsp;&emsp;是对批量梯度下降以及随机梯度下降的一个折中办法。其思想是：每次迭代 使用 batch_size 个样本来对参数进行更新。batcha_size的选择带来的影响： 1. 在合理地范围内，增大batch_size的好处： a. 内存利用率提高了，大矩阵乘法的并行化效率提高。 b. 跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。 c. 在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。 2. 盲目增大batch_size的坏处： a. 内存利用率提高了，但是内存容量可能撑不住了。 b. 跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。 c. Batch_Size 增大到一定程度，其确定的下降方向已经基本不再变化。]]></content>
+    <content type="text"><![CDATA[模型表示&emsp;&emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。 例&emsp;&emsp;以房屋交易为例，假如我们的Training Set（训练集）如表 Size in feet2(x) Price($) in 1000's(y) 2104 460 1416 232 1534 315 852 178 ... ... &emsp;&emsp;&emsp;&emsp;m代表训练集中的实例数目&emsp;&emsp;&emsp;&emsp;x代表特征/输入变量&emsp;&emsp;&emsp;&emsp;y代表目标变量/输出变量&emsp;&emsp;&emsp;&emsp;(x,y)代表训练集中的实例&emsp;&emsp;&emsp;&emsp;$(x^{(i)},y^{(i)})$代表第i个观察实例&emsp;&emsp;&emsp;&emsp;h代表学习算法的解决方案或函数也称为假设（Hypothesis）&emsp;&emsp;h的一种可能的表达式 $h(x)=\theta_0+\theta_1(x)$,即单变量线性回归 代价函数&emsp;&emsp;代价函数，有时候也称为平方误差函数/平方误差代价函数 例J(θ_0,θ_1)=\frac{1}{2m}\sum_{i=1}^m (h_\theta(x^{(i)}-y^{(1)}))^2注：$J(θ_0,θ_1)$就是代价函数（cost function）&emsp;&emsp;m:样本空间容量$h_\theta(x^{(i)})=\theta_0+\theta_1(x^{(i)})$ $^{minimize}_{θ_0,θ_1}J(θ_0,θ_1)$既是我们所想达到的目的 梯度下降算法\theta_j := \theta_j-\alpha \frac{\partial}{\partial \theta_j}J(θ_0,θ_1)\qquad(for\;i = 0\;and\;j =1)注：$\alpha$为一个数字，代表学习效率；如果太大，会导致结果不准确甚至无法收敛；如果太小，会导致算法效率低下。 注意：$\theta_0:=\theta_0 , \theta_1:=\theta_1$应该同时更新 也就是：&emsp;&emsp;$temp0 = \theta_0 -\alpha \frac{\partial}{\partial \theta_0}J(θ_0,θ_1)$&emsp;&emsp;$temp1 = \theta_1 -\alpha \frac{\partial}{\partial \theta_1}J(θ_0,θ_1)$&emsp;&emsp;$\theta_0:=temp0$&emsp;&emsp;$\theta_1:=temp1$ 对上述化简计算可得梯度下降算法 : \theta_0:=\theta_0-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})\theta_1:=\theta_1-\alpha\frac{1}{m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}梯度下降，随机梯度下降和批量梯度下降以及小批量梯度下降的联系与区别。&emsp;&emsp; 批量梯度下降：&emsp;&emsp;使误差函数尽可能的小，每次迭代需要整个样本来对参数进行更新，当样本数目变大时，训练速度回逐渐变慢 随机梯度下降：&emsp;&emsp;不同于批量梯度下降，随机梯度下降是每次迭代使用一个样本来对参数进行更新。使得训练速度加快，但是准确度会降低 小批量梯度下降：&emsp;&emsp;是对批量梯度下降以及随机梯度下降的一个折中办法。其思想是：每次迭代 使用batch_size个样本来对参数进行更新。 batcha_size的选择带来的影响： 在合理地范围内，增大batch_size的好处：a. 内存利用率提高了，大矩阵乘法的并行化效率提高。b. 跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。c. 在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。 盲目增大batch_size的坏处：a. 内存利用率提高了，但是内存容量可能撑不住了。b. 跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。c. Batch_Size 增大到一定程度，其确定的下降方向已经基&gt;本不再变化。]]></content>
       <categories>
         <category>Machine Learning</category>
       </categories>
       <tags>
         <tag>python</tag>
         <tag>Machine Learning</tag>
-        <tag>AI</tag>
         <tag>Algorithm</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[机器学习（一）---初识]]></title>
     <url>%2F2018%2F10%2F15%2Falgorithm%2Fmachinelearning%2Fmachinelearning-1%2F</url>
-    <content type="text"><![CDATA[什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 ----Arthur Samuel&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 ----Tom Mitchell&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 什么是监督学习？&emsp;&emsp;给算法一个数据集，该数据集内包含有正确的答案，让算法给出更多的准确答案。 属性（特征）&emsp;&emsp;一般来说，一个学习问题通常会考虑一系列 n 个 样本 数据，然后尝试预测未知数据的属性。 如果每个样本是 多个属性的数据 （比如说是一个多维记录），就说它有许多“属性”，或称 features(特征) 。 回归问题&emsp;&emsp;回归指的是，我们在试着推测出一系列的连续值属性。&emsp;&emsp;回归问题的一个例子是预测鲑鱼的长度是其年龄和体重的函数。 分类问题&emsp;&emsp;分类指的是，样本属于两个或更多个类，我们想从已经标记的数据中学习如何预测未标记数据的类别。&emsp;&emsp;分类问题的一个例子是手写数字识别，其目的是将每个输入向量分配给有限数目的离散类别之一。 我们通常把分类视作监督学习的一个离散形式（区别于连续形式），从有限的类别中，给每个样本贴上正确的标签。 什么是无监督学习？&emsp;&emsp;给算法一个数据集，让算法自动的将该数据集分成n类。（与监督学习不同，数据集没有任何的标签：或者有相同的标签；或者没有标签）。&emsp;&emsp; 其中训练数据由没有任何相应目标值的一组输入向量x组成。这种问题的目标可能是在数据中发现彼此类似的示例所聚成的组，这种问题称为 聚类 , 或者，确定输入空间内的数据分布，称为 密度估计 ，又或从高维数据投影数据空间缩小到二维或三维以进行 可视化。 无监督学习的应用领域&emsp;&emsp;社交网络分析、细分市场、天文数据分析、组织大型计算机集群等]]></content>
+    <content type="text"><![CDATA[什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 ----Arthur Samuel&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 ----Tom Mitchell&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 什么是监督学习？&emsp;&emsp;给算法一个数据集，该数据集内包含有正确的答案，让算法给出更多的准确答案。 属性（特征）&emsp;&emsp;一般来说，一个学习问题通常会考虑一系列 n 个 样本 数据，然后尝试预测未知数据的属性。 如果每个样本是 多个属性的数据 （比如说是一个多维记录），就说它有许多“属性”，或称 features(特征) 。 回归问题&emsp;&emsp;回归指的是，我们在试着推测出一系列的连续值属性。&emsp;&emsp;回归问题的一个例子是预测鲑鱼的长度是其年龄和体重的函数。 分类问题&emsp;&emsp;分类指的是，样本属于两个或更多个类，我们想从已经标记的数据中学习如何预测未标记数据的类别。&emsp;&emsp;分类问题的一个例子是手写数字识别，其目的是将每个输入向量分配给有限数目的离散类别之一。 我们通常把分类视作监督学习的一个离散形式（区别于连续形式），从有限的类别中，给每个样本贴上正确的标签。 什么是无监督学习？&emsp;&emsp;给算法一个数据集，让算法自动的将该数据集分成n类。（与监督学习不同，数据集没有任何的标签：或者有相同的标签；或者没有标签）。&emsp;&emsp; 其中训练数据由没有任何相应目标值的一组输入向量x组成。这种问题的目标可能是在数据中发现彼此类似的示例所聚成的组，这种问题称为 聚类 , 或者，确定输入空间内的数据分布，称为 密度估计 ，又或从高维数据投影数据空间缩小到二维或三维以进行 可视化。 无监督学习的应用领域&emsp;&emsp;社交网络分析、细分市场、天文数据分析、组织大型计算机集群等 什么是加速比&emsp;&emsp;一个程序的串行版本的运行时间和他的并行版本的运行时间的比值。]]></content>
       <categories>
         <category>Machine Learning</category>
       </categories>
       <tags>
         <tag>python</tag>
         <tag>Machine Learning</tag>
-        <tag>AI</tag>
         <tag>Algorithm</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -170,8 +182,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>namespace</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -183,8 +195,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>cgroup</tag>
         <tag>kernel</tag>
+        <tag>cgroup</tag>
       </tags>
   </entry>
   <entry>

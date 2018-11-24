@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="python,Machine Learning,AI,Algorithm," />
+  <meta name="keywords" content="python,Machine Learning,Algorithm,AI," />
 
 
 
@@ -100,14 +100,14 @@
 
 
 <meta name="description" content="模型表示&amp;emsp;&amp;emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。 例&amp;emsp;&amp;emsp;以房屋交易为例，假如我们的Training Set（训练集）如表     Size in feet2(x) Price($) in 1000&apos;s(y)     2104 460    1416 232    1534 315   852 178   ... ...     &amp;emsp;&amp;">
-<meta name="keywords" content="python,Machine Learning,AI,Algorithm">
+<meta name="keywords" content="python,Machine Learning,Algorithm,AI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习（二）---- 单变量线性回归">
 <meta property="og:url" content="http://http://132.232.42.89/2018/10/15/algorithm/machinelearning/machinelearning-2/index.html">
 <meta property="og:site_name" content="Icecap">
 <meta property="og:description" content="模型表示&amp;emsp;&amp;emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。 例&amp;emsp;&amp;emsp;以房屋交易为例，假如我们的Training Set（训练集）如表     Size in feet2(x) Price($) in 1000&apos;s(y)     2104 460    1416 232    1534 315   852 178   ... ...     &amp;emsp;&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-20T01:30:39.704Z">
+<meta property="og:updated_time" content="2018-11-23T12:19:51.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习（二）---- 单变量线性回归">
 <meta name="twitter:description" content="模型表示&amp;emsp;&amp;emsp;在监督学习中，有一个数据集，这个数据集被称为训练集。 例&amp;emsp;&amp;emsp;以房屋交易为例，假如我们的Training Set（训练集）如表     Size in feet2(x) Price($) in 1000&apos;s(y)     2104 460    1416 232    1534 315   852 178   ... ...     &amp;emsp;&amp;">
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-20T09:30:39+08:00">
-                2018-10-20
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-23T20:19:51+08:00">
+                2018-11-23
               </time>
             
           </span>
@@ -473,7 +473,15 @@
 <ol>
 <li>批量梯度下降：<br>&emsp;&emsp;使误差函数尽可能的小，每次迭代需要整个样本来对参数进行更新，当样本数目变大时，训练速度回逐渐变慢</li>
 <li>随机梯度下降：<br>&emsp;&emsp;不同于批量梯度下降，随机梯度下降是每次迭代使用一个样本来对参数进行更新。使得训练速度加快，但是准确度会降低</li>
-<li>小批量梯度下降：<br>&emsp;&emsp;是对批量梯度下降以及随机梯度下降的一个折中办法。其思想是：每次迭代 使用 <strong> batch_size</strong> 个样本来对参数进行更新。<br>batcha_size的选择带来的影响：<br>  1. 在合理地范围内，增大batch_size的好处：<br>    a. 内存利用率提高了，大矩阵乘法的并行化效率提高。<br>    b. 跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。<br>    c. 在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。<br>  2. 盲目增大batch_size的坏处：<br>    a. 内存利用率提高了，但是内存容量可能撑不住了。<br>    b. 跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。<br>    c. Batch_Size 增大到一定程度，其确定的下降方向已经基本不再变化。  </li>
+<li><p>小批量梯度下降：<br>&emsp;&emsp;是对批量梯度下降以及随机梯度下降的一个折中办法。其思想是：每次迭代 使用batch_size个样本来对参数进行更新。  </p>
+<blockquote>
+<p>batcha_size的选择带来的影响：  </p>
+<ol>
+<li>在合理地范围内，增大batch_size的好处：<br>a. 内存利用率提高了，大矩阵乘法的并行化效率提高。<br>b. 跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。<br>c. 在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。  </li>
+<li>盲目增大batch_size的坏处：<br>a. 内存利用率提高了，但是内存容量可能撑不住了。<br>b. 跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。<br>c. Batch_Size 增大到一定程度，其确定的下降方向已经基&gt;本不再变化。  </li>
+</ol>
+</blockquote>
+</li>
 </ol>
 
       
@@ -495,9 +503,9 @@
           
             <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
           
-            <a href="/tags/AI/" rel="tag"># AI</a>
-          
             <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+            <a href="/tags/AI/" rel="tag"># AI</a>
           
         </div>
       
@@ -610,7 +618,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -621,7 +629,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -632,7 +640,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
