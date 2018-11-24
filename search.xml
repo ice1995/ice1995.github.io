@@ -2,14 +2,14 @@
 <search>
   <entry>
     <title><![CDATA[shiro框架基础知识]]></title>
-    <url>%2F2018%2F11%2F24%2Fshiro%2F</url>
+    <url>%2F2018%2F11%2F24%2Fjava%2Fshiro%2F</url>
     <content type="text"><![CDATA[简介&emsp;&emsp;Shiro是java的一个安全框架。可以帮助我们完成：认证、授权、加密、会话管理、与web集成、缓存等功能。&emsp;&emsp;Shiro不会去维护用户、维护权限，需要我们自己去提供设计，然后通过相应接口注入给shiro。 身份验证&emsp;&emsp;在shiro中，用户需要提供principals(身份)credentials(证明)，从而验证用户身份。 principals： 身份，及主体的标识属性，唯一即可。一个主题可以有多个principals，但是只能拥有一个primary principal。 credentials： 证明/凭证，只有主体知道的安全值。如密码/数字证书等 授权主体&emsp;&emsp;即访问应用的用户，在shiro中使用Subject代表该用户，用户只有在授权后才允许访问相应的资源。 资源&emsp;&emsp;在应用中用户可以访问的任何东西，比如：页面，查看/编辑数据,访问某个业务方法、打印文本等。用户只有授权后才能访问。 权限&emsp;&emsp;安全策略中的原子授权单位，权限代表在用户中能不能访问某个资源。Shiro支持粗颗粒权限（如用户模块的所有权限）和细颗粒权限（操作某个用户的权限）。 角色&emsp;&emsp;角色代表了操作集合，可以理解为权限的集合，一般情况下，我们会赋予用户角色而不是权限。 隐式角色&emsp;&emsp;直接通过角色来验证用户有没有操作权限。粒度是以角色为单位进行访问控制的，粒度较粗；如果进行修改可能造成多处代码修改。 显示角色&emsp;&emsp;在程序中通过权限控制水能访问某个资源，角色聚合一组权限集合。粒度是以资源/实例为单位的，粒度较细。 Permission字符通配符权限&emsp;&emsp;规则：“资源通配符:操作:对象实例id” ，即对那个资源可以进行什么操作。“:”代表资源/操作/实例的分割；“,”表示操作的分割；“*”表示任意资源/操作/实例。 性能问题&emsp;&emsp;可以考虑配合缓存来提供其性能，如果这样性能还打不到要求，我们可以实现位操作算法实现性能更好的权限匹配。也可以考虑在sql查询的时候加上权限字符串以在查询时就完成权限匹配。]]></content>
       <categories>
         <category>java</category>
       </categories>
       <tags>
-        <tag>shiro</tag>
         <tag>java</tag>
+        <tag>shiro</tag>
       </tags>
   </entry>
   <entry>
@@ -76,8 +76,8 @@
       <tags>
         <tag>python</tag>
         <tag>Machine Learning</tag>
-        <tag>Algorithm</tag>
         <tag>AI</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -90,8 +90,8 @@
       <tags>
         <tag>python</tag>
         <tag>Machine Learning</tag>
-        <tag>Algorithm</tag>
         <tag>AI</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -182,8 +182,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>namespace</tag>
         <tag>kernel</tag>
+        <tag>namespace</tag>
       </tags>
   </entry>
   <entry>
@@ -195,8 +195,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>cgroup</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -365,13 +365,13 @@
   <entry>
     <title><![CDATA[lombok使用方法记录]]></title>
     <url>%2F2018%2F08%2F28%2Fjava%2Flombok%2F</url>
-    <content type="text"><![CDATA[maven引入jar包12345&lt;dependency&gt; &lt;groupId&gt;org.projectlombok&lt;/groupId&gt; &lt;artifactId&gt;lombok&lt;/artifactId&gt; &lt;version&gt;1.16.20&lt;/version&gt;&lt;/dependency&gt; 给IDE安装插件&emsp;&emsp;由于 Lombok 采取的注解形式的，在编译后，自动生成相应的方法，为了不让 IDE’疯了’，需要下载插件了支持它.&emsp;&emsp;以 idea 为例：查找插件 lombok plugin 安装即可。 一般注解 注解代码 用法 @Getter get方法 @Setter set方法 @ToString ToString方法 @EqualsAndHashCode equals方法和hashcode方法 @AllArgsConstructor 会生成一个包含所有变量，同时如果变量使用了NotNull annotation ， 会进行是否为空的校验，全部参数的构造函数的自动生成，该注解的作用域也是只有在实体类上，参数的顺序与属性定义的顺序一致。 @NoArgsConstructor 无参构造函数 @RequiredArgsConstructor 会生成一个包含常量（final），和标识了@NotNull的变量 的构造方法 @NonNull 非空检查,可以帮助我们避免空指针 构造器 使用staticName启用静态工厂模式，如下所示：@RequiredArgsConstructor(staticName=”of”)。与普通构造函数不同，这种静态工厂方法将推断泛型。这意味着您的API用户可以写入MapEntry.of(“foo”, 5)而不是使用new MapEntry(“foo”, 5)。 在构造方法上添加注解。使用方法 12@RequiredArgsConstructor(onConstructor=@__(&#123;@AnnotationsGoHere&#125;))&#125;@RequiredArgsConstructor(onConstructor=@__(&#123;@Autowired&#125;))&#125; //例子 使用access标识构造器访问权限修饰符，默认为lombok.AccessLevel.PUBLIC。如： 1@AllArgsConstructor(access = lombok.AccessLevel.PROTECTED) @NoArgsConstructor(force = true)会初始化所有字段为0或者false或者null，初始化所有的参数为默认值 @val @var自动类型推断，简单来说，就是弱类型val注解变量申明是final类型 var注解变量是非final类型 @Data&emsp;&emsp;自动为所有字段添加@ToString, @EqualsAndHashCode, @Getter方法，为非final字段添加@Setter,和@RequiredArgsConstructor&emsp;&emsp;注意的是，同时使用@Data 和 @AllArgsConstructor后 ，默认的无参构造函数失效，如果需要它，要重新设置 @NoArgsConstructor @Accessors(chain = true)开启链式风格123456789101112@Accessors(chain = true)@Setter@Getterpublic class Student &#123; private String name; private int age;&#125;Student student = new Student() .setAge(24) .setName("zs"); @Slf4j直接调用log1log.info(xxxx); @Log使用的是 java.util.logging.Logger ，直接使用 变量 log。 @Builder使用建筑者模式构建对象。 @Cleanup自动化关闭流，相当于 jdk1.7 种的 try with resource1234@Cleanup InputStream in = new FileInputStream(args[0]);@Cleanup OutputStream out = new FileOutputStream(args[1]); @SneakyThrows当我们需要抛出异常，在当前方法上调用，不用显示的在方法名后面写 throw1@SneakyThrows(Exception.class) @Synchronized方法中所有的代码都加入到一个代码块中，默认静态方法使用的是全局锁，普通方法使用的是对象锁，当然也可以指定锁的对象。12345private final Object lock = new Object();@Synchronized("lock")public void foo() &#123; // Do something&#125; 参考内容：&emsp;&emsp;官方文档&emsp;&emsp;你真的会写java吗?&emsp;&emsp;使用Lombok来优雅的编码]]></content>
+    <content type="text"><![CDATA[maven引入jar包12345&lt;dependency&gt; &lt;groupId&gt;org.projectlombok&lt;/groupId&gt; &lt;artifactId&gt;lombok&lt;/artifactId&gt; &lt;version&gt;1.16.20&lt;/version&gt;&lt;/dependency&gt; 给IDE安装插件&emsp;&emsp;由于 Lombok 采取的注解形式的，在编译后，自动生成相应的方法，为了不让 IDE’疯了’，需要下载插件了支持它.&emsp;&emsp;以 idea 为例：查找插件 lombok plugin 安装即可。 一般注解 注解代码 用法 @Getter get方法 @Setter set方法 @ToString ToString方法 @EqualsAndHashCode equals方法和hashcode方法 @AllArgsConstructor 会生成一个包含所有变量，同时如果变量使用了NotNull annotation ， 会进行是否为空的校验，全部参数的构造函数的自动生成，该注解的作用域也是只有在实体类上，参数的顺序与属性定义的顺序一致。 @NoArgsConstructor 无参构造函数 @RequiredArgsConstructor 会生成一个包含常量（final），和标识了@NotNull的变量 的构造方法 @NonNull 非空检查,可以帮助我们避免空指针 构造器 使用staticName启用静态工厂模式，如下所示： @RequiredArgsConstructor(staticName=”of”)。与普通构造函数不同，这种静态工厂方法将推断泛型。这意味着您的API用户可以写入MapEntry.of(“foo”, 5)而不是使用new MapEntry(“foo”, 5)。 在构造方法上添加注解。使用方法 12@RequiredArgsConstructor(onConstructor=@__(&#123;@AnnotationsGoHere&#125;))&#125;@RequiredArgsConstructor(onConstructor=@__(&#123;@Autowired&#125;))&#125; //例子 使用access标识构造器访问权限修饰符，默认为lombok.AccessLevel.PUBLIC。如： 1@AllArgsConstructor(access = lombok.AccessLevel.PROTECTED) @NoArgsConstructor(force = true)会初始化所有字段为0或者false或者null，初始化所有的参数为默认值 @val @var自动类型推断，简单来说，就是弱类型val注解变量申明是final类型 var注解变量是非final类型 @Data&emsp;&emsp;自动为所有字段添加@ToString, @EqualsAndHashCode, @Getter方法，为非final字段添加@Setter,和@RequiredArgsConstructor&emsp;&emsp;注意的是，同时使用@Data 和 @AllArgsConstructor后 ，默认的无参构造函数失效，如果需要它，要重新设置 @NoArgsConstructor @Accessors(chain = true)开启链式风格 123456789101112@Accessors(chain = true)@Setter@Getterpublic class Student &#123; private String name; private int age;&#125;Student student = new Student() .setAge(24) .setName("zs"); @Slf4j直接调用log 1log.info(xxxx); @Log使用的是 java.util.logging.Logger ，直接使用 变量 log。 @Builder使用建筑者模式构建对象。 @Cleanup自动化关闭流，相当于 jdk1.7 种的 try with resource 1234@CleanupInputStream in = new FileInputStream(args[0]);@CleanupOutputStream out = new FileOutputStream(args[1]); @SneakyThrows当我们需要抛出异常，在当前方法上调用，不用显示的在方法名后面写 throw 1@SneakyThrows(Exception.class) @Synchronized方法中所有的代码都加入到一个代码块中，默认静态方法使用的是全局锁，普通方法使用的是对象锁，当然也可以指定锁的对象。 12345private final Object lock = new Object();@Synchronized("lock")public void foo() &#123; // Do something&#125; 参考内容：&emsp;&emsp;官方文档&emsp;&emsp;你真的会写java吗?&emsp;&emsp;使用Lombok来优雅的编码]]></content>
       <categories>
         <category>java</category>
       </categories>
       <tags>
-        <tag>tools</tag>
         <tag>java</tag>
+        <tag>tools</tag>
         <tag>reconsitution</tag>
       </tags>
   </entry>
