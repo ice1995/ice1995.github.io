@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ElasticSearch学习笔记（一）]]></title>
+    <url>%2F2018%2F12%2F04%2Fmiddleware%2Felk-1%2F</url>
+    <content type="text"><![CDATA[ElasticSearch(ES)有关的基本概念 Cluster和Node&emsp;&emsp;ES中的Cluster是对外提供搜索服务的集群，组成这个Cluster的各个节点叫做Node。&emsp;&emsp;Node分类：IndexNode（提供读写），DataNode（只提供数据存储和访问，负载均衡等），节点之间关系对等，弱化的Master节点提供维护集群状态的功能 Shards&emsp;&emsp;ES将一个完整的索引分成若干部分，每一个部分就是一个Shards，每一个Shards实际上是一个基于Lucene的索引，Shards数量一遍在创建索引前指定，且索引创建后不能修改，es的检索实际上是对多个Shards上的搜索结果的合并 Replicas&emsp;&emsp;Replicas是索引的冗余备份，可用于放置数据丢失或用来做负载均衡 Recovery&emsp;&emsp;在有节点加入或者退出集群的时候，ES会对索引分片Shards重新分配 River&emsp;&emsp;River是一个运行在集群内部的插件，用来从外部获取异构数据，然后在ES里创建索引。常见的有RabbitMQ river Plugin、MongoDB river Plugin等 Gateway&emsp;&emsp;是ES索引数据快照的存储方式，当ES关机重启的时候，就会从Gateway中读取索引快照 Discovery.zen&emsp;&emsp;Es的自动发现节点机制，用来实现节点自动发现和Master节点选举，Master节点负责处理及节点的加入和退出以及分片Shards的重新分配 Transport&emsp;&emsp;代表ES内部节点或者集群与客户端的交互方式。默认TCP，同时支持HTTP（JSON）、Thrift、Servlet等 Index、Type、Document、Field &emsp;&emsp;Index是ES存储数据的地方，类似RDBMS的Database;Type类似于table;Document是一行数据，可以有不同字段集合;Field是最小存储单位 Mapping&emsp;&emsp;定义索引下Type的字段处理规则 ES默认端口9200 是HTTP端口，9300 是Transport端口 ES索引机器构建&emsp;&emsp;ES是基于Luence构建的，采用倒排索引机制，将文件封装为索引，将文本信息切分为成为Token的信息单元，再利用这些Token构建倒排索引。]]></content>
+      <categories>
+        <category>elk</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>elk</tag>
+        <tag>midedleware</tag>
+        <tag>log</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ELK日志分析系统搭建过程以及使用说明]]></title>
     <url>%2F2018%2F12%2F04%2Fmiddleware%2Felk%2F</url>
     <content type="text"><![CDATA[环境搭建环境搭建说明Centos 7 *2 + elastics 5.6.12 + logstash 5.6.12 + kibana 5.6.12 + filebeat 5.6.12 ElasticSearch环境搭建 下载解压 12wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.12.tar.gztar -zxvf elasticsearch-5.6.12.tar.gz -C /elk/elasticsearch/ 配置/config/elasticsearch.yml 1234network.host: 0.0.0.0 # 访问地址http.port: 9200 #端口号cluster.name: nmtx-clusternode.name: node-1 运行 12nohup ./bin/elasticsearch -Xms1024m -Xmx1024m &gt; ../logs/elasticsearch.log 2&gt;&amp;1 &amp; echo $! &gt; process.pid#在后台运行，指定1G内存，日志打印到../logs/elasticsearch.log，进程号保存至process.pid 踩过的坑 不要使用root账户启动elasticsearch，这是出于系统安全考虑设置的条件。 max virtual memory areas vm.max_map_count [65530] is too low, increase to at ，需要调整虚拟内存设置 123456vim /etc/sysctl.conf#添加如下信息并保存vm.max_map_count=655360#运行以生效sysctl -p 需要修改linux对文件、线程的限制 12345#修改系统文件vim /etc/security/limits.d/20-nproc.conf#调整成以下配置* soft nproc 4096root soft nproc unlimited 验证 &emsp;&emsp;访问9200端口看到如下类似信息即可 12345678910111213&#123;"name" : "node-1","cluster_name" : "nmtx-cluster","cluster_uuid" : "plk3ql1SQ2umnqSpyBGI_w","version" : &#123; "number" : "5.6.12", "build_hash" : "cfe3d9f", "build_date" : "2018-09-10T20:12:43.732Z", "build_snapshot" : false, "lucene_version" : "6.6.1"&#125;,"tagline" : "You Know, for Search"&#125; filebeat环境搭建什么是Beats&emsp;&emsp;Beats 是安装在服务器上的数据中转代理，Beats 可以将数据直接传输到 Elasticsearch 或传输到 Logstash 。常见的Beats： Packetbeat：网络数据包分析器，提供有关您的应用程序服务器之间交换的事务的信息。 Filebeat：从您的服务器发送日志文件。 Metricbeat：是一个服务器监视代理程序，它定期从服务器上运行的操作系统和服务收集指标。 Winlogbeat：提供Windows事件日志。 为什么使用filebeat&emsp;&emsp;相比 Logstash，FileBeat 更加轻量化。在任何环境下，应用程序都有停机的可能性。 Filebeat 读取并转发日志行，如果中断，则会记住所有事件恢复联机状态时所在位置 。Filebeat带有内部模块（auditd，Apache，Nginx，System和MySQL），可通过一个指定命令来简化通用日志格式的收集，解析和可视化。FileBeat 不会让你的管道超负荷。FileBeat 如果是向 Logstash 传输数据，当 Logstash 忙于处理数据，会通知 FileBeat 放慢读取速度。一旦拥塞得到解决，FileBeat 将恢复到原来的速度并继续传播。 下载与安装 12wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.12-linux-x86_64.tar.gztar -zxvf ilebeat-5.6.12-linux-x86_64.tar.gz -C /elk/filebeat/ 配置filebeat.yml 123456789101112131415161718192021222324252627filebeat.prospectors:# Each - is a prospector. Most options can be set at the prospector level, so# you can use different prospectors for various configurations.# Below are the prospector specific configurations.- input_type: log# Paths that should be crawled and fetched. Glob based paths.paths: - /var/log/*-info.log #监听文件目录以及正则匹配规则 #- c:\programdata\elasticsearch\logs\* windows下的路径multiline: # 日志多行处理，列如java的堆栈信息 pattern: ^\d&#123;4&#125; # 匹配前缀为数字开头，如果不是日期，该行日志接到上一行后尾 negate: true match: afterfields: # 自定义属性，用于 Logstash 中 service_name: customer # 产生日志的服务名 log_type: info # 日志文件类型 server_id: ip-address # 服务器ip地址#----------------------------- Logstash output --------------------------------output.logstash:# The Logstash hostshosts: ["localhost:5043"] #这里是发送到本地的logstash，要与logstash的input对应，也可以设置为elasticsearch 运行 1nohup ./filebeat -e -c filebeat.yml &gt; ../logs/filebeat.log 2&gt;&amp;1 &amp; echo $! &gt; process.pid logstash环境搭建 下载与安装 12wget https://artifacts.elastic.co/downloads/logstash/logstash-5.6.12.tar.gztar -zxvf logstash-5.6.12.tar.gz -C /elk/logstash/ 配置logstash /config/logstash.conf 123456789101112131415161718192021222324252627282930313233343536373839input &#123; beats &#123; host =&gt; "localhost" #监听本地访问的5043端口 port =&gt; "5043" &#125; beats&#123; host =&gt; "0.0.0.0" #监听任何地址都可访问的5044端口 port =&gt; "5044" &#125;&#125;filter &#123; if [fields][log_type] == 'error' &#123; grok &#123; match =&gt; &#123; "message" =&gt; "%&#123;TIMESTAMP_ISO8601:logdate&#125; %&#123;LOGLEVEL:loglevel&#125; %&#123;JAVACLASS:class&#125; %&#123;NUMBER:thread&#125; %&#123;JAVALOGMESSAGE:logmsg&#125;" &#125; &#125; date &#123; # 将 kibana 的查询时间改成日志的打印时间，方便之后查询，如果不改的话，kibana会有自己的时间，导致查询不方便 match =&gt; ["logdate", "yyyy-MM-dd HH:mm:ss Z", "ISO8601"] target =&gt; "@timestamp" &#125; &#125; if [fields][log_type] == 'info' &#123; # 如果是info类型该怎么格式，这里是重复的，如果有日志格式不一样比如nginx的日志类型，可以在这里自己定义 grok &#123; match =&gt; &#123; "message" =&gt; "%&#123;TIMESTAMP_ISO8601:logdate&#125; %&#123;LOGLEVEL:loglevel&#125; %&#123;JAVACLASS:class&#125; %&#123;NUMBER:thread&#125; %&#123;JAVALOGMESSAGE:logmsg&#125;" &#125; &#125; date &#123; match =&gt; ["logdate", "yyyy-MM-dd HH:mm:ss Z", "ISO8601"] target =&gt; "@timestamp" &#125; &#125;&#125;output &#123; elasticsearch &#123; hosts =&gt; ["localhost:9200"] index =&gt; "%&#123;[fields][service_name]&#125;-%&#123;+YYYY.MM.dd&#125;" # 在es中存储的索引格式，按照“服务名-日期”进行索引 &#125;&#125; 运行 1nohup bin/logstash -f config/logstash.conf &gt; ../logs/logstash.log 2&gt;&amp;1 &amp; echo $! &gt; process.pid kibana环境搭建 下载与安装 12wget https://artifacts.elastic.co/downloads/kibana/kibana-5.6.12-linux-x86_64.tar.gztar -zxvf kibana-5.6.12-linux-x86_64.tar.gz -C /elk/kibana/ 配置kibana /config/kibana.log 123server.port: 5601server.host: "0.0.0.0" #允许其他终端访问elasticsearch.url: "http://localhost:9200" #elasticsearch访问地址 运行 1nohup bin/kibana &gt; ../logs/kibana.log 2&gt;&amp;1 &amp; echo $! &gt; process.pid 验证&emsp;&emsp;访问5601端口有页面即为正常 使用说明Kibana使用说明 查看系统运行状态&emsp;&emsp;访问http://localhsot:5601/status 基本使用&emsp;&emsp;在 Discover 页搜索和浏览数据；在 Visualize 页做数据图表映射；在 Dashboard 页创建并查看自定义仪表板。 参考资料：https://www.elastic.co/guide/cn/kibana/current/index.html elasticsearch查询语法 其中status字段包含active &emsp;&emsp;-&gt;&emsp;&emsp; status:active 其中title字段包含quick或brown。如果省略OR运算符，将使用默认运算符 &emsp;&emsp; -&gt; &emsp;&emsp; title:(quick OR brown) 或者是title:(quick brown) 其中author字段包含精确短语”john smith” &emsp;&emsp; -&gt; &emsp;&emsp; author:”john smith” 其中任何字段book.title，book.content或book.date包含 quick或brown（注意我们需要如何*使用反斜杠转义） &emsp;&emsp; -&gt; &emsp;&emsp; 该字段title具有任何非null值：&emsp;&emsp;-&gt;&emsp;&emsp;_exists_:title 通配符搜索可以在单个术语上运行，使用?替换单个字符，并*替换零个或多个字符 请注意，通配符查询可能会占用大量内存并执行得非常糟糕 - 只需考虑需要查询多少个术语以匹配查询字符串"a* b* c*"。 正则表达式 &emsp;&emsp;-&gt;&emsp;&emsp; /pattern/ 模糊 &emsp;&emsp;-&gt;&emsp;&emsp; quikc~brwn~foks~ 邻近搜索 邻近搜索允许我们指定短语中单词的最大编辑距离：&emsp;&emsp;-&gt;&emsp;&emsp;”fox quick”~5 范围 可以为日期，数字或字符串字段指定范围。包含范围用方括号指定，[min TO max]排他范围用大括号指定{min TO max}。 保留字符 + - = &amp;&amp; || &gt; &lt; ! ( ) { } [ ] ^ “ ~ * ? : \ / 分组 可以将多个术语或子句与括号组合在一起，以形成子查询： 布尔运算符 首选运算符+（此术语必须存在）和- （此术语不得出现）。 提升 使用boost运算符^使一个术语比另一个术语更相关。例如，如果我们想要找到关于fox的所有文件，但我们对quick fox特别感兴趣 &emsp;&emsp;-&gt;&emsp;&emsp; quick^2 fox 参考资料 https://www.elastic.co/guide/en/elasticsearch/reference/6.0/query-dsl-query-string-query.html#_boosting]]></content>
@@ -313,19 +327,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyQT学习记录（二）]]></title>
-    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-2%2F</url>
-    <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
-      <categories>
-        <category>PyQT</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>GUI</tag>
-        <tag>PyQT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
     <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-1%2F</url>
     <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —— PyQt编程指南（Mark Summerfield 著 ）]]></content>
@@ -336,6 +337,19 @@
         <tag>python</tag>
         <tag>PyQt</tag>
         <tag>GUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyQT学习记录（二）]]></title>
+    <url>%2F2018%2F09%2F11%2Fpython%2Fpyqt-2%2F</url>
+    <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
+      <categories>
+        <category>PyQT</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>GUI</tag>
+        <tag>PyQT</tag>
       </tags>
   </entry>
   <entry>
@@ -358,8 +372,8 @@
         <category>middleware</category>
       </categories>
       <tags>
-        <tag>middleware</tag>
         <tag>linux</tag>
+        <tag>middleware</tag>
         <tag>mycat</tag>
         <tag>db</tag>
       </tags>
@@ -384,8 +398,8 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>tools</tag>
+        <tag>java</tag>
         <tag>reconsitution</tag>
       </tags>
   </entry>
@@ -398,8 +412,8 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regular</tag>
         <tag>regex</tag>
+        <tag>regular</tag>
       </tags>
   </entry>
   <entry>
@@ -410,8 +424,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -422,8 +436,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -434,8 +448,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -446,8 +460,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -458,8 +472,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -470,8 +484,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -482,8 +496,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -495,9 +509,9 @@
       </categories>
       <tags>
         <tag>tools</tag>
-        <tag>regular</tag>
-        <tag>regex</tag>
         <tag>code</tag>
+        <tag>regex</tag>
+        <tag>regular</tag>
       </tags>
   </entry>
   <entry>

@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="zhangbohan, icecap, icecap95,blog ,Bohan ,张博涵 ,zhangbohan.dell@gmail.com " />
+  <meta name="keywords" content="linux,elk,midedleware,log," />
 
 
 
@@ -99,17 +99,18 @@
 
 
 
-<meta name="description" content="没有什么大牛学霸，有的只是厚积薄发">
-<meta name="keywords" content="张博涵,icecap">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Icecap">
-<meta property="og:url" content="http://http://132.232.42.89/tags/regular/index.html">
+<meta name="description" content="ElasticSearch(ES)有关的基本概念 Cluster和Node&amp;emsp;&amp;emsp;ES中的Cluster是对外提供搜索服务的集群，组成这个Cluster的各个节点叫做Node。&amp;emsp;&amp;emsp;Node分类：IndexNode（提供读写），DataNode（只提供数据存储和访问，负载均衡等），节点之间关系对等，弱化的Master节点提供维护集群状态的功能 Shards&amp;ems">
+<meta name="keywords" content="linux,elk,midedleware,log">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSearch学习笔记（一）">
+<meta property="og:url" content="http://http://132.232.42.89/2018/12/04/middleware/elk-1/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="没有什么大牛学霸，有的只是厚积薄发">
+<meta property="og:description" content="ElasticSearch(ES)有关的基本概念 Cluster和Node&amp;emsp;&amp;emsp;ES中的Cluster是对外提供搜索服务的集群，组成这个Cluster的各个节点叫做Node。&amp;emsp;&amp;emsp;Node分类：IndexNode（提供读写），DataNode（只提供数据存储和访问，负载均衡等），节点之间关系对等，弱化的Master节点提供维护集群状态的功能 Shards&amp;ems">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-05T12:18:59.368Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Icecap">
-<meta name="twitter:description" content="没有什么大牛学霸，有的只是厚积薄发">
+<meta name="twitter:title" content="ElasticSearch学习笔记（一）">
+<meta name="twitter:description" content="ElasticSearch(ES)有关的基本概念 Cluster和Node&amp;emsp;&amp;emsp;ES中的Cluster是对外提供搜索服务的集群，组成这个Cluster的各个节点叫做Node。&amp;emsp;&amp;emsp;Node分类：IndexNode（提供读写），DataNode（只提供数据存储和访问，负载均衡等），节点之间关系对等，弱化的Master节点提供维护集群状态的功能 Shards&amp;ems">
 
 
 
@@ -139,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/tags/regular/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2018/12/04/middleware/elk-1/"/>
 
 
 
 
 
-  <title>标签: regular | Icecap</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>ElasticSearch学习笔记（一） | Icecap</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -164,7 +165,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,82 +303,209 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>regular<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/12/04/middleware/elk-1/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bohan Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/game.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Icecap">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/28/regex-using/" itemprop="url">
-              
-                <span itemprop="name">正则表达式应用（持续更新）</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">ElasticSearch学习笔记（一）</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-28T19:49:30+08:00"
-              content="2018-08-28" >
-          08-28
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-04T20:25:04+08:00">
+                2018-12-04
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-05T20:18:59+08:00">
+                2018-12-05
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/elk/" itemprop="url" rel="index">
+                    <span itemprop="name">elk</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/04/middleware/elk-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/12/04/middleware/elk-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/25/regex/" itemprop="url">
-              
-                <span itemprop="name">Regular Expression 正则表达式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-25T18:04:37+08:00"
-              content="2018-08-25" >
-          08-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h2 id="ElasticSearch-ES-有关的基本概念"><a href="#ElasticSearch-ES-有关的基本概念" class="headerlink" title="ElasticSearch(ES)有关的基本概念"></a>ElasticSearch(ES)有关的基本概念</h2><ol>
+<li>Cluster和Node<br>&emsp;&emsp;ES中的Cluster是对外提供搜索服务的集群，组成这个Cluster的各个节点叫做Node。<br>&emsp;&emsp;Node分类：IndexNode（提供读写），DataNode（只提供数据存储和访问，负载均衡等），节点之间关系对等，弱化的Master节点提供维护集群状态的功能</li>
+<li>Shards<br>&emsp;&emsp;ES将一个完整的索引分成若干部分，每一个部分就是一个Shards，每一个Shards实际上是一个基于Lucene的索引，Shards数量一遍在创建索引前指定，且索引创建后不能修改，es的检索实际上是对多个Shards上的搜索结果的合并</li>
+<li>Replicas<br>&emsp;&emsp;Replicas是索引的冗余备份，可用于放置数据丢失或用来做负载均衡</li>
+<li>Recovery<br>&emsp;&emsp;在有节点加入或者退出集群的时候，ES会对索引分片Shards重新分配</li>
+<li>River<br>&emsp;&emsp;River是一个运行在集群内部的插件，用来从外部获取异构数据，然后在ES里创建索引。常见的有RabbitMQ river Plugin、MongoDB river Plugin等</li>
+<li>Gateway<br>&emsp;&emsp;是ES索引数据快照的存储方式，当ES关机重启的时候，就会从Gateway中读取索引快照</li>
+<li>Discovery.zen<br>&emsp;&emsp;Es的自动发现节点机制，用来实现节点自动发现和Master节点选举，Master节点负责处理及节点的加入和退出以及分片Shards的重新分配</li>
+<li>Transport<br>&emsp;&emsp;代表ES内部节点或者集群与客户端的交互方式。默认TCP，同时支持HTTP（JSON）、Thrift、Servlet等</li>
+<li>Index、Type、Document、Field<br> &emsp;&emsp;Index是ES存储数据的地方，类似RDBMS的Database;Type类似于table;Document是一行数据，可以有不同字段集合;Field是最小存储单位</li>
+<li>Mapping<br>&emsp;&emsp;定义索引下Type的字段处理规则</li>
+</ol>
+<h2 id="ES默认端口"><a href="#ES默认端口" class="headerlink" title="ES默认端口"></a>ES默认端口</h2><p>9200 是HTTP端口，9300 是Transport端口</p>
+<h2 id="ES索引机器构建"><a href="#ES索引机器构建" class="headerlink" title="ES索引机器构建"></a>ES索引机器构建</h2><p>&emsp;&emsp;ES是基于Luence构建的，采用倒排索引机制，将文件封装为索引，将文本信息切分为成为Token的信息单元，再利用这些Token构建倒排索引。</p>
 
       
     </div>
+    
+    
+    
+       
 
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/elk/" rel="tag"># elk</a>
+          
+            <a href="/tags/midedleware/" rel="tag"># midedleware</a>
+          
+            <a href="/tags/log/" rel="tag"># log</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/04/middleware/elk/" rel="next" title="ELK日志分析系统搭建过程以及使用说明">
+                <i class="fa fa-chevron-left"></i> ELK日志分析系统搭建过程以及使用说明
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -385,6 +513,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/12/04/middleware/elk-1/"
+           data-title="ElasticSearch学习笔记（一）" data-url="http://http://132.232.42.89/2018/12/04/middleware/elk-1/">
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -405,8 +544,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -534,6 +682,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ElasticSearch-ES-有关的基本概念"><span class="nav-number">1.</span> <span class="nav-text">ElasticSearch(ES)有关的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES默认端口"><span class="nav-number">2.</span> <span class="nav-text">ES默认端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES索引机器构建"><span class="nav-number">3.</span> <span class="nav-text">ES索引机器构建</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -679,6 +843,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1047,42 +1215,7 @@
         onPopupClose();
       }
     });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1100,6 +1233,21 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
   
 
 
