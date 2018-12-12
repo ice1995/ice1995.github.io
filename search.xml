@@ -103,9 +103,9 @@
       </categories>
       <tags>
         <tag>Machine Learning</tag>
-        <tag>AI</tag>
         <tag>Algorithm</tag>
         <tag>python</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -117,9 +117,9 @@
       </categories>
       <tags>
         <tag>Machine Learning</tag>
-        <tag>AI</tag>
         <tag>Algorithm</tag>
         <tag>python</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -393,7 +393,7 @@
   <entry>
     <title><![CDATA[正则表达式应用（持续更新）]]></title>
     <url>%2F2018%2F08%2F28%2Fusing%2Fregex-using%2F</url>
-    <content type="text"><![CDATA[编程过程中使用的正则记录 b:b#/+.$ 统计代码行数（不包括以# / 开头的 亦不包括空行） \d(9|[0-7])\d{4} 中国邮政编码 ^((13[0-9])|(154,\\D)|(18[0,5-9]))\\d{8}$ 手机号 ^([a-z0-9A-Z]+[-|\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$ 邮箱 ^[\u4e00-\u9fa5]{0,}$ 汉字 http(s)?://([\\w-]+\.)+[\\w-]+(/[\\w- ./?%&amp;=])? url (((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])).){3}((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])) ipv4 &lt;!-{2,}.*-{2,}&gt; html注释 [1-8]\d{5}((18)|(19)|(20))?\d{2}[0-1]\d[0-3]\d{4}[\dX]? 中华人民共和国身份证号码]]></content>
+    <content type="text"><![CDATA[编程过程中使用的正则记录 b[\^:b#/]+.$ 统计代码行数（不包括以# / 开头的 亦不包括空行） \d(9|[0-7])\d{4} 中国邮政编码 ^((13[0-9])|(154,\\D)|(18[0,5-9]))\\d{8}$ 手机号 ^([a-z0-9A-Z]+[-|\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\.)+[a-zA-Z]{2,}$ 邮箱 ^[\u4e00-\u9fa5]{0,}$ 汉字 http(s)?://([\\w-]+\.)+[\\w-]+(/[\\w- ./?%&amp;=])? url (((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])).){3}((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])) ipv4 &lt;!-{2,}.*-{2,}&gt; html注释 [1-8]\d{5}((18)|(19)|(20))?\d{2}[0-1]\d[0-3]\d{4}[\dX]? 中华人民共和国身份证号码]]></content>
       <categories>
         <category>regular</category>
       </categories>
