@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="Icecap">
 <meta property="og:description" content="向量ADT(Aabstract data type)&amp;emsp;&amp;emsp;抽象数据类型，数据模型+定义在该模型上的一组操作 DS(Data Structure)&amp;emsp;&amp;emsp;数据结构, 基于某种特定语言，实现ADT的一整套算法   c/c++语言中，数组A[]中的元素与[0,n)内的编号一一对应。每个元素均可以有编号唯一指代，并可以直接访问，也称之为线性数组。向量是数组的抽象与泛化，由">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-28T09:05:33.824Z">
+<meta property="og:updated_time" content="2018-12-28T09:09:07.390Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="向量">
 <meta name="twitter:description" content="向量ADT(Aabstract data type)&amp;emsp;&amp;emsp;抽象数据类型，数据模型+定义在该模型上的一组操作 DS(Data Structure)&amp;emsp;&amp;emsp;数据结构, 基于某种特定语言，实现ADT的一整套算法   c/c++语言中，数组A[]中的元素与[0,n)内的编号一一对应。每个元素均可以有编号唯一指代，并可以直接访问，也称之为线性数组。向量是数组的抽象与泛化，由">
@@ -362,7 +362,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-12-28T17:05:33+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-28T17:09:07+08:00">
                 2018-12-28
               </time>
             
@@ -504,8 +504,9 @@
 </tbody>
 </table>
 </div>
-<h3 id="递增式扩容"><a href="#递增式扩容" class="headerlink" title="递增式扩容"></a>递增式扩容</h3><p>最快情况：在初始容量为0的空向量中，连续插入n=m*I &gt;&gt; 2个元素…<br>在1，I+1,2I+1..都需要扩容</p>
-<script type="math/tex; mode=display">总体耗时：I*(m-1)*m/2 = O(n^2) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;  平均分摊成本 O(n)</script>
+<h3 id="递增式扩容"><a href="#递增式扩容" class="headerlink" title="递增式扩容"></a>递增式扩容</h3><p>最坏情况：在初始容量为0的空向量中，连续插入n=m*I &gt;&gt; 2个元素…<br>在1，I+1,2I+1..都需要扩容</p>
+<script type="math/tex; mode=display">总体耗时：I*(m-1)*m/2 = O(n^2) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;  平均分摊成本 O(n)</script><h3 id="加倍式扩容"><a href="#加倍式扩容" class="headerlink" title="加倍式扩容"></a>加倍式扩容</h3><p>最坏情况： 在初始容量为1的空向量中，连续插入$n=2^m &gt;&gt; 2$个元素<br>在1,2,4,8…都需要扩容  </p>
+<script type="math/tex; mode=display">总体耗时：O(n) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;  平均分摊成本 O(1)</script>
       
     </div>
     
@@ -753,7 +754,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#向量"><span class="nav-number">1.</span> <span class="nav-text">向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量ADT接口"><span class="nav-number">1.1.</span> <span class="nav-text">向量ADT接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递增式扩容"><span class="nav-number">1.2.</span> <span class="nav-text">递增式扩容</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#向量"><span class="nav-number">1.</span> <span class="nav-text">向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量ADT接口"><span class="nav-number">1.1.</span> <span class="nav-text">向量ADT接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递增式扩容"><span class="nav-number">1.2.</span> <span class="nav-text">递增式扩容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加倍式扩容"><span class="nav-number">1.3.</span> <span class="nav-text">加倍式扩容</span></a></li></ol></li></ol></div>
             
 
           </div>
