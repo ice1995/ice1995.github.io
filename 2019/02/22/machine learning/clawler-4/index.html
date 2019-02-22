@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="python,Machine Learning,AI,Algorithm," />
+  <meta name="keywords" content="web crawler,python,data mining," />
 
 
 
@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 ----Arthur Samuel&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 ----Tom Mitchell&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;em">
-<meta name="keywords" content="python,Machine Learning,AI,Algorithm">
+<meta name="description" content="XPath&amp;emsp;&amp;emsp;XPath，全程XML Path Language，是一门在XML文档中查找信息的语言，也适用于HTML文档的搜索&amp;emsp;&amp;emsp;XPath用法 &amp;emsp;&amp;emsp; lxml库用法 概览常用规则     表达式 描述     nodename 选取此节点的所有子节点   / 从当前节点选取直接子节点   // 从当前节点选取子孙节点   . 选取当前">
+<meta name="keywords" content="web crawler,python,data mining">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习（一）---初识">
-<meta property="og:url" content="http://http://132.232.42.89/2018/10/15/theory/algorithm/machinelearning/machinelearning-1/index.html">
+<meta property="og:title" content="数据挖掘--爬虫--解析库">
+<meta property="og:url" content="http://http://132.232.42.89/2019/02/22/machine learning/clawler-4/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 ----Arthur Samuel&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 ----Tom Mitchell&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;em">
+<meta property="og:description" content="XPath&amp;emsp;&amp;emsp;XPath，全程XML Path Language，是一门在XML文档中查找信息的语言，也适用于HTML文档的搜索&amp;emsp;&amp;emsp;XPath用法 &amp;emsp;&amp;emsp; lxml库用法 概览常用规则     表达式 描述     nodename 选取此节点的所有子节点   / 从当前节点选取直接子节点   // 从当前节点选取子孙节点   . 选取当前">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-23T12:16:16.543Z">
+<meta property="og:updated_time" content="2019-02-22T06:57:15.281Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习（一）---初识">
-<meta name="twitter:description" content="什么是机器学习？ 在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 ----Arthur Samuel&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp; 一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 ----Tom Mitchell&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;em">
+<meta name="twitter:title" content="数据挖掘--爬虫--解析库">
+<meta name="twitter:description" content="XPath&amp;emsp;&amp;emsp;XPath，全程XML Path Language，是一门在XML文档中查找信息的语言，也适用于HTML文档的搜索&amp;emsp;&amp;emsp;XPath用法 &amp;emsp;&amp;emsp; lxml库用法 概览常用规则     表达式 描述     nodename 选取此节点的所有子节点   / 从当前节点选取直接子节点   // 从当前节点选取子孙节点   . 选取当前">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://http://132.232.42.89/2018/10/15/theory/algorithm/machinelearning/machinelearning-1/"/>
+  <link rel="canonical" href="http://http://132.232.42.89/2019/02/22/machine learning/clawler-4/"/>
 
 
 
 
 
-  <title>机器学习（一）---初识 | Icecap</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>数据挖掘--爬虫--解析库 | Icecap</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2018/10/15/theory/algorithm/machinelearning/machinelearning-1/">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2019/02/22/machine learning/clawler-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bohan Zhang">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">机器学习（一）---初识</h1>
+          <h1 class="post-title" itemprop="name headline">数据挖掘--爬虫--解析库</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T20:15:23+08:00">
-                2018-10-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-22T14:33:11+08:00">
+                2019-02-22
               </time>
             
 
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-23T20:16:16+08:00">
-                2018-11-23
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-22T14:57:15+08:00">
+                2019-02-22
               </time>
             
           </span>
@@ -381,8 +381,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
+                  <a href="/categories/crawler/" itemprop="url" rel="index">
+                    <span itemprop="name">crawler</span>
                   </a>
                 </span>
 
@@ -399,8 +399,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/15/theory/algorithm/machinelearning/machinelearning-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/10/15/theory/algorithm/machinelearning/machinelearning-1/" itemprop="commentCount"></span>
+                <a href="/2019/02/22/machine learning/clawler-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/22/machine learning/clawler-4/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -428,20 +428,162 @@
       
 
       
-        <h3 id="什么是机器学习？"><a href="#什么是机器学习？" class="headerlink" title="什么是机器学习？"></a>什么是机器学习？</h3><ol>
-<li>在没有明确设置的情况下，使得计算机具有学习能力的研究领域。 <div style="text-align:right">----Arthur Samuel&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div></li>
-<li>一个程序被认为能从经验E中学习，解决任务T，达到性能度量值P，当且仅当，有了经验E，经过P评判，程序在处理T时的性能有所提升。 <div style="text-align:right">----Tom Mitchell&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</div>
-
-</li>
-</ol>
-<h3 id="什么是监督学习？"><a href="#什么是监督学习？" class="headerlink" title="什么是监督学习？"></a>什么是监督学习？</h3><p>&emsp;&emsp;给算法一个数据集，该数据集内包含有正确的答案，让算法给出更多的准确答案。 </p>
-<h4 id="属性（特征）"><a href="#属性（特征）" class="headerlink" title="属性（特征）"></a>属性（特征）</h4><p>&emsp;&emsp;一般来说，一个学习问题通常会考虑一系列 n 个 样本 数据，然后尝试预测未知数据的属性。 如果每个样本是 多个属性的数据 （比如说是一个多维记录），就说它有许多“属性”，或称 features(特征) 。</p>
-<h4 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h4><p>&emsp;&emsp;回归指的是，我们在试着推测出一系列的连续值属性。<br>&emsp;&emsp;回归问题的一个例子是预测鲑鱼的长度是其年龄和体重的函数。</p>
-<h4 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h4><p>&emsp;&emsp;分类指的是，样本属于两个或更多个类，我们想从已经标记的数据中学习如何预测未标记数据的类别。<br>&emsp;&emsp;分类问题的一个例子是手写数字识别，其目的是将每个输入向量分配给有限数目的离散类别之一。 我们通常把分类视作监督学习的一个离散形式（区别于连续形式），从有限的类别中，给每个样本贴上正确的标签。</p>
-<h3 id="什么是无监督学习？"><a href="#什么是无监督学习？" class="headerlink" title="什么是无监督学习？"></a>什么是无监督学习？</h3><p>&emsp;&emsp;给算法一个数据集，让算法自动的将该数据集分成n类。（与监督学习不同，数据集没有任何的标签：或者有相同的标签；或者没有标签）。<br>&emsp;&emsp; 其中训练数据由没有任何相应目标值的一组输入向量x组成。这种问题的目标可能是在数据中发现彼此类似的示例所聚成的组，这种问题称为 聚类 , 或者，确定输入空间内的数据分布，称为 密度估计 ，又或从高维数据投影数据空间缩小到二维或三维以进行 可视化。</p>
-<h4 id="无监督学习的应用领域"><a href="#无监督学习的应用领域" class="headerlink" title="无监督学习的应用领域"></a>无监督学习的应用领域</h4><p>&emsp;&emsp;社交网络分析、细分市场、天文数据分析、组织大型计算机集群等</p>
-<h3 id="什么是加速比"><a href="#什么是加速比" class="headerlink" title="什么是加速比"></a>什么是加速比</h3><p>&emsp;&emsp;一个程序的串行版本的运行时间和他的并行版本的运行时间的比值。</p>
-<!-- ### 什么是加速效率 -->
+        <h3 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h3><p>&emsp;&emsp;XPath，全程XML Path Language，是一门在XML文档中查找信息的语言，也适用于HTML文档的搜索<br>&emsp;&emsp;XPath<a href="http://www.w3school.com.cn/xpath/index.asp" target="_blank" rel="noopener">用法</a> &emsp;&emsp; lxml库<a href="http://lxml.de/" target="_blank" rel="noopener">用法</a></p>
+<h4 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h4><p>常用规则</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nodename</td>
+<td>选取此节点的所有子节点</td>
+</tr>
+<tr>
+<td>/</td>
+<td>从当前节点选取直接子节点</td>
+</tr>
+<tr>
+<td>//</td>
+<td>从当前节点选取子孙节点</td>
+</tr>
+<tr>
+<td>.</td>
+<td>选取当前节点</td>
+</tr>
+<tr>
+<td>..</td>
+<td>选取当前节点的父节点</td>
+</tr>
+<tr>
+<td>@</td>
+<td>选取属性</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>运算符以及介绍</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>or</td>
+<td>或</td>
+<td></td>
+</tr>
+<tr>
+<td>and</td>
+<td>与</td>
+<td></td>
+</tr>
+<tr>
+<td>mod</td>
+<td>取余</td>
+<td></td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+<td>计算两个节点集</td>
+<td>//book \</td>
+<td>//cd</td>
+<td>返回所有拥有book和cd元素的节点集</td>
+</tr>
+<tr>
+<td>+</td>
+<td>加法</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+</tr>
+<tr>
+<td>div</td>
+<td>除法</td>
+</tr>
+<tr>
+<td>=</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小于等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Beautiful-soup"><a href="#Beautiful-soup" class="headerlink" title="Beautiful soup"></a>Beautiful soup</h3><p>&emsp;&emsp;Beautiful Soup就是Python的一个HTML或XML的解析库</p>
+<h4 id="解析器"><a href="#解析器" class="headerlink" title="解析器"></a>解析器</h4><p>Beautiful soup在解析时实际上依赖解析库，支持的解析库如下</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解析器</th>
+<th>使用的方法</th>
+<th>优势</th>
+<th>劣势</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python标准库</td>
+<td>BeautifulSoup(markup,”html.parser”)</td>
+<td>Python内置标准库，执行速度适中，文档容错能力强</td>
+<td>Python2.7.3以及3.2.2之前的版本文档容错能力差</td>
+</tr>
+<tr>
+<td>lxml html解析器</td>
+<td>BeautifulSoup(markup,”lxml”)</td>
+<td>速度快，文档容错能力强</td>
+<td>需要c语言库</td>
+</tr>
+<tr>
+<td>lxml xml解析器</td>
+<td>BeautifulSoup(markup,”xml”)</td>
+<td>速度快，唯一支持xml的解析器</td>
+<td>需要c语言库</td>
+</tr>
+<tr>
+<td>html5lib</td>
+<td>BeautifulSoup(markup,”html5lib”)</td>
+<td>最好的容错性、以浏览器的方式解析文档、生成html5格式的文档</td>
+<td>速度慢、不依赖扩展</td>
+</tr>
+</tbody>
+</table>
+</div>
 
       
     </div>
@@ -458,13 +600,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/web-crawler/" rel="tag"># web crawler</a>
+          
             <a href="/tags/python/" rel="tag"># python</a>
           
-            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
-          
-            <a href="/tags/AI/" rel="tag"># AI</a>
-          
-            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            <a href="/tags/data-mining/" rel="tag"># data mining</a>
           
         </div>
       
@@ -477,8 +617,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/15/using/java/framework/springcloud-5/" rel="next" title="Spring Cloud(五) Feign">
-                <i class="fa fa-chevron-left"></i> Spring Cloud(五) Feign
+              <a href="/2019/02/22/machine learning/crawler-3/" rel="next" title="数据挖掘--爬虫--基础库">
+                <i class="fa fa-chevron-left"></i> 数据挖掘--爬虫--基础库
               </a>
             
           </div>
@@ -486,10 +626,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/15/theory/algorithm/machinelearning/machinelearning-2/" rel="prev" title="机器学习（二）---- 单变量线性回归">
-                机器学习（二）---- 单变量线性回归 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,8 +656,8 @@
 
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/10/15/theory/algorithm/machinelearning/machinelearning-1/"
-           data-title="机器学习（一）---初识" data-url="http://http://132.232.42.89/2018/10/15/theory/algorithm/machinelearning/machinelearning-1/">
+      <div class="ds-thread" data-thread-key="2019/02/22/machine learning/clawler-4/"
+           data-title="数据挖掘--爬虫--解析库" data-url="http://http://132.232.42.89/2019/02/22/machine learning/clawler-4/">
       </div>
     </div>
 
@@ -696,7 +832,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是机器学习？"><span class="nav-number">1.</span> <span class="nav-text">什么是机器学习？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是监督学习？"><span class="nav-number">2.</span> <span class="nav-text">什么是监督学习？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性（特征）"><span class="nav-number">2.1.</span> <span class="nav-text">属性（特征）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回归问题"><span class="nav-number">2.2.</span> <span class="nav-text">回归问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类问题"><span class="nav-number">2.3.</span> <span class="nav-text">分类问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是无监督学习？"><span class="nav-number">3.</span> <span class="nav-text">什么是无监督学习？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督学习的应用领域"><span class="nav-number">3.1.</span> <span class="nav-text">无监督学习的应用领域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是加速比"><span class="nav-number">4.</span> <span class="nav-text">什么是加速比</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#XPath"><span class="nav-number">1.</span> <span class="nav-text">XPath</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概览"><span class="nav-number">1.1.</span> <span class="nav-text">概览</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Beautiful-soup"><span class="nav-number">2.</span> <span class="nav-text">Beautiful soup</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解析器"><span class="nav-number">2.1.</span> <span class="nav-text">解析器</span></a></li></ol></li></ol></div>
             
 
           </div>
