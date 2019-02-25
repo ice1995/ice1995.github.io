@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<!--<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style> -->
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="web crawler,python,data mining," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="python环境的准备工作&amp;emsp;&amp;emsp;博主在这使用windows作为系统环境，安装anaconda3作为python运行与库管理环境。&amp;emsp;&amp;emsp;anaconda官方网站&amp;emsp;&amp;emsp;如果下载速度过慢，可以选择使用清华大学镜像，使用说明 请求库的安装requests库&amp;amp;emsp;&amp;amp;emsp;阻塞式http请求库 1pip3 install requ">
+<meta name="keywords" content="web crawler,python,data mining">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据挖掘--爬虫--准备工作">
+<meta property="og:url" content="http://http://132.232.42.89/2019/02/21/machine learning/clawler/crawler-1/index.html">
+<meta property="og:site_name" content="Icecap">
+<meta property="og:description" content="python环境的准备工作&amp;emsp;&amp;emsp;博主在这使用windows作为系统环境，安装anaconda3作为python运行与库管理环境。&amp;emsp;&amp;emsp;anaconda官方网站&amp;emsp;&amp;emsp;如果下载速度过慢，可以选择使用清华大学镜像，使用说明 请求库的安装requests库&amp;amp;emsp;&amp;amp;emsp;阻塞式http请求库 1pip3 install requ">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-21T10:10:14.487Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据挖掘--爬虫--准备工作">
+<meta name="twitter:description" content="python环境的准备工作&amp;emsp;&amp;emsp;博主在这使用windows作为系统环境，安装anaconda3作为python运行与库管理环境。&amp;emsp;&amp;emsp;anaconda官方网站&amp;emsp;&amp;emsp;如果下载速度过慢，可以选择使用清华大学镜像，使用说明 请求库的安装requests库&amp;amp;emsp;&amp;amp;emsp;阻塞式http请求库 1pip3 install requ">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://http://132.232.42.89/2019/02/21/machine learning/clawler/crawler-1/"/>
+
+
+
+
+
+  <title>数据挖掘--爬虫--准备工作 | Icecap</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Icecap</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">张博涵的个人博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://http://132.232.42.89/2019/02/21/machine learning/clawler/crawler-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bohan Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/game.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Icecap">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据挖掘--爬虫--准备工作</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-21T10:16:25+08:00">
+                2019-02-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-21T18:10:14+08:00">
+                2019-02-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/crawler/" itemprop="url" rel="index">
+                    <span itemprop="name">crawler</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/21/machine learning/clawler/crawler-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/02/21/machine learning/clawler/crawler-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="python环境的准备工作"><a href="#python环境的准备工作" class="headerlink" title="python环境的准备工作"></a>python环境的准备工作</h3><p>&emsp;&emsp;博主在这使用windows作为系统环境，安装anaconda3作为python运行与库管理环境。<br>&emsp;&emsp;anaconda<a href="https://www.anaconda.com/" target="_blank" rel="noopener">官方网站</a><br>&emsp;&emsp;如果下载速度过慢，可以选择使用<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">清华大学镜像</a>，<a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/" target="_blank" rel="noopener">使用说明</a></p>
+<h3 id="请求库的安装"><a href="#请求库的安装" class="headerlink" title="请求库的安装"></a>请求库的安装</h3><h4 id="requests库"><a href="#requests库" class="headerlink" title="requests库"></a>requests库</h4><pre><code>&amp;emsp;&amp;emsp;阻塞式http请求库
+</code></pre><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install requests</span><br></pre></td></tr></table></figure>
+<h4 id="selenuim库"><a href="#selenuim库" class="headerlink" title="selenuim库"></a>selenuim库</h4><p>   &emsp;&emsp;selenuim是一个自动化测试工具，可以使用它驱动浏览器执行特定的动作。如点击，下拉等等</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install selenuim</span><br></pre></td></tr></table></figure>
+<h4 id="Google-Chrome-以及其驱动-ChromeDriver"><a href="#Google-Chrome-以及其驱动-ChromeDriver" class="headerlink" title="Google Chrome 以及其驱动 ChromeDriver"></a>Google Chrome 以及其驱动 ChromeDriver</h4><pre><code>&amp;emsp;&amp;emsp;Google Chrome[下载](https://chrome.en.softonic.com/)&amp;emsp;&amp;emsp; ChromeDriver[下载](https://chromedriver.storage.googleapis.com/index.html)  
+&lt;font color=&quot;red&quot;&gt;注意：安装的chromedriver版本要和google chrome版本相匹配&lt;/font&gt;  
+&amp;emsp;&amp;emsp;将下载下来的chromedriver添加到环境变量，在命令行中进行测试是否成功
+</code></pre><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chromedriver</span><br></pre></td></tr></table></figure>
+<pre><code>显示以下类似内容说明成功
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Starting ChromeDriver 72.0.3626.69 (3c16f8a135abc0d4da2dff33804db79b849a7c38) on port 9515</span><br><span class="line">Only local connections are allowed.</span><br><span class="line">Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code</span><br></pre></td></tr></table></figure>
+<pre><code>在python中进行测试
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver  </span><br><span class="line">brower = webdriver.Chrome()</span><br></pre></td></tr></table></figure>
+<pre><code>运行打开一个新的chrome窗口
+</code></pre><h4 id="Firefox以及其驱动-GeckoDriver"><a href="#Firefox以及其驱动-GeckoDriver" class="headerlink" title="Firefox以及其驱动 GeckoDriver"></a>Firefox以及其驱动 GeckoDriver</h4><pre><code>FireFox[下载](http://www.firefox.com.cn/)&amp;emsp;&amp;emsp;GeckoDriver[下载](https://github.com/mozilla/geckodriver/releases)  
+&lt;font color=&quot;red&quot;&gt;注意：安装的geckodriver版本要和firefox版本相匹配,geckodriver下载界面有版本要求说明，如果geckodriver未起作用，请尝试重装firefox最新版本并重启电脑&lt;/font&gt;  
+&amp;emsp;&amp;emsp;将下载下来的geckodriver添加到环境变量，在命令行中进行测试是否成功
+</code></pre><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geckodriver</span><br></pre></td></tr></table></figure>
+<pre><code>在python中进行测试
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line">brower = webdriver.Firefox()</span><br></pre></td></tr></table></figure>
+<pre><code>运行打开一个新的firefox窗口
+</code></pre><h4 id="PhantomJS"><a href="#PhantomJS" class="headerlink" title="PhantomJS"></a>PhantomJS</h4><p>   &emsp;&emsp;PhantomJS是一个无界面的、可脚本编程的webkit浏览器引擎，<a href="http://phantomjs.org/download.html" target="_blank" rel="noopener">下载</a><br>   &emsp;&emsp;将下载下来的bin文件夹下的phantomjs.exe添加到环境变量，在命令行中进行测试是否成功</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phantomjs</span><br></pre></td></tr></table></figure>
+<pre><code>出现以下内容说明可用
+</code></pre><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phantomjs&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>在python中进行测试
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">brower = webdriver.PhantomJS()</span><br><span class="line">brower.get(<span class="string">"http://www.baidu.com"</span>)</span><br><span class="line">print(brower.current_url))</span><br></pre></td></tr></table></figure>
+<pre><code>使用PhantonJs不会打开一个新的窗口，但实际上已经在后台运行
+</code></pre><h4 id="aiohttp"><a href="#aiohttp" class="headerlink" title="aiohttp"></a>aiohttp</h4><pre><code>异步web服务库
+</code></pre><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install aiohttp</span><br></pre></td></tr></table></figure>
+<pre><code>此外，官方还推荐安装cchardet（字符编码检测库）和aiodns（加速dns解析库），
+</code></pre><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install cchardet aiodns</span><br></pre></td></tr></table></figure>
+<h3 id="解析库的安装"><a href="#解析库的安装" class="headerlink" title="解析库的安装"></a>解析库的安装</h3><h4 id="lxml"><a href="#lxml" class="headerlink" title="lxml"></a>lxml</h4><p>   支持html和xml的解析，支持XPath解析方式，解析效率高</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install lxml</span><br></pre></td></tr></table></figure>
+<h4 id="Beautiful-Soup"><a href="#Beautiful-Soup" class="headerlink" title="Beautiful Soup"></a>Beautiful Soup</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install beautifulsoup4</span><br></pre></td></tr></table></figure>
+<h4 id="pyquery"><a href="#pyquery" class="headerlink" title="pyquery"></a>pyquery</h4><p>&emsp;&emsp;pyquery 同样是一个强大的网页解析工具，它提供了和 jQuery 类似的语法来解析 HTML 文梢，支持 css 选择器，使用非常方便.</p>
+   <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyquery</span><br></pre></td></tr></table></figure>
+<h4 id="tesserocr"><a href="#tesserocr" class="headerlink" title="tesserocr"></a>tesserocr</h4><p>   &emsp;&emsp;cor识别，识别各种各样的验证码。tesserocr是对tesseract的一层python封装，因此需要先<a href="https://digi.bib.uni-mannheim.de/tesseract/" target="_blank" rel="noopener">安装tesseract</a>,带dev的是开发版本，不稳定，不带dev的是稳定版本<br>    linux下</p>
+   <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install tesserocr pillow</span><br></pre></td></tr></table></figure>
+<p>   windows下<br>    <a href="https://github.com/simonflueckiger/tesserocr-windows_build/releases" target="_blank" rel="noopener">whl安装文件下载地址</a></p>
+<pre><code><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tesserocr-<span class="number">2</span>.<span class="number">4</span>.<span class="number">0</span>-cp36-cp36m-win_amd64.whl</span><br></pre></td></tr></table></figure>
+</code></pre><p>保存<a href="https://raw.githubusercontent.com/Python3WebSpider/TestTess/master/image.png" target="_blank" rel="noopener">测试图片</a>到本地，分别对tesseract和tesserocr进行测试，看能否识别</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tesseract image.png result -l eng &amp;&amp; <span class="built_in">type</span> result.txt</span><br><span class="line">#运行结果</span><br><span class="line">#Tesseract Open Source OCR Engine v3.<span class="number">0</span>S .<span class="number">01</span> with Leptonica</span><br><span class="line">#Python3WebSpider</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tesserocr</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line">image = Image.open(<span class="string">'D:\\temp\\test\\image.png'</span>)</span><br><span class="line">print(tesserocr.image_to_text(image))</span><br></pre></td></tr></table></figure>
+<h3 id="数据库-略"><a href="#数据库-略" class="headerlink" title="数据库(略)"></a>数据库(略)</h3><h3 id="存储库"><a href="#存储库" class="headerlink" title="存储库"></a>存储库</h3><h4 id="PyMysql"><a href="#PyMysql" class="headerlink" title="PyMysql"></a>PyMysql</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pymysql</span><br></pre></td></tr></table></figure>
+<h4 id="PyMongo"><a href="#PyMongo" class="headerlink" title="PyMongo"></a>PyMongo</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pymongo</span><br></pre></td></tr></table></figure>
+<h4 id="redis-py"><a href="#redis-py" class="headerlink" title="redis-py"></a>redis-py</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install redis</span><br></pre></td></tr></table></figure>
+<h3 id="WEB库"><a href="#WEB库" class="headerlink" title="WEB库"></a>WEB库</h3><h4 id="flask"><a href="#flask" class="headerlink" title="flask"></a>flask</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install flask</span><br></pre></td></tr></table></figure>
+<h4 id="Tornado"><a href="#Tornado" class="headerlink" title="Tornado"></a>Tornado</h4><p>&emsp;&emsp;Tornado是一个支持异步的web框架，通过使用非阻塞I/O流，可以支撑成千上万的开放连接，效率非常高。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install tornado</span><br></pre></td></tr></table></figure>
+<h3 id="App爬取相关库-暂时放弃"><a href="#App爬取相关库-暂时放弃" class="headerlink" title="App爬取相关库(暂时放弃)"></a>App爬取相关库(暂时放弃)</h3><h3 id="爬虫框架"><a href="#爬虫框架" class="headerlink" title="爬虫框架"></a>爬虫框架</h3><h4 id="pyspider"><a href="#pyspider" class="headerlink" title="pyspider"></a>pyspider</h4><p>&emsp;&emsp;它带有强大的WebUI、脚本编辑器、任务监<br>控器、项目管理器以及结果处理器，同时支持多种数据库后端、多种消息队列，另外还支持JavaScript渲染页面的爬取<br>&emsp;&emsp;pyspider是支持JavaScript渲染的，而这个过程是依赖于PhantomJS的，所以还需要安装PhantomJS</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pyspider</span><br></pre></td></tr></table></figure>
+<h4 id="Scrapy"><a href="#Scrapy" class="headerlink" title="Scrapy"></a>Scrapy</h4><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install scrapy</span><br></pre></td></tr></table></figure>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://www.cuiqingcai.com" target="_blank" rel="noopener">崔庆才大佬</a>的《python3网络爬虫开发实战》</p>
+
+      
+    </div>
+    
+    
+    
+       
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web-crawler/" rel="tag"># web crawler</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/data-mining/" rel="tag"># data mining</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/14/plan/2019/" rel="next" title="2019">
+                <i class="fa fa-chevron-left"></i> 2019
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/21/machine learning/clawler/crawler-2/" rel="prev" title="数据挖掘--爬虫--爬虫基础">
+                数据挖掘--爬虫--爬虫基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2019/02/21/machine learning/clawler/crawler-1/"
+           data-title="数据挖掘--爬虫--准备工作" data-url="http://http://132.232.42.89/2019/02/21/machine learning/clawler/crawler-1/">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/game.png"
+                alt="Bohan Zhang" />
+            
+              <p class="site-author-name" itemprop="name">Bohan Zhang</p>
+              <p class="site-description motion-element" itemprop="description">没有什么大牛学霸，有的只是厚积薄发</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ice1995" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:zhangbohan.dell@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/103824187384990356542" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/zhangbohan.dell" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/9255436/icecap" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://8bulbs.github.io/" title="8bulbs" target="_blank">8bulbs</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://heroneverdie.com/" title="Alex" target="_blank">Alex</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nepno.com/" title="nep大佬" target="_blank">nep大佬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://cuiqingcai.com/" title="崔庆才大佬" target="_blank">崔庆才大佬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://crossoverjie.top/" title="crossoverjie大佬" target="_blank">crossoverjie大佬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://119.27.181.91/" title="prism17" target="_blank">prism17</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#python环境的准备工作"><span class="nav-number">1.</span> <span class="nav-text">python环境的准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求库的安装"><span class="nav-number">2.</span> <span class="nav-text">请求库的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#requests库"><span class="nav-number">2.1.</span> <span class="nav-text">requests库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#selenuim库"><span class="nav-number">2.2.</span> <span class="nav-text">selenuim库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Chrome-以及其驱动-ChromeDriver"><span class="nav-number">2.3.</span> <span class="nav-text">Google Chrome 以及其驱动 ChromeDriver</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Firefox以及其驱动-GeckoDriver"><span class="nav-number">2.4.</span> <span class="nav-text">Firefox以及其驱动 GeckoDriver</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PhantomJS"><span class="nav-number">2.5.</span> <span class="nav-text">PhantomJS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#aiohttp"><span class="nav-number">2.6.</span> <span class="nav-text">aiohttp</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析库的安装"><span class="nav-number">3.</span> <span class="nav-text">解析库的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lxml"><span class="nav-number">3.1.</span> <span class="nav-text">lxml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Beautiful-Soup"><span class="nav-number">3.2.</span> <span class="nav-text">Beautiful Soup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pyquery"><span class="nav-number">3.3.</span> <span class="nav-text">pyquery</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tesserocr"><span class="nav-number">3.4.</span> <span class="nav-text">tesserocr</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库-略"><span class="nav-number">4.</span> <span class="nav-text">数据库(略)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储库"><span class="nav-number">5.</span> <span class="nav-text">存储库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PyMysql"><span class="nav-number">5.1.</span> <span class="nav-text">PyMysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PyMongo"><span class="nav-number">5.2.</span> <span class="nav-text">PyMongo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#redis-py"><span class="nav-number">5.3.</span> <span class="nav-text">redis-py</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WEB库"><span class="nav-number">6.</span> <span class="nav-text">WEB库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flask"><span class="nav-number">6.1.</span> <span class="nav-text">flask</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tornado"><span class="nav-number">6.2.</span> <span class="nav-text">Tornado</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App爬取相关库-暂时放弃"><span class="nav-number">7.</span> <span class="nav-text">App爬取相关库(暂时放弃)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬虫框架"><span class="nav-number">8.</span> <span class="nav-text">爬虫框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pyspider"><span class="nav-number">8.1.</span> <span class="nav-text">pyspider</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrapy"><span class="nav-number">8.2.</span> <span class="nav-text">Scrapy</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangbohan.dell@gmail.com</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+ 
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+ 
+
+
+
+<div class="footer-custom">
+	鲁ICP备18038198号&nbsp;&nbsp;	<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37072402371021" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://zhangbohan.xyz/images/beian.png" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">鲁公网安备 37072402371021号</p></a>
+</div>
+
+ 
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
