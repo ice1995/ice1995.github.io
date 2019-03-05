@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[数据挖掘--爬虫--动态渲染页面爬取]]></title>
+    <url>%2F2019%2F02%2F25%2Fmachine%20learning%2Fclawler%2Fclawler-6%2F</url>
+    <content type="text"><![CDATA[selenium的使用&emsp;&emsp;官方文档&emsp;&emsp;selenium是一个自动化测试工具，利用它可以驱动浏览器执行特定的动作，还可以获取浏览器当前呈现页面的源码。 等待条件以及其含义&emsp;&emsp;官方文档 123wait = WebDriverWait(browser,1)wait.until(EC.presence_of_element_located((By.ID,'content_left')))#until中的即为等待条件 等待条件 含义 title_is 标题是某内容 title_contains 标题包含某内容 persence_of_element_localted 节点加载出来，传入定位元素，如(By.ID,’p’) visibility_of_element_localted 节点可见，传入定位元素 visibility_of 可见，传入节点对象 persence_of_all_element_localted 所有节点加载出来 text_to_be_present_in_element 某个节点文本包含某文字 text_to_be_present_in_element_value 某个节点值包含某文字 frame_to_be_availiable_and_switch_to_it 加载并切换 invisibility_of_element_located 节点不可见 element_to_be_clickable 节点可点击 staleness_of 判断一个节点是否仍在DOM，可判断页面是否已经刷新 element_t_be_selected 节点可选择，传入节点对象 element_located_to_be_clickable 节点可选择，传入定位元组 element_selection_state_to_be 传入节点对象以及状态，相等返回true，否则false element_located_selection_state_to_be 传入定位元组以及状态，相等返回true，否则false alert_is_present 是否出现警告]]></content>
+      <categories>
+        <category>crawler</category>
+      </categories>
+      <tags>
+        <tag>web crawler</tag>
+        <tag>python</tag>
+        <tag>data mining</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据挖掘--爬虫--Ajax数据爬取]]></title>
+    <url>%2F2019%2F02%2F22%2Fmachine%20learning%2Fclawler%2Fclawler-5%2F</url>
+    <content type="text"><![CDATA[Ajax&emsp;&emsp;Ajax，全程Asynchronous JavaScript and XML，即异步的JavaScript和XML，在保证页面不被刷新、页面链接不改变的情况下与服务器交换数据并更新部分网页的技术。 爬取今日头条街拍123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384#!/usr/bin/env python3# -*- coding: utf-8 -*-""" @author zhangbohan.dell@gmail.com@function:@create 2019/2/25 11:12"""import osfrom hashlib import md5from multiprocessing.pool import Poolimport requestsfrom bs4 import BeautifulSoupfrom urllib.parse import urlencodedef get_page(offset): params = &#123; 'aid': '24', 'app_name': 'web_search', 'offset': offset, 'format': 'json', 'keyword': '街拍', 'autoload': 'true', 'count': '20', 'en_qc': '1', 'cur_tab': '1', 'from': 'search_tab', 'pd': 'syntheis' &#125; url = 'https://www.toutiao.com/api/search/content/?' + urlencode(params) try: response = requests.get(url) if response.status_code == 200: return response.json() except requests.ConnectionError: return Nonedef get_image(json): if json.get('data'): for item in json.get('data'): title = item.get('title') images = item.get('image_list') for image in images: yield &#123; 'image': image.get('url'), 'title': title &#125;def save_image(item): if not os.path.exists(item.get('title')): os.mkdir(item.get('title')) try: response = requests.get(item.get('image')) if response.status_code == 200: file_path = '&#123;0&#125;/&#123;1&#125;.&#123;2&#125;'.format(item.get('title'), md5(response.content).hexdigest(), 'jpg') if not os.path.exists(file_path): with open(file_path, 'wb') as f: f.write(response.content) else: print('Already Downloaded', file_path) except requests.ConnectionError: print('Failed to save Image')def main(offset): json = get_page(offset) for item in get_image(json): print(item) save_image(item)GROUP_START = 1GROUP_END = 20if __name__ == '__main__': pool = Pool() groups = ([x * 20 for x in range(GROUP_START, GROUP_END + 1)]) pool.map(main, groups) pool.map(main, groups) pool.close() pool.join() 参考资料崔庆才大佬的《python3网络爬虫开发实战》]]></content>
+      <categories>
+        <category>crawler</category>
+      </categories>
+      <tags>
+        <tag>web crawler</tag>
+        <tag>python</tag>
+        <tag>data mining</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数据挖掘--爬虫--解析库]]></title>
     <url>%2F2019%2F02%2F22%2Fmachine%20learning%2Fclawler%2Fclawler-4%2F</url>
     <content type="text"><![CDATA[XPath&emsp;&emsp;XPath，全程XML Path Language，是一门在XML文档中查找信息的语言，也适用于HTML文档的搜索&emsp;&emsp;XPath用法 &emsp;&emsp; lxml库用法 概览常用规则 表达式 描述 nodename 选取此节点的所有子节点 / 从当前节点选取直接子节点 // 从当前节点选取子孙节点 . 选取当前节点 .. 选取当前节点的父节点 @ 选取属性 运算符以及介绍 运算符 描述 实例 返回值 or 或 and 与 mod 取余 \ 计算两个节点集 //book \ //cd 返回所有拥有book和cd元素的节点集 + 加法 - 减法 * 乘法 div 除法 = 等于 != 不等于 &lt; 小于 &gt; 大于 &gt;= 大于等于 &lt;= 小于等 Beautiful soup&emsp;&emsp;Beautiful Soup就是Python的一个HTML或XML的解析库 解析器Beautiful soup在解析时实际上依赖解析库，支持的解析库如下 解析器 使用的方法 优势 劣势 Python标准库 BeautifulSoup(markup,”html.parser”) Python内置标准库，执行速度适中，文档容错能力强 Python2.7.3以及3.2.2之前的版本文档容错能力差 lxml html解析器 BeautifulSoup(markup,”lxml”) 速度快，文档容错能力强 需要c语言库 lxml xml解析器 BeautifulSoup(markup,”xml”) 速度快，唯一支持xml的解析器 需要c语言库 html5lib BeautifulSoup(markup,”html5lib”) 最好的容错性、以浏览器的方式解析文档、生成html5格式的文档 速度慢、不依赖扩展 puquery&emsp;&emsp;获取元素方式和jquery类似 参考资料崔庆才大佬的《python3网络爬虫开发实战》]]></content>
@@ -65,18 +91,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2019]]></title>
-    <url>%2F2019%2F02%2F14%2F2019%2F</url>
-    <content type="text"><![CDATA[工作 系统学习数据挖掘部分知识以及大数据相关知识 规范编码，提升代码质量 为以后的几年赚取足够的学费 学习 考研学习，其中991c语言与数据结构同时为以下做准备（目标 北京航空航天大学软件学院软件工程非全日制硕士） 阅读源码，增长见识 开源一个小的开源项目 系统学习数据结构、和算法内容并应用于工作中进行实践 坚持技术博客的编写 生活 控制饮食，坚持锻炼，减肥10kg（3-12月 1kg/月） 养成有规律的作息习惯，提高个人自律能力 控制娱乐时间 坚持不乱花钱，能省则省]]></content>
-      <categories>
-        <category>plan</category>
-      </categories>
-      <tags>
-        <tag>plan</tag>
-        <tag>personal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[向量]]></title>
     <url>%2F2018%2F12%2F28%2Ftheory%2Falgorithm%2Fdsa%2Fvector%2F</url>
     <content type="text"><![CDATA[向量ADT(Aabstract data type)&emsp;&emsp;抽象数据类型，数据模型+定义在该模型上的一组操作 DS(Data Structure)&emsp;&emsp;数据结构, 基于某种特定语言，实现ADT的一整套算法 &emsp;&emsp;c/c++语言中，数组A[]中的元素与[0,n)内的编号一一对应。每个元素均可以有编号唯一指代，并可以直接访问，也称之为线性数组。&emsp;&emsp;向量是数组的抽象与泛化，由一组元素按线性次序封装而成. 各元素与[0,n)内的秩一一对应 (循秩访问) 元素的类型不局限于基本类型 操作、管理更加简化、统一与安全 可更为便捷的参与复杂的数据类型的定制与实 现 向量ADT接口 操作 功能 适用对象 size() 报告向量当前的规模(向量长度) 向量 Get(r) 获取秩为r的元素 向量 put(r,e) 用e替换秩为r元素的数值 向量 insert(r,e) e作为秩为r元素插入，原后继元素依次后移 向量 Remove(r) 删除秩为r的元素，返回该元素中原本存放的对象 向量 disordered() 判断所有元素是否已按非降序排列 向量 sort() 调整各元素位置，使之按非降序排列 向量 find(e) 查找目标元素e 向量 search(e) 查找目标元素e，返回不大于e且秩最大的元素 有序向量 deduplicate() 剔除重复元素 向量 Uniquify 剔除重复元素 有序向量 traverse() 遍历向量并统一处理所有元素，处理方法由函数对象制定 向量 递增式扩容最坏情况：在初始容量为0的空向量中，连续插入n=m*I &gt;&gt; 2个元素…在1，I+1,2I+1..都需要扩容 总体耗时：I*(m-1)*m/2 = O(n^2) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; 平均分摊成本 O(n)装填因子：100% 加倍式扩容最坏情况： 在初始容量为1的空向量中，连续插入$n=2^m &gt;&gt; 2$个元素在1,2,4,8…都需要扩容 总体耗时：O(n) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; 平均分摊成本 O(1)装填因子：50%]]></content>
@@ -132,7 +146,7 @@
   <entry>
     <title><![CDATA[大数据环境搭建过程记录]]></title>
     <url>%2F2018%2F11%2F23%2Fusing%2Fbigdata%2Fbigdata-server-environment-construct%2F</url>
-    <content type="text"><![CDATA[步骤一、配置免密登录&emsp;&emsp;配置服务器间ssh免密登录 前提条件 系统已经安装有ssh 操作用户最好拥有/etc/hosts文件的读写权限或者用户拥有sudo权限 操作用户拥有ssh-keygen命令权限 过程 修改hostss文件(/etc/hosts) 1sudo vim /etc/hosts 添加以下内容 123192.168.126.150 hadoop1192.168.126.151 hadoop2192.168.126.152 hadoop3 在每一台服务器上生成ssh登录密钥 1ssh-keygen -t rsa &emsp;&emsp;在~文件夹（当前用户个人目录）下生成.ssh隐藏文件夹以及id_rsa id_rsa.pub文件，id_rsa是私钥文件，id_rsa.pub是公钥文件 分别将所有的（这里指三台服务器）id_rsa.pub内的内容拼接到一个文件中(authorized_keys),内容如下 123ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA9/09V+rJxmK1Qpoh3q1egXc1XLaBhO/gZCvQYzdC3CqN3Bv+IYduernvSXCLGZGweDP3Caw223/QiDDe2g2FB3+XmUSlkldpaRS5fGMIO4OAM5MjNtmkiruLuH0d8OQubxkzT8TTCfJLosfnT0jbls6cYPHmidcy1jAU82TpExCgz73zrJNLRXnS7tPPMW4IK9A0mChg11Ohn+ldZOqK7P80kR5951rHBd97fCLl8xl5UZ1Ep5XslT+Q+DLUhYPXk0NWNnDCPNsnNEAdF/jfBOOscrZkU0ahz1rYP6Zz9xDcC2kxhEDwf9aXD/wLOXJv4B/hv6/RUtrbYVrl3Fk30w== test@hadoop01ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA4Sd0LKEhnuHhYdI/nM8diQZSKjeJ4LYIjyVqqdp1igKXFBxU2EcVADkq4S/Uupx5GBlTxmVWWREp5W3pcK0Z+I8FCpr4AAVpKqOOua5RUJg7NzmTiWf9tUnVKerwa7IYi/n0wuwBNyps123ajOtNkC4oFez3NQgXywpMX7wIQVLCldtRQCm2UHZQHMU55qHnEj3BzZqNg4vdPRygxDZubB65pQJVIBWp03LsKUahm3bL3hUL7A2mlUwCz/mXZrZUc1q/DSmGIGpxc2jc/ukSV/gG5APgyxTiEkvSIECPWhP9fJCGlTbng+NXVFtbPQ6vI0Mblb02s4G8tMWvRB9Jrw== test@hadoop02ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA3GLFdnz5aOG3XLT+8GR/YzqJXG2K+b7M+CRiVRPcqJJvqe9UFu8/IydM/jQTIi5OhHBXqnGMcAjK76fEkMiWaPdmILbiMYr11Lx56ZhqRqsVvE8ndO2f5j45vvADZbGAJWGEVIr6tnf6QBocBg/j4h9BWryFvgfhdzM+C3CZmyRyOUJwz8NNmkXySIH/1EUHOSrwmOnO12HwLW3/nXaowR9KfyYbz2tjNJdGApeQwVQgkKeFZ8Pqq8UZBcFZeg3Zbzdwxo86y1lUxL896Wgh++jhys5eyKgruOgnSgbqy0kOu32R/uRaSt9IrnkPMPGaEi340x9+mcm9c8/PoU36Cw== test@hadoop03 将authorized_keys文件上传到每一台服务器下的~/.ssh/下 修改.ssh文件夹以及authorized_keys文件的权限 12chmod 700 ~/.sshchmod 600 ~/.ssh/authorized_keys 验证&emsp;&emsp;使用ssh命令登录其他两台服务器，成功即可，如果服务器间的用户名相同，则可以忽略用户名 步骤二、jdk安装与配置&emsp;&emsp;下载安装jdk并配置环境变量 前提条件 已经下载jdk的安装包（这里选用tar.gz压缩包文件） 操作用户最好拥有/etc/profile文件的读写权限或者用户拥有sudo权限 安装配置过程 解压 12mkdir -p /opt/javatar -zxvf jdk-8u201-linux-x64.tar.gz -C /opt/java 修改环境变量 1sudo vim /etc/profile 在profile文件末尾添加 123export JAVA_HOME=/opt/java/jdk1.8.0_201export PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/binexport CLASSPATH=.$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 使修改的profile立刻生效 1source /etc/profile 步骤三、zookeeper安装与配置&emsp;&emsp;配置zookeeper集群 前提条件 已经下载zookeeper的安装包 安装配置过程 解压安装包 12mkdir -p /opt/zookeepertar -zxvf zookeeper.tar.gz -C /opt/zookeeper 配置zoo.cfg 在zookeeper/conf目录下，将zoo_sample.cfg复制为zoo.cfg，在其中配置 1234567tickTime=4000initLimit=20dataDir=/opt/zookeeper/dataclientPort=2181server.1=192.168.126.150:2888:3888server.2=192.168.126.151:2888:3888server.3=192.168.126.152:2888:3888 注意，zookeeper集群中所有节点的zoo.cfg文件一致。 在zoo.cfg配置的dataDir下创建myid文件，其中只有一个数字，表明当前节点的server.id，与zoo.cfg中配置一致。 修改日志文件输出位置(红色为需要修改的地方)，按天输出到指定文件夹 12mkdir -p /opt/log/zookeepervim /opt/zookeeper/bin/zkEnv.sh 12345678if [ "x$&#123;ZOO_LOG_DIR&#125;" = "x" ]thenZOO_LOG_DIR="/opt/log/zookeeper/"fiif [ "x$&#123;ZOO_LOG4J_PROP&#125;" = "x" ]thenZOO_LOG4J_PROP="INFO,ROLLINGFILE"fi 1vim /opt/zookeeper/conf/log4j.properties 12zookeeper.root.logger=INFO, ROLLINGFILElog4j.appender.ROLLINGFILE=org.apache.log4j.DailyRollingFileAppender 启动zk服务：zkServer.sh start（启动应尽量所有节点同时启动） 停止zk服务：zkServer.sh stop 查看zk状态：zkServer.sh status 重启zk服务：zkServer.sh restart 步骤四、hadoop安装与配置 安装和配置hadoop1节点的hadoop 配置hadoop-env.sh 配置jdk安装目录 配置hadoop配置文件目录 配置环境变量 12export JAVA_HOME=/opt/java/jdk1.8.0_201export HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop 配置core-site.xml 1234567891011121314&lt;configuration&gt; &lt;property&gt; &lt;name&gt;fs.defaultFS&lt;/name&gt; &lt;value&gt;hdfs://ns&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;hadoop.tmp.dir&lt;/name&gt; &lt;value&gt;/opt/log/hadoop&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;ha.zookeeper.quorum&lt;/name&gt; &lt;value&gt;hadoop1:2181,hadoop2:2181,hadoop3:2181&lt;/value&gt; &lt;/property&gt;&lt;/configuration&gt; 配置hdfs-site.xml 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667&lt;configuration&gt; &lt;property&gt; &lt;name&gt;dfs.nameservices&lt;/name&gt; &lt;value&gt;ns&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.ha.namenodes.ns&lt;/name&gt; &lt;value&gt;nn1,nn2&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.rpc-address.ns.nn1&lt;/name&gt; &lt;value&gt;hadoop1:9000&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.http-address.ns.nn1&lt;/name&gt; &lt;value&gt;hadoop1:50070&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.rpc-address.ns.nn2&lt;/name&gt; &lt;value&gt;hadoop3:9000&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.http-address.ns.nn2&lt;/name&gt; &lt;value&gt;hadoop3:50070&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.shared.edits.dir&lt;/name&gt; &lt;value&gt;qjournal://hadoop1:8485;hadoop2:8485;hadoop3:8485/ns&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.journalnode.edits.dir&lt;/name&gt; &lt;value&gt;/opt/hadoop/journal&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.ha.automatic-failover.enabled&lt;/name&gt; &lt;value&gt;true&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.client.failover.proxy.provider.ns&lt;/name&gt; &lt;value&gt;org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.ha.fencing.methods&lt;/name&gt; &lt;value&gt;sshfence&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.ha.fencing.ssh.private-key-files&lt;/name&gt; &lt;value&gt;/home/sysmon/.ssh/id_rsa&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.replication&lt;/name&gt; &lt;value&gt;3&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.permissions&lt;/name&gt; &lt;value&gt;false&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt; &lt;value&gt;/opt/log/hadoop/namenode&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt; &lt;value&gt;/opt/log/hadoop/datanode&lt;/value&gt; &lt;/property&gt;&lt;/configuration&gt; 配置mapred-site.xml 123456&lt;configuration&gt; &lt;property&gt; &lt;name&gt;mapreduce.framework.name&lt;/name&gt; &lt;value&gt;yarn&lt;/value&gt; &lt;/property&gt;&lt;/configuration&gt; 配置yarn-site.xml 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051&lt;configuration&gt;&lt;!-- Site specific YARN configuration properties --&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.ha.enabled&lt;/name&gt; &lt;value&gt;true&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.ha.rm-ids&lt;/name&gt; &lt;value&gt;rm1,rm2&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.hostname.rm1&lt;/name&gt; &lt;value&gt;hadoop1&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.hostname.rm2&lt;/name&gt; &lt;value&gt;hadoop2&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.recovery.enabled&lt;/name&gt; &lt;value&gt;true&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.store.class&lt;/name&gt; &lt;value&gt;org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.zk-address&lt;/name&gt; &lt;value&gt;hadoop1:2181,hadoop2:2181,hadoop3:2181&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.cluster-id&lt;/name&gt; &lt;value&gt;yarn-ha&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt; &lt;value&gt;hadoop1&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt; &lt;value&gt;mapreduce_shuffle&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.nodemanager.resource.cpu-vcores&lt;/name&gt; &lt;value&gt;4&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt; &lt;value&gt;4096&lt;/value&gt; &lt;/property&gt;&lt;/configuration&gt; 配置环境变量 12345export JAVA_HOME=/opt/java/jdk1.8.0_201export ZOO_HOME=/opt/zookeeperexport HADOOP_HOME=/opt/hadoopexport PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$ZOO_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbinexport CLASSPATH=.$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 根据配置文件，创建相关文件夹，用来存放对应数据 在hadoop目录下创建 journal目录 在/opt/log/hadoop/目录下 创建namenode，datanode目录 通过scp命令，将hadoop安装目录远程cp到其他节点 启动zookeeper集群 1zkServer.sh start 格式化zookeeper在有namenode的节点上 执行 1hdfs zkfc -formatZK #这个指令的作用是在zookeeper集群上生成ha节点 启动journalnode集群在三个节点上分别执行 1hadoop-daemon.sh start journalnode 在hadoop1节点上格式化namenode 1hadoop namenode -format 启动hadoop1节点的namenode 1hadoop-daemon.sh start namenode 把hadoop3节点变为 standby namenode节点在hadoop3节点上执行 12hdfs namenode -bootstrapStandbyhadoop-daemod.sh start namenode 在三个节点上启动datanode节点，分别执行 1hadoop-daemon.sh start datanode 启动zkfc（启动FalioverControllerActive）在hadoop1，hadoop3节点上执行 1hadoop-daemon.sh start zkfc 在hadoop1节点上启动resourcemanager 1start-yarn.sh 在hadoop2节点上启动副resourcemanager 1yarn-daemon.sh start resourcemanager 启动之后hadoop1节点的进程状态： 12345678915376 ResourceManager20610 Jps20468 Kafka18838 QuorumPeerMain14999 DataNode14809 NameNode15484 NodeManager14590 JournalNode15182 DFSZKFailoverController hadoop2节点的进程状态： 12345623554 DataNode23842 ResourceManager24068 NodeManager24965 Jps25690 QuorumPeerMain23324 JournalNode hadoop3节点进程状态： 1234567822340 Jps16391 JournalNode16872 DataNode17081 DFSZKFailoverController22092 Kafka25932 QuorumPeerMain17437 NodeManager16719 NameNode 步骤五、kafka安装 解压软件 12mkdir -p /opt/kafkatar -zxvf kafka_2.11-1.0.2\ .tgz -C /opt/kafka 修改配置文件 config/server.properties —-红色为修改内容，黑色为原先内容，蓝色为添加内容 broker.id=0 #集群内kafka的id，每一台都不能一样 host.name=192.168.126.150 log.retention.hours=168 message.max.byte=5242880 default.replication.factor=2 replica.fetch.max.bytes=5242880 启动（每一台集群内的服务器） 12cd /opt/kafka/kafka_2.11-1.0.2/bin./kafka-server-start.sh -daemon ../config/server.properties 测试 12345#一台服务器中创建消息队列test1，指定2个副本，1个分区./kafka-topics.sh --create --zookeeper hadoop1:2181,hadoop2:2181,hadoop3:2181 --replication-factor 2 --partitions 1 --topic test1./kafka-console-consumer.sh --zookeeper mater:2181,hadoop2:2181,hadoop3:2181 --topiv test1#以下命令在另一台服务器中操作./kafka-console-producer.sh --broker-list hadoop1:9092,hadoop2:9092,hadoop3:9092 --topic test1 在生产者中输入文字，在消费者中查看，验证 步骤六、hive安装与配置 hive不需要任何配置就可以运行，但需配置更改mysql元数据存储 删除hdfs中的/user/hive（之前运行过hive后，才会出现此目录） 1hadoop fs -rmr /user/hive 复制hive/conf/hive-default.xml.template为hive-site.xml，然后在配置中添加： 12345678910111213141516&lt;property&gt; &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt; &lt;value&gt;jdbc:mysql://192.168.126.154:3306/hive?useSSL=false&lt;/value&gt;&lt;/property&gt;&lt;property&gt; &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt; &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;&lt;/property&gt;&lt;property&gt; &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt; &lt;value&gt;account&lt;/value&gt;&lt;/property&gt;&lt;property&gt; &lt;name&gt;javax.jdo.option.ConnectnPassword&lt;/name&gt; &lt;value&gt;password&lt;/value&gt;&lt;/property&gt; 将mysql的链接jar包拷贝到hive到lib目录下。 还有，将hive-site.xml配置文件里的 value值带：的，都改成绝对路径，否则报错，hadoop不认带：的路径。（所有的 ${system:java.io.tmpdir} 改成 /tmp/） mysql中要手动创建hive数据库 1create database hive character set latin1; 如果出现没有权限的问题，在mysql中授权（在安装mysql的机器上执行） 1mysql -r root -p 123grant all privileges on *.* to 'root'@'%' identified by 'root' with grant option;grant all privileges on *.* to 'root'@'hadoop1' identified by 'root' with grant option;flush privileges; 步骤七、hbase安装与配置 修改conf/hbase-env.sh 12export JAVA_HOME=/opt/java/jdk1.8.0_201export HBASE_MANAGES_ZK=false 修改hbase-site.xml 123456789101112131415161718&lt;configuration&gt; &lt;property&gt; &lt;name&gt;hbase.rootdir&lt;/name&gt; &lt;value&gt;hdfs://hadoop1:9000/hbase&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.replication&lt;/name&gt; &lt;value&gt;1&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;hbase.cluster.distributed&lt;/name&gt; &lt;value&gt;true&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt; &lt;value&gt;hadoop1:2181,hadoop2:2181,hadoop3:2181&lt;/value&gt; &lt;/property&gt;&lt;/configuration&gt; 修改conf/regionservers文件，其中配置所有hbase主机，每个主机独占一行，hbase启动或关闭时会按照此配置顺序执行。 启动 主节点： 1start-hbae.sh 在一从节点启动备用hhadoop1实现高可用： 1hbase-daemon.sh start hadoop1 关闭集群：stop-hbase.sh]]></content>
+    <content type="text"><![CDATA[步骤一、配置免密登录&emsp;&emsp;配置服务器间ssh免密登录 前提条件 系统已经安装有ssh 操作用户最好拥有/etc/hosts文件的读写权限或者用户拥有sudo权限 操作用户拥有ssh-keygen命令权限 过程 修改hostss文件(/etc/hosts) 1sudo vim /etc/hosts 添加以下内容 123192.168.126.150 hadoop1192.168.126.151 hadoop2192.168.126.152 hadoop3 在每一台服务器上生成ssh登录密钥 1ssh-keygen -t rsa &emsp;&emsp;在~文件夹（当前用户个人目录）下生成.ssh隐藏文件夹以及id_rsa id_rsa.pub文件，id_rsa是私钥文件，id_rsa.pub是公钥文件 分别将所有的（这里指三台服务器）id_rsa.pub内的内容拼接到一个文件中(authorized_keys),内容如下 123ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA9/09V+rJxmK1Qpoh3q1egXc1XLaBhO/gZCvQYzdC3CqN3Bv+IYduernvSXCLGZGweDP3Caw223/QiDDe2g2FB3+XmUSlkldpaRS5fGMIO4OAM5MjNtmkiruLuH0d8OQubxkzT8TTCfJLosfnT0jbls6cYPHmidcy1jAU82TpExCgz73zrJNLRXnS7tPPMW4IK9A0mChg11Ohn+ldZOqK7P80kR5951rHBd97fCLl8xl5UZ1Ep5XslT+Q+DLUhYPXk0NWNnDCPNsnNEAdF/jfBOOscrZkU0ahz1rYP6Zz9xDcC2kxhEDwf9aXD/wLOXJv4B/hv6/RUtrbYVrl3Fk30w== test@hadoop01ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA4Sd0LKEhnuHhYdI/nM8diQZSKjeJ4LYIjyVqqdp1igKXFBxU2EcVADkq4S/Uupx5GBlTxmVWWREp5W3pcK0Z+I8FCpr4AAVpKqOOua5RUJg7NzmTiWf9tUnVKerwa7IYi/n0wuwBNyps123ajOtNkC4oFez3NQgXywpMX7wIQVLCldtRQCm2UHZQHMU55qHnEj3BzZqNg4vdPRygxDZubB65pQJVIBWp03LsKUahm3bL3hUL7A2mlUwCz/mXZrZUc1q/DSmGIGpxc2jc/ukSV/gG5APgyxTiEkvSIECPWhP9fJCGlTbng+NXVFtbPQ6vI0Mblb02s4G8tMWvRB9Jrw== test@hadoop02ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA3GLFdnz5aOG3XLT+8GR/YzqJXG2K+b7M+CRiVRPcqJJvqe9UFu8/IydM/jQTIi5OhHBXqnGMcAjK76fEkMiWaPdmILbiMYr11Lx56ZhqRqsVvE8ndO2f5j45vvADZbGAJWGEVIr6tnf6QBocBg/j4h9BWryFvgfhdzM+C3CZmyRyOUJwz8NNmkXySIH/1EUHOSrwmOnO12HwLW3/nXaowR9KfyYbz2tjNJdGApeQwVQgkKeFZ8Pqq8UZBcFZeg3Zbzdwxo86y1lUxL896Wgh++jhys5eyKgruOgnSgbqy0kOu32R/uRaSt9IrnkPMPGaEi340x9+mcm9c8/PoU36Cw== test@hadoop03 将authorized_keys文件上传到每一台服务器下的~/.ssh/下 修改.ssh文件夹以及authorized_keys文件的权限 12chmod 700 ~/.sshchmod 600 ~/.ssh/authorized_keys 验证&emsp;&emsp;使用ssh命令登录其他两台服务器，成功即可，如果服务器间的用户名相同，则可以忽略用户名 步骤二、jdk安装与配置&emsp;&emsp;下载安装jdk并配置环境变量 前提条件 已经下载jdk的安装包（这里选用tar.gz压缩包文件） 操作用户最好拥有/etc/profile文件的读写权限或者用户拥有sudo权限 安装配置过程 解压 12mkdir -p /opt/javatar -zxvf jdk-8u201-linux-x64.tar.gz -C /opt/java 修改环境变量 1sudo vim /etc/profile 在profile文件末尾添加 123export JAVA_HOME=/opt/java/jdk1.8.0_201export PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/binexport CLASSPATH=.$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 使修改的profile立刻生效 1source /etc/profile 步骤三、zookeeper安装与配置&emsp;&emsp;配置zookeeper集群 前提条件 已经下载zookeeper的安装包 安装配置过程 解压安装包 12mkdir -p /opt/zookeepertar -zxvf zookeeper.tar.gz -C /opt/zookeeper 配置zoo.cfg 在zookeeper/conf目录下，将zoo_sample.cfg复制为zoo.cfg，在其中配置 1234567tickTime=4000initLimit=20dataDir=/opt/zookeeper/dataclientPort=2181server.1=192.168.126.150:2888:3888server.2=192.168.126.151:2888:3888server.3=192.168.126.152:2888:3888 注意，zookeeper集群中所有节点的zoo.cfg文件一致。 在zoo.cfg配置的dataDir下创建myid文件，其中只有一个数字，表明当前节点的server.id，与zoo.cfg中配置一致。 修改日志文件输出位置(红色为需要修改的地方)，按天输出到指定文件夹 12mkdir -p /opt/log/zookeepervim /opt/zookeeper/bin/zkEnv.sh 12345678if [ "x$&#123;ZOO_LOG_DIR&#125;" = "x" ]thenZOO_LOG_DIR="/opt/log/zookeeper/"fiif [ "x$&#123;ZOO_LOG4J_PROP&#125;" = "x" ]thenZOO_LOG4J_PROP="INFO,ROLLINGFILE"fi 1vim /opt/zookeeper/conf/log4j.properties 12zookeeper.root.logger=INFO, ROLLINGFILElog4j.appender.ROLLINGFILE=org.apache.log4j.DailyRollingFileAppender 启动zk服务：zkServer.sh start（启动应尽量所有节点同时启动） 停止zk服务：zkServer.sh stop 查看zk状态：zkServer.sh status 重启zk服务：zkServer.sh restart 步骤四、hadoop安装与配置 安装和配置hadoop1节点的hadoop 配置hadoop-env.sh 配置jdk安装目录 配置hadoop配置文件目录 配置环境变量 12export JAVA_HOME=/opt/java/jdk1.8.0_201export HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop 配置core-site.xml 1234567891011121314&lt;configuration&gt; &lt;property&gt; &lt;name&gt;fs.defaultFS&lt;/name&gt; &lt;value&gt;hdfs://ns&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;hadoop.tmp.dir&lt;/name&gt; &lt;value&gt;/opt/log/hadoop&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;ha.zookeeper.quorum&lt;/name&gt; &lt;value&gt;hadoop1:2181,hadoop2:2181,hadoop3:2181&lt;/value&gt; &lt;/property&gt;&lt;/configuration&gt; 配置hdfs-site.xml 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667&lt;configuration&gt; &lt;property&gt; &lt;name&gt;dfs.nameservices&lt;/name&gt; &lt;value&gt;ns&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.ha.namenodes.ns&lt;/name&gt; &lt;value&gt;nn1,nn2&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.rpc-address.ns.nn1&lt;/name&gt; &lt;value&gt;hadoop1:9000&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.http-address.ns.nn1&lt;/name&gt; &lt;value&gt;hadoop1:50070&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.rpc-address.ns.nn2&lt;/name&gt; &lt;value&gt;hadoop3:9000&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.http-address.ns.nn2&lt;/name&gt; &lt;value&gt;hadoop3:50070&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.shared.edits.dir&lt;/name&gt; &lt;value&gt;qjournal://hadoop1:8485;hadoop2:8485;hadoop3:8485/ns&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.journalnode.edits.dir&lt;/name&gt; &lt;value&gt;/opt/hadoop/journal&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.ha.automatic-failover.enabled&lt;/name&gt; &lt;value&gt;true&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.client.failover.proxy.provider.ns&lt;/name&gt; &lt;value&gt;org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.ha.fencing.methods&lt;/name&gt; &lt;value&gt;sshfence&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.ha.fencing.ssh.private-key-files&lt;/name&gt; &lt;value&gt;/home/sysmon/.ssh/id_rsa&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.replication&lt;/name&gt; &lt;value&gt;3&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.permissions&lt;/name&gt; &lt;value&gt;false&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt; &lt;value&gt;/opt/log/hadoop/namenode&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt; &lt;value&gt;/opt/log/hadoop/datanode&lt;/value&gt; &lt;/property&gt;&lt;/configuration&gt; 配置mapred-site.xml 123456&lt;configuration&gt; &lt;property&gt; &lt;name&gt;mapreduce.framework.name&lt;/name&gt; &lt;value&gt;yarn&lt;/value&gt; &lt;/property&gt;&lt;/configuration&gt; 配置yarn-site.xml 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051&lt;configuration&gt;&lt;!-- Site specific YARN configuration properties --&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.ha.enabled&lt;/name&gt; &lt;value&gt;true&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.ha.rm-ids&lt;/name&gt; &lt;value&gt;rm1,rm2&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.hostname.rm1&lt;/name&gt; &lt;value&gt;hadoop1&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.hostname.rm2&lt;/name&gt; &lt;value&gt;hadoop2&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.recovery.enabled&lt;/name&gt; &lt;value&gt;true&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.store.class&lt;/name&gt; &lt;value&gt;org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.zk-address&lt;/name&gt; &lt;value&gt;hadoop1:2181,hadoop2:2181,hadoop3:2181&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.cluster-id&lt;/name&gt; &lt;value&gt;yarn-ha&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt; &lt;value&gt;hadoop1&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt; &lt;value&gt;mapreduce_shuffle&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.nodemanager.resource.cpu-vcores&lt;/name&gt; &lt;value&gt;4&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt; &lt;value&gt;4096&lt;/value&gt; &lt;/property&gt;&lt;/configuration&gt; 配置环境变量 12345export JAVA_HOME=/opt/java/jdk1.8.0_201export ZOO_HOME=/opt/zookeeperexport HADOOP_HOME=/opt/hadoopexport PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$ZOO_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbinexport CLASSPATH=.$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 根据配置文件，创建相关文件夹，用来存放对应数据 在hadoop目录下创建 journal目录 在/opt/log/hadoop/目录下 创建namenode，datanode目录 通过scp命令，将hadoop安装目录远程cp到其他节点 启动zookeeper集群 1zkServer.sh start 格式化zookeeper在有namenode的节点上 执行 1hdfs zkfc -formatZK #这个指令的作用是在zookeeper集群上生成ha节点 启动journalnode集群在三个节点上分别执行 1hadoop-daemon.sh start journalnode 在hadoop1节点上格式化namenode 1hadoop namenode -format 启动hadoop1节点的namenode 1hadoop-daemon.sh start namenode 把hadoop3节点变为 standby namenode节点在hadoop3节点上执行 12hdfs namenode -bootstrapStandbyhadoop-daemod.sh start namenode 在三个节点上启动datanode节点，分别执行 1hadoop-daemon.sh start datanode 启动zkfc（启动FalioverControllerActive）在hadoop1，hadoop3节点上执行 1hadoop-daemon.sh start zkfc 在hadoop1节点上启动resourcemanager 1start-yarn.sh 在hadoop2节点上启动副resourcemanager 1yarn-daemon.sh start resourcemanager 启动之后hadoop1节点的进程状态： 12345678915376 ResourceManager20610 Jps20468 Kafka18838 QuorumPeerMain14999 DataNode14809 NameNode15484 NodeManager14590 JournalNode15182 DFSZKFailoverController hadoop2节点的进程状态： 12345623554 DataNode23842 ResourceManager24068 NodeManager24965 Jps25690 QuorumPeerMain23324 JournalNode hadoop3节点进程状态： 1234567822340 Jps16391 JournalNode16872 DataNode17081 DFSZKFailoverController22092 Kafka25932 QuorumPeerMain17437 NodeManager16719 NameNode 步骤五、kafka安装 解压软件 12mkdir -p /opt/kafkatar -zxvf kafka_2.11-1.0.2\ .tgz -C /opt/kafka 修改配置文件 config/server.properties —-红色为修改内容，黑色为原先内容，蓝色为添加内容 broker.id=0 #集群内kafka的id，每一台都不能一样 host.name=192.168.126.150 log.retention.hours=168 message.max.byte=5242880 default.replication.factor=2 replica.fetch.max.bytes=5242880 启动（每一台集群内的服务器） 12cd /opt/kafka/kafka_2.11-1.0.2/bin./kafka-server-start.sh -daemon ../config/server.properties 测试 12345#一台服务器中创建消息队列test1，指定2个副本，1个分区./kafka-topics.sh --create --zookeeper hadoop1:2181,hadoop2:2181,hadoop3:2181 --replication-factor 2 --partitions 1 --topic test1./kafka-console-consumer.sh --zookeeper mater:2181,hadoop2:2181,hadoop3:2181 --topiv test1#以下命令在另一台服务器中操作./kafka-console-producer.sh --broker-list hadoop1:9092,hadoop2:9092,hadoop3:9092 --topic test1 在生产者中输入文字，在消费者中查看，验证 步骤六、hive安装与配置 hive不需要任何配置就可以运行，但需配置更改mysql元数据存储 删除hdfs中的/user/hive（之前运行过hive后，才会出现此目录） 1hadoop fs -rmr /user/hive 复制hive/conf/hive-default.xml.template为hive-site.xml，然后在配置中添加： 12345678910111213141516&lt;property&gt; &lt;name&gt;javax.jdo.option.ConnectionURL&lt;/name&gt; &lt;value&gt;jdbc:mysql://192.168.126.154:3306/hive?useSSL=false&lt;/value&gt;&lt;/property&gt;&lt;property&gt; &lt;name&gt;javax.jdo.option.ConnectionDriverName&lt;/name&gt; &lt;value&gt;com.mysql.jdbc.Driver&lt;/value&gt;&lt;/property&gt;&lt;property&gt; &lt;name&gt;javax.jdo.option.ConnectionUserName&lt;/name&gt; &lt;value&gt;account&lt;/value&gt;&lt;/property&gt;&lt;property&gt; &lt;name&gt;javax.jdo.option.ConnectionPassword&lt;/name&gt; &lt;value&gt;password&lt;/value&gt;&lt;/property&gt; 将mysql的链接jar包拷贝到hive到lib目录下。 还有，将hive-site.xml配置文件里的 value值带：的，都改成绝对路径，否则报错，hadoop不认带：的路径。（所有的 ${system:java.io.tmpdir} 改成 /tmp/） mysql中要手动创建hive数据库 1create database hive character set latin1; 如果出现没有权限的问题，在mysql中授权（在安装mysql的机器上执行） 1mysql -r root -p 123grant all privileges on *.* to 'root'@'%' identified by 'root' with grant option;grant all privileges on *.* to 'root'@'hadoop1' identified by 'root' with grant option;flush privileges; 步骤七、hbase安装与配置 修改conf/hbase-env.sh 12export JAVA_HOME=/opt/java/jdk1.8.0_201export HBASE_MANAGES_ZK=false 修改hbase-site.xml 123456789101112131415161718&lt;configuration&gt; &lt;property&gt; &lt;name&gt;hbase.rootdir&lt;/name&gt; &lt;value&gt;hdfs://hadoop1:9000/hbase&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;dfs.replication&lt;/name&gt; &lt;value&gt;1&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;hbase.cluster.distributed&lt;/name&gt; &lt;value&gt;true&lt;/value&gt; &lt;/property&gt; &lt;property&gt; &lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt; &lt;value&gt;hadoop1:2181,hadoop2:2181,hadoop3:2181&lt;/value&gt; &lt;/property&gt;&lt;/configuration&gt; 修改conf/regionservers文件，其中配置所有hbase主机，每个主机独占一行，hbase启动或关闭时会按照此配置顺序执行。 启动 主节点： 1start-hbae.sh 在一从节点启动备用hhadoop1实现高可用： 1hbase-daemon.sh start hadoop1 关闭集群：stop-hbase.sh]]></content>
       <categories>
         <category>bigdata</category>
       </categories>
@@ -337,8 +351,8 @@
         <category>docker</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>docker</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -416,19 +430,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
-    <url>%2F2018%2F09%2F11%2Fusing%2Fpython%2Fframework%2Fpyqt-1%2F</url>
-    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —— PyQt编程指南（Mark Summerfield 著 ）]]></content>
-      <categories>
-        <category>PyQt</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>PyQt</tag>
-        <tag>GUI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PyQT学习记录（二）]]></title>
     <url>%2F2018%2F09%2F11%2Fusing%2Fpython%2Fframework%2Fpyqt-2%2F</url>
     <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
@@ -439,6 +440,19 @@
         <tag>python</tag>
         <tag>GUI</tag>
         <tag>PyQT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
+    <url>%2F2018%2F09%2F11%2Fusing%2Fpython%2Fframework%2Fpyqt-1%2F</url>
+    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —— PyQt编程指南（Mark Summerfield 著 ）]]></content>
+      <categories>
+        <category>PyQt</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>PyQt</tag>
+        <tag>GUI</tag>
       </tags>
   </entry>
   <entry>
@@ -500,9 +514,9 @@
         <category>regular</category>
       </categories>
       <tags>
-        <tag>regex</tag>
         <tag>tools</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
       </tags>
   </entry>
   <entry>
@@ -513,8 +527,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -525,8 +539,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -537,8 +551,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -549,8 +563,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -561,8 +575,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -573,8 +587,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -585,8 +599,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>net</tag>
         <tag>ccna</tag>
+        <tag>net</tag>
       </tags>
   </entry>
   <entry>
@@ -597,10 +611,10 @@
         <category>regular</category>
       </categories>
       <tags>
-        <tag>code</tag>
-        <tag>regex</tag>
         <tag>tools</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
@@ -611,8 +625,8 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>tools</tag>
         <tag>git</tag>
+        <tag>tools</tag>
       </tags>
   </entry>
   <entry>
