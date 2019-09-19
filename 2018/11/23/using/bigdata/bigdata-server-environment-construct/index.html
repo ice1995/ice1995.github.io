@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="步骤一、配置免密登录&amp;emsp;&amp;emsp;配置服务器间ssh免密登录 前提条件 系统已经安装有ssh 操作用户最好拥有/etc/hosts文件的读写权限或者用户拥有sudo权限 操作用户拥有ssh-keygen命令权限  过程 修改hostss文件(/etc/hosts)  1sudo vim /etc/hosts 添加以下内容  123192.168.126.150 hadoop1192.16">
+<meta name="description" content="步骤一、配置免密登录&amp;emsp;&amp;emsp;配置服务器间ssh免密登录https://atbulbs.github.io/2018/02/03/Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BD%BF%E7%94%A8/ 前提条件 系统已经安装有ssh 操作用户最好拥有/etc/hosts文件的读写权限或者用户拥有sudo权限 操作用户拥有ssh-keygen命令权限  过">
 <meta name="keywords" content="linux,bigdata,environment construct">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据环境搭建过程记录">
 <meta property="og:url" content="http://http://132.232.42.89/2018/11/23/using/bigdata/bigdata-server-environment-construct/index.html">
 <meta property="og:site_name" content="Icecap">
-<meta property="og:description" content="步骤一、配置免密登录&amp;emsp;&amp;emsp;配置服务器间ssh免密登录 前提条件 系统已经安装有ssh 操作用户最好拥有/etc/hosts文件的读写权限或者用户拥有sudo权限 操作用户拥有ssh-keygen命令权限  过程 修改hostss文件(/etc/hosts)  1sudo vim /etc/hosts 添加以下内容  123192.168.126.150 hadoop1192.16">
+<meta property="og:description" content="步骤一、配置免密登录&amp;emsp;&amp;emsp;配置服务器间ssh免密登录https://atbulbs.github.io/2018/02/03/Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BD%BF%E7%94%A8/ 前提条件 系统已经安装有ssh 操作用户最好拥有/etc/hosts文件的读写权限或者用户拥有sudo权限 操作用户拥有ssh-keygen命令权限  过">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T04:41:19.863Z">
+<meta property="og:updated_time" content="2019-04-16T03:24:24.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据环境搭建过程记录">
-<meta name="twitter:description" content="步骤一、配置免密登录&amp;emsp;&amp;emsp;配置服务器间ssh免密登录 前提条件 系统已经安装有ssh 操作用户最好拥有/etc/hosts文件的读写权限或者用户拥有sudo权限 操作用户拥有ssh-keygen命令权限  过程 修改hostss文件(/etc/hosts)  1sudo vim /etc/hosts 添加以下内容  123192.168.126.150 hadoop1192.16">
+<meta name="twitter:description" content="步骤一、配置免密登录&amp;emsp;&amp;emsp;配置服务器间ssh免密登录https://atbulbs.github.io/2018/02/03/Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BD%BF%E7%94%A8/ 前提条件 系统已经安装有ssh 操作用户最好拥有/etc/hosts文件的读写权限或者用户拥有sudo权限 操作用户拥有ssh-keygen命令权限  过">
 
 
 
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T12:41:19+08:00">
-                2019-03-04
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-16T11:24:24+08:00">
+                2019-04-16
               </time>
             
           </span>
@@ -428,7 +428,7 @@
       
 
       
-        <h3 id="步骤一、配置免密登录"><a href="#步骤一、配置免密登录" class="headerlink" title="步骤一、配置免密登录"></a>步骤一、配置免密登录</h3><p>&emsp;&emsp;配置服务器间ssh免密登录</p>
+        <h3 id="步骤一、配置免密登录"><a href="#步骤一、配置免密登录" class="headerlink" title="步骤一、配置免密登录"></a>步骤一、配置免密登录</h3><p>&emsp;&emsp;配置服务器间ssh免密登录<a href="https://atbulbs.github.io/2018/02/03/Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">https://atbulbs.github.io/2018/02/03/Hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BD%BF%E7%94%A8/</a></p>
 <h4 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h4><ol>
 <li>系统已经安装有ssh</li>
 <li>操作用户最好拥有/etc/hosts文件的读写权限或者用户拥有sudo权限</li>
@@ -585,7 +585,7 @@
 <li><p>删除hdfs中的/user/hive（之前运行过hive后，才会出现此目录）</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -rmr /user/hive</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>复制hive/conf/hive-default.xml.template为hive-site.xml，然后在配置中添加：</p>
+<li><p>复制hive/conf/hive-default.xml.template为hive-site.xml，然后在配置中修改：</p>
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://192.168.126.154:3306/hive?useSSL=false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>account<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>password<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p> 将mysql的链接jar包拷贝到hive到lib目录下。<br> 还有，将hive-site.xml配置文件里的 value值带：的，都改成绝对路径，否则报错，hadoop不认带：的路径。（所有的 ${system:java.io.tmpdir} 改成 /tmp/）</p>
 </li>
@@ -594,6 +594,9 @@
 <p> 如果出现没有权限的问题，在mysql中授权（在安装mysql的机器上执行）</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -r root -p</span><br></pre></td></tr></table></figure>
  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'root'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'root'</span>@<span class="string">'hadoop1'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'root'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化元数据</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">schematool -initSchema -dbType mysql</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="步骤七、hbase安装与配置"><a href="#步骤七、hbase安装与配置" class="headerlink" title="步骤七、hbase安装与配置"></a>步骤七、hbase安装与配置</h3><ol>
@@ -756,7 +759,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -767,7 +770,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">64</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -826,7 +829,7 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://8bulbs.github.io/" title="8bulbs" target="_blank">8bulbs</a>
+                    <a href="https://atbulbs.github.io/" title="atbulbs" target="_blank">atbulbs</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
