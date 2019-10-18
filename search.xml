@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nginx的使用（三）-- 使用gzip加速页面加载]]></title>
+    <url>%2F2019%2F10%2F18%2Fusing%2Fmiddleware%2Fnginx-3%2F</url>
+    <content type="text"><![CDATA[介绍Nginx实现资源压缩的原理是通过ngx_http_gzip_module模块拦截请求，并对需要做gzip的类型做gzip，ngx_http_gzip_module是Nginx默认集成的，不需要重新编译，直接开启即可。 配置说明 #$gzip_ratio计算请求的压缩率，$body_bytes_sent请求体大小 log_format main &#39;$remote_addr - $remote_user [$time_local] &quot;$host&quot; - &quot;$request&quot; &#39; &#39;$gzip_ratio - $body_bytes_sent - $request_time&#39;; access_log logs/access.log main; # 开启gzip gzip off; # 启用gzip压缩的最小文件，小于设置值的文件将不会压缩 # 当返回内容大于此值时才会使用gzip进行压缩,以K为单位,当值为0时，所有页面都进行压缩。 gzip_min_length 1k; # gzip 压缩级别，1-9，数字越大压缩的越好，也越占用CPU时间，后面会有详细说明 # 随着压缩级别的升高，压缩比有所提高，但到了级别6后，很难再提高； # 随着压缩级别的升高，处理时间明显变慢； # gzip很消耗cpu的性能，高并发情况下cpu达到100% gzip_comp_level 1; # 进行压缩的文件类型。javascript有多种形式。其中的值可以在 mime.types 文件中找到。 gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png application/vnd.ms-fontobject font/ttf font/opentype font/x-woff image/svg+xml; # 是否在http header中添加Vary: Accept-Encoding，建议开启 gzip_vary on; # 禁用IE 6 gzip # 通过表达式，表明哪些UA头不使用gzip压缩 gzip_disable &quot;MSIE [1-6]\.&quot;; # 设置压缩所需要的缓冲区大小 # 设置用于处理请求压缩的缓冲区数量和大小。比如32 4K表示按照内存页（one memory page）大小以4K为单位（即一个系统中内存页为4K），申请32倍的内存空间。建议此项不设置，使用默认值 gzip_buffers 32 4k; # 设置gzip压缩针对的HTTP协议版本 # 用于识别http协议的版本，早期的浏览器不支持gzip压缩，用户会看到乱码，所以为了支持前期版本加了此选项。默认在http/1.0的协议下不开启gzip压缩。 gzip_http_version 1.0;]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数据挖掘--爬虫--动态渲染页面爬取]]></title>
     <url>%2F2019%2F02%2F25%2Fmachine%20learning%2Fclawler%2Fclawler-6%2F</url>
     <content type="text"><![CDATA[selenium的使用&emsp;&emsp;官方文档&emsp;&emsp;selenium是一个自动化测试工具，利用它可以驱动浏览器执行特定的动作，还可以获取浏览器当前呈现页面的源码。 等待条件以及其含义&emsp;&emsp;官方文档 123wait = WebDriverWait(browser,1)wait.until(EC.presence_of_element_located((By.ID,'content_left')))#until中的即为等待条件 等待条件 含义 title_is 标题是某内容 title_contains 标题包含某内容 persence_of_element_localted 节点加载出来，传入定位元素，如(By.ID,’p’) visibility_of_element_localted 节点可见，传入定位元素 visibility_of 可见，传入节点对象 persence_of_all_element_localted 所有节点加载出来 text_to_be_present_in_element 某个节点文本包含某文字 text_to_be_present_in_element_value 某个节点值包含某文字 frame_to_be_availiable_and_switch_to_it 加载并切换 invisibility_of_element_located 节点不可见 element_to_be_clickable 节点可点击 staleness_of 判断一个节点是否仍在DOM，可判断页面是否已经刷新 element_t_be_selected 节点可选择，传入节点对象 element_located_to_be_clickable 节点可选择，传入定位元组 element_selection_state_to_be 传入节点对象以及状态，相等返回true，否则false element_located_selection_state_to_be 传入定位元组以及状态，相等返回true，否则false alert_is_present 是否出现警告]]></content>
@@ -208,8 +220,8 @@
       <tags>
         <tag>python</tag>
         <tag>Machine Learning</tag>
-        <tag>Algorithm</tag>
         <tag>AI</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -222,8 +234,8 @@
       <tags>
         <tag>python</tag>
         <tag>Machine Learning</tag>
-        <tag>Algorithm</tag>
         <tag>AI</tag>
+        <tag>Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -314,8 +326,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>namespace</tag>
         <tag>kernel</tag>
+        <tag>namespace</tag>
       </tags>
   </entry>
   <entry>
@@ -327,8 +339,8 @@
       </categories>
       <tags>
         <tag>linux</tag>
-        <tag>kernel</tag>
         <tag>cgroup</tag>
+        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
@@ -418,19 +430,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
-    <url>%2F2018%2F09%2F11%2Fusing%2Fpython%2Fframework%2Fpyqt-1%2F</url>
-    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —— PyQt编程指南（Mark Summerfield 著 ）]]></content>
-      <categories>
-        <category>PyQt</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>PyQt</tag>
-        <tag>GUI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PyQT学习记录（二）]]></title>
     <url>%2F2018%2F09%2F11%2Fusing%2Fpython%2Fframework%2Fpyqt-2%2F</url>
     <content type="text"><![CDATA[PyQt5 程序基础解析1234import sysimport time from PyQt5.QtCore import *from PyQt5.QtGui import * 导入sys模块，为了访问在sys.argv列cd cd 表中的那些命令行参数 导入time模块，使用time.sleep() 1app = QApplication(sys.argv) &emsp;&emsp;每个PyQt GUI程序都必须有一个QApplication对象。这个对象会提供访问全局信息的能力，包括程序的目录、屏幕大小、程序运行在哪个屏幕上（对于多线程系统来说）。这个对象还还会提供后续会说到的事件循环。&emsp;&emsp;PyQt可以是是被一些自己的参数的，如 - geometry 和 - style 等，这些参数在QApplication的初始化文档中。 &emsp;&emsp;调用app.exec_()会开始执行QApplication对象的事件循环，第一个事件就是绘制事件，调用QApplication.quit()方法会干净的结束该GUI程序，关闭所有已经打开的窗口，释放所占用的资源，然后退出程序。&emsp;&emsp;事件循环用伪代码展示就是这个样子：123456while True: event = getNextEvent() if event: if event == Terminates: break processEvent(Event) &emsp;&emsp;当用户与应用程序交互的时候，或是发生特定事情时，会在PyQt内部产生一个事件并将其添加到事件列表中去。 PyQt5布局1. 绝对定位&emsp;&emsp;程序指定每个控件的位置和大小(以像素为单位)。绝对定位有以下限制:&emsp;- 如果我们调整窗口，控件的大小和位置不会改变&emsp;- 在各种平台上应用程序看起来会不一样&emsp;- 如果改变字体，我们的应用程序的布局就会改变&emsp;- 如果我们决定改变我们的布局,我们必须完全重做我们的布局 2. 盒布局 Boxlayout&emsp;&emsp;我们使用QHBoxLayout和QVBoxLayout，来分别创建横向布局和纵向布局&emsp;&emsp;如果我们需要把两个按钮放在程序的右下角，创建这样的布局，我们只需要一个水平布局加一个垂直布局的盒子就可以了。再用弹性布局增加一点间隙。 3. 格栅布局&emsp;&emsp;最常用的还是栅格布局了。这种布局是把窗口分为行和列。创建和使用栅格布局，需要使用QGridLayout模块。 做了一个小型的demo关于pyqt的更多知识，有空余时间的时候会继续补充。项目地址： ncmdump项目介绍： 原作者写出了ncm转换为MP3的基础版本，用这不是很方便，就用正在学习的pyrt做了一个初版的demo图形化界面，后续有时间继续优化]]></content>
@@ -439,8 +438,21 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>GUI</tag>
         <tag>PyQT</tag>
+        <tag>GUI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyQt学习记录（一） -- 初识PyQt]]></title>
+    <url>%2F2018%2F09%2F11%2Fusing%2Fpython%2Fframework%2Fpyqt-1%2F</url>
+    <content type="text"><![CDATA[PyQt介绍&emsp;&emsp;PyQt5是一套Python绑定Digia QT5应用的框架。它可用于Python 2和3。本教程使用Python 3。Qt库是最强大的GUI库之一。PyQt5的官方网站http://www.riverbankcomputing.co.uk/news。&emsp;&emsp;PyQt5做为Python的一个模块，它有620多个类和6000个函数和方法。这是一个跨平台的工具包，它可以运行在所有主要的操作系统，包括UNIX，Windows，Mac OS。PyQt5是双重许可。开发者可以在GPL和商业许可之间进行选择。、 PyQt模块 QtCore:包含了核心的非GUI功能。此模块用于处理时间、文件和目录、各种数据类型、流、URL、MIME类型、线程或进程。 QtGui包含类窗口系统集成、事件处理、二维图形、基本成像、字体和文本。 qtwidgets模块包含创造经典桌面风格的用户界面提供了一套UI元素的类。 QtMultimedia包含的类来处理多媒体内容和API来访问相机和收音机的功能。 Qtbluetooth模块包含类的扫描设备和连接并与他们互动。描述模块包含了网络编程的类。这些类便于TCP和IP和UDP客户端和服务器的编码，使网络编程更容易和更便携。 Qtpositioning包含类的利用各种可能的来源，确定位置，包括卫星、Wi-Fi、或一个文本文件。 Enginio模块实现了客户端库访问Qt云服务托管的应用程序运行时。 Qtwebsockets模块包含实现WebSocket协议类。 QtWebKit包含一个基于Webkit2图书馆Web浏览器实现类。 Qtwebkitwidgets包含的类的基础webkit1一用于qtwidgets应用Web浏览器的实现。 QtXml包含与XML文件的类。这个模块为SAX和DOM API提供了实现。 QtSvg模块提供了显示SVG文件内容的类。可伸缩矢量图形（SVG）是一种描述二维图形和图形应用的语言。 QtSql模块提供操作数据库的类。 QtTest包含的功能，使PyQt5应用程序的单元测试 PyQt5尝试1234567891011121314151617181920212223242526272829# -*- coding: utf-8 -*- """PyQt5 学习""" import sys #这里我们提供必要的引用。基本控件位于PyQt5.qtwidgets模块中。from PyQt5.QtWidgets import QApplication, QWidget if __name__ == '__main__': #每一PyQt5应用程序必须创建一个应用程序对象。sys.argv参数是一个列表，从命令行输入参数。 app = QApplication(sys.argv) #QWidget部件是PyQt5所有用户界面对象的基类。他为QWidget提供默认构造函数。默认构造函数没有父类。 w = QWidget() #resize()方法调整窗口的大小。这离是250px宽150px高 w.resize(250, 150) #move()方法移动窗口在屏幕上的位置到x = 300，y = 300坐标。 w.move(300, 300) #设置窗口的标题 w.setWindowTitle('Simple') #显示在屏幕上 w.show() #系统exit()方法确保应用程序干净的退出 #的exec_()方法有下划线。因为执行是一个Python关键词。因此，exec_()代替 sys.exit(app.exec_()) 效果如图： 参考资料https://maicss.gitbooks.io/PyQt5/content/Python Qt GUI 快速编程 —— PyQt编程指南（Mark Summerfield 著 ）]]></content>
+      <categories>
+        <category>PyQt</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>GUI</tag>
+        <tag>PyQt</tag>
       </tags>
   </entry>
   <entry>
@@ -451,8 +463,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>nginx</tag>
         <tag>linux</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -463,8 +475,8 @@
         <category>middleware</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>middleware</tag>
+        <tag>linux</tag>
         <tag>mycat</tag>
         <tag>db</tag>
       </tags>
@@ -502,9 +514,9 @@
         <category>regular</category>
       </categories>
       <tags>
+        <tag>regex</tag>
         <tag>tools</tag>
         <tag>regular</tag>
-        <tag>regex</tag>
       </tags>
   </entry>
   <entry>
@@ -599,10 +611,10 @@
         <category>regular</category>
       </categories>
       <tags>
+        <tag>code</tag>
+        <tag>regex</tag>
         <tag>tools</tag>
         <tag>regular</tag>
-        <tag>regex</tag>
-        <tag>code</tag>
       </tags>
   </entry>
   <entry>
@@ -613,8 +625,8 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>git</tag>
         <tag>tools</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -625,8 +637,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>nginx</tag>
         <tag>linux</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
 </search>
