@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="Francis">
 <meta property="og:description" content="问题描述&amp;emsp;&amp;emsp;假设A、B两个人赌博，假设每一局中每人获胜的概率是相同的，刚开始下的赌注均是100法郎，并且约定双方谁先获胜3局，谁就拿走所有的赌本，但是中途由于一些原因，不得不终止比赛，此时A胜2局，B胜1局，问此时赌本该怎么分配才均匀？&amp;emsp;&amp;emsp;注意：假设在赛点不会出现平局。 思路解析 假设继续赌下去，至多两局结束 若接下来的第四局A胜（1/2），则A获得所有赌注">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-28T12:58:45.864Z">
+<meta property="og:updated_time" content="2020-01-20T03:06:41.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分赌本问题">
 <meta name="twitter:description" content="问题描述&amp;emsp;&amp;emsp;假设A、B两个人赌博，假设每一局中每人获胜的概率是相同的，刚开始下的赌注均是100法郎，并且约定双方谁先获胜3局，谁就拿走所有的赌本，但是中途由于一些原因，不得不终止比赛，此时A胜2局，B胜1局，问此时赌本该怎么分配才均匀？&amp;emsp;&amp;emsp;注意：假设在赛点不会出现平局。 思路解析 假设继续赌下去，至多两局结束 若接下来的第四局A胜（1/2），则A获得所有赌注">
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-28T20:58:45+08:00">
-                2018-09-28
+              <time title="更新于" itemprop="dateModified" datetime="2020-01-20T11:06:41+08:00">
+                2020-01-20
               </time>
             
           </span>
@@ -424,7 +424,7 @@
 <li>若接下来的第四局A胜（1/2），则A获得所有赌注</li>
 <li>若接下来的第四局B胜（1/2），则进行第五局，第五局中，A胜（1/2*1/2=1/4）才能获得所有赌注</li>
 </ol>
-<h4 id="python模拟"><a href="#python模拟" class="headerlink" title="python模拟"></a>python模拟</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">""" @author zhangbohan.dell@gmail.com</span></span><br><span class="line"><span class="string">    @function: 分赌本问题</span></span><br><span class="line"><span class="string">    @create 2018/9/27 11:00"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">:param n 赢钱所需要的局数</span></span><br><span class="line"><span class="string">:param n1 第一个人已经赢得局数</span></span><br><span class="line"><span class="string">:param n2 第二个人已经赢得局数</span></span><br><span class="line"><span class="string">本程序中取n =3,n1 = 2,n2 = 1</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Bookies</span><span class="params">(n, n1, n2)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span> * n - n1 - n2 - <span class="number">1</span>):</span><br><span class="line">        D = random.randint(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> D == <span class="number">1</span>:</span><br><span class="line">            n1 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            n2 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n1 == n:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n2 == n:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n = <span class="number">10000</span></span><br><span class="line">win = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="keyword">if</span> Bookies(<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>) == <span class="number">1</span>:</span><br><span class="line">        win += <span class="number">1</span></span><br><span class="line">print(<span class="string">"A获得赢钱的可能为&#123;&#125;"</span>.format(float(win / n)))</span><br></pre></td></tr></table></figure>
+<h4 id="python模拟"><a href="#python模拟" class="headerlink" title="python模拟"></a>python模拟</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">""" @author zhangbohan.dell@gmail.com</span></span><br><span class="line"><span class="string">    @function: 分赌本问题</span></span><br><span class="line"><span class="string">    @create 2018/9/27 11:00"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">:param n 赢钱所需要的局数</span></span><br><span class="line"><span class="string">:param n1 第一个人已经赢得局数</span></span><br><span class="line"><span class="string">:param n2 第二个人已经赢得局数</span></span><br><span class="line"><span class="string">本程序中取n =3,n1 = 2,n2 = 1</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Bookies</span><span class="params">(n, n1, n2)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span> * n - n1 - n2 - <span class="number">1</span>):</span><br><span class="line">        D = random.randint(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> D == <span class="number">1</span>:</span><br><span class="line">            n1 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            n2 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n1 == n:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n2 == n:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">10000</span></span><br><span class="line">win = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="keyword">if</span> Bookies(<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>) == <span class="number">1</span>:</span><br><span class="line">        win += <span class="number">1</span></span><br><span class="line">print(<span class="string">"A获得赢钱的可能为&#123;&#125;"</span>.format(float(win / n)))</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -548,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +559,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -570,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

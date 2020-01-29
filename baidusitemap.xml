@@ -4,6 +4,55 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/09/27/theory/algorithm/points_bookies/</loc>
+    <lastmod>2020-01-20T03:06:41.401Z</lastmod>
+    <data>
+        <display>
+        <title>分赌本问题</title>
+        <pubTime>2018-09-27T02:52:35.000Z</pubTime>
+        
+        <tag>algorithm</tag>
+         
+        <tag>probability theory</tag>
+         
+         
+           
+             
+              <breadCrumb title="probability theory" url="http://http://132.232.42.89/categories/probability-theory/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/10/15/theory/algorithm/machinelearning/machinelearning-2/</loc>
+    <lastmod>2020-01-20T03:06:26.049Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习（二）---- 单变量线性回归</title>
+        <pubTime>2018-10-15T12:37:33.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>Machine Learning</tag>
+         
+        <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="Machine Learning" url="http://http://132.232.42.89/categories/Machine-Learning/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>http://http://132.232.42.89/2020/01/15/pythonwithc-1/</loc>
     <lastmod>2020-01-15T01:42:03.663Z</lastmod>
     <data>
@@ -21,30 +70,6 @@
            
              
               <breadCrumb title="c/c++" url="http://http://132.232.42.89/categories/c-c/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2020/01/15/pythonwithc/</loc>
-    <lastmod>2020-01-15T01:41:49.092Z</lastmod>
-    <data>
-        <display>
-        <title>python通过boost.python使用c++</title>
-        <pubTime>2020-01-15T01:26:11.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>boost</tag>
-         
-        <tag>c++</tag>
-         
-         
-           
-             
-              <breadCrumb title="c++" url="http://http://132.232.42.89/categories/c/"/>
           
         </display>
     </data>
@@ -83,11 +108,11 @@
         <title>正则表达式应用（持续更新）</title>
         <pubTime>2018-08-28T11:49:30.000Z</pubTime>
         
+        <tag>regular</tag>
+         
         <tag>regex</tag>
          
         <tag>tools</tag>
-         
-        <tag>regular</tag>
          
          
            
@@ -145,7 +170,6 @@
     </url>
 
     
-    
   <url>
     <loc>http://http://132.232.42.89/2019/02/25/machine%20learning/clawler/clawler-6/</loc>
     <lastmod>2019-02-25T07:49:02.458Z</lastmod>
@@ -202,13 +226,13 @@
         <title>Regular Expression 正则表达式</title>
         <pubTime>2018-08-25T10:04:37.000Z</pubTime>
         
-        <tag>code</tag>
+        <tag>regular</tag>
          
         <tag>regex</tag>
          
         <tag>tools</tag>
          
-        <tag>regular</tag>
+        <tag>code</tag>
          
          
            
@@ -437,30 +461,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/10/17/using/java/framework/springcloud-6/</loc>
-    <lastmod>2018-12-06T01:25:10.042Z</lastmod>
-    <data>
-        <display>
-        <title>Spring Cloud(六) Zuul</title>
-        <pubTime>2018-10-17T02:07:10.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>Spring Cloud</tag>
-         
-        <tag>Microservice</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/11/24/using/java/framework/shiro/</loc>
     <lastmod>2018-12-06T01:25:10.042Z</lastmod>
     <data>
@@ -507,12 +507,12 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/10/11/using/java/framework/springcloud-2/</loc>
-    <lastmod>2018-12-06T01:25:10.037Z</lastmod>
+    <loc>http://http://132.232.42.89/2018/10/17/using/java/framework/springcloud-6/</loc>
+    <lastmod>2018-12-06T01:25:10.042Z</lastmod>
     <data>
         <display>
-        <title>Spring Cloud(二) Eureka</title>
-        <pubTime>2018-10-11T08:31:07.000Z</pubTime>
+        <title>Spring Cloud(六) Zuul</title>
+        <pubTime>2018-10-17T02:07:10.000Z</pubTime>
         
         <tag>java</tag>
          
@@ -531,38 +531,12 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/11/17/using/java/framework/springboot-myabtis/</loc>
+    <loc>http://http://132.232.42.89/2018/10/11/using/java/framework/springcloud-2/</loc>
     <lastmod>2018-12-06T01:25:10.037Z</lastmod>
     <data>
         <display>
-        <title>myabtis进阶</title>
-        <pubTime>2018-11-17T05:24:58.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>springboot</tag>
-         
-        <tag>orm</tag>
-         
-        <tag>myabtis</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/10/13/using/java/framework/springcloud-4/</loc>
-    <lastmod>2018-12-06T01:25:10.037Z</lastmod>
-    <data>
-        <display>
-        <title>Spring Cloud(四) Hystrix</title>
-        <pubTime>2018-10-13T02:39:53.000Z</pubTime>
+        <title>Spring Cloud(二) Eureka</title>
+        <pubTime>2018-10-11T08:31:07.000Z</pubTime>
         
         <tag>java</tag>
          
@@ -605,6 +579,30 @@
 
     
   <url>
+    <loc>http://http://132.232.42.89/2018/10/13/using/java/framework/springcloud-4/</loc>
+    <lastmod>2018-12-06T01:25:10.037Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud(四) Hystrix</title>
+        <pubTime>2018-10-13T02:39:53.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>Spring Cloud</tag>
+         
+        <tag>Microservice</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://http://132.232.42.89/2018/10/11/using/java/framework/springcloud-1/</loc>
     <lastmod>2018-12-06T01:25:10.037Z</lastmod>
     <data>
@@ -617,6 +615,32 @@
         <tag>Spring Cloud</tag>
          
         <tag>Microservice</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/11/17/using/java/framework/springboot-myabtis/</loc>
+    <lastmod>2018-12-06T01:25:10.037Z</lastmod>
+    <data>
+        <display>
+        <title>myabtis进阶</title>
+        <pubTime>2018-11-17T05:24:58.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>springboot</tag>
+         
+        <tag>orm</tag>
+         
+        <tag>myabtis</tag>
          
          
            
@@ -823,32 +847,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/10/15/theory/algorithm/machinelearning/machinelearning-2/</loc>
-    <lastmod>2018-11-23T12:19:51.717Z</lastmod>
-    <data>
-        <display>
-        <title>机器学习（二）---- 单变量线性回归</title>
-        <pubTime>2018-10-15T12:37:33.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>Machine Learning</tag>
-         
-        <tag>Algorithm</tag>
-         
-        <tag>AI</tag>
-         
-         
-           
-             
-              <breadCrumb title="Machine Learning" url="http://http://132.232.42.89/categories/Machine-Learning/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/10/15/theory/algorithm/machinelearning/machinelearning-1/</loc>
     <lastmod>2018-11-23T12:16:16.543Z</lastmod>
     <data>
@@ -860,9 +858,9 @@
          
         <tag>Machine Learning</tag>
          
-        <tag>Algorithm</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -1013,28 +1011,6 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/09/27/theory/algorithm/points_bookies/</loc>
-    <lastmod>2018-09-28T12:58:45.864Z</lastmod>
-    <data>
-        <display>
-        <title>分赌本问题</title>
-        <pubTime>2018-09-27T02:52:35.000Z</pubTime>
-        
-        <tag>algorithm</tag>
-         
-        <tag>probability theory</tag>
-         
-         
-           
-             
-              <breadCrumb title="probability theory" url="http://http://132.232.42.89/categories/probability-theory/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://http://132.232.42.89/2018/08/25/using/middleware/nginx-1/</loc>
     <lastmod>2018-09-28T12:57:07.635Z</lastmod>
     <data>
@@ -1105,78 +1081,12 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/theory/ccna/ccna-7/</loc>
+    <loc>http://http://132.232.42.89/2018/08/28/theory/ccna/ccna-6/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记七 -- IPv6</title>
-        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
-        
-        <tag>ccna</tag>
-         
-        <tag>net</tag>
-         
-         
-           
-             
-              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/28/theory/ccna/ccna-5/</loc>
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
-    <data>
-        <display>
-        <title>CCNA学习笔记五 -- ACL</title>
-        <pubTime>2018-08-28T07:20:39.000Z</pubTime>
-        
-        <tag>ccna</tag>
-         
-        <tag>net</tag>
-         
-         
-           
-             
-              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/28/theory/ccna/ccna-4/</loc>
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
-    <data>
-        <display>
-        <title>CCNA学习笔记四 -- VLAN</title>
-        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
-        
-        <tag>ccna</tag>
-         
-        <tag>net</tag>
-         
-         
-           
-             
-              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://http://132.232.42.89/2018/08/27/theory/ccna/ccna-1/</loc>
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
-    <data>
-        <display>
-        <title>CCNA学习笔记一 -- 计算机网络详解</title>
-        <pubTime>2018-08-27T06:27:56.000Z</pubTime>
+        <title>CCNA学习笔记六 -- NAT</title>
+        <pubTime>2018-08-28T07:24:46.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -1215,12 +1125,78 @@
 
     
   <url>
-    <loc>http://http://132.232.42.89/2018/08/28/theory/ccna/ccna-6/</loc>
+    <loc>http://http://132.232.42.89/2018/08/28/theory/ccna/ccna-5/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记六 -- NAT</title>
-        <pubTime>2018-08-28T07:24:46.000Z</pubTime>
+        <title>CCNA学习笔记五 -- ACL</title>
+        <pubTime>2018-08-28T07:20:39.000Z</pubTime>
+        
+        <tag>ccna</tag>
+         
+        <tag>net</tag>
+         
+         
+           
+             
+              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/28/theory/ccna/ccna-7/</loc>
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>CCNA学习笔记七 -- IPv6</title>
+        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
+        
+        <tag>ccna</tag>
+         
+        <tag>net</tag>
+         
+         
+           
+             
+              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/27/theory/ccna/ccna-1/</loc>
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>CCNA学习笔记一 -- 计算机网络详解</title>
+        <pubTime>2018-08-27T06:27:56.000Z</pubTime>
+        
+        <tag>ccna</tag>
+         
+        <tag>net</tag>
+         
+         
+           
+             
+              <breadCrumb title="net" url="http://http://132.232.42.89/categories/net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://http://132.232.42.89/2018/08/28/theory/ccna/ccna-4/</loc>
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>CCNA学习笔记四 -- VLAN</title>
+        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
         
         <tag>ccna</tag>
          
