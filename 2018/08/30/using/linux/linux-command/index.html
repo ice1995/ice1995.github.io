@@ -107,7 +107,7 @@
 <meta property="og:site_name" content="Francis">
 <meta property="og:description" content="此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name        #启动某服务systemctl stop service-name         #停止某服务systemctl restart service-name      #重启某服务systemctl enable service-name">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-23T09:57:28.021Z">
+<meta property="og:updated_time" content="2020-03-13T16:16:47.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux指令记录合集（长期更新）">
 <meta name="twitter:description" content="此命令合集适合于Centos 7 systemctl服务相关指令1234567systemctl start service-name        #启动某服务systemctl stop service-name         #停止某服务systemctl restart service-name      #重启某服务systemctl enable service-name">
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-23T17:57:28+08:00">
-                2018-11-23
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-14T00:16:47+08:00">
+                2020-03-14
               </time>
             
           </span>
@@ -432,7 +432,7 @@
 <li><p>2&gt;&amp;1解析<br> &emsp;&emsp;2&gt;&amp;1 是将标准出错重定向到标准输出，这里的标准输出已经重定向到了out.file文件，即将标准出错也输出到out.file文件中。最后一个&amp;， 是让该命令在后台执行。<br> &emsp;&emsp;试想2&gt;1代表什么，2与&gt;结合代表错误重定向，而1则代表错误重定向到一个文件1，而不代表标准输出；换成2&gt;&amp;1，&amp;与1结合就代表标准输出了，就变成错误重定向到标准输出.</p>
 </li>
 <li><p>nohup<br> &emsp;&emsp;使用&amp;命令后，作业被提交到后台运行，当前控制台没有被占用，但是一但把当前控制台关掉(退出帐户时)，作业就会停止运行。nohup命令可以在你退出帐户之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。该命令的一般形式为：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nohup <span class="built_in">command</span> &amp;  <span class="comment">#在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：</span></span><br><span class="line">nohup <span class="built_in">command</span> &gt; myout.file 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nohup <span class="built_in">command</span> &amp;  <span class="comment">#在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：</span></span><br><span class="line">nohup <span class="built_in">command</span> &gt; myout.file 2&gt;&amp;1 &amp;</span><br><span class="line">nohup <span class="built_in">command</span> &gt; myout.file 2&gt;&amp;1 &amp; <span class="built_in">echo</span> $! &gt; pid <span class="comment">#将pid号存储到文件中</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>ctrl + z<br> &emsp;&emsp;可以将一个正在前台执行的命令放到后台，并且处于暂停状态。</p>
 </li>
