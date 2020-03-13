@@ -540,9 +540,9 @@
         <category>regular</category>
       </categories>
       <tags>
-        <tag>regex</tag>
         <tag>tools</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
       </tags>
   </entry>
   <entry>
@@ -637,10 +637,10 @@
         <category>regular</category>
       </categories>
       <tags>
-        <tag>code</tag>
-        <tag>regex</tag>
         <tag>tools</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
@@ -651,8 +651,8 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>tools</tag>
         <tag>git</tag>
+        <tag>tools</tag>
       </tags>
   </entry>
   <entry>
