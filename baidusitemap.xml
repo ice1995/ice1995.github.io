@@ -11,9 +11,9 @@
         <title>jenkins的安装使用</title>
         <pubTime>2019-12-28T11:09:25.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>CI/CD</tag>
+         
+        <tag>java</tag>
          
         <tag>jenkins</tag>
          
@@ -35,9 +35,9 @@
         <title>git本地仓库搭建</title>
         <pubTime>2020-03-29T09:46:42.000Z</pubTime>
         
-        <tag>CI/CD</tag>
-         
         <tag>git</tag>
+         
+        <tag>CI/CD</tag>
          
          
            
@@ -176,11 +176,11 @@
         <title>正则表达式应用（持续更新）</title>
         <pubTime>2018-08-28T11:49:30.000Z</pubTime>
         
-        <tag>regex</tag>
-         
         <tag>tools</tag>
          
         <tag>regular</tag>
+         
+        <tag>regex</tag>
          
          
            
@@ -294,13 +294,13 @@
         <title>Regular Expression 正则表达式</title>
         <pubTime>2018-08-25T10:04:37.000Z</pubTime>
         
-        <tag>code</tag>
-         
-        <tag>regex</tag>
-         
         <tag>tools</tag>
          
         <tag>regular</tag>
+         
+        <tag>regex</tag>
+         
+        <tag>code</tag>
          
          
            
@@ -529,6 +529,28 @@
 
     
   <url>
+    <loc>http://132.232.42.89/2018/11/24/using/java/framework/shiro/</loc>
+    <lastmod>2018-12-06T01:25:10.042Z</lastmod>
+    <data>
+        <display>
+        <title>shiro框架基础知识</title>
+        <pubTime>2018-11-24T02:03:04.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>shiro</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://132.232.42.89/2018/09/20/using/java/framework/springboot-mail/</loc>
     <lastmod>2018-12-06T01:25:10.042Z</lastmod>
     <data>
@@ -546,28 +568,6 @@
            
              
               <breadCrumb title="springboot" url="http://132.232.42.89/categories/springboot/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://132.232.42.89/2018/11/24/using/java/framework/shiro/</loc>
-    <lastmod>2018-12-06T01:25:10.042Z</lastmod>
-    <data>
-        <display>
-        <title>shiro框架基础知识</title>
-        <pubTime>2018-11-24T02:03:04.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>shiro</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://132.232.42.89/categories/java/"/>
           
         </display>
     </data>
@@ -673,12 +673,12 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/10/13/using/java/framework/springcloud-4/</loc>
+    <loc>http://132.232.42.89/2018/10/11/using/java/framework/springcloud-2/</loc>
     <lastmod>2018-12-06T01:25:10.037Z</lastmod>
     <data>
         <display>
-        <title>Spring Cloud(四) Hystrix</title>
-        <pubTime>2018-10-13T02:39:53.000Z</pubTime>
+        <title>Spring Cloud(二) Eureka</title>
+        <pubTime>2018-10-11T08:31:07.000Z</pubTime>
         
         <tag>java</tag>
          
@@ -697,12 +697,12 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/10/11/using/java/framework/springcloud-2/</loc>
+    <loc>http://132.232.42.89/2018/10/13/using/java/framework/springcloud-4/</loc>
     <lastmod>2018-12-06T01:25:10.037Z</lastmod>
     <data>
         <display>
-        <title>Spring Cloud(二) Eureka</title>
-        <pubTime>2018-10-11T08:31:07.000Z</pubTime>
+        <title>Spring Cloud(四) Hystrix</title>
+        <pubTime>2018-10-13T02:39:53.000Z</pubTime>
         
         <tag>java</tag>
          
@@ -1171,28 +1171,6 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-5/</loc>
-    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
-    <data>
-        <display>
-        <title>CCNA学习笔记五 -- ACL</title>
-        <pubTime>2018-08-28T07:20:39.000Z</pubTime>
-        
-        <tag>net</tag>
-         
-        <tag>ccna</tag>
-         
-         
-           
-             
-              <breadCrumb title="net" url="http://132.232.42.89/categories/net/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-4/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
@@ -1215,12 +1193,12 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-7/</loc>
+    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-5/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记七 -- IPv6</title>
-        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
+        <title>CCNA学习笔记五 -- ACL</title>
+        <pubTime>2018-08-28T07:20:39.000Z</pubTime>
         
         <tag>net</tag>
          
@@ -1243,6 +1221,28 @@
         <display>
         <title>CCNA学习笔记六 -- NAT</title>
         <pubTime>2018-08-28T07:24:46.000Z</pubTime>
+        
+        <tag>net</tag>
+         
+        <tag>ccna</tag>
+         
+         
+           
+             
+              <breadCrumb title="net" url="http://132.232.42.89/categories/net/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-7/</loc>
+    <lastmod>2018-09-28T12:56:32.914Z</lastmod>
+    <data>
+        <display>
+        <title>CCNA学习笔记七 -- IPv6</title>
+        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
         
         <tag>net</tag>
          

@@ -8,8 +8,8 @@
         <category>git</category>
       </categories>
       <tags>
-        <tag>CI/CD</tag>
         <tag>git</tag>
+        <tag>CI/CD</tag>
       </tags>
   </entry>
   <entry>
@@ -46,8 +46,8 @@
         <category>jenkins</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>CI/CD</tag>
+        <tag>java</tag>
         <tag>jenkins</tag>
       </tags>
   </entry>
@@ -565,9 +565,9 @@
         <category>regular</category>
       </categories>
       <tags>
-        <tag>regex</tag>
         <tag>tools</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
       </tags>
   </entry>
   <entry>
@@ -662,10 +662,10 @@
         <category>regular</category>
       </categories>
       <tags>
-        <tag>code</tag>
-        <tag>regex</tag>
         <tag>tools</tag>
         <tag>regular</tag>
+        <tag>regex</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
