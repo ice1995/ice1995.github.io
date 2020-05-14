@@ -3,6 +3,7 @@
 
 
     
+    
   <url>
     <loc>http://132.232.42.89/2018/09/11/using/python/framework/pyqt-1/</loc>
     <lastmod>2020-05-14T15:30:28.360Z</lastmod>
@@ -13,9 +14,9 @@
         
         <tag>python</tag>
          
-        <tag>GUI</tag>
-         
         <tag>PyQt</tag>
+         
+        <tag>GUI</tag>
          
          
            
@@ -48,7 +49,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://132.232.42.89/2019/12/28/jenkins-1/</loc>
@@ -152,9 +152,9 @@
          
         <tag>Machine Learning</tag>
          
-        <tag>Algorithm</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -222,11 +222,11 @@
         <title>正则表达式应用（持续更新）</title>
         <pubTime>2018-08-28T11:49:30.000Z</pubTime>
         
+        <tag>regular</tag>
+         
         <tag>regex</tag>
          
         <tag>tools</tag>
-         
-        <tag>regular</tag>
          
          
            
@@ -340,13 +340,13 @@
         <title>Regular Expression 正则表达式</title>
         <pubTime>2018-08-25T10:04:37.000Z</pubTime>
         
-        <tag>code</tag>
+        <tag>regular</tag>
          
         <tag>regex</tag>
          
         <tag>tools</tag>
          
-        <tag>regular</tag>
+        <tag>code</tag>
          
          
            
@@ -514,9 +514,9 @@
         
         <tag>python</tag>
          
-        <tag>PyQT</tag>
-         
         <tag>GUI</tag>
+         
+        <tag>PyQT</tag>
          
          
            
@@ -630,35 +630,11 @@
         
         <tag>java</tag>
          
+        <tag>springboot</tag>
+         
         <tag>orm</tag>
          
         <tag>myabtis</tag>
-         
-        <tag>springboot</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://132.232.42.89/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://132.232.42.89/2018/11/05/using/java/framework/springboot-question/</loc>
-    <lastmod>2018-12-06T01:25:10.037Z</lastmod>
-    <data>
-        <display>
-        <title>springboot使用过程中踩过的坑</title>
-        <pubTime>2018-11-05T03:13:57.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>springboot</tag>
-         
-        <tag>bug</tag>
          
          
            
@@ -683,6 +659,30 @@
         <tag>Spring Cloud</tag>
          
         <tag>Microservice</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://132.232.42.89/2018/11/05/using/java/framework/springboot-question/</loc>
+    <lastmod>2018-12-06T01:25:10.037Z</lastmod>
+    <data>
+        <display>
+        <title>springboot使用过程中踩过的坑</title>
+        <pubTime>2018-11-05T03:13:57.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>springboot</tag>
+         
+        <tag>bug</tag>
          
          
            
@@ -948,9 +948,9 @@
          
         <tag>Machine Learning</tag>
          
-        <tag>Algorithm</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -1149,12 +1149,12 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/08/27/theory/ccna/ccna-2/</loc>
+    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-4/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记二 -- TCP/IP协议</title>
-        <pubTime>2018-08-27T13:08:24.000Z</pubTime>
+        <title>CCNA学习笔记四 -- VLAN</title>
+        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -1171,12 +1171,12 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-5/</loc>
+    <loc>http://132.232.42.89/2018/08/27/theory/ccna/ccna-2/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记五 -- ACL</title>
-        <pubTime>2018-08-28T07:20:39.000Z</pubTime>
+        <title>CCNA学习笔记二 -- TCP/IP协议</title>
+        <pubTime>2018-08-27T13:08:24.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -1215,12 +1215,12 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-4/</loc>
+    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-7/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记四 -- VLAN</title>
-        <pubTime>2018-08-28T07:18:21.000Z</pubTime>
+        <title>CCNA学习笔记七 -- IPv6</title>
+        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -1237,12 +1237,12 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-7/</loc>
+    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-5/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记七 -- IPv6</title>
-        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
+        <title>CCNA学习笔记五 -- ACL</title>
+        <pubTime>2018-08-28T07:20:39.000Z</pubTime>
         
         <tag>ccna</tag>
          
