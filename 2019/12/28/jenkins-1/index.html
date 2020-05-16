@@ -88,7 +88,7 @@
 
 
 
-  <meta name="keywords" content="java,CI/CD,jenkins," />
+  <meta name="keywords" content="CI/CD,java,jenkins," />
 
 
 
@@ -100,22 +100,22 @@
 
 
 <meta name="description" content="jenkins的安装 安装环境 centos 8.0.1905 user-&amp;gt;jenkins  ; group -&amp;gt; jenkins 安装过程 a. 从官网https:&#x2F;&#x2F;jenkins.io&#x2F;zh&#x2F;download&#x2F;下载安装包 b. 安装    12345sudo yum install -y jenkins-2.204.5-1.1.noarch.rpm&#96;&#96;&#96;  c. 运行jenkin">
-<meta name="keywords" content="java,CI&#x2F;CD,jenkins">
+<meta name="keywords" content="CI&#x2F;CD,java,jenkins">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jenkins的安装使用">
-<meta property="og:url" content="http://132.232.42.89/2019/12/28/jenkins-1/index.html">
+<meta property="og:url" content="http://francis95-han.github.io/2019/12/28/jenkins-1/index.html">
 <meta property="og:site_name" content="Francis">
 <meta property="og:description" content="jenkins的安装 安装环境 centos 8.0.1905 user-&amp;gt;jenkins  ; group -&amp;gt; jenkins 安装过程 a. 从官网https:&#x2F;&#x2F;jenkins.io&#x2F;zh&#x2F;download&#x2F;下载安装包 b. 安装    12345sudo yum install -y jenkins-2.204.5-1.1.noarch.rpm&#96;&#96;&#96;  c. 运行jenkin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://zhangbohan.xyz/images/jenkins/jenkins%20install.png">
-<meta property="og:image" content="http://zhangbohan.xyz/images/jenkins/jenkins%20create%20new%20item.png">
-<meta property="og:image" content="http://zhangbohan.xyz/images/jenkins/jenkins%20create%20new%20item1.png">
-<meta property="og:image" content="http://zhangbohan.xyz/images/jenkins/jenkins%20create%20new%20item2.png">
-<meta property="og:updated_time" content="2020-03-30T11:30:55.175Z">
+<meta property="og:image" content="http://francis95-han.github.io/2019/12/28/jenkins-1/jenkins%20install.png">
+<meta property="og:image" content="http://francis95-han.github.io/2019/12/28/jenkins-1/jenkins%20create%20new%20item.png">
+<meta property="og:image" content="http://francis95-han.github.io/2019/12/28/jenkins-1/jenkins%20create%20new%20item1.png">
+<meta property="og:image" content="http://francis95-han.github.io/2019/12/28/jenkins-1/jenkins%20create%20new%20item2.png">
+<meta property="og:updated_time" content="2020-05-16T14:00:32.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jenkins的安装使用">
 <meta name="twitter:description" content="jenkins的安装 安装环境 centos 8.0.1905 user-&amp;gt;jenkins  ; group -&amp;gt; jenkins 安装过程 a. 从官网https:&#x2F;&#x2F;jenkins.io&#x2F;zh&#x2F;download&#x2F;下载安装包 b. 安装    12345sudo yum install -y jenkins-2.204.5-1.1.noarch.rpm&#96;&#96;&#96;  c. 运行jenkin">
-<meta name="twitter:image" content="http://zhangbohan.xyz/images/jenkins/jenkins%20install.png">
+<meta name="twitter:image" content="http://francis95-han.github.io/2019/12/28/jenkins-1/jenkins%20install.png">
 
 
 
@@ -145,7 +145,7 @@
 
 
 
-  <link rel="canonical" href="http://132.232.42.89/2019/12/28/jenkins-1/"/>
+  <link rel="canonical" href="http://francis95-han.github.io/2019/12/28/jenkins-1/"/>
 
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://132.232.42.89/2019/12/28/jenkins-1/">
+    <link itemprop="mainEntityOfPage" href="http://francis95-han.github.io/2019/12/28/jenkins-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bohan Zhang">
@@ -367,8 +367,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-03-30T19:30:55+08:00">
-                2020-03-30
+              <time title="更新于" itemprop="dateModified" datetime="2020-05-16T22:00:32+08:00">
+                2020-05-16
               </time>
             
           </span>
@@ -429,7 +429,7 @@
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y jenkins-2.204.5-1.1.noarch.rpm</span><br><span class="line">```  </span><br><span class="line">c. 运行jenkins  </span><br><span class="line">```bash</span><br><span class="line">systemctl start jenkins</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置<br> a. 添加一个用户<br> <a href="https://jenkins.io/zh/doc/book/installing/" target="_blank" rel="noopener">https://jenkins.io/zh/doc/book/installing/</a><br> b. 修改插件更新位置<br> <a href="http://192.168.226.131:8080/pluginManager/advanced" target="_blank" rel="noopener">http://192.168.226.131:8080/pluginManager/advanced</a><br> 修改为国内地址，这里使用的是清华大学的开源软件地址<br> <a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a><br> <center>
- <img src="http://zhangbohan.xyz/images/jenkins/jenkins%20install.png">
+ <img src="jenkins%20install.png">
  </center><br> c. 安装需要的插件  </p>
 <ul>
 <li>locale</li>
@@ -441,13 +441,13 @@
 </ol>
 <h3 id="jenkins的使用"><a href="#jenkins的使用" class="headerlink" title="jenkins的使用"></a>jenkins的使用</h3><ol>
 <li>创建一个新的maven项目<center>
-     <img src="http://zhangbohan.xyz/images/jenkins/jenkins%20create%20new%20item.png">
+     <img src="jenkins%20create%20new%20item.png">
 </center></li>
 <li>项目配置<center>
-     <img src="http://zhangbohan.xyz/images/jenkins/jenkins%20create%20new%20item1.png">
+     <img src="jenkins%20create%20new%20item1.png">
 </center></li>
 <li>查看项目构建情况 <center>
-     <img src="http://zhangbohan.xyz/images/jenkins/jenkins%20create%20new%20item2.png">
+     <img src="jenkins%20create%20new%20item2.png">
 </center></li>
 </ol>
 
@@ -466,9 +466,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"># java</a>
-          
             <a href="/tags/CI-CD/" rel="tag"># CI/CD</a>
+          
+            <a href="/tags/java/" rel="tag"># java</a>
           
             <a href="/tags/jenkins/" rel="tag"># jenkins</a>
           
