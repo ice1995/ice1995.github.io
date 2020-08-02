@@ -99,18 +99,18 @@
 
 
 
-<meta name="description" content="介绍Nginx实现资源压缩的原理是通过ngx_http_gzip_module模块拦截请求，并对需要做gzip的类型做gzip，ngx_http_gzip_module是Nginx默认集成的，不需要重新编译，直接开启即可。   配置说明    #$gzip_ratio计算请求的压缩率，$body_bytes_sent请求体大小     log_format  main  &amp;#39;$remote_">
+<meta name="description" content="介绍&amp;emsp;&amp;emsp;Nginx实现资源压缩的原理是通过ngx_http_gzip_module模块拦截请求，并对需要做gzip的类型做gzip，ngx_http_gzip_module是Nginx默认集成的，不需要重新编译，直接开启即可。&amp;emsp;&amp;emsp;可以使用nginx -V查看启用的模块，如下：   12345nginx version: nginx&amp;#x2F;1.16.1bu">
 <meta name="keywords" content="linux,nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx的使用（三）-- 使用gzip加速页面加载">
 <meta property="og:url" content="http://francis95-han.github.io/2019/10/18/using/middleware/nginx-3/index.html">
 <meta property="og:site_name" content="Francis">
-<meta property="og:description" content="介绍Nginx实现资源压缩的原理是通过ngx_http_gzip_module模块拦截请求，并对需要做gzip的类型做gzip，ngx_http_gzip_module是Nginx默认集成的，不需要重新编译，直接开启即可。   配置说明    #$gzip_ratio计算请求的压缩率，$body_bytes_sent请求体大小     log_format  main  &amp;#39;$remote_">
+<meta property="og:description" content="介绍&amp;emsp;&amp;emsp;Nginx实现资源压缩的原理是通过ngx_http_gzip_module模块拦截请求，并对需要做gzip的类型做gzip，ngx_http_gzip_module是Nginx默认集成的，不需要重新编译，直接开启即可。&amp;emsp;&amp;emsp;可以使用nginx -V查看启用的模块，如下：   12345nginx version: nginx&amp;#x2F;1.16.1bu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-18T03:09:09.474Z">
+<meta property="og:updated_time" content="2020-05-17T00:37:56.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx的使用（三）-- 使用gzip加速页面加载">
-<meta name="twitter:description" content="介绍Nginx实现资源压缩的原理是通过ngx_http_gzip_module模块拦截请求，并对需要做gzip的类型做gzip，ngx_http_gzip_module是Nginx默认集成的，不需要重新编译，直接开启即可。   配置说明    #$gzip_ratio计算请求的压缩率，$body_bytes_sent请求体大小     log_format  main  &amp;#39;$remote_">
+<meta name="twitter:description" content="介绍&amp;emsp;&amp;emsp;Nginx实现资源压缩的原理是通过ngx_http_gzip_module模块拦截请求，并对需要做gzip的类型做gzip，ngx_http_gzip_module是Nginx默认集成的，不需要重新编译，直接开启即可。&amp;emsp;&amp;emsp;可以使用nginx -V查看启用的模块，如下：   12345nginx version: nginx&amp;#x2F;1.16.1bu">
 
 
 
@@ -362,8 +362,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-10-18T11:09:09+08:00">
-                2019-10-18
+              <time title="更新于" itemprop="dateModified" datetime="2020-05-17T08:37:56+08:00">
+                2020-05-17
               </time>
             
           </span>
@@ -381,8 +381,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
                   </a>
                 </span>
 
@@ -418,7 +418,8 @@
       
 
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Nginx实现资源压缩的原理是通过ngx_http_gzip_module模块拦截请求，并对需要做gzip的类型做gzip，ngx_http_gzip_module是Nginx默认集成的，不需要重新编译，直接开启即可。  </p>
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>&emsp;&emsp;Nginx实现资源压缩的原理是通过ngx_http_gzip_module模块拦截请求，并对需要做gzip的类型做gzip，ngx_http_gzip_module是Nginx默认集成的，不需要重新编译，直接开启即可。<br>&emsp;&emsp;可以使用nginx -V查看启用的模块，如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nginx version: nginx&#x2F;1.16.1</span><br><span class="line">built by gcc 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC)</span><br><span class="line">built with OpenSSL 1.0.2k-fips  26 Jan 2017</span><br><span class="line">TLS SNI support enabled</span><br><span class="line">configure arguments: --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --sbin-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx --conf-path&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.conf --error-log-path&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log --http-log-path&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log --pid-path&#x3D;&#x2F;var&#x2F;run&#x2F;nginx&#x2F;nginx.pid --lock-path&#x3D;&#x2F;var&#x2F;lock&#x2F;nginx.lock --user&#x3D;nginx --group&#x3D;nginx --with-http_ssl_module --with-http_stub_status_module --with-http_gzip_static_module --http-client-body-temp-path&#x3D;&#x2F;var&#x2F;tmp&#x2F;nginx&#x2F;client&#x2F; --http-proxy-temp-path&#x3D;&#x2F;var&#x2F;tmp&#x2F;nginx&#x2F;proxy&#x2F; --http-fastcgi-temp-path&#x3D;&#x2F;var&#x2F;tmp&#x2F;nginx&#x2F;fcgi&#x2F; --http-uwsgi-temp-path&#x3D;&#x2F;var&#x2F;tmp&#x2F;nginx&#x2F;uwsgi --http-scgi-temp-path&#x3D;&#x2F;var&#x2F;tmp&#x2F;nginx&#x2F;scgi --with-pcre</span><br></pre></td></tr></table></figure>
 <h3 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h3><pre><code class="lang-bash">    #$gzip_ratio计算请求的压缩率，$body_bytes_sent请求体大小
     log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$host&quot; - &quot;$request&quot; &#39;
                     &#39;$gzip_ratio - $body_bytes_sent - $request_time&#39;;
@@ -571,7 +572,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -582,7 +583,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -593,7 +594,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -107,12 +107,12 @@
 <meta property="og:site_name" content="Francis">
 <meta property="og:description" content="为什么使用Nginx 更快&amp;emsp;&amp;emsp;主要表现在两个方面：1，正常情况下，单次请求会得到更快的响应；2，在高峰期（数以万计的并发请求），Nginx可以比其他web服务器更快地请求响应。 高扩展性&amp;emsp;&amp;emsp;它完全是由多个不同功能、 不同层次、 不同类型且耦合度低的模块组成。 高可靠性 &amp;emsp;&amp;emsp;Nginx 的高可靠性来自于其核心框架代码的优秀设计、 模块设计的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://zhangbohan.xyz/images/nginx/nginx-1.png">
-<meta property="og:updated_time" content="2018-09-28T12:57:07.634Z">
+<meta property="og:image" content="http://francis95-han.github.io/2018/09/01/using/middleware/nginx-2/nginx-1.png">
+<meta property="og:updated_time" content="2020-05-17T12:00:23.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx的使用（二）-- 详细了解Nginx">
 <meta name="twitter:description" content="为什么使用Nginx 更快&amp;emsp;&amp;emsp;主要表现在两个方面：1，正常情况下，单次请求会得到更快的响应；2，在高峰期（数以万计的并发请求），Nginx可以比其他web服务器更快地请求响应。 高扩展性&amp;emsp;&amp;emsp;它完全是由多个不同功能、 不同层次、 不同类型且耦合度低的模块组成。 高可靠性 &amp;emsp;&amp;emsp;Nginx 的高可靠性来自于其核心框架代码的优秀设计、 模块设计的">
-<meta name="twitter:image" content="http://zhangbohan.xyz/images/nginx/nginx-1.png">
+<meta name="twitter:image" content="http://francis95-han.github.io/2018/09/01/using/middleware/nginx-2/nginx-1.png">
 
 
 
@@ -364,8 +364,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-28T20:57:07+08:00">
-                2018-09-28
+              <time title="更新于" itemprop="dateModified" datetime="2020-05-17T20:00:23+08:00">
+                2020-05-17
               </time>
             
           </span>
@@ -383,8 +383,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
                   </a>
                 </span>
 
@@ -425,7 +425,7 @@
 <li>高扩展性<br>&emsp;&emsp;它完全是由多个不同功能、 不同层次、 不同类型且耦合度低的模块组成。</li>
 <li>高可靠性<br> &emsp;&emsp;Nginx 的高可靠性来自于其核心框架代码的优秀设计、 模块设计的简单性。每个 worker进程相对独立， master 进程在 1 个 worker 进程出错时可以快速“拉起”新的 worker 子进程提供服务。</li>
 <li>低内存消耗<br> &emsp;&emsp;一般情况下， 10 000 个非活跃的 HTTP Keep-Alive 连接在 Nginx 中仅消耗 2.5MB 的内存， 这是 Nginx 支持高并发连接的基础。</li>
-<li>单机支持 10 万以上的并发连接   </li>
+<li>单机支持 10 万以上的并发连接  </li>
 <li>热部署<br> &emsp;&emsp;可以在 7×24 小时不间断服务的前提下， 升级 Nginx 的可执行文件。 当然， 它也支持不停止服务就更新配置项、 更换日志文件等功能。</li>
 <li>最自由的BSD许可协议<br> &emsp;&emsp;允许用户在自己的项目中直接使用或修改 Nginx 源码。</li>
 </ol>
@@ -434,13 +434,13 @@
 <li>PCRE库<br>&emsp;&emsp;PCRE（Perl Compatible Regular Expressions， Perl 兼容正则表达式） 是由 Philip Hazel开发的函数库， 目前为很多软件所使用， 该库支持正则表达式。当然，如果不打算在nginx中使用正则表达式，那么这个就不是必需的。</li>
 <li>zlib库<br> &emsp;&emsp;zlib 库用于对 HTTP 包的内容做 gzip 格式的压缩， 如果我们在 nginx.conf 里配置了 gzip on， 并指定对于某些类型（content-type） 的 HTTP 响应使用 gzip 来进行压缩以减少网络传， 那么， 在编译时就必须把 zlib 编译进 Nginx。</li>
 <li>OpenSSL 开发库<br>&emsp;&emsp;在SSL 协议上传输 HTTP，以及使用MD5、 SHA1 等散列函数都需要OpenSSL 开发库的支持。<h4 id="运行中的Nginx进程间的关系"><a href="#运行中的Nginx进程间的关系" class="headerlink" title="运行中的Nginx进程间的关系"></a>运行中的Nginx进程间的关系</h4><center>
-<img src="http://zhangbohan.xyz/images/nginx/nginx-1.png">
+<img src="nginx-1.png">
 </center><br>&emsp;&emsp;部署 Nginx 时都是使用一个 master 进程来管理多个worker 进程， 一般情况下， worker 进程的数量与服务器上的 CPU 核心数相等。</li>
 </ol>
 <h4 id="Nginx文件路径的常用定义"><a href="#Nginx文件路径的常用定义" class="headerlink" title="Nginx文件路径的常用定义"></a>Nginx文件路径的常用定义</h4><ol>
 <li><p>以 root 方式设置资源路径<br>语法： root path;<br>默认： root html;<br>配置块： http、 server、 location、 if<br>&emsp;&emsp;例如， 定义资源文件相对于 HTTP 请求的根目录。</p>
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /download/ &#123;</span><br><span class="line">    root /opt/web/html/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> &emsp;&emsp;在上面的配置中， 如果有一个请求的 URI 是 /download/index/test.html， 那么 Web 服务器将会返回服务器上 /opt/web/html/download/index/test.html 文件的内容。 </p>
+<p> &emsp;&emsp;在上面的配置中， 如果有一个请求的 URI 是 /download/index/test.html， 那么 Web 服务器将会返回服务器上 /opt/web/html/download/index/test.html 文件的内容。</p>
 </li>
 <li><p>以 alias 方式设置资源路径<br>语法： alias path;<br>配置块： location<br>&emsp;&emsp;alias 也是用来设置文件资源路径的， 它与 root 的不同点主要在于如何解读紧跟 location后面的 uri 参数， 这将会致使 alias 与 root 以不同的方式将用户请求映射到真正的磁盘文件上。 例如， 如果有一个请求的 URI 是 /conf/nginx.conf， 而用户实际想访问的文件在 /usr/local/nginx/conf/nginx.conf， 那么想要使用 alias 来进行设置的话， 可以采用如下方式：</p>
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location /conf &#123;</span><br><span class="line">alias /usr/local/nginx/conf/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -450,7 +450,8 @@
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location ~ ^/test/(\w+)\.(\w+)$ &#123;</span><br><span class="line">alias /usr/local/nginx/$2/$1.$2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> &emsp;&emsp;这样， 请求在访问 /test/nginx.conf 时， Nginx 会返回 /usr/local/nginx/conf/nginx.conf 文件中的内容。</p>
 </li>
-<li>访问首页<br>语法： index file …;<br>默认： index index.html;<br>配置块： http、 server、 location<br>&emsp;&emsp;有时， 访问站点时的 URI 是 /， 这时一般是返回网站的首页， 而这与 root 和 alias 都不同。 这里用 ngx_http_index_module 模块提供的 index 配置实现。 index 后可以跟多个文件参数， Nginx 将会按照顺序来访问这些文件， 例如：   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">root path;</span><br><span class="line">index /index.html /html/index.php /index.php;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>访问首页<br>语法： index file …;<br>默认： index index.html;<br>配置块： http、 server、 location<br>&emsp;&emsp;有时， 访问站点时的 URI 是 /， 这时一般是返回网站的首页， 而这与 root 和 alias 都不同。 这里用 ngx_http_index_module 模块提供的 index 配置实现。 index 后可以跟多个文件参数， Nginx 将会按照顺序来访问这些文件， 例如：   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">root path;</span><br><span class="line">index /index.html /html/index.php /index.php;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -576,7 +577,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -587,7 +588,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -598,7 +599,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
