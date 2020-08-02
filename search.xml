@@ -61,8 +61,8 @@
         <category>jenkins</category>
       </categories>
       <tags>
-        <tag>CI/CD</tag>
         <tag>java</tag>
+        <tag>CI/CD</tag>
         <tag>jenkins</tag>
       </tags>
   </entry>
@@ -286,8 +286,8 @@
       <tags>
         <tag>python</tag>
         <tag>Machine Learning</tag>
-        <tag>AI</tag>
         <tag>Algorithm</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -300,8 +300,8 @@
       <tags>
         <tag>python</tag>
         <tag>Machine Learning</tag>
-        <tag>AI</tag>
         <tag>Algorithm</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -580,9 +580,9 @@
         <category>regular</category>
       </categories>
       <tags>
+        <tag>regular</tag>
         <tag>regex</tag>
         <tag>tools</tag>
-        <tag>regular</tag>
       </tags>
   </entry>
   <entry>
@@ -593,8 +593,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -605,8 +605,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -617,8 +617,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -629,8 +629,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -641,8 +641,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -653,8 +653,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -665,8 +665,8 @@
         <category>net</category>
       </categories>
       <tags>
-        <tag>ccna</tag>
         <tag>net</tag>
+        <tag>ccna</tag>
       </tags>
   </entry>
   <entry>
@@ -677,10 +677,10 @@
         <category>regular</category>
       </categories>
       <tags>
-        <tag>code</tag>
+        <tag>regular</tag>
         <tag>regex</tag>
         <tag>tools</tag>
-        <tag>regular</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
