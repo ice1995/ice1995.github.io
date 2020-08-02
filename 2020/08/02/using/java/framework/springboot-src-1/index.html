@@ -109,7 +109,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://132.232.42.89/2020/08/02/using/java/framework/springboot-src-1/spring_factories.png">
 <meta property="og:image" content="http://132.232.42.89/2020/08/02/using/java/framework/springboot-src-1/springboot%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB.svg">
-<meta property="og:updated_time" content="2020-08-02T15:45:42.827Z">
+<meta property="og:updated_time" content="2020-08-02T16:03:15.761Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="springboot源码探析">
 <meta name="twitter:description" content="Springboot源码探析 — 自动配置复杂的场景—规范（框架）—按照特定的规则，配置    JavaWeb Servlet+Tomcat 繁琐~演进SpringMVCSpringboot    Spring开源框架&amp;emsp;&amp;emsp;目的：简化企业开发  2003~2020为了降低java的开发复杂性，spring采取了以下4种关键策略    基于POJO的轻量级和小侵入性编程 通过IOC">
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-02T23:45:42+08:00">
-                2020-08-02
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-03T00:03:15+08:00">
+                2020-08-03
               </time>
             
           </span>
@@ -458,6 +458,7 @@
 <li>内嵌式容器简化web项目</li>
 <li>没有冗余代码生成的xml配置的要求</li>
 </ul>
+<h3 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h3><p>&emsp;&emsp;Spring Boot（甚至整个Spring）大量采用了“Convention over configuration”约定胜于配置的设计模式，有大量的机制（比方说配置发现、方法命名等等）依赖于隐式的约定。当对这些约定不熟悉的时候，就会陷入“撞大运”编程模式，这里改改，那里调调，虽然不知道为什么，但程序就工作了；又或者就不工作了，然后需要耗费大量的时间去debug，或者请教他人。<br>其实还有另一种相反的编程箴言：<br>&emsp;&emsp;Explicit is better than implicit.<br>Spring有一个项目来解决这个问题<a href="https://spring.io/blog/2018/10/02/the-evolution-of-spring-fu" target="_blank" rel="noopener">Kofu</a></p>
 <h3 id="创建项目流程-1"><a href="#创建项目流程-1" class="headerlink" title="创建项目流程"></a>创建项目流程</h3><p>&emsp;&emsp;必须在主启动类的统计或者子级目录下编写代码？why?  </p>
 <ol>
 <li>创建一个项目，导入一些启动器（封装了很多依赖）</li>
@@ -730,7 +731,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Springboot源码探析-—-自动配置"><span class="nav-number">1.</span> <span class="nav-text">Springboot源码探析 — 自动配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring开源框架"><span class="nav-number">1.1.</span> <span class="nav-text">Spring开源框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目流程"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建项目流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Springboot"><span class="nav-number">1.2.</span> <span class="nav-text">Springboot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要优点"><span class="nav-number">1.2.1.</span> <span class="nav-text">主要优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目流程-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">创建项目流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码解读"><span class="nav-number">1.2.3.</span> <span class="nav-text">源码解读</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pom依赖部分"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">pom依赖部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java代码部分"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">java代码部分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整理"><span class="nav-number">1.2.4.</span> <span class="nav-text">整理</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Springboot源码探析-—-自动配置"><span class="nav-number">1.</span> <span class="nav-text">Springboot源码探析 — 自动配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring开源框架"><span class="nav-number">1.1.</span> <span class="nav-text">Spring开源框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目流程"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建项目流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Springboot"><span class="nav-number">1.2.</span> <span class="nav-text">Springboot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要优点"><span class="nav-number">1.2.1.</span> <span class="nav-text">主要优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些问题"><span class="nav-number">1.2.2.</span> <span class="nav-text">一些问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建项目流程-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">创建项目流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码解读"><span class="nav-number">1.2.4.</span> <span class="nav-text">源码解读</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pom依赖部分"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">pom依赖部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java代码部分"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">java代码部分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整理"><span class="nav-number">1.2.5.</span> <span class="nav-text">整理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
