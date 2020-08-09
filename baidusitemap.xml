@@ -5,10 +5,10 @@
     
   <url>
     <loc>http://132.232.42.89/2020/08/09/ddd-1/</loc>
-    <lastmod>2020-08-09T15:12:43.895Z</lastmod>
+    <lastmod>2020-08-09T15:16:02.868Z</lastmod>
     <data>
         <display>
-        <title>领域驱动设计</title>
+        <title>领域驱动设计----消化知识</title>
         <pubTime>2020-08-09T14:09:59.000Z</pubTime>
         
         <tag>design</tag>
@@ -228,9 +228,9 @@
         <title>jenkins的安装使用</title>
         <pubTime>2019-12-28T11:09:25.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>CI/CD</tag>
+         
+        <tag>java</tag>
          
         <tag>jenkins</tag>
          
@@ -369,9 +369,9 @@
          
         <tag>Machine Learning</tag>
          
-        <tag>Algorithm</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -415,9 +415,9 @@
         <title>将项目发布到maven过程记录</title>
         <pubTime>2020-01-08T06:45:34.000Z</pubTime>
         
-        <tag>java</tag>
-         
         <tag>maven</tag>
+         
+        <tag>java</tag>
          
         <tag>jar</tag>
          
@@ -720,6 +720,28 @@
 
     
   <url>
+    <loc>http://132.232.42.89/2018/11/24/theory/design/using/java/framework/shiro/</loc>
+    <lastmod>2018-12-06T01:25:10.042Z</lastmod>
+    <data>
+        <display>
+        <title>shiro框架基础知识</title>
+        <pubTime>2018-11-24T02:03:04.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>shiro</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://132.232.42.89/2018/09/20/theory/design/using/java/framework/springboot-mail/</loc>
     <lastmod>2018-12-06T01:25:10.042Z</lastmod>
     <data>
@@ -737,28 +759,6 @@
            
              
               <breadCrumb title="springboot" url="http://132.232.42.89/categories/springboot/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://132.232.42.89/2018/11/24/theory/design/using/java/framework/shiro/</loc>
-    <lastmod>2018-12-06T01:25:10.042Z</lastmod>
-    <data>
-        <display>
-        <title>shiro框架基础知识</title>
-        <pubTime>2018-11-24T02:03:04.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>shiro</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://132.232.42.89/categories/java/"/>
           
         </display>
     </data>
@@ -840,30 +840,6 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/11/05/theory/design/using/java/framework/springboot-question/</loc>
-    <lastmod>2018-12-06T01:25:10.037Z</lastmod>
-    <data>
-        <display>
-        <title>springboot使用过程中踩过的坑</title>
-        <pubTime>2018-11-05T03:13:57.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>springboot</tag>
-         
-        <tag>bug</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://132.232.42.89/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://132.232.42.89/2018/10/15/theory/design/using/java/framework/springcloud-5/</loc>
     <lastmod>2018-12-06T01:25:10.037Z</lastmod>
     <data>
@@ -888,18 +864,18 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/10/11/theory/design/using/java/framework/springcloud-2/</loc>
+    <loc>http://132.232.42.89/2018/11/05/theory/design/using/java/framework/springboot-question/</loc>
     <lastmod>2018-12-06T01:25:10.037Z</lastmod>
     <data>
         <display>
-        <title>Spring Cloud(二) Eureka</title>
-        <pubTime>2018-10-11T08:31:07.000Z</pubTime>
+        <title>springboot使用过程中踩过的坑</title>
+        <pubTime>2018-11-05T03:13:57.000Z</pubTime>
         
         <tag>java</tag>
          
-        <tag>Spring Cloud</tag>
+        <tag>springboot</tag>
          
-        <tag>Microservice</tag>
+        <tag>bug</tag>
          
          
            
@@ -918,6 +894,30 @@
         <display>
         <title>Spring Cloud(四) Hystrix</title>
         <pubTime>2018-10-13T02:39:53.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>Spring Cloud</tag>
+         
+        <tag>Microservice</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://132.232.42.89/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://132.232.42.89/2018/10/11/theory/design/using/java/framework/springcloud-2/</loc>
+    <lastmod>2018-12-06T01:25:10.037Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud(二) Eureka</title>
+        <pubTime>2018-10-11T08:31:07.000Z</pubTime>
         
         <tag>java</tag>
          
@@ -1041,9 +1041,9 @@
         
         <tag>linux</tag>
          
-        <tag>kernel</tag>
-         
         <tag>namespace</tag>
+         
+        <tag>kernel</tag>
          
          
            
@@ -1065,9 +1065,9 @@
         
         <tag>linux</tag>
          
-        <tag>cgroup</tag>
-         
         <tag>kernel</tag>
+         
+        <tag>cgroup</tag>
          
          
            
@@ -1091,9 +1091,9 @@
          
         <tag>Machine Learning</tag>
          
-        <tag>Algorithm</tag>
-         
         <tag>AI</tag>
+         
+        <tag>Algorithm</tag>
          
          
            
@@ -1244,12 +1244,12 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-6/</loc>
+    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-7/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记六 -- NAT</title>
-        <pubTime>2018-08-28T07:24:46.000Z</pubTime>
+        <title>CCNA学习笔记七 -- IPv6</title>
+        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
         
         <tag>ccna</tag>
          
@@ -1288,12 +1288,12 @@
 
     
   <url>
-    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-7/</loc>
+    <loc>http://132.232.42.89/2018/08/28/theory/ccna/ccna-6/</loc>
     <lastmod>2018-09-28T12:56:32.914Z</lastmod>
     <data>
         <display>
-        <title>CCNA学习笔记七 -- IPv6</title>
-        <pubTime>2018-08-28T07:27:57.000Z</pubTime>
+        <title>CCNA学习笔记六 -- NAT</title>
+        <pubTime>2018-08-28T07:24:46.000Z</pubTime>
         
         <tag>ccna</tag>
          
