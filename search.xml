@@ -117,9 +117,9 @@
       
         <tags>
             
-            <tag> maven </tag>
-            
             <tag> java </tag>
+            
+            <tag> maven </tag>
             
             <tag> jar </tag>
             
@@ -142,9 +142,9 @@
       
         <tags>
             
-            <tag> CI/CD </tag>
-            
             <tag> java </tag>
+            
+            <tag> CI/CD </tag>
             
             <tag> jenkins </tag>
             
